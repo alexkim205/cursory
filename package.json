@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "eslint-config-google": "^0.12.0",
     "history": "^4.9.0",
     "immutable": "^4.0.0-rc.12",
     "react": "^16.8.6",
@@ -11,8 +10,8 @@
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
+    "react-toastify": "^5.1.0",
     "redux": "^4.0.1",
-    "redux-devtools": "^3.5.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "slate": "^0.46.1",
@@ -40,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint-config-google": "^0.12.0",
+    "redux-devtools": "^3.5.0"
   }
 }
