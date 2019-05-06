@@ -3,9 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-config-google": "^0.12.0",
+    "history": "^4.9.0",
+    "immutable": "^4.0.0-rc.12",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.0",
+    "redux": "^4.0.1",
+    "redux-devtools": "^3.5.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "slate": "^0.46.1",
+    "slate-react": "^0.21.24",
+    "styled-components": "^4.2.0",
+    "typescript": "^3.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
