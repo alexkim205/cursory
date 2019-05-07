@@ -3,8 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "handlebars": "^4.1.2",
     "history": "^4.9.0",
     "immutable": "^4.0.0-rc.12",
+    "jquery": "^3.4.1",
+    "jquery-sortable": "^0.9.13",
+    "jquery-ui": "^1.12.1",
+    "medium-editor": "^5.23.3",
+    "medium-editor-insert-plugin": "^2.5.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -14,8 +24,6 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "slate": "^0.46.1",
-    "slate-react": "^0.21.24",
     "styled-components": "^4.2.0",
     "typescript": "^3.4.5"
   },
@@ -41,6 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^16.8.16",
+    "@types/react-dom": "^16.8.4",
     "babel-eslint": "^10.0.1",
     "eslint-config-google": "^0.12.0",
     "redux-devtools": "^3.5.0"

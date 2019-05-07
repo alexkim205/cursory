@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/App.style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_helpers/process-image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/CustomMediumEditor.style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/Bold.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/Code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/Editor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/Image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/Italic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/initial-value.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/schema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_helpers/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_helpers/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1037560167">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="2" />
+          <entry key="eslintrc" value="1" />
+          <entry key="js" value="16" />
+          <entry key="json" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="2" />
+          <entry key="JSON" value="4" />
+          <entry key="JavaScript" value="15" />
+          <entry key="UML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="ESLintLanguageService" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="JavaScript Console" value="3" />
+          <entry key="css" value="4" />
+          <entry key="js" value="3752" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="4" />
+          <entry key="JavaScript" value="3755" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.style.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" selection-start-line="4" selection-end-line="10" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#216#266#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EditorPage/EditorPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="571">
+              <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>insertimage</find>
+      <find>onchange</find>
+      <find>switc</find>
+      <find>png</find>
+      <find>rendernod</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/Image.js" />
+        <option value="$PROJECT_DIR$/src/_helpers/process-image.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/schema.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.eslintrc" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/Editor.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/index.js" />
+        <option value="$PROJECT_DIR$/src/App.style.js" />
+        <option value="$PROJECT_DIR$/src/EditorPage/EditorPage.js" />
+        <option value="$PROJECT_DIR$/src/main.css" />
+        <option value="$PROJECT_DIR$/src/shared_components/CustomMediumEditor.style.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="960" />
+    <option name="height" value="1105" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="EditorPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="shared_components" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Development" type="js.build_tools.npm" factoryName="npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="" />
+      <created>1557184951867</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557184951867</updated>
+      <workItem from="1557184954095" duration="18959000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="18959000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="960" height="1105" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="npm" side_tool="true" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20553781" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.31194472" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32971373" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39980257" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/node_modules/blueimp-load-image/js/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/slate-react/lib/slate-react.es.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="1939" column="9" selection-start-line="1939" selection-start-column="9" selection-end-line="1939" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/shared_components/Editor/Editor.js</OriginalElement>
+          <nodes>
+            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/Editor.js#Button#628;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#CollapseOnEscape#200;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#DEFAULT_NODE#369;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#Editor#86;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#Icon#636;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#ImageNode#593;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#PropTypes#34;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#React#7;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#Toolbar#642;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#Value#155;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#getEventRange#94;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#getEventTransfer#109;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#initialValue#682;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isBoldHotkey#398;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isCodeHotkey#479;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isItalicHotkey#414;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isSaveKey#385;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isStrikethroughHotKey#454;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isUnderlinedHotkey#432;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#processfile#307;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#schema#728;</node>
+            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js#Button#81;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.style.js#Icon#264;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.style.js#Toolbar#566;</node>
+            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/Image.js#ImageNode#196;</node>
+            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/config.js#DEFAULT_NODE#46;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isBoldHotkey#122;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isCodeHotkey#259;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isItalicHotkey#165;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isSaveKey#81;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isStrikethroughHotKey#302;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isUnderlinedHotkey#210;</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/@types/react/index.d.ts</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/react/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/node_modules/prop-types/index.js</node>
+            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/initial-value.js#initialValue#104;</node>
+            <node x="" y="">$PROJECT_DIR$/src/_helpers/process-image.js#processfile#177;</node>
+            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/schema.js#schema#37;</node>
+            <node x="" y="">Value;</node>
+            <node x="" y="">slate-collapse-on-escape</node>
+            <node x="" y="">Editor;getEventRange;getEventTransfer;</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.7697338203269855" x="635.0300813229602" y="189.42781224691953" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="20" lean-forward="true" selection-end-line="426" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_helpers/process-image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/CustomMediumEditor.style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EditorPage/EditorPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3192">
+          <caret line="324" lean-forward="true" selection-start-line="324" selection-end-line="324" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" selection-start-line="4" selection-end-line="10" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#216#266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
