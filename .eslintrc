@@ -24,6 +24,7 @@
   ],
   "rules": {
     "no-console": "off",
-    "code": 80
+    "code": 80,
+    " no-unused-vars": false,
   }
 }

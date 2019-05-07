@@ -10,7 +10,7 @@ export function discard(entry_id) {
   return function(dispatch) {
     dispatch(request());
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       console.log(`Trying to discard Entry #${entry_id}`);
       setTimeout(() => {
         dispatch(success());

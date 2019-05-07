@@ -9,14 +9,15 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 // Editor styles
 import 'medium-editor/dist/css/medium-editor.css';
 import 'medium-editor/dist/css/themes/default.css';
-import 'medium-editor-insert-plugin/dist/css/medium-editor-insert-plugin.min.css';
+// import 'medium-editor-insert-plugin/dist/css/medium-editor-insert-plugin.min.css';
 
 import {EditorWrapper} from './CustomMediumEditor.style';
 
 if (typeof document !== 'undefined') {
   var MediumEditor = require('medium-editor');
+  var AutoList = require('medium-editor-autolist');
   window.jQuery = window.$ = jQuery;
-  require('medium-editor-insert-plugin')(window.$);
+  // // require('medium-editor-insert-plugin')(window.$);
   // var MediumInsert = require('medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin');
   // window['MediumInsert'] = MediumInsert.MediumInsert;
 }
@@ -41,14 +42,20 @@ class CustomMediumEditor extends React.Component {
   componentDidMount() {
     const dom = ReactDOM.findDOMNode(this);
 
-    this.medium = new MediumEditor(dom, this.props.options);
+    var autolist = new AutoList();
+    this.medium = new MediumEditor(dom, {
+      ...this.props.options,
+      extensions: {
+        'autolist': autolist,
+      },
+    });
     this.medium.subscribe('editableInput', e => {
       this._updated = true;
       this.change(dom.innerHTML);
     });
-    jQuery(dom).mediumInsert({
-      editor: this.medium,
-    });
+    // jQuery(dom).mediumInsert({
+    //   editor: this.medium,
+    // });
 
   }
 

@@ -6090,7 +6090,7 @@ jest@24.7.1:
     import-local "^2.0.0"
     jest-cli "^24.7.1"
 
-jquery-sortable@^0.9.13, jquery-sortable@~0.9.12:
+jquery-sortable@~0.9.12:
   version "0.9.13"
   resolved "https://registry.yarnpkg.com/jquery-sortable/-/jquery-sortable-0.9.13.tgz#1cbfb655013a0747370571f06e22f524a00ffba2"
   integrity sha1-HL+2VQE6B0c3BXHwbiL1JKAP+6I=
@@ -6588,6 +6588,13 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
+medium-editor-autolist@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/medium-editor-autolist/-/medium-editor-autolist-1.0.1.tgz#2be40f6f74e8f4b5fa7e8b274e3f505c2aea7cdd"
+  integrity sha1-K+QPb3To9LX6fosnTj9QXCrqfN0=
+  dependencies:
+    medium-editor "^5.23.0"
+
 medium-editor-insert-plugin@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/medium-editor-insert-plugin/-/medium-editor-insert-plugin-2.5.1.tgz#3f6836ca1ea0e3c32d98a6814d4f333bcb1140bf"
@@ -6599,7 +6606,7 @@ medium-editor-insert-plugin@^2.5.1:
     jquery-sortable "~0.9.12"
     medium-editor "^5.15.0"
 
-medium-editor@^5.15.0, medium-editor@^5.23.3:
+medium-editor@^5.15.0, medium-editor@^5.23.0, medium-editor@^5.23.3:
   version "5.23.3"
   resolved "https://registry.yarnpkg.com/medium-editor/-/medium-editor-5.23.3.tgz#6fb638759ae2fc76c423feb056f346d9c518d3b7"
   integrity sha512-he9/TdjX8f8MGdXGfCs8AllrYnqXJJvjNkDKmPg3aPW/uoIrlRqtkFthrwvmd+u4QyzEiadhCCM0EwTiRdUCJw==
