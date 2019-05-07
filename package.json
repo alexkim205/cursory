@@ -9,6 +9,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "history": "^4.9.0",
     "immutable": "^4.0.0-rc.12",
+    "is-hotkey": "^0.1.4",
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "medium-editor": "^5.23.3",
@@ -23,6 +24,9 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "slate": "^0.46.1",
+    "slate-collapse-on-escape": "^0.8.1",
+    "slate-react": "^0.21.24",
     "styled-components": "^4.2.0",
     "typescript": "^3.4.5"
   },
