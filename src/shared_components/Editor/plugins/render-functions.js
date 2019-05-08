@@ -13,7 +13,7 @@ import React from 'react';
  List            meta+L         node
  Ordered List    meta+shift+L   node
  Quote           meta+Q         node
- Checklist/Todo  meta+T         node
+ Checklist/Todo  meta+shift+T   node
  Code            meta+shift+C   mark
  Code Block      meta+shift+D   node
  Mark            meta+M         mark
@@ -46,10 +46,10 @@ function RenderPlugin(options) {
         case 'list-item':
           return <li {...attributes}>{children}</li>;
         case 'todo-list': // TODO
-          return null;
+          return <ol {...attributes}>{children}</ol>;
         case 'block-quote':
           return <blockquote {...attributes}>{children}</blockquote>;
-        case 'code':
+        case 'block-code':
           return (
               <pre>
                 <code {...attributes}>{children}</code>

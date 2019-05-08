@@ -1,4 +1,5 @@
 import {isKeyHotkey} from 'is-hotkey';
+import {preventEventBeforeToggleBlock, preventEventBeforeToggleMark, isList, unwrapLists} from './helper-functions';
 
 /*
  H1              meta+1         node
@@ -41,77 +42,84 @@ const
     isUnorderedListHotkey = isKeyHotkey('mod+l'),
     isOrderedListHotkey = isKeyHotkey('mod+shift+l'),
     isQuoteHotkey = isKeyHotkey('mod+q'),
-    isTodoHotkey = isKeyHotkey('mod+t'),
+    isTodoHotkey = isKeyHotkey('mod+alt+shift+l'),
     isCodeHotkey = isKeyHotkey('mod+shift+c'),
     isCodeBlockHotkey = isKeyHotkey('mod+shift+d'),
     isMarkHotkey = isKeyHotkey('mod+m'),
     isFileHotkey = isKeyHotkey('mod+shift+f'),
-    isSaveHotkey = isKeyHotkey('mod+s');
+    isSaveHotkey = isKeyHotkey('mod+s'),
+
+    isSoftWrapHotkey = isKeyHotkey('shift+enter'),
+    isWrapHotkey = isKeyHotkey('enter');
 
 /**
- * Check if the current selection has a mark with `type` in it.
- *
- * @param {String} type
- * @return {Boolean}
- */
-
-function hasMark(type) {
-  const {value} = this.state;
-  return value.activeMarks.some(mark => mark.type === type);
-}
-
-/**
- * Prevent event before toggling mark
+ * On backspace, if at the start of a non-paragraph, convert it back into a
+ * paragraph node.
  *
  * @param {Event} event
  * @param {Editor} editor
- * @param {String} mark
- * @returns {null}
- */
-function preventEventBeforeToggleMark(event, editor, mark) {
-  event.preventDefault();
-  editor.toggleMark(mark);
-}
-
-/**
- * Check if the any of the currently selected blocks are of `type`.
- *
- * @param {Object} value
- * @return {Boolean}
+ * @param {Function} next
  */
 
-function hasBlock(value, type) {
-  return value.blocks.some(node => node.type === type);
-}
-
-/**
- * Prevent event before toggling block
- *
- * @param {Event} event
- * @param {Editor} editor
- * @param {String} block
- * @returns {null}
- */
-function preventEventBeforeToggleBlock(event, editor, block) {
-  event.preventDefault();
-
+function onBackspace(event, editor, next) {
   const {value} = editor;
-  const {document} = value;
+  const {selection} = value;
+  if (selection.isExpanded) return next();
+  if (selection.start.offset !== 0) return next();
 
-  // Handle everything but lists.
-  if (block !== 'unordered-list' && block !== 'ordered-list' && block !== 'todo-list') {
-    const isActive = hasBlock(value, block);
-    const isList = hasBlock(value, 'list-item');
+  const {startBlock} = value;
+  if (startBlock.type === 'paragraph') return next();
 
-    // If contains list elements, unwrap it and normalize it to a paragraph
-    if (isList) {
-      editor.setBlocks(isActive ? 'paragraph' : block).
-          unwrapBlock('unordered-list').
-          unwrapBlock('ordered-list').
-          unwrapBlock('todo-list');
-    } else {
-      editor.setBlocks(isActive ? 'paragraph' : block);
-    }
+  event.preventDefault();
+  unwrapLists(event, editor);
+}
+
+/**
+ * On return, if at the end of a node type that should not be extended,
+ * create a new paragraph below it.
+ *
+ * @param {Event} event
+ * @param {Editor} editor
+ * @param {Function} next
+ */
+
+function onEnter(event, editor, next) {
+  const {value} = editor;
+  const {selection} = value;
+  const {start, end, isExpanded} = selection;
+  if (isExpanded) return next();
+  const {startBlock} = value;
+
+  if (start.offset === 0 && startBlock.text.length === 0)
+    return onBackspace(event, editor, next);
+  if (end.offset !== startBlock.text.length) return next();
+
+  // Handle block if it's list
+  // 1. If list-item is empty, break out
+  if (isList(startBlock.type)) {
+    return next();
+  }
+  // If block is not list it should soft wrap or break out
+  // 1. if it shouldn't be extended (e.g., headers, block-quote/code), it should break
+  else {
+    event.preventDefault();
+    editor.splitBlock().setBlocks('paragraph');
+  }
+}
+
+function onShiftEnter(event, editor, next) {
+  const {value} = editor;
+  const {selection} = value;
+  const {start, end, isExpanded} = selection;
+  if (isExpanded) return next();
+  const {startBlock} = value;
+
+  if (startBlock.type !== 'block-quote' && startBlock.type !== 'block-code') {
+    // if list or header, just treat like normal enter
+    return onEnter(event, editor, next);
+  } else {
+    // soft wrap if not list
+    return editor.insertText('\n');
   }
 }
 
@@ -157,7 +165,17 @@ function KeyboardPlugin(options) {
       } else if (isQuoteHotkey(event)) {
         preventEventBeforeToggleBlock(event, editor, 'block-quote');
       } else if (isCodeBlockHotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'code');
+        preventEventBeforeToggleBlock(event, editor, 'block-code');
+      }
+      // Line breaks
+      else if (isSoftWrapHotkey(event)) {
+        return onShiftEnter(event, editor, next);
+      }
+      else if (isWrapHotkey(event)) {
+        return onEnter(event, editor, next);
+      }
+      else if (event.key === 'Backspace') {
+        return onBackspace(event, editor, next);
       }
       else {
         return next();

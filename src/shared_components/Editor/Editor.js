@@ -8,6 +8,7 @@ import {Value} from 'slate';
 import CollapseOnEscape from 'slate-collapse-on-escape';
 import {MarkdownShortcutPlugin, KeyboardPlugin, RenderPlugin} from './plugins';
 
+
 import {processfile} from '../../_helpers/process-image';
 
 import {Button, Icon, Toolbar} from './Editor.style';
