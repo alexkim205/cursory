@@ -7,6 +7,7 @@ import {Value} from 'slate';
 // Slate plugins
 import CollapseOnEscape from 'slate-collapse-on-escape';
 import {MarkdownShortcutPlugin, KeyboardPlugin, RenderPlugin} from './plugins';
+import Lists from "@convertkit/slate-lists"
 
 
 import {processfile} from '../../_helpers/process-image';
@@ -22,6 +23,13 @@ const plugins = [
   MarkdownShortcutPlugin(),
   KeyboardPlugin(),
   RenderPlugin(),
+  // Lists({
+  //   blocks: {
+  //     ordered_list: "ordered-list",
+  //     unordered_list: "unordered-list",
+  //     list_item: "list-item",
+  //   },
+  // })
 ];
 
 class CustomEditor extends React.Component {
@@ -72,9 +80,6 @@ class CustomEditor extends React.Component {
               onChange={this.onChange}
               plugins={plugins}
           />
-          <pre>
-            {/*{JSON.stringify(this.state.value, undefined, 2)}*/}
-          </pre>
         </React.Fragment>
     );
   }

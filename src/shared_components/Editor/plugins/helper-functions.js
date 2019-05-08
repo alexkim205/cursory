@@ -19,7 +19,7 @@
  Save            meta+S         -
  */
 
-import React from 'react';
+import {Block} from 'slate';
 
 /**
  * Checks if type is mark or block or neither
@@ -133,6 +133,22 @@ function wrapLists(event, editor, block) {
 }
 
 /**
+ * Remove all marks, clean
+ * @param {Event} event
+ * @param {Editor} editor
+ */
+function removeAllMarks(event, editor) {
+  editor.
+      removeMark('bold').
+      removeMark('italic').
+      removeMark('underline').
+      removeMark('strikethrough').
+      removeMark('link').
+      removeMark('code').
+      removeMark('mark');
+}
+
+/**
  * Prevent event before toggling block
  *
  * @param {Event} event
@@ -183,6 +199,85 @@ function preventEventBeforeToggleBlock(event, editor, block) {
   }
 }
 
+/**
+ * increase item depth
+ *
+ */
+function increaseItemDepth(event, editor) {
+  const {document, startBlock} = editor.value;
+  const listItem = document.getNode(startBlock.key);
+  const previousListItem = document.getPreviousSibling(listItem.key);
+  const list = document.getParent(listItem.key);
+
+  if (!listItem) return;
+  if (!previousListItem) return;
+
+  // Because of our schema constraints, we know that the second item must be a
+  // list if it exists.
+  const existingList = previousListItem;
+
+  if (isList(existingList.type) && existingList.type !== 'list-item') {
+    editor.withoutNormalizing(() => {
+      editor.moveNodeByKey(
+          listItem.key,
+          existingList.key,
+          existingList.nodes.size,
+      );
+    });
+  } else {
+
+    const newList = Block.create({
+      object: 'block',
+      type: list.type,
+    });
+    const indexOfPrevious = list.nodes.indexOf(previousListItem);
+
+    editor.withoutNormalizing(() => {
+      editor.insertNodeByKey(
+          list.key,
+          indexOfPrevious + 1,
+          newList,
+      );
+      editor.moveNodeByKey(listItem.key, newList.key, 0);
+    });
+  }
+}
+
+function decreaseItemDepth(event, editor) {
+  const {document, startBlock} = editor.value;
+
+  const listItem = document.getNode(startBlock.key);
+  const list = document.getParent(listItem.key);
+  const parentListItem = document.getParent(list.key);
+  if (parentListItem.type != 'list-item') {
+    // editor.splitBlock().setBlocks('paragraph');
+    return;
+  }
+
+  const parentList = document.getParent(parentListItem.key);
+  const index = parentList.nodes.indexOf(parentListItem);
+  const otherItems = list.nodes.skipUntil(item => item === listItem).rest();
+
+  if (!otherItems.isEmpty()) {
+    const newList = Block.create({
+      object: 'block',
+      type: list.type,
+    });
+
+    editor.withoutNormalizing(() => {
+      editor.insertNodeByKey(listItem.key, listItem.nodes.size, newList);
+
+      editor.moveNodeByKey(listItem.key, parentList.key, index + 1);
+
+      otherItems.forEach((item, index) =>
+          editor.moveNodeByKey(item.key, newList.key, newList.nodes.size + index),
+      );
+    });
+  } else {
+    editor.moveNodeByKey(listItem.key, parentList.key, index + 1);
+  }
+}
+
 export {
   preventEventBeforeToggleMark,
   preventEventBeforeToggleBlock,
@@ -190,4 +285,7 @@ export {
   unwrapLists,
   wrapLists,
   isList,
+  removeAllMarks,
+  increaseItemDepth,
+  decreaseItemDepth,
 };

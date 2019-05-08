@@ -1,5 +1,11 @@
 import {isKeyHotkey} from 'is-hotkey';
-import {preventEventBeforeToggleBlock, preventEventBeforeToggleMark, isList, unwrapLists} from './helper-functions';
+import {
+  preventEventBeforeToggleBlock,
+  preventEventBeforeToggleMark,
+  isList,
+  unwrapLists,
+  removeAllMarks, increaseItemDepth, decreaseItemDepth,
+} from './helper-functions';
 
 /*
  H1              meta+1         node
@@ -50,7 +56,9 @@ const
     isSaveHotkey = isKeyHotkey('mod+s'),
 
     isSoftWrapHotkey = isKeyHotkey('shift+enter'),
-    isWrapHotkey = isKeyHotkey('enter');
+    isWrapHotkey = isKeyHotkey('enter'),
+    isIncreaseTabHotkey = isKeyHotkey('tab'),
+    isDecreaseTabHotkey = isKeyHotkey('shift+tab');
 
 /**
  * On backspace, if at the start of a non-paragraph, convert it back into a
@@ -104,6 +112,7 @@ function onEnter(event, editor, next) {
   else {
     event.preventDefault();
     editor.splitBlock().setBlocks('paragraph');
+    // removeAllMarks(event, editor);
   }
 }
 
@@ -167,16 +176,20 @@ function KeyboardPlugin(options) {
       } else if (isCodeBlockHotkey(event)) {
         preventEventBeforeToggleBlock(event, editor, 'block-code');
       }
-      // Line breaks
+      // Miscellaneous
       else if (isSoftWrapHotkey(event)) {
         return onShiftEnter(event, editor, next);
-      }
-      else if (isWrapHotkey(event)) {
+      } else if (isWrapHotkey(event)) {
         return onEnter(event, editor, next);
-      }
-      else if (event.key === 'Backspace') {
+      } else if (event.key === 'Backspace') {
         return onBackspace(event, editor, next);
       }
+        // TOdO INCREASE DECREASE TAB
+      // } else if (isIncreaseTabHotkey(event)) {
+      //   increaseItemDepth(event, editor);
+      // } else if (isDecreaseTabHotkey(event)) {
+      //   decreaseItemDepth(event, editor);
+      // }
       else {
         return next();
       }
