@@ -79,6 +79,7 @@ class CustomEditor extends React.Component {
               value={this.state.value}
               onChange={this.onChange}
               plugins={plugins}
+              schema={schema}
           />
         </React.Fragment>
     );

@@ -1,66 +1,97 @@
-const blocks = {
-  unordered_list: 'unordered-list',
-  ordered_list: 'ordered-list',
-  list_item: 'list-item',
-  list_item_child: 'list-item-child',
-  default: 'paragraph',
+const normalizeList = (editor, error) => {
+  const {document} = editor.value;
+
+  switch (error.code) {
+    case 'next_sibling_type_invalid':
+      // insert all first list's children into second list
+      const firstListChild = error.child;
+      const secondListChild = document.getNextSibling(firstListChild.key);
+
+      editor.removeNodeByKey(secondListChild.key);
+      editor.insertNodeByKey(firstListChild.key, firstListChild.nodes.size, secondListChild);
+      // editor.unwrapNodeByKey(secondListChild.key, 'ordered-list')
+
+      for (let i = 0; i < secondListChild.nodes.size; i++) {
+        let listItemChildKey = secondListChild.nodes.get(i).key;
+        editor.unwrapNodeByKey(listItemChildKey);
+      }
+      return;
+    default:
+      return;
+  }
 };
 
 export const schema = {
+  document: {
+    nodes: [
+      {
+        match: [
+          {type: 'paragraph'},
+          {type: 'bold'},
+          {type: 'italic'},
+          {type: 'underlined'},
+          {type: 'strikethrough'},
+          {type: 'link'},
+          {type: 'code'},
+          {type: 'mark'},
+          {type: 'heading-one'},
+          {type: 'heading-two'},
+          {type: 'heading-three'},
+          {type: 'heading-four'},
+          {type: 'heading-five'},
+          {type: 'heading-six'},
+          {type: 'unordered-list'},
+          {type: 'ordered-list'},
+          {type: 'list-item'},
+          {type: 'todo-list'},
+          {type: 'block-quote'},
+          {type: 'block-code'},
+        ],
+      },
+    ],
+  },
   blocks: {
-    [blocks.unordered_list]: {
+    'ordered-list': {
       nodes: [
         {
-          match: {type: blocks.list_item},
+          match: [{type: 'ordered-list'}, {type: 'list-item'}],
         },
       ],
+      next: [
+        {type: 'list-item'},
+        {type: 'paragraph'},
+        {type: 'unordered-list'},
+        {type: 'todo-list'}],
+      normalize: normalizeList,
     },
-    [blocks.ordered_list]: {
+    'unordered-list': {
       nodes: [
         {
-          match: {type: blocks.list_item},
+          match: [{type: 'unordered-list'}, {type: 'list-item'}],
         },
       ],
+      next: [
+        {type: 'list-item'},
+        {type: 'paragraph'},
+        {type: 'ordered-list'},
+        {type: 'todo-list'},
+      ],
+      normalize: normalizeList,
     },
-    [blocks.list_item]: {
-      parent: [
-        {type: blocks.unordered_list},
-        {type: blocks.ordered_list},
-      ],
+    'todo-list': {
       nodes: [
-        {
-          match: {type: blocks.list_item_child},
-          min: 1,
-          max: 1,
-        },
         {
           match: [
-            {type: blocks.unordered_list},
-            {type: blocks.ordered_list},
+            {type: 'todo-list'},
+            {type: 'list-item'},
+            {type: 'unordered-list'},
+            {type: 'ordered-list'},
           ],
-          min: 0,
-          max: 1,
         },
       ],
-      normalize: (editor, error) => {
-        switch (error.code) {
-          case 'child_min_invalid':
-            editor.insertNodeByKey(error.node.key, 0, {
-              object: 'block',
-              type: blocks.list_item_child,
-            });
-          case 'child_type_invalid':
-            editor.wrapBlockByKey(error.child.key, {
-              type: blocks.list_item_child,
-            });
-            return;
-          case 'parent_type_invalid':
-            editor.wrapBlock(blocks.unordered_list);
-            return;
-          default:
-            return;
-        }
-      },
+      next: [{type: 'list-item'}, {type: 'paragraph'}],
+      normalize: normalizeList,
     },
   },
 };
+

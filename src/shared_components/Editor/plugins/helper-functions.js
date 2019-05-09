@@ -20,6 +20,7 @@
  */
 
 import {Block} from 'slate';
+import {findDOMRange} from 'slate-react';
 
 /**
  * Checks if type is mark or block or neither
@@ -48,7 +49,7 @@ function isMarkorBlockorNeither(type) {
     case 'list-item':
     case 'todo-list':
     case 'block-quote':
-    case 'code':
+    case 'block-code':
       return 'block';
     default:
       return 'system';
@@ -62,6 +63,7 @@ function isMarkorBlockorNeither(type) {
  * @return {Bool}
  */
 function isList(type) {
+  if (!type) return false;
   switch (type) {
     case 'unordered-list':
     case 'ordered-list':
@@ -204,6 +206,8 @@ function preventEventBeforeToggleBlock(event, editor, block) {
  *
  */
 function increaseItemDepth(event, editor) {
+  event.preventDefault();
+
   const {document, startBlock} = editor.value;
   const listItem = document.getNode(startBlock.key);
   const previousListItem = document.getPreviousSibling(listItem.key);
@@ -212,11 +216,35 @@ function increaseItemDepth(event, editor) {
   if (!listItem) return;
   if (!previousListItem) return;
 
-  // Because of our schema constraints, we know that the second item must be a
-  // list if it exists.
+  // the previous list
   const existingList = previousListItem;
 
+  // if previous element is already a list, add to end of it
   if (isList(existingList.type) && existingList.type !== 'list-item') {
+
+    // if previous list item is a list and list item to indent is a paragraph,
+    // make it a list that will be normalized.
+    if (listItem.type === 'paragraph') {
+      const newListItem = Block.create({
+        object: 'block',
+        type: 'list-item',
+      });
+
+      editor.withoutNormalizing(() => {
+        editor.insertNodeByKey(
+            previousListItem.key,
+            previousListItem.nodes.size,
+            newListItem,
+        );
+        // editor.setBlocks(previousListItem.type)
+        editor.moveNodeByKey(listItem.key, newListItem.key, 0);
+        editor.unwrapNodeByKey(listItem.nodes.get(0).key);
+
+      });
+
+      return;
+    }
+
     editor.withoutNormalizing(() => {
       editor.moveNodeByKey(
           listItem.key,
@@ -225,6 +253,23 @@ function increaseItemDepth(event, editor) {
       );
     });
   } else {
+
+    // if previous list item is NOT a list and list item to indent is a paragraph,
+    // indent as a paragraph
+    // if (listItem.type === 'paragraph') {
+    //   const range = findDOMRange(editor.value.selection)
+    //   console.log(range)
+    //   editor.moveFocusToStartOfText();
+    //   editor.moveAnchorToStartOfText();
+    //   editor.insertText('\t');
+    //   editor.moveAnchorTo(listItem.key, range.startOffset+1);
+    //   editor.moveFocusTo(listItem.key, range.endOffset+1);
+    //   return;
+    // }
+    if (!isList(listItem.type)) {
+      editor.insertText('\t');
+      return;
+    }
 
     const newList = Block.create({
       object: 'block',
@@ -244,19 +289,58 @@ function increaseItemDepth(event, editor) {
 }
 
 function decreaseItemDepth(event, editor) {
+  event.preventDefault();
+
   const {document, startBlock} = editor.value;
 
-  const listItem = document.getNode(startBlock.key);
-  const list = document.getParent(listItem.key);
-  const parentListItem = document.getParent(list.key);
-  if (parentListItem.type != 'list-item') {
-    // editor.splitBlock().setBlocks('paragraph');
+  const listItem = document.getNode(startBlock.key); // item to move
+
+  // if list item is not list then, remove \t if it exists
+  if (!isList(listItem.type)) {
+    const range = findDOMRange(editor.value.selection);
+    // if theres \t at beginning
+    if (range.startOffset !== 0 && listItem.text.charAt(range.startOffset - 1) === '\t') {
+      editor.moveStartBackward(1);
+      editor.insertText('');
+      // editor.removeTextByKey(listItem.key, range.startOffset-1, 1)
+    }
     return;
   }
 
-  const parentList = document.getParent(parentListItem.key);
-  const index = parentList.nodes.indexOf(parentListItem);
+  const list = document.getParent(listItem.key); // list to move from
+  const parentList = document.getParent(list.key); // list to move to
+  const parentListItem = document.getPreviousSibling(list.key); // list item to move after
+  const parentIndex = parentList.nodes.indexOf(list); // index to move to
+
   const otherItems = list.nodes.skipUntil(item => item === listItem).rest();
+
+  // if parent to move to is not a list, drop to paragraph and split block
+  if (!isList(parentList.type)) {
+    const newParagraphBlock = Block.create({
+      object: 'block',
+      type: 'paragraph',
+    });
+    const newListBlock = Block.create({
+      object: 'block',
+      type: list.type,
+    });
+
+    editor.withoutNormalizing(() => {
+      // insert new block to end
+      editor.insertNodeByKey(parentList.key, parentIndex + 1, newListBlock);
+
+      // move rest of items to new list
+      otherItems.forEach((item, index) =>
+          editor.moveNodeByKey(item.key, newListBlock.key, newListBlock.nodes.size + index),
+      );
+
+      // editor.unwrapBlock('list-item');
+      unwrapLists(event, editor);
+      editor.setBlocks('paragraph');
+    });
+
+    return;
+  }
 
   if (!otherItems.isEmpty()) {
     const newList = Block.create({
@@ -265,16 +349,19 @@ function decreaseItemDepth(event, editor) {
     });
 
     editor.withoutNormalizing(() => {
-      editor.insertNodeByKey(listItem.key, listItem.nodes.size, newList);
+      // insert new block to end
+      editor.insertNodeByKey(parentList.key, parentIndex + 1, newList);
 
-      editor.moveNodeByKey(listItem.key, parentList.key, index + 1);
+      // move item to move to parent list
+      editor.moveNodeByKey(listItem.key, parentList.key, parentIndex + 1);
 
+      // move rest of items to new list
       otherItems.forEach((item, index) =>
           editor.moveNodeByKey(item.key, newList.key, newList.nodes.size + index),
       );
     });
   } else {
-    editor.moveNodeByKey(listItem.key, parentList.key, index + 1);
+    editor.moveNodeByKey(listItem.key, parentList.key, parentIndex + 1);
   }
 }
 

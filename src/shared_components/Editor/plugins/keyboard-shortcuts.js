@@ -98,21 +98,44 @@ function onEnter(event, editor, next) {
   if (isExpanded) return next();
   const {startBlock} = value;
 
-  if (start.offset === 0 && startBlock.text.length === 0)
-    return onBackspace(event, editor, next);
-  if (end.offset !== startBlock.text.length) return next();
-
-  // Handle block if it's list
-  // 1. If list-item is empty, break out
-  if (isList(startBlock.type)) {
-    return next();
+  if (start.offset === 0 && startBlock.text.length === 0) {
+    // decrease indent if in list
+    if (isList(startBlock.type)) {
+      console.log('start+list');
+      return decreaseItemDepth(event, editor);
+    }
+    // if normal block thats empty, treat as backspace
+    else {
+      console.log('start+notlist');
+      return onBackspace(event, editor, next);
+    }
   }
-  // If block is not list it should soft wrap or break out
-  // 1. if it shouldn't be extended (e.g., headers, block-quote/code), it should break
-  else {
-    event.preventDefault();
-    editor.splitBlock().setBlocks('paragraph');
-    // removeAllMarks(event, editor);
+
+  // if middle of text, treat as enter
+  if (end.offset !== startBlock.text.length) {
+    if (startBlock.type === 'block-quote' || startBlock.type === 'block-code') {
+      console.log('middle+block');
+      return onShiftEnter(event, editor, next);
+    } else {
+      console.log('middle+list');
+      return next();
+    }
+  }
+
+  // if end of text
+  if (end.offset === startBlock.text.length) {
+    // and list
+    if (isList(startBlock.type)) {
+      console.log('end+list');
+      return next();
+    }
+    // not list
+    else {
+      console.log('end+notlist');
+      event.preventDefault();
+      editor.splitBlock().setBlocks('paragraph');
+      return;
+    }
   }
 }
 
@@ -183,13 +206,11 @@ function KeyboardPlugin(options) {
         return onEnter(event, editor, next);
       } else if (event.key === 'Backspace') {
         return onBackspace(event, editor, next);
+      } else if (isIncreaseTabHotkey(event)) {
+        increaseItemDepth(event, editor);
+      } else if (isDecreaseTabHotkey(event)) {
+        decreaseItemDepth(event, editor);
       }
-        // TOdO INCREASE DECREASE TAB
-      // } else if (isIncreaseTabHotkey(event)) {
-      //   increaseItemDepth(event, editor);
-      // } else if (isDecreaseTabHotkey(event)) {
-      //   decreaseItemDepth(event, editor);
-      // }
       else {
         return next();
       }
