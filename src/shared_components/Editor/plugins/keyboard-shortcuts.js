@@ -19,7 +19,7 @@ import {
  Link            meta+K         mark
  List            meta+L         node
  Ordered List    meta+shift+L   node
- Quote           meta+Q         node
+ Quote           meta+shift+U   node
  Checklist/Todo  meta+T         node
  Code            meta+shift+C   mark
  Code Block      meta+shift+D   node
@@ -47,7 +47,7 @@ const
     isLinkHotkey = isKeyHotkey('mod+k'),
     isUnorderedListHotkey = isKeyHotkey('mod+l'),
     isOrderedListHotkey = isKeyHotkey('mod+shift+l'),
-    isQuoteHotkey = isKeyHotkey('mod+q'),
+    isQuoteHotkey = isKeyHotkey('mod+shift+u'),
     isTodoHotkey = isKeyHotkey('mod+alt+shift+l'),
     isCodeHotkey = isKeyHotkey('mod+shift+c'),
     isCodeBlockHotkey = isKeyHotkey('mod+shift+d'),
@@ -76,10 +76,11 @@ function onBackspace(event, editor, next) {
   if (selection.start.offset !== 0) return next();
 
   const {startBlock} = value;
-  if (startBlock.type === 'paragraph') return next();
+  if (isList(startBlock.type)) return decreaseItemDepth(event, editor);
+  else {return next()}
 
-  event.preventDefault();
-  unwrapLists(event, editor);
+  // event.preventDefault();
+  // unwrapLists(event, editor);
 }
 
 /**

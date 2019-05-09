@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+*:focus {
+  outline: none;
+}
+
+.editor-container {
+  max-height: 100%;
+  overflow: scroll;
+  background-color: rgba(240, 234, 214, 0.3);
+}

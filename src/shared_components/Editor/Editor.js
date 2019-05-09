@@ -23,13 +23,6 @@ const plugins = [
   MarkdownShortcutPlugin(),
   KeyboardPlugin(),
   RenderPlugin(),
-  // Lists({
-  //   blocks: {
-  //     ordered_list: "ordered-list",
-  //     unordered_list: "unordered-list",
-  //     list_item: "list-item",
-  //   },
-  // })
 ];
 
 class CustomEditor extends React.Component {
@@ -78,8 +71,10 @@ class CustomEditor extends React.Component {
               ref={this.ref}
               value={this.state.value}
               onChange={this.onChange}
+              className={'editor-container'}
               plugins={plugins}
               schema={schema}
+              placeholder={"Type here to get started..."}
           />
         </React.Fragment>
     );

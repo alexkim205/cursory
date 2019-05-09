@@ -162,43 +162,98 @@ function preventEventBeforeToggleBlock(event, editor, block) {
   event.preventDefault();
 
   const {value} = editor;
-  const {document} = value;
+  const {document, startBlock} = value;
+  const listItem = document.getNode(startBlock.key);
+  const previousListItem = document.getPreviousSibling(listItem.key);
+  const list = document.getParent(listItem.key);
+  const indexOfPrevious = previousListItem ? list.nodes.indexOf(previousListItem) : 0;
+
+  const newList = Block.create({
+    object: 'block',
+    type: block,
+  })
+  console.log('previous', previousListItem)
+  console.log(list, indexOfPrevious)
+  console.log(newList)
+  console.log(listItem)
 
   // Handle everything but lists.
-  if (block !== 'unordered-list' && block !== 'ordered-list' && block !== 'todo-list') {
+  if (!isList(listItem.type) && !isList(block)) {
     const isActive = hasBlock(value, block);
-    const blockIsList = hasBlock(value, 'list-item');
-
-    // If contains list elements, unwrap it and normalize it to a paragraph
-    if (blockIsList) {
-      editor.setBlocks(isActive ? 'paragraph' : block).
-          unwrapBlock('unordered-list').
-          unwrapBlock('ordered-list').
-          unwrapBlock('todo-list');
-    } else {
-      editor.setBlocks(isActive ? 'paragraph' : block);
-    }
+    editor.setBlocks(isActive ? 'paragraph' : block);
   }
-  // Handle unordered-list, ordered-list, and todo-list
+  // Handle normal -> lists
+  else if (!isList(listItem.type) && isList(block)) {
+
+    editor.withoutNormalizing(() => {
+      // editor.setBlocks('list-item');
+      editor.setNodeByKey(listItem.key, 'list-item');
+      editor.insertNodeByKey(
+          list.key,
+          indexOfPrevious + 1,
+          newList,
+      )
+      editor.moveNodeByKey(listItem.key, newList.key, 0);
+
+    })
+  }
+  // Handle lists -> normal or other lists
   else {
-    const blockIsList = hasBlock(value, 'list-item');
-    const isType = value.blocks.some(node => {
-      return !!document.getClosest(node.key, parent => parent.type === block);
-    });
-
-    // If current block type is same as block type that was pressed, unwrap and set to default
-    if (blockIsList && isType) {
-      unwrapLists(event, editor);
-    }
-    // If block types aren't the same, convert to requested block
-    else if (blockIsList) {
-      wrapLists(event, editor, block);
-    }
-    // If not a list block, set all blocks to list-items and wrap with block type
-    else {
-      editor.setBlocks('list-item').wrapBlock(block);
-    }
+    // TODO - maybe implement behavior to toggle list types,
+    // for now don't do anything
+    // console.log(listItem.type, block)
+    // // If current block type is same as block type that was pressed don't do anything
+    // if (list.type === block) {
+    //   console.log('same type')
+    //   return;
+    // }
+    // // If block types aren't same, convert to requested block
+    // else if (list.type !== block) {
+    //   console.log('different type')
+    //   editor.insertNodeByKey(
+    //       list.key,
+    //       indexOfPrevious + 2,
+    //       newList,
+    //   )
+    //   list.nodes.
+    // }
+    return;
   }
+
+  // Handle unordered-list, ordered-list, and todo-list
+  // else {
+  //   const previousListItem = document.getPreviousSibling(listItem.key);
+  //   const list = document.getParent(listItem.key);
+  //
+  //   // If current block type is same as block type that was pressed, unwrap and set to default
+  //   if (list.type === block) {
+  //     console.log('same type')
+  //     unwrapLists(event, editor);
+  //   }
+  //   // If block types aren't the same, convert to requested block
+  //   else if (list.type !== block) {
+  //     console.log('different type')
+  //     const newList = Block.create({
+  //       object: 'block',
+  //       type: block,
+  //     })
+  //     const indexOfPrevious = previousListItem ? list.nodes.indexOf(previousListItem) : 0;
+  //     console.log(indexOfPrevious)
+  //
+  //     editor.withoutNormalizing(() => {
+  //       editor.insertNodeByKey(
+  //           list.key,
+  //           indexOfPrevious + 1,
+  //           newList,
+  //       );
+  //       // editor.setBlocks(previousListItem.type)
+  //       editor.moveNodeByKey(listItem.key, newList.key, 0);
+  //     });
+  //
+  //     return;
+  //
+  //   }
+  // }
 }
 
 /**

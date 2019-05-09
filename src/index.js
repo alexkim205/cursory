@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {store} from './_helpers';
 
-import './main.css';
+import './_styles/main.scss';
+import './_styles/typography.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 import App from './App';

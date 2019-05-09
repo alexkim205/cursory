@@ -65,6 +65,7 @@ function onSpace(event, editor, next) {
     return next();
   }
 
+  console.log(type)
   if (isMarkorBlockorNeither(type) === 'mark') {
     preventEventBeforeToggleMark(event, editor, type);
   } else if (isMarkorBlockorNeither(type) === 'block') {

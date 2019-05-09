@@ -10,14 +10,7 @@ const initialValue = Value.fromJSON(
             object: 'block',
             type: 'paragraph',
             nodes: [
-              {
-                object: 'text',
-                leaves: [
-                  {
-                    text: 'Hello this is some initial text.',
-                  },
-                ],
-              },
+
             ],
           },
         ],
