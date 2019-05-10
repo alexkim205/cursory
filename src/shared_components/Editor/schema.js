@@ -1,3 +1,5 @@
+import {Block} from 'slate';
+
 const normalizeList = (editor, error) => {
   const {document} = editor.value;
 
@@ -24,9 +26,19 @@ const normalizeList = (editor, error) => {
 export const schema = {
   document: {
     nodes: [
+      { // Title must be at top
+        match: {type: 'heading-one'},
+        min: 1, max: 1,
+      },
+      // { // At least one paragraph block
+      //   match: {type: 'paragraph'},
+      //   min: 1,
+      // },
       {
         match: [
+          // {type: 'heading-one'},
           {type: 'paragraph'},
+
           {type: 'bold'},
           {type: 'italic'},
           {type: 'underlined'},
@@ -34,7 +46,6 @@ export const schema = {
           {type: 'link'},
           {type: 'code'},
           {type: 'mark'},
-          {type: 'heading-one'},
           {type: 'heading-two'},
           {type: 'heading-three'},
           {type: 'heading-four'},
@@ -49,6 +60,21 @@ export const schema = {
         ],
       },
     ],
+    normalize: (editor, error) => {
+      const {node, child, index} = error;
+      switch (error.code) {
+        case 'child_type_invalid': {
+          const type = index === 0 ? 'heading-one' : node.type;
+          console.log(type)
+          return editor.setNodeByKey(child.key, type);
+        }
+        case 'child_min_invalid': {
+          console.log(index)
+          const block = Block.create(index === 0 ? 'heading-one' : node.type);
+          return editor.insertNodeByKey(node.key, index, block);
+        }
+      }
+    },
   },
   blocks: {
     'ordered-list': {

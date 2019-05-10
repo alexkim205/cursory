@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import {Router, Route} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 
+// load all necessary fonts
+import {loadFonts} from './_helpers/';
+
 import {history} from './_helpers';
 import {Header, Footer} from './shared_components';
 import {RootWrapper} from './App.style';
@@ -11,6 +14,8 @@ import {EditorPage} from './EditorPage';
 
 const Home = () => <h1>Home</h1>;
 const Test = () => <h1>Test</h1>;
+
+loadFonts()
 
 class App extends React.Component {
   static propTypes = {

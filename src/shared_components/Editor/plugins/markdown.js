@@ -1,6 +1,5 @@
 import {
-  preventEventBeforeToggleBlock,
-  preventEventBeforeToggleMark,
+  toggleMark, toggleBlock,
   isMarkorBlockorNeither, unwrapLists, isList,
 } from './helper-functions';
 
@@ -65,11 +64,11 @@ function onSpace(event, editor, next) {
     return next();
   }
 
-  console.log(type)
+  console.log(type);
   if (isMarkorBlockorNeither(type) === 'mark') {
-    preventEventBeforeToggleMark(event, editor, type);
+    toggleMark(event, editor, type);
   } else if (isMarkorBlockorNeither(type) === 'block') {
-    preventEventBeforeToggleBlock(event, editor, type);
+    toggleBlock(event, editor, type);
   } else {
     return next();
   }

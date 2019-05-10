@@ -1,56 +1,87 @@
-h1 {
-  font-size: 60px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  letter-spacing: -2px;
-  border-bottom: 1px solid #dbdbdb;
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400|Poppins:400');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i');
+@import "~rfs/scss";
+
+html {
+  @include rfs(21);
 }
 
-h2 {
-  font-size: 32px;
-  line-height: 42px;
-}
+// Editor Typography
 
-h3 {
-  font-size: 26px;
-  line-height: 32px;
-}
+.editor-container {
 
-h4 {
-  font-size: 24px;
-  line-height: 28px;
-}
+  body {
+    background-color: white;
+    font-family: 'Crimson Text', serif;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #333;
+  }
 
-p {
-  margin-bottom: 40px;
-}
+  h1, h2, h3, h4, h5, p, pre, mark {
+    margin: 1em 0;
+  }
 
-a {
-  color: black;
-}
+  p {
+    //margin-bottom: 1.25em;
+  }
 
-a:hover {
-  color: green;
-}
+  h1, h2, h3, h4, h5 {
+    //margin: 2.75rem 0 1rem;
+    font-family: 'Crimson Text', serif;
+    font-weight: 400;
+    line-height: 1.15;
+  }
 
-pre {
-  font-family: 'Menlo', monospace;
-  font-size: 15px;
-  background-color: #f0f0f0;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: #666;
-}
+  h1 {
+    @include rfs(49);
+  }
 
-blockquote {
-  display: block;
-  padding-left: 20px;
-  border-left: 6px solid #df0d32;
-  margin-left: -15px;
-  padding-left: 15px;
-  font-style: italic;
-  color: #555;
+  h2 {
+    @include rfs(39);
+  }
+
+  h3 {
+    @include rfs(31);
+  }
+
+  h4 {
+    @include rfs(25);
+  }
+
+  h5 {
+    @include rfs(21);
+  }
+
+  h6 {
+    @include rfs(16);
+  }
+
+  small, .text_small {
+    @include rfs(16);
+  }
+
+  pre {
+    tab-size: 4;
+    font-family: 'Source Code Pro', monospace;
+    color: #666666;
+    border-left: 3px solid #7b7b7b;
+    padding: 2em 1em;
+    background: #f7f7f7;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre;
+    @include rfs(21);
+  }
+
+  blockquote {
+    display: block;
+    padding-left: 20px;
+    border-left: 6px solid #df0d32;
+    margin-left: -15px;
+    padding-left: 15px;
+    font-style: italic;
+    color: #555;
+  }
+
 }

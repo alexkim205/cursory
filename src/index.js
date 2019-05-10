@@ -5,6 +5,7 @@ import {store} from './_helpers';
 
 import './_styles/main.scss';
 import './_styles/typography.scss';
+import './_styles/editor.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 import App from './App';

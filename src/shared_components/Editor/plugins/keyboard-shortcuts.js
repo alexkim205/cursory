@@ -1,10 +1,10 @@
 import {isKeyHotkey} from 'is-hotkey';
 import {
-  preventEventBeforeToggleBlock,
-  preventEventBeforeToggleMark,
+  toggleBlock,
+  toggleMark,
   isList,
-  unwrapLists,
-  removeAllMarks, increaseItemDepth, decreaseItemDepth,
+  increaseItemDepth,
+  decreaseItemDepth,
 } from './helper-functions';
 
 /*
@@ -76,8 +76,12 @@ function onBackspace(event, editor, next) {
   if (selection.start.offset !== 0) return next();
 
   const {startBlock} = value;
-  if (isList(startBlock.type)) return decreaseItemDepth(event, editor);
-  else {return next()}
+  if (isList(startBlock.type)) {
+    return decreaseItemDepth(event, editor);
+  }
+  else {
+    return next();
+  }
 
   // event.preventDefault();
   // unwrapLists(event, editor);
@@ -117,9 +121,18 @@ function onEnter(event, editor, next) {
     if (startBlock.type === 'block-quote' || startBlock.type === 'block-code') {
       console.log('middle+block');
       return onShiftEnter(event, editor, next);
-    } else {
+    }
+    // if anything else, just make new
+    else if (isList(startBlock.type)) {
       console.log('middle+list');
       return next();
+    }
+    // if header or anything else, just make new line
+    else {
+      event.preventDefault();
+      editor.withoutNormalizing(() => {
+        editor.splitBlock().setBlocks('paragraph');
+      });
     }
   }
 
@@ -134,7 +147,9 @@ function onEnter(event, editor, next) {
     else {
       console.log('end+notlist');
       event.preventDefault();
-      editor.splitBlock().setBlocks('paragraph');
+      editor.withoutNormalizing(() => {
+        editor.splitBlock().setBlocks('paragraph');
+      });
       return;
     }
   }
@@ -162,43 +177,43 @@ function KeyboardPlugin(options) {
 
       // Marks are toggled
       if (isBoldHotkey(event)) {
-        preventEventBeforeToggleMark(event, editor, 'bold');
+        toggleMark(event, editor, 'bold');
       } else if (isItalicHotkey(event)) {
-        preventEventBeforeToggleMark(event, editor, 'italic');
+        toggleMark(event, editor, 'italic');
       } else if (isUnderlineHotkey(event)) {
-        preventEventBeforeToggleMark(event, editor, 'underlined');
+        toggleMark(event, editor, 'underlined');
       } else if (isStrikethroughHotkey(event)) {
-        preventEventBeforeToggleMark(event, editor, 'strikethrough');
+        toggleMark(event, editor, 'strikethrough');
       } else if (isLinkHotkey(event)) {
-        preventEventBeforeToggleMark(event, editor, 'link');
+        toggleMark(event, editor, 'link');
       } else if (isCodeHotkey(event)) {
-        preventEventBeforeToggleMark(event, editor, 'code');
+        toggleMark(event, editor, 'code');
       } else if (isMarkHotkey(event)) {
-        preventEventBeforeToggleMark(event, editor, 'mark');
+        toggleMark(event, editor, 'mark');
       }
       // Blocks are toggled
       else if (isH1Hotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'heading-one');
+        toggleBlock(event, editor, 'heading-one');
       } else if (isH2Hotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'heading-two');
+        toggleBlock(event, editor, 'heading-two');
       } else if (isH3Hotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'heading-three');
+        toggleBlock(event, editor, 'heading-three');
       } else if (isH4Hotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'heading-four');
+        toggleBlock(event, editor, 'heading-four');
       } else if (isH5Hotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'heading-five');
+        toggleBlock(event, editor, 'heading-five');
       } else if (isH6Hotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'heading-six');
+        toggleBlock(event, editor, 'heading-six');
       } else if (isUnorderedListHotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'unordered-list');
+        toggleBlock(event, editor, 'unordered-list');
       } else if (isOrderedListHotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'ordered-list');
+        toggleBlock(event, editor, 'ordered-list');
       } else if (isTodoHotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'todo-list');
+        toggleBlock(event, editor, 'todo-list');
       } else if (isQuoteHotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'block-quote');
+        toggleBlock(event, editor, 'block-quote');
       } else if (isCodeBlockHotkey(event)) {
-        preventEventBeforeToggleBlock(event, editor, 'block-code');
+        toggleBlock(event, editor, 'block-code');
       }
       // Miscellaneous
       else if (isSoftWrapHotkey(event)) {

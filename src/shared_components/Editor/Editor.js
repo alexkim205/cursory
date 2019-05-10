@@ -7,8 +7,7 @@ import {Value} from 'slate';
 // Slate plugins
 import CollapseOnEscape from 'slate-collapse-on-escape';
 import {MarkdownShortcutPlugin, KeyboardPlugin, RenderPlugin} from './plugins';
-import Lists from "@convertkit/slate-lists"
-
+import {renderBlockButton, renderMarkButton} from './plugins';
 
 import {processfile} from '../../_helpers/process-image';
 
@@ -26,6 +25,10 @@ const plugins = [
 ];
 
 class CustomEditor extends React.Component {
+
+  componentDidMount() {
+
+  }
 
   /**
    * Deserialize the initial editor value.
@@ -51,21 +54,27 @@ class CustomEditor extends React.Component {
 
     return (
         <React.Fragment>
-          {/*<Toolbar>*/}
-          {/*<Button onMouseDown={this.onClickImage}>*/}
-          {/*<Icon>image</Icon>*/}
-          {/*</Button>*/}
-          {/*{this.renderMarkButton('bold', 'format_bold')}*/}
-          {/*{this.renderMarkButton('italic', 'format_italic')}*/}
-          {/*{this.renderMarkButton('underlined', 'format_underlined')}*/}
-          {/*{this.renderMarkButton('strikethrough', 'format_strikethrough')}*/}
-          {/*{this.renderMarkButton('code', 'code')}*/}
-          {/*{this.renderBlockButton('heading-one', 'looks_one')}*/}
-          {/*{this.renderBlockButton('heading-two', 'looks_two')}*/}
-          {/*{this.renderBlockButton('block-quote', 'format_quote')}*/}
-          {/*{this.renderBlockButton('numbered-list', 'format_list_numbered')}*/}
-          {/*{this.renderBlockButton('bulleted-list', 'format_list_bulleted')}*/}
-          {/*</Toolbar>*/}
+          {this.editor &&
+          <Toolbar>
+            <Button onMouseDown={this.onClickImage}>
+              <Icon>image</Icon>
+            </Button>
+            {renderMarkButton(this.editor, 'bold', 'bold')}
+            {renderMarkButton(this.editor, 'italic', 'italic')}
+            {renderMarkButton(this.editor, 'underlined', 'underline')}
+            {renderMarkButton(this.editor, 'strikethrough', 'strikethrough')}
+            {renderMarkButton(this.editor, 'link', 'link')}
+            {renderMarkButton(this.editor, 'code', 'code')}
+            {renderMarkButton(this.editor, 'mark', 'highlighter')}
+            {renderBlockButton(this.editor, 'heading-one', 'heading')}
+            {renderBlockButton(this.editor, 'heading-two', 'heading')}
+            {renderBlockButton(this.editor, 'block-quote', 'quote-left')}
+            {renderBlockButton(this.editor, 'block-code', 'angle-double-right')}
+            {renderBlockButton(this.editor, 'ordered-list', 'list-ol')}
+            {renderBlockButton(this.editor, 'unordered-list', 'list-ul')}
+            {/*{this.renderBlockButton('todo-list', 'format_list_bulleted')}*/}
+          </Toolbar>
+          }
           <Editor
               spellCheck={false}
               ref={this.ref}
@@ -74,7 +83,7 @@ class CustomEditor extends React.Component {
               className={'editor-container'}
               plugins={plugins}
               schema={schema}
-              placeholder={"Type here to get started..."}
+              placeholder={'Type here to get started...'}
           />
         </React.Fragment>
     );

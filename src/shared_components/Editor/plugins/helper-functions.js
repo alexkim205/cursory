@@ -76,6 +76,27 @@ function isList(type) {
 }
 
 /**
+ * Checks if type is heading
+ *
+ * @param {String} type
+ * @return {Bool}
+ */
+function isHeading(type) {
+  if (!type) return false;
+  switch (type) {
+    case 'heading-one':
+    case 'heading-two':
+    case 'heading-three':
+    case 'heading-four':
+    case 'heading-five':
+    case 'heading-six':
+      return true;
+    default:
+      return false;
+  }
+}
+
+/**
  * Check if the current selection has a mark with `type` in it.
  *
  * @param {String} type
@@ -87,19 +108,6 @@ function hasMark(value, type) {
 }
 
 /**
- * Prevent event before toggling mark
- *
- * @param {Event} event
- * @param {Editor} editor
- * @param {String} mark
- * @returns {null}
- */
-function preventEventBeforeToggleMark(event, editor, mark) {
-  event.preventDefault();
-  editor.toggleMark(mark);
-}
-
-/**
  * Check if the any of the currently selected blocks are of `type`.
  *
  * @param {Object} value
@@ -108,6 +116,19 @@ function preventEventBeforeToggleMark(event, editor, mark) {
 
 function hasBlock(value, type) {
   return value.blocks.some(node => node.type === type);
+}
+
+/**
+ * Prevent event before toggling mark
+ *
+ * @param {Event} event
+ * @param {Editor} editor
+ * @param {String} mark
+ * @returns {null}
+ */
+function toggleMark(event, editor, mark) {
+  event.preventDefault();
+  editor.toggleMark(mark);
 }
 
 /**
@@ -158,7 +179,7 @@ function removeAllMarks(event, editor) {
  * @param {String} block
  * @returns {null}
  */
-function preventEventBeforeToggleBlock(event, editor, block) {
+function toggleBlock(event, editor, block) {
   event.preventDefault();
 
   const {value} = editor;
@@ -171,11 +192,11 @@ function preventEventBeforeToggleBlock(event, editor, block) {
   const newList = Block.create({
     object: 'block',
     type: block,
-  })
-  console.log('previous', previousListItem)
-  console.log(list, indexOfPrevious)
-  console.log(newList)
-  console.log(listItem)
+  });
+  console.log('previous', previousListItem);
+  console.log(list, indexOfPrevious);
+  console.log(newList);
+  console.log(listItem);
 
   // Handle everything but lists.
   if (!isList(listItem.type) && !isList(block)) {
@@ -192,10 +213,10 @@ function preventEventBeforeToggleBlock(event, editor, block) {
           list.key,
           indexOfPrevious + 1,
           newList,
-      )
+      );
       editor.moveNodeByKey(listItem.key, newList.key, 0);
 
-    })
+    });
   }
   // Handle lists -> normal or other lists
   else {
@@ -421,13 +442,16 @@ function decreaseItemDepth(event, editor) {
 }
 
 export {
-  preventEventBeforeToggleMark,
-  preventEventBeforeToggleBlock,
+  toggleBlock,
+  toggleMark,
   isMarkorBlockorNeither,
   unwrapLists,
   wrapLists,
   isList,
+  isHeading,
   removeAllMarks,
   increaseItemDepth,
   decreaseItemDepth,
+  hasBlock,
+  hasMark,
 };

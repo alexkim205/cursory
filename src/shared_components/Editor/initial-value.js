@@ -7,11 +7,14 @@ const initialValue = Value.fromJSON(
       document: {
         nodes: [
           {
-            object: 'block',
-            type: 'paragraph',
-            nodes: [
-
-            ],
+            "object": "block",
+            "type": "title",
+            "nodes": [
+              {
+                "object": "text",
+                "text": "Place your title here..."
+              }
+            ]
           },
         ],
       },

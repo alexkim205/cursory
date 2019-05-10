@@ -27,8 +27,10 @@ function RenderPlugin(options) {
       const {attributes, children, node} = props;
 
       switch (node.type) {
+        case 'paragraph':
+          return <p {...attributes}>{children}</p>;
         case 'heading-one':
-          return <h1 {...attributes}>{children}</h1>;
+          return <h2 {...attributes}>{children}</h2>; // h1 too large
         case 'heading-two':
           return <h2 {...attributes}>{children}</h2>;
         case 'heading-three':
