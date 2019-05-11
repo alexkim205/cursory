@@ -6,7 +6,13 @@ import {Editor} from 'slate-react';
 import {Value} from 'slate';
 // Slate plugins
 import CollapseOnEscape from 'slate-collapse-on-escape';
-import {MarkdownShortcutPlugin, KeyboardPlugin, RenderPlugin, ToolBarPlugin} from './plugins';
+import {
+  MarkdownShortcutPlugin,
+  KeyboardPlugin,
+  RenderPlugin,
+  ToolBarPlugin,
+  MarginPlugin,
+} from './plugins';
 // import {renderBlockButton, renderMarkButton} from './plugins';
 
 import {processfile} from '../../_helpers/process-image';
@@ -17,6 +23,7 @@ import {schema} from './schema';
 // https://docs.slatejs.org/guides/commands-and-queries
 
 const plugins = [
+  MarginPlugin(),
   CollapseOnEscape(),
   MarkdownShortcutPlugin(),
   KeyboardPlugin(),

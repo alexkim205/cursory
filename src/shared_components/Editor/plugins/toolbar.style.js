@@ -43,3 +43,11 @@ export const Toolbar = styled.div`
     // left: 50%;
   }
 `;
+
+export const ShortcutsHelp = styled.div`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  
+`

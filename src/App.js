@@ -24,9 +24,9 @@ class App extends React.Component {
 
   render() {
     return (
-        <RootWrapper>
+        <RootWrapper contenteditable={true}>
           <Router history={history}>
-            {/*<Header/>*/}
+            <Header/>
             <React.Fragment>
               <Route exact path="/" component={Home}/>
               <Route path="/editor" component={EditorPage}/>

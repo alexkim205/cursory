@@ -173,7 +173,7 @@ function removeAllMarks(event, editor) {
 }
 
 /**
- * Prevent event before toggling block
+ * Toggle single or multiple blocks
  *
  * @param {Event} event
  * @param {Editor} editor
@@ -184,20 +184,65 @@ function toggleBlock(event, editor, block) {
   event.preventDefault();
 
   const {value} = editor;
+  const {document, fragment, selection} = value;
+  console.log(selection);
+  const startNode = document.getParent(selection.start.key);
+  const endNode = document.getParent(selection.end.key);
+  const oneAfterEnd = document.getNextNode(endNode.key)
+  console.log(startNode, endNode);
+
+  if (startNode !== endNode) return;
+
+  // TODO - implement multi block toggling
+  // let node = startNode;
+  // while (node !== oneAfterEnd) {
+  //   console.log(node);
+  //   editor.moveStartToStartOfNode(node);
+  //   editor.moveEndToStartOfNode(node);
+  //   const temp = document.getNextNode(node.key);
+  //   toggleSingleBlock(event, editor, block);
+  //   node = temp
+  // }
+  //
+  // editor.moveAnchorToStartOfNode(startNode);
+  // editor.moveFocusToEndOfNode(endNode);
+
+  toggleSingleBlock(event, editor, block)
+}
+
+/**
+ * Prevent event before toggling single block
+ *
+ * @param {Event} event
+ * @param {Editor} editor
+ * @param {String} block
+ * @returns {null}
+ */
+function toggleSingleBlock(event, editor, block) {
+  event.preventDefault();
+
+  const {value} = editor;
   const {document, startBlock} = value;
+
   const listItem = document.getNode(startBlock.key);
-  const previousListItem = document.getPreviousSibling(listItem.key);
   const list = document.getParent(listItem.key);
+
+  const previousListItem = document.getPreviousSibling(listItem.key);
   const indexOfPrevious = previousListItem ? list.nodes.indexOf(previousListItem) : 0;
+
+  const parentListItem = document.getPreviousSibling(list.key); // list item to move after
+  const parentList = document.getParent(list.key); // list to move to
+
+  const otherItems = list.nodes.skipUntil(item => item === listItem).rest();
 
   const newList = Block.create({
     object: 'block',
     type: block,
   });
-  console.log('previous', previousListItem);
-  console.log(list, indexOfPrevious);
-  console.log(newList);
-  console.log(listItem);
+  // console.log('previous', previousListItem);
+  // console.log(list, indexOfPrevious);
+  // console.log(newList);
+  // console.log(listItem);
 
   // Handle everything but lists.
   if (!isList(listItem.type) && !isList(block)) {
@@ -222,60 +267,23 @@ function toggleBlock(event, editor, block) {
   // Handle lists -> normal or other lists
   else {
     // TODO - maybe implement behavior to toggle list types,
-    // for now don't do anything
-    // console.log(listItem.type, block)
-    // // If current block type is same as block type that was pressed don't do anything
-    // if (list.type === block) {
-    //   console.log('same type')
-    //   return;
-    // }
-    // // If block types aren't same, convert to requested block
+    console.log('list -> normal')
+
+    // revert to normal if toggle same block
+    if (list.type === block) {
+      editor.withoutNormalizing(() => {
+
+        // decreaseIndent until block is paragraph
+        while (editor.value.startBlock.type !== 'paragraph') {
+          decreaseItemDepth(event, editor);
+        }
+      });
+    }
+    // TODO - convert to different list
     // else if (list.type !== block) {
-    //   console.log('different type')
-    //   editor.insertNodeByKey(
-    //       list.key,
-    //       indexOfPrevious + 2,
-    //       newList,
-    //   )
-    //   list.nodes.
+    //
     // }
-
   }
-
-  // Handle unordered-list, ordered-list, and todo-list
-  // else {
-  //   const previousListItem = document.getPreviousSibling(listItem.key);
-  //   const list = document.getParent(listItem.key);
-  //
-  //   // If current block type is same as block type that was pressed, unwrap and set to default
-  //   if (list.type === block) {
-  //     console.log('same type')
-  //     unwrapLists(event, editor);
-  //   }
-  //   // If block types aren't the same, convert to requested block
-  //   else if (list.type !== block) {
-  //     console.log('different type')
-  //     const newList = Block.create({
-  //       object: 'block',
-  //       type: block,
-  //     })
-  //     const indexOfPrevious = previousListItem ? list.nodes.indexOf(previousListItem) : 0;
-  //     console.log(indexOfPrevious)
-  //
-  //     editor.withoutNormalizing(() => {
-  //       editor.insertNodeByKey(
-  //           list.key,
-  //           indexOfPrevious + 1,
-  //           newList,
-  //       );
-  //       // editor.setBlocks(previousListItem.type)
-  //       editor.moveNodeByKey(listItem.key, newList.key, 0);
-  //     });
-  //
-  //     return;
-  //
-  //   }
-  // }
 }
 
 /**

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import {Navbar, NavbarItem} from './Header.style';
 
 // import PropTypes from 'prop-types';
 
@@ -11,11 +11,12 @@ class Header extends Component {
 
     return (
         <React.Fragment>
-          <nav>
-            <NavLink to='/home'>Home</NavLink>
-            <NavLink to='/test'>Test</NavLink>
-            <NavLink to='/editor'>Editor</NavLink>
-          </nav>
+          <Navbar>
+            <NavbarItem to='/home'>Home</NavbarItem>
+            <div className={'flex-grow'}></div>
+            <NavbarItem to='/test'>Test</NavbarItem>
+            <NavbarItem to='/editor'>Editor</NavbarItem>
+          </Navbar>
         </React.Fragment>
     );
   }

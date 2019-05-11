@@ -3,7 +3,12 @@
 @import "~rfs/scss";
 
 html {
-  @include rfs(21);
+  @include rfs(17);
+}
+
+// Navbar
+nav {
+  @include rfs(15);
 }
 
 // Editor Typography

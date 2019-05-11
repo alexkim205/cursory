@@ -63,15 +63,15 @@ class ToolBarComponent extends React.Component {
     // console.log(e.target);
     // console.log(parent !== target && parent.contains(target))
     // if (e.target)
-    console.log(e.target.id, ['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar')
-    console.log('mousedown', this.state.buttonPressed)
+    // console.log(e.target.id, ['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar')
+    // console.log('mousedown', this.state.buttonPressed)
     if (['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
       return;
     }
     this.setState({buttonPressed: true});
   };
   handleMouseUp = (e) => {
-    console.log('mouseup', this.state.buttonPressed)
+    // console.log('mouseup', this.state.buttonPressed)
     if (['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
       return;
     }
@@ -175,7 +175,7 @@ class ToolBarComponent extends React.Component {
                             {this.renderMarkButton('mark', 'highlighter')}
                             {this.renderBlockButton('heading-two', 'heading')}
                             {this.renderBlockButton('heading-three', 'heading')}
-                            {/*{this.renderBlockButton('block-quote', 'quote-left')}*/}
+                            {this.renderBlockButton('block-quote', 'quote-left')}
                             {/*{this.renderBlockButton('block-code', 'angle-double-right')}*/}
                             {this.renderBlockButton('ordered-list', 'list-ol')}
                             {this.renderBlockButton('unordered-list', 'list-ul')}
