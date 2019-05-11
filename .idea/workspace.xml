@@ -2,24 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/_helpers/load-fonts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/_styles/editor.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.animation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/utils/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/utils/range.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_helpers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/_styles/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_styles/editor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/_styles/editor.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/_styles/typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/_styles/typography.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/Editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/initial-value.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/initial-value.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/schema.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -46,20 +46,21 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="babelrc" value="1" />
           <entry key="css" value="3" />
-          <entry key="eslintrc" value="2" />
-          <entry key="js" value="86" />
+          <entry key="eslintrc" value="3" />
+          <entry key="js" value="104" />
           <entry key="json" value="7" />
-          <entry key="scss" value="8" />
+          <entry key="scss" value="11" />
           <entry key="ts" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="JSON" value="9" />
-          <entry key="JavaScript" value="85" />
-          <entry key="SCSS" value="8" />
+          <entry key="JSON" value="11" />
+          <entry key="JavaScript" value="103" />
+          <entry key="SCSS" value="11" />
           <entry key="TypeScript" value="1" />
           <entry key="UML" value="1" />
         </counts>
@@ -73,55 +74,48 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="JavaScript Console" value="3" />
+          <entry key="babelrc" value="14" />
           <entry key="css" value="4" />
-          <entry key="eslintrc" value="13" />
-          <entry key="js" value="20244" />
-          <entry key="scss" value="519" />
+          <entry key="eslintrc" value="15" />
+          <entry key="js" value="26347" />
+          <entry key="scss" value="577" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="20247" />
-          <entry key="SCSS" value="519" />
+          <entry key="JSON" value="29" />
+          <entry key="JavaScript" value="26350" />
+          <entry key="SCSS" value="577" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="129" column="33" selection-start-line="129" selection-start-column="33" selection-end-line="129" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+            <state relative-caret-position="121">
+              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#78#113#0" expanded="true" />
                 <element signature="e#160#216#0" expanded="true" />
+                <element signature="e#373#430#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+            <state relative-caret-position="277">
+              <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -129,17 +123,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/schema.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+            <state relative-caret-position="135">
+              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/initial-value.js">
+        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+            <state relative-caret-position="75">
+              <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,8 +144,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.style.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/utils/range.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="30" column="69" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_styles/editor.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -156,17 +180,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_styles/typography.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_styles/main.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="13" />
+            <state relative-caret-position="478">
+              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -175,8 +190,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>insertimage</find>
-      <find>onchange</find>
       <find>switc</find>
       <find>png</find>
       <find>rendernod</find>
@@ -194,10 +207,19 @@
       <find>console.log</find>
       <find>toggleMark</find>
       <find>preventEventBeforeToggle</find>
-      <find>togglemark</find>
       <find>preventeventbefore</find>
       <find>preventeventbeforeToggleBlock</find>
       <find>toggleblock</find>
+      <find>onchange</find>
+      <find>value</find>
+      <find>rgba</find>
+      <find>togglemark</find>
+      <find>this.tool</find>
+      <find>document</find>
+      <find>document.get</find>
+      <find>dom</find>
+      <find>reactdom</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>blockIsList</replace>
@@ -217,31 +239,36 @@
         <option value="$PROJECT_DIR$/config/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/_actions/editor.js" />
         <option value="$PROJECT_DIR$/config/webpackDevServer.config.js" />
-        <option value="$PROJECT_DIR$/.eslintrc" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/shared_components/CustomMediumEditor.style.js" />
         <option value="$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/Italic.js" />
         <option value="$PROJECT_DIR$/src/EditorPage/EditorPage.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/schema.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/_styles/editor.scss" />
         <option value="$PROJECT_DIR$/src/_styles/main.scss" />
-        <option value="$PROJECT_DIR$/src/App.style.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js" />
         <option value="$PROJECT_DIR$/src/_helpers/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/_helpers/load-fonts.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/index.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/initial-value.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/Editor.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/schema.js" />
-        <option value="$PROJECT_DIR$/src/_styles/typography.scss" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/schema.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/initial-value.js" />
+        <option value="$PROJECT_DIR$/src/_styles/typography.scss" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/utils/index.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/utils/range.js" />
+        <option value="$PROJECT_DIR$/.eslintrc" />
+        <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/index.js" />
+        <option value="$PROJECT_DIR$/src/_styles/editor.scss" />
+        <option value="$PROJECT_DIR$/src/App.style.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.animation.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.style.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/Editor.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" />
       </list>
     </option>
   </component>
@@ -262,9 +289,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="819" />
+    <option name="x" value="827" />
     <option name="y" value="23" />
-    <option name="width" value="1101" />
+    <option name="width" value="1093" />
     <option name="height" value="1105" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -290,12 +317,6 @@
               <item name="writing" type="b2602c69:ProjectViewProjectNode" />
               <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="writing" type="b2602c69:ProjectViewProjectNode" />
@@ -386,18 +407,18 @@
       <workItem from="1557364900220" duration="24000" />
       <workItem from="1557380184972" duration="21088000" />
       <workItem from="1557502052313" duration="2506000" />
-      <workItem from="1557517058356" duration="6235000" />
+      <workItem from="1557517058356" duration="29037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87844000" />
+    <option name="totallyTimeSpent" value="110646000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="819" y="23" width="1101" height="1105" extended-state="0" />
+    <frame x="827" y="23" width="1093" height="1105" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26944444" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20149253" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -411,7 +432,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.31194472" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.31194472" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.31194472" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -427,13 +448,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/blueimp-load-image/js/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/slate-react/lib/slate-react.es.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="1939" column="9" selection-start-line="1939" selection-start-column="9" selection-end-line="1939" selection-end-column="9" />
-        </state>
-      </provider>
     </entry>
     <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js">
       <provider selected="true" editor-type-id="UmlEditorProvider">
@@ -490,28 +504,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.eslintrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared_components/CustomMediumEditor.style.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#216#266#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -564,70 +560,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_helpers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/initial-value.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#78#113#0" expanded="true" />
-            <element signature="e#160#216#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -649,10 +585,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/schema.js">
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="46" column="25" lean-forward="true" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        <state relative-caret-position="435">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="210" column="39" selection-start-line="210" selection-start-column="39" selection-end-line="210" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/initial-value.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/utils/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/slate-react/lib/slate-react.es.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2107">
+          <caret line="5183" column="4" selection-start-line="5183" selection-start-column="4" selection-end-line="5183" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#668#696#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="98" column="11" selection-start-line="98" selection-start-column="11" selection-end-line="98" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_styles/typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/utils/range.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="30" column="69" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -665,42 +688,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_styles/editor.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_styles/typography.scss">
+    <entry file="file://$PROJECT_DIR$/src/App.style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js">
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.animation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="450" column="12" selection-start-line="450" selection-start-column="12" selection-end-line="450" selection-end-column="12" />
+        <state relative-caret-position="198">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#668#696#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js">
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="129" column="33" selection-start-line="129" selection-start-column="33" selection-end-line="129" selection-end-column="33" />
+        <state relative-caret-position="75">
+          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="33" />
+          <folding>
+            <element signature="e#216#266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#78#113#0" expanded="true" />
+            <element signature="e#160#216#0" expanded="true" />
+            <element signature="e#373#430#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

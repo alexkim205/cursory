@@ -21,6 +21,8 @@ function getType(chars) {
       return 'todo-list';
     case '>':
       return 'block-quote';
+    case '```':
+      return 'block-code';
     case '#':
       return 'heading-one';
     case '##':
@@ -64,7 +66,6 @@ function onSpace(event, editor, next) {
     return next();
   }
 
-  console.log(type);
   if (isMarkorBlockorNeither(type) === 'mark') {
     toggleMark(event, editor, type);
   } else if (isMarkorBlockorNeither(type) === 'block') {

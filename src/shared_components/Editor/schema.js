@@ -38,7 +38,6 @@ export const schema = {
         match: [
           // {type: 'heading-one'},
           {type: 'paragraph'},
-
           {type: 'bold'},
           {type: 'italic'},
           {type: 'underlined'},
@@ -62,16 +61,42 @@ export const schema = {
     ],
     normalize: (editor, error) => {
       const {node, child, index} = error;
+      console.log(error.code);
+      console.log(child, node, index);
       switch (error.code) {
         case 'child_type_invalid': {
-          const type = index === 0 ? 'heading-one' : node.type;
-          console.log(type)
-          return editor.setNodeByKey(child.key, type);
+          if (index === 0) {
+            return editor.setNodeByKey(child.key, 'heading-one');
+          } else {
+            return editor.setNodeByKey(child.key, child.type === 'heading-one' ? 'paragraph' : child.type);
+          }
         }
         case 'child_min_invalid': {
-          console.log(index)
-          const block = Block.create(index === 0 ? 'heading-one' : node.type);
-          return editor.insertNodeByKey(node.key, index, block);
+
+          if (index === 0) {
+            const block = Block.create('heading-one');
+            return editor.insertNodeByKey(editor.value.document.key, 0, block);
+          } else {
+            if (child.type === 'heading-one') {
+              const block = Block.create('paragraph');
+              return editor.insertNodeByKey(editor.value.document.key, index, block);
+            } else {
+              const block = Block.create(child.type);
+              return editor.insertNodeByKey(editor.value.document.key, index, block);
+            }
+          }
+        }
+        case 'child_max_invalid': {
+          if (index === 0) {
+            return editor.setNodeByKey(child.key, 'heading-one');
+          } else if (index === 1) {
+            // remove first node, make current title
+            editor.removeNodeByKey(editor.value.document.nodes.get(0).key)
+            return editor.setNodeByKey(child.key, 'heading-one');
+          }
+          else {
+            return editor.setNodeByKey(child.key, child.type === 'heading-one' ? 'paragraph' : child.type);
+          }
         }
       }
     },

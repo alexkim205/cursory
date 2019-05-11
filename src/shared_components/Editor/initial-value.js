@@ -8,12 +8,8 @@ const initialValue = Value.fromJSON(
         nodes: [
           {
             "object": "block",
-            "type": "title",
+            "type": "heading-one",
             "nodes": [
-              {
-                "object": "text",
-                "text": "Place your title here..."
-              }
             ]
           },
         ],
