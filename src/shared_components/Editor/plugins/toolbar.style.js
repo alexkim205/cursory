@@ -23,14 +23,23 @@ export const Toolbar = styled.div`
   align-items: center;
   height: 50px;
   border-radius: 5px;
-  // transition: transform 100ms ease-in-out;
-  transition: transform 300ms ease-in-out;
-  // transition: transform 300ms ease;
-  transform: scale(0.9);
+  padding: 0 10px;
+  transition: transform 80ms ease;
+  transform: scale(0.95);
   
   &.active {
-    transform: translateY(-10px);
-    transform: scale(1);
+    transform: scale(1) translate(0, -18px);
   }
   
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 12px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+    top: 100%;
+    // left: 50%;
+  }
 `;

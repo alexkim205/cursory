@@ -15,7 +15,7 @@ import {EditorPage} from './EditorPage';
 const Home = () => <h1>Home</h1>;
 const Test = () => <h1>Test</h1>;
 
-loadFonts()
+loadFonts();
 
 class App extends React.Component {
   static propTypes = {

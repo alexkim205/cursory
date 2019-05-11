@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types';
 import {PortalWithState} from 'react-portal';
 
 import {Button, Icon, Toolbar} from './toolbar.style';
-import {AnimateToolBar} from './toolbar.animation';
 import {getVisibleSelectionRect} from '../utils/range';
 
 import {
@@ -25,7 +24,6 @@ class ToolBarComponent extends React.Component {
   static propTypes = {
     value: PropTypes.object.isRequired,
     editor: PropTypes.object.isRequired,
-    editorRef: PropTypes.object.isRequired,
     // shouldOpen: PropTypes.bool.isRequired,
   };
 
@@ -38,26 +36,45 @@ class ToolBarComponent extends React.Component {
 
     if (!isOpen) return;
 
-    if (value.isBlurred || value.isCollapsed) {
-      menu.removeAttribute('style');
-      menu.classList.remove('active');
-      return;
-    }
+    // console.log(menu, value.isBlurred, value.isCollapsed)
+    // if (value.isBlurred || value.isCollapsed) {
+    //   menu.removeAttribute('style');
+    //   menu.classList.remove('active');
+    //   return;
+    // }
 
     const rect = getVisibleSelectionRect();
     if (!rect) return;
-    const top = (rect.top + window.scrollY) - menu.offsetHeight;
-    const left = rect.left + window.scrollX - menu.offsetWidth / 2 + rect.width / 2; // eslint-disable-line
+    let top = (rect.top + window.scrollY) - menu.offsetHeight;
+    let left = rect.left + window.scrollX - menu.offsetWidth / 2 + rect.width / 2; // eslint-disable-line
+
     menu.style.opacity = 1;
     menu.style.top = `${top}px`;
     menu.style.left = `${left}px`;
     menu.classList.add('active');
   };
 
-  handleMouseDown = () => {
+  handleMouseDown = (e) => {
+    // const parent = document.getElementById('#toolbar')
+    // if (!parent) return;
+    // console.log(parent)
+    // const editorRef = ReactDOM.findDOMNode()
+    const target = e.target
+    // console.log(e.target);
+    // console.log(parent !== target && parent.contains(target))
+    // if (e.target)
+    console.log(e.target.id, ['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar')
+    console.log('mousedown', this.state.buttonPressed)
+    if (['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
+      return;
+    }
     this.setState({buttonPressed: true});
   };
-  handleMouseUp = () => {
+  handleMouseUp = (e) => {
+    console.log('mouseup', this.state.buttonPressed)
+    if (['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
+      return;
+    }
     this.setState({buttonPressed: false});
   };
 
@@ -121,7 +138,6 @@ class ToolBarComponent extends React.Component {
 
   render() {
     const {value: {selection}} = this.props.editor;
-    console.log(this.state.buttonPressed);
     const shouldOpen = selection.isExpanded && selection.isFocused && !this.state.buttonPressed;
     // const {shouldOpen} = this.props;
 
@@ -146,10 +162,10 @@ class ToolBarComponent extends React.Component {
                 return (
                     <React.Fragment>
                       {portal(
-                          <Toolbar ref={this.toolbarRef}>
-                            <Button onMouseDown={this.onClickImage}>
-                              <Icon>image</Icon>
-                            </Button>
+                          <Toolbar ref={this.toolbarRef} id={'toolbar'}>
+                            {/*<Button onMouseDown={this.onClickImage}>*/}
+                              {/*<Icon>image</Icon>*/}
+                            {/*</Button>*/}
                             {this.renderMarkButton('bold', 'bold')}
                             {this.renderMarkButton('italic', 'italic')}
                             {/*{this.renderMarkButton('underlined', 'underline')}*/}
@@ -185,7 +201,7 @@ export function ToolBarPlugin(options) {
       return (
           <React.Fragment>
             {children}
-            <ToolBarComponent value={editor.value} editor={editor} editorRef={props.ref}/>
+            <ToolBarComponent value={editor.value} editor={editor}/>
           </React.Fragment>
       );
     },

@@ -99,6 +99,7 @@ function isHeading(type) {
 /**
  * Check if the current selection has a mark with `type` in it.
  *
+ * @param value
  * @param {String} type
  * @return {Boolean}
  */
@@ -238,7 +239,7 @@ function toggleBlock(event, editor, block) {
     //   )
     //   list.nodes.
     // }
-    return;
+
   }
 
   // Handle unordered-list, ordered-list, and todo-list

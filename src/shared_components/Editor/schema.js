@@ -2,12 +2,12 @@ import {Block} from 'slate';
 
 const normalizeList = (editor, error) => {
   const {document} = editor.value;
+  const firstListChild = error.child;
+  const secondListChild = document.getNextSibling(firstListChild.key);
 
   switch (error.code) {
     case 'next_sibling_type_invalid':
       // insert all first list's children into second list
-      const firstListChild = error.child;
-      const secondListChild = document.getNextSibling(firstListChild.key);
 
       editor.removeNodeByKey(secondListChild.key);
       editor.insertNodeByKey(firstListChild.key, firstListChild.nodes.size, secondListChild);
@@ -68,7 +68,8 @@ export const schema = {
           if (index === 0) {
             return editor.setNodeByKey(child.key, 'heading-one');
           } else {
-            return editor.setNodeByKey(child.key, child.type === 'heading-one' ? 'paragraph' : child.type);
+            return editor.setNodeByKey(child.key,
+                child.type === 'heading-one' ? 'paragraph' : child.type);
           }
         }
         case 'child_min_invalid': {
@@ -91,11 +92,12 @@ export const schema = {
             return editor.setNodeByKey(child.key, 'heading-one');
           } else if (index === 1) {
             // remove first node, make current title
-            editor.removeNodeByKey(editor.value.document.nodes.get(0).key)
+            editor.removeNodeByKey(editor.value.document.nodes.get(0).key);
             return editor.setNodeByKey(child.key, 'heading-one');
           }
           else {
-            return editor.setNodeByKey(child.key, child.type === 'heading-one' ? 'paragraph' : child.type);
+            return editor.setNodeByKey(child.key,
+                child.type === 'heading-one' ? 'paragraph' : child.type);
           }
         }
       }

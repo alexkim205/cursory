@@ -150,7 +150,7 @@ function onEnter(event, editor, next) {
       editor.withoutNormalizing(() => {
         editor.splitBlock().setBlocks('paragraph');
       });
-      return;
+
     }
   }
 }

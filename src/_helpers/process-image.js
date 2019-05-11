@@ -15,21 +15,21 @@ function processfile(file, commandCallback) {
   }
 
   // read the files
-  var reader = new FileReader();
+  let reader = new FileReader();
   reader.readAsArrayBuffer(file);
 
   reader.onload = function(event) {
     // blob stuff
-    var blob = new Blob([event.target.result]); // create blob...
+    let blob = new Blob([event.target.result]); // create blob...
     window.URL = window.URL || window.webkitURL;
-    var blobURL = window.URL.createObjectURL(blob); // and get it's URL
+    let blobURL = window.URL.createObjectURL(blob); // and get it's URL
 
     // helper Image object
-    var image = new Image();
+    let image = new Image();
     image.src = blobURL;
     image.onload = function() {
       // have to wait till it's loaded
-      var resized = resizeMe(image); // send it to canvas
+      let resized = resizeMe(image); // send it to canvas
       commandCallback(resized);
     };
   };
@@ -37,10 +37,10 @@ function processfile(file, commandCallback) {
 
 function resizeMe(img) {
 
-  var canvas = document.createElement('canvas');
+  let canvas = document.createElement('canvas');
 
-  var width = img.width;
-  var height = img.height;
+  let width = img.width;
+  let height = img.height;
 
   // calculate the width and height, constraining the proportions
   if (width > height) {
@@ -60,7 +60,7 @@ function resizeMe(img) {
   // resize the canvas and draw the image data into it
   canvas.width = width;
   canvas.height = height;
-  var ctx = canvas.getContext('2d');
+  let ctx = canvas.getContext('2d');
   ctx.drawImage(img, 0, 0, width, height);
 
   return canvas.toDataURL(imageConfig.type, imageConfig.quality); // get the data from canvas as 70% JPG (can be also PNG, etc.)
