@@ -8,7 +8,7 @@ import {ToastContainer} from 'react-toastify';
 import {loadFonts} from './_helpers/';
 
 import {history} from './_helpers';
-import {Header, Footer} from './shared_components';
+import {Header, Footer} from './components';
 import {RootWrapper} from './App.style';
 import {EditorPage} from './EditorPage';
 

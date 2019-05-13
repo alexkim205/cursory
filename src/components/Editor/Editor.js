@@ -19,6 +19,7 @@ import {processfile} from '../../_helpers/process-image';
 
 import {initialValue} from './initial-value';
 import {schema} from './schema';
+import {HelpButton} from './components';
 
 // https://docs.slatejs.org/guides/commands-and-queries
 
@@ -67,6 +68,9 @@ class CustomEditor extends React.Component {
               schema={schema}
               placeholder={'Type here to get started...'}
           />
+          {this.editor &&
+          <HelpButton editorRef={this.editor}/>
+          }
         </React.Fragment>
     );
   }

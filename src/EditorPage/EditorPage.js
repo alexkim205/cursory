@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {editorActions} from '../_actions';
-import {CustomEditor} from '../shared_components/Editor';
+import {CustomEditor} from '../components/Editor';
+// import {HelpButton} from '../components/Editor/components';
 // import {CustomMediumEditor} from '../shared_components';
 
 class EditorPage extends React.Component {
@@ -26,17 +27,7 @@ class EditorPage extends React.Component {
     return (
         <React.Fragment>
           <CustomEditor/>
-          {/*<CustomMediumEditor*/}
-              {/*tag={'div'}*/}
-              {/*text={this.state.text}*/}
-              {/*options={options}*/}
-              {/*onChange={this.handleChange}/>*/}
-          {/*<button onClick={() => save(1)}>*/}
-          {/*Save Entry*/}
-          {/*</button>*/}
-          {/*<button onClick={() => discard(1)}>*/}
-          {/*Discard Entry*/}
-          {/*</button>*/}
+
         </React.Fragment>
     );
   }
