@@ -11,7 +11,7 @@ export function discard(entry_id) {
     dispatch(request());
 
     return new Promise((resolve) => {
-      console.log(`Trying to discard Entry #${entry_id}`);
+      // console.log(`Trying to discard Entry #${entry_id}`);
       setTimeout(() => {
         dispatch(success());
         resolve();
@@ -43,7 +43,7 @@ export function save(entry_id) {
     dispatch(request());
 
     return new Promise((resolve, reject) => {
-      console.log(`Trying to save Entry #${entry_id}`);
+      // console.log(`Trying to save Entry #${entry_id}`);
       setTimeout(() => {
         dispatch(success());
         resolve();

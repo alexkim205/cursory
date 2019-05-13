@@ -185,11 +185,11 @@ function toggleBlock(event, editor, block) {
 
   const {value} = editor;
   const {document, fragment, selection} = value;
-  console.log(selection);
+  // console.log(selection);
   const startNode = document.getParent(selection.start.key);
   const endNode = document.getParent(selection.end.key);
   const oneAfterEnd = document.getNextNode(endNode.key)
-  console.log(startNode, endNode);
+  // console.log(startNode, endNode);
 
   if (startNode !== endNode) return;
 
@@ -251,23 +251,47 @@ function toggleSingleBlock(event, editor, block) {
   }
   // Handle normal -> lists
   else if (!isList(listItem.type) && isList(block)) {
+    console.log('normal -> list')
 
-    editor.withoutNormalizing(() => {
-      // editor.setBlocks('list-item');
-      editor.setNodeByKey(listItem.key, 'list-item');
-      editor.insertNodeByKey(
-          list.key,
-          indexOfPrevious + 1,
-          newList,
-      );
-      editor.moveNodeByKey(listItem.key, newList.key, 0);
+    // if block to toggle to is same as previous list, indent item
+    console.log(block, previousListItem.type)
+    if (block === previousListItem.type) {
+      console.log('same type')
+      increaseItemDepth(event, editor)
+    }
+    // else create new list of different type
+    else {
+      console.log('different type')
+      editor.withoutNormalizing(() => {
+        // editor.setBlocks('list-item');
+        editor.setNodeByKey(listItem.key, 'list-item');
+        editor.insertNodeByKey(
+            list.key,
+            indexOfPrevious + 1,
+            newList,
+        );
+        editor.moveNodeByKey(listItem.key, newList.key, 0);
 
-    });
+      });
+    }
+
+
+    // editor.withoutNormalizing(() => {
+    //   // editor.setBlocks('list-item');
+    //   editor.setNodeByKey(listItem.key, 'list-item');
+    //   editor.insertNodeByKey(
+    //       list.key,
+    //       indexOfPrevious + 1,
+    //       newList,
+    //   );
+    //   editor.moveNodeByKey(listItem.key, newList.key, 0);
+    //
+    // });
   }
   // Handle lists -> normal or other lists
   else {
     // TODO - maybe implement behavior to toggle list types,
-    console.log('list -> normal')
+    // console.log('list -> normal')
 
     // revert to normal if toggle same block
     if (list.type === block) {

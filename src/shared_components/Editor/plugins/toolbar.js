@@ -55,23 +55,12 @@ class ToolBarComponent extends React.Component {
   };
 
   handleMouseDown = (e) => {
-    // const parent = document.getElementById('#toolbar')
-    // if (!parent) return;
-    // console.log(parent)
-    // const editorRef = ReactDOM.findDOMNode()
-    const target = e.target
-    // console.log(e.target);
-    // console.log(parent !== target && parent.contains(target))
-    // if (e.target)
-    // console.log(e.target.id, ['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar')
-    // console.log('mousedown', this.state.buttonPressed)
     if (['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
       return;
     }
     this.setState({buttonPressed: true});
   };
   handleMouseUp = (e) => {
-    // console.log('mouseup', this.state.buttonPressed)
     if (['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
       return;
     }
@@ -111,6 +100,7 @@ class ToolBarComponent extends React.Component {
     const {document, blocks, startBlock} = value;
 
     let isActive = hasBlock(value, type);
+    // let isDisabled =
 
     // if type is list and document isn't empty
     if (isList(type) && blocks.size > 0) {

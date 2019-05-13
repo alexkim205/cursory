@@ -5,6 +5,11 @@ export const Button = styled.span`
   cursor: pointer;
   margin: 0 10px;
   color: ${props => props.active ? 'rgb(255, 88, 43)' : 'white'};
+  
+  // if button is disabled
+  &[disabled], &:disabled {
+    color: #666;
+  }
 `;
 
 export const Icon = styled(({className, ...rest}) => {
