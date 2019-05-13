@@ -188,6 +188,7 @@ class ToolBarComponent extends React.Component {
 
     return (
         <React.Fragment>
+          {/* TODO - image*/}
           {/*<Button onMouseDown={this.onClickImage}>*/}
           {/*<Icon>image</Icon>*/}
           {/*</Button>*/}
@@ -195,6 +196,7 @@ class ToolBarComponent extends React.Component {
           {this.renderMarkButton('italic', 'italic')}
           {this.renderMarkButton('underlined', 'underline')}
           {this.renderMarkButton('strikethrough', 'strikethrough')}
+          {/* TODO -link*/}
           {this.renderMarkButton('link', 'link')}
           {this.renderMarkButton('code', 'code')}
           {this.renderMarkButton('mark', 'highlighter')}
