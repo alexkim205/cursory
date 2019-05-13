@@ -5,6 +5,7 @@ import {
   isList,
   increaseItemDepth,
   decreaseItemDepth,
+  handleMultipleBlocks,
 } from './helper-functions';
 
 /*
@@ -171,6 +172,14 @@ function onShiftEnter(event, editor, next) {
   }
 }
 
+function onTab(event, editor) {
+  handleMultipleBlocks(event, editor, () => increaseItemDepth(event, editor));
+}
+
+function onShiftTab(event, editor) {
+  handleMultipleBlocks(event, editor, () => decreaseItemDepth(event, editor));
+}
+
 function KeyboardPlugin(options) {
   return {
     onKeyDown(event, editor, next) {
@@ -223,9 +232,9 @@ function KeyboardPlugin(options) {
       } else if (event.key === 'Backspace') {
         return onBackspace(event, editor, next);
       } else if (isIncreaseTabHotkey(event)) {
-        increaseItemDepth(event, editor);
+        onTab(event, editor);
       } else if (isDecreaseTabHotkey(event)) {
-        decreaseItemDepth(event, editor);
+        onShiftTab(event, editor);
       }
       else {
         return next();
