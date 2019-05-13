@@ -33,12 +33,12 @@ import {
  *
  */
 const
-    isH1Hotkey = isKeyHotkey('mod+0'),
-    isH2Hotkey = isKeyHotkey('mod+1'),
-    isH3Hotkey = isKeyHotkey('mod+2'),
-    isH4Hotkey = isKeyHotkey('mod+3'),
-    isH5Hotkey = isKeyHotkey('mod+4'),
-    isH6Hotkey = isKeyHotkey('mod+5'),
+    isH1Hotkey = isKeyHotkey('mod+1'),
+    isH2Hotkey = isKeyHotkey('mod+2'),
+    isH3Hotkey = isKeyHotkey('mod+3'),
+    isH4Hotkey = isKeyHotkey('mod+4'),
+    isH5Hotkey = isKeyHotkey('mod+5'),
+    isH6Hotkey = isKeyHotkey('mod+6'),
     isLineSeparatorHotkey = isKeyHotkey('mod+h'),
     isBoldHotkey = isKeyHotkey('mod+b'),
     isItalicHotkey = isKeyHotkey('mod+i'),

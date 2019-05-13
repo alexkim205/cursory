@@ -1,4 +1,6 @@
 import React from 'react';
+import {CodeBlock, CustomBlock, HeaderOne, Header} from '../components';
+import {isList} from './helper-functions';
 
 /*
  H1              meta+1         node
@@ -28,35 +30,31 @@ function RenderPlugin(options) {
 
       switch (node.type) {
         case 'paragraph':
-          return <p {...attributes}>{children}</p>;
+          return <CustomBlock {...attributes} tag={'p'}>{children}</CustomBlock>;
         case 'heading-one':
-          return <h1 {...attributes}>{children}</h1>; // h1 too large
+          return <Header {...attributes} size={1}>{children}</Header>;
         case 'heading-two':
-          return <h2 {...attributes}>{children}</h2>;
+          return <Header {...attributes} size={2}>{children}</Header>;
         case 'heading-three':
-          return <h3 {...attributes}>{children}</h3>;
+          return <Header {...attributes} size={3}>{children}</Header>;
         case 'heading-four':
-          return <h4 {...attributes}>{children}</h4>;
+          return <Header {...attributes} size={4}>{children}</Header>;
         case 'heading-five':
-          return <h5 {...attributes}>{children}</h5>;
+          return <Header {...attributes} size={5}>{children}</Header>;
         case 'heading-six':
-          return <h6 {...attributes}>{children}</h6>;
+          return <Header {...attributes} size={6}>{children}</Header>;
         case 'unordered-list':
-          return <ul {...attributes}>{children}</ul>;
+          return <CustomBlock {...attributes} tag={'ul'}>{children}</CustomBlock>;
         case 'ordered-list':
-          return <ol {...attributes}>{children}</ol>;
+          return <CustomBlock {...attributes} tag={'ol'}>{children}</CustomBlock>;
         case 'list-item':
-          return <li {...attributes}>{children}</li>;
+          return <CustomBlock {...attributes} tag={'li'}>{children}</CustomBlock>;
         case 'todo-list': // TODO
-          return <ol {...attributes}>{children}</ol>;
+          return <CustomBlock {...attributes} tag={'ol'}>{children}</CustomBlock>;
         case 'block-quote':
-          return <blockquote {...attributes}>{children}</blockquote>;
+          return <CustomBlock {...attributes} tag={'blockquote'}>{children}</CustomBlock>;
         case 'block-code':
-          return (
-              <pre>
-                <code {...attributes}>{children}</code>
-              </pre>
-          );
+          return <CodeBlock {...attributes}>{children}</CodeBlock>;
         default:
           return next();
       }
@@ -84,7 +82,6 @@ function RenderPlugin(options) {
           return next();
       }
     },
-
   };
 }
 

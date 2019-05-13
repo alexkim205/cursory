@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types';
 import {PortalWithState} from 'react-portal';
 
-import {Button, Icon, Toolbar} from './toolbar.style';
+import {Button, Icon, Toolbar} from '../styles/toolbar.style';
 import {getVisibleSelectionRect} from '../utils/range';
 
 import {
