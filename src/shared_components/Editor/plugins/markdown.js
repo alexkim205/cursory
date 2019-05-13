@@ -1,7 +1,5 @@
-import {
-  toggleMark, toggleBlock,
-  isMarkorBlockorNeither, unwrapLists, isList,
-} from './helper-functions';
+import {toggleMark, toggleBlock} from './helper-functions';
+import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
 
 /**
  * Get the block type for a series of auto-markdown shortcut `chars`.

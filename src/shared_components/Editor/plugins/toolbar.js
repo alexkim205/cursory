@@ -1,19 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {PortalWithState} from 'react-portal';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import {Button, Icon, Toolbar} from '../styles/toolbar.style';
 import {getVisibleSelectionRect} from '../utils/range';
 
-import {
-  hasBlock,
-  hasMark,
-  isList,
-  toggleBlock,
-  toggleMark,
-} from './';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {toggleBlock, toggleMark} from './';
+import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
+
+// import {BrandIcon, LightIcon, RegularIcon, SolidIcon} from '../../../_assets/DynamicIcon';
 
 class ToolBarComponent extends React.Component {
   constructor(props) {
@@ -55,13 +52,13 @@ class ToolBarComponent extends React.Component {
   };
 
   handleMouseDown = (e) => {
-    if (['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
+    if (['path', 'svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
       return;
     }
     this.setState({buttonPressed: true});
   };
   handleMouseUp = (e) => {
-    if (['path','svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
+    if (['path', 'svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
       return;
     }
     this.setState({buttonPressed: false});
@@ -91,7 +88,7 @@ class ToolBarComponent extends React.Component {
             active={isActive}
             onMouseDown={event => toggleMark(event, this.props.editor, type)}
         >
-          <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={['far', icon]}/>
         </Button>
     );
   };
@@ -114,7 +111,7 @@ class ToolBarComponent extends React.Component {
             active={isActive}
             onMouseDown={event => toggleBlock(event, this.props.editor, type)}
         >
-          <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={['far', icon]}/>
         </Button>
     );
   };
@@ -154,19 +151,19 @@ class ToolBarComponent extends React.Component {
                       {portal(
                           <Toolbar ref={this.toolbarRef} id={'toolbar'}>
                             {/*<Button onMouseDown={this.onClickImage}>*/}
-                              {/*<Icon>image</Icon>*/}
+                            {/*<Icon>image</Icon>*/}
                             {/*</Button>*/}
                             {this.renderMarkButton('bold', 'bold')}
                             {this.renderMarkButton('italic', 'italic')}
-                            {/*{this.renderMarkButton('underlined', 'underline')}*/}
-                            {/*{this.renderMarkButton('strikethrough', 'strikethrough')}*/}
+                            {this.renderMarkButton('underlined', 'underline')}
+                            {this.renderMarkButton('strikethrough', 'strikethrough')}
                             {this.renderMarkButton('link', 'link')}
                             {this.renderMarkButton('code', 'code')}
                             {this.renderMarkButton('mark', 'highlighter')}
-                            {this.renderBlockButton('heading-two', 'heading')}
-                            {this.renderBlockButton('heading-three', 'heading')}
+                            {this.renderBlockButton('heading-one', 'h1')}
+                            {this.renderBlockButton('heading-two', 'h2')}
                             {this.renderBlockButton('block-quote', 'quote-left')}
-                            {/*{this.renderBlockButton('block-code', 'angle-double-right')}*/}
+                            {this.renderBlockButton('block-code', 'brackets-curly')}
                             {this.renderBlockButton('ordered-list', 'list-ol')}
                             {this.renderBlockButton('unordered-list', 'list-ul')}
                             {/*{this.renderBlockButton('todo-list', 'format_list_bulleted')}*/}

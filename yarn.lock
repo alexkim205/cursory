@@ -1178,20 +1178,6 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@convertkit/slate-keymap@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@convertkit/slate-keymap/-/slate-keymap-0.1.8.tgz#a99fe0923c78c69166480a124a750b3342e49250"
-  integrity sha512-7KV/rsNvCHWNOt/9k7D2uwV3wAm9QMGs/iY+0eAY0IXzCoLEq2oZLjsUJkJfPLXP6yGSAPukkKtPRgoVQCMmZw==
-  dependencies:
-    is-hotkey "^0.1.4"
-
-"@convertkit/slate-lists@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@convertkit/slate-lists/-/slate-lists-0.2.2.tgz#4e656a31ca2e504cfdbf7161bd2b23fb1ef28014"
-  integrity sha512-rFI30Q7qjFVF1pnPX3v1ooXJPN7xlcF38Spt4DONNHp5a7PEiBkLLUfz3anM8MpBpeTkcx8XBze3sBgKdNvgow==
-  dependencies:
-    "@convertkit/slate-keymap" "^0.1.8"
-
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -1229,6 +1215,11 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.8.1.tgz#cbafbfe8894c4e3e3c3a9da6774e249ac1f2da8b"
   integrity sha512-GJtx6e55qLEOy2gPOsok2lohjpdWNGrYGtQx0FFT/++K4SYx+Z8LlPHdQBaFzKEwH5IbBB4fNgb//uyZjgYXoA==
 
+"@fortawesome/fontawesome-pro@^5.8.2":
+  version "5.8.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/fontawesome-pro-5.8.2.tgz#799a741bf1b6f3956ef8fe14b3a072ec12c8cea2"
+  integrity sha512-mTmCSQe8SpWselN/asGq7GZ6UuIkQMBJeyKpKv5RlvW4KLOyI49VYfjUVaM/tCJmd8eMBKt96UR6basJOSCmJw==
+
 "@fortawesome/fontawesome-svg-core@^1.2.18":
   version "1.2.18"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.18.tgz#c26cbded461895ebe260f0dea771ca29d8cb3517"
@@ -1247,6 +1238,27 @@
   version "5.8.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.8.2.tgz#aa2f042f73aca43eb4a26149907e63bf26d2e31c"
   integrity sha512-5tF6WOFlqqO95zY5ukSB6jliDa3jnk1p5L4K/a58ccDFsbjSkhfGuvZkRkeWxH8uMms81pZd6yQTwQrkedeJmg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.18"
+
+"@fortawesome/pro-light-svg-icons@^5.8.2":
+  version "5.8.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/pro-light-svg-icons-5.8.2.tgz#c181c7a97f207ccfba929489a2a87f9a5e9f4865"
+  integrity sha512-sdJgFDno6xLsfJ1UV6yFaahNZYpPjJwJaXr9BuxryLTtgwgIszeTl5FEWm7Xf7cAt+3akdRjUqjYXdBmUm+q+A==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.18"
+
+"@fortawesome/pro-regular-svg-icons@^5.8.2":
+  version "5.8.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-regular-svg-icons/-/pro-regular-svg-icons-5.8.2.tgz#03fbe2f52a1f3050df3a0dd0c13a10875fd58bff"
+  integrity sha512-cCfhBrDlrMxmWQgTsdmux8iYR1q0x1MLhZbsC25TOxf1woX1YOO/j0aZ5m/wfLhK++nCUawNZzOePUNl9fCUkQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.18"
+
+"@fortawesome/pro-solid-svg-icons@^5.8.2":
+  version "5.8.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-solid-svg-icons/-/pro-solid-svg-icons-5.8.2.tgz#6e1ce9e8f4202b3b378ff4a28a35503c1987bfc6"
+  integrity sha512-raU7P+5OJ4MXJmsnssFfoT8SCiwS68ce8HocIin2qS7/0NEV0ETenLOIGPD5+5CKCrM/dLnf0S7fdAWlrlYYLw==
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.18"
 
@@ -2450,30 +2462,6 @@ bluebird@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.3.tgz#7d01c6f9616c9a51ab0f8c549a79dfe6ec33efa7"
   integrity sha512-/qKPUQlaW1OyR51WeCPBvRnAlnZFUJkCSG5HzGnuIqhgyJtF+T94lFnn33eiazjRm2LAHVy2guNnaq48X9SJuw==
-
-blueimp-canvas-to-blob@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/blueimp-canvas-to-blob/-/blueimp-canvas-to-blob-3.5.0.tgz#5679ac32f6a2835821f0c3ad661719ff85a9236b"
-  integrity sha1-VnmsMvaig1gh8MOtZhcZ/4WpI2s=
-
-blueimp-file-upload@^9.28.0:
-  version "9.30.0"
-  resolved "https://registry.yarnpkg.com/blueimp-file-upload/-/blueimp-file-upload-9.30.0.tgz#c6f255ce8cbfb21d6f22fabd8dddea6e704227f3"
-  integrity sha512-+xuYMzWREjm2MgQMRlftThDBdP4DklKjC++VihDNW0iwBLfziS4B/BAYGuQxMY8MsxAwVQk3ogxaczsaNVVVEg==
-  optionalDependencies:
-    blueimp-canvas-to-blob "3.5.0"
-    blueimp-load-image "2.12.2"
-    blueimp-tmpl "3.6.0"
-
-blueimp-load-image@2.12.2:
-  version "2.12.2"
-  resolved "https://registry.yarnpkg.com/blueimp-load-image/-/blueimp-load-image-2.12.2.tgz#6a17598aab858d4fbf01543e0631141b51057c87"
-  integrity sha1-ahdZiquFjU+/AVQ+BjEUG1EFfIc=
-
-blueimp-tmpl@3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/blueimp-tmpl/-/blueimp-tmpl-3.6.0.tgz#a4910975d042e2bc03ba77f0e62d04f1548a524c"
-  integrity sha1-pJEJddBC4rwDunfw5i0E8VSKUkw=
 
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
@@ -4986,7 +4974,7 @@ handle-thing@^2.0.0:
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754"
   integrity sha512-d4sze1JNC454Wdo2fkuyzCr6aHcbL6PGGuFAz0Li/NcOm1tCHGnWDRmJP85dh9IhQErTc2svWFEX5xHIOo//kQ==
 
-handlebars@^4.0.12, handlebars@^4.1.2:
+handlebars@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.1.2.tgz#b6b37c1ced0306b221e094fc7aca3ec23b131b67"
   integrity sha512-nvfrjqvt9xQ8Z/w0ijewdD/vvWDTOweBUm96NTr66Wfvo1mJenBLwcYmPs3TIBP5ruzYGD7Hx/DaM9RmhroGPw==
@@ -6298,28 +6286,6 @@ jest@24.7.1:
     import-local "^2.0.0"
     jest-cli "^24.7.1"
 
-jquery-sortable@~0.9.12:
-  version "0.9.13"
-  resolved "https://registry.yarnpkg.com/jquery-sortable/-/jquery-sortable-0.9.13.tgz#1cbfb655013a0747370571f06e22f524a00ffba2"
-  integrity sha1-HL+2VQE6B0c3BXHwbiL1JKAP+6I=
-  dependencies:
-    jquery "^2.1.2"
-
-jquery-ui@^1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
-  integrity sha1-vLQEXI3QU5wTS8FIjN0+dop6nlE=
-
-jquery@>=1.9.0, jquery@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
-  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
-
-jquery@^2.1.2:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
-  integrity sha1-LInWiJterFIqfuoywUUhVZxsvwI=
-
 js-base64@^2.1.8:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"
@@ -6839,29 +6805,6 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
-
-medium-editor-autolist@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/medium-editor-autolist/-/medium-editor-autolist-1.0.1.tgz#2be40f6f74e8f4b5fa7e8b274e3f505c2aea7cdd"
-  integrity sha1-K+QPb3To9LX6fosnTj9QXCrqfN0=
-  dependencies:
-    medium-editor "^5.23.0"
-
-medium-editor-insert-plugin@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/medium-editor-insert-plugin/-/medium-editor-insert-plugin-2.5.1.tgz#3f6836ca1ea0e3c32d98a6814d4f333bcb1140bf"
-  integrity sha512-joPsxWs1uKjoANA/s0mMbDpYn5xLB8Nk8ePsRhvp1qVAWE/sCaD1Mmd5INjFXwr2Vr5MSwDi7DJaZw+EUnEDBA==
-  dependencies:
-    blueimp-file-upload "^9.28.0"
-    handlebars "^4.0.12"
-    jquery ">=1.9.0"
-    jquery-sortable "~0.9.12"
-    medium-editor "^5.15.0"
-
-medium-editor@^5.15.0, medium-editor@^5.23.0, medium-editor@^5.23.3:
-  version "5.23.3"
-  resolved "https://registry.yarnpkg.com/medium-editor/-/medium-editor-5.23.3.tgz#6fb638759ae2fc76c423feb056f346d9c518d3b7"
-  integrity sha512-he9/TdjX8f8MGdXGfCs8AllrYnqXJJvjNkDKmPg3aPW/uoIrlRqtkFthrwvmd+u4QyzEiadhCCM0EwTiRdUCJw==
 
 mem@^4.0.0:
   version "4.1.0"

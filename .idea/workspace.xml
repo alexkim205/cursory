@@ -2,8 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.npmrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_styles/_colors.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_styles/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_styles/theme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/plus-button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/styles/plus-button.style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared_components/Editor/utils/is-has.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_helpers/load-fonts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_helpers/load-fonts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_styles/editor.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/_styles/editor.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_styles/typography.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/_styles/typography.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/schema.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/styles/toolbar.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/styles/toolbar.style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/Editor/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/Editor/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared_components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared_components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,26 +53,29 @@
           <entry key="babelrc" value="1" />
           <entry key="css" value="3" />
           <entry key="eslintrc" value="4" />
-          <entry key="js" value="154" />
-          <entry key="json" value="7" />
-          <entry key="scss" value="20" />
-          <entry key="ts" value="1" />
+          <entry key="gitignore" value="1" />
+          <entry key="js" value="195" />
+          <entry key="json" value="9" />
+          <entry key="npmrc" value="1" />
+          <entry key="scss" value="24" />
+          <entry key="ts" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="3" />
-          <entry key="JSON" value="12" />
-          <entry key="JavaScript" value="153" />
-          <entry key="SCSS" value="20" />
-          <entry key="TypeScript" value="1" />
+          <entry key="JSON" value="14" />
+          <entry key="JavaScript" value="194" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="SCSS" value="24" />
+          <entry key="TypeScript" value="2" />
           <entry key="UML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
           <entry key="ESLintLanguageService" value="9" />
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -60,16 +84,19 @@
           <entry key="babelrc" value="14" />
           <entry key="css" value="4" />
           <entry key="eslintrc" value="16" />
-          <entry key="js" value="34179" />
-          <entry key="scss" value="771" />
+          <entry key="gitignore" value="12" />
+          <entry key="js" value="38364" />
+          <entry key="json" value="3" />
+          <entry key="scss" value="1057" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="JSON" value="30" />
-          <entry key="JavaScript" value="34182" />
-          <entry key="SCSS" value="771" />
+          <entry key="JSON" value="33" />
+          <entry key="JavaScript" value="38367" />
+          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="SCSS" value="1057" />
         </counts>
       </usages-collector>
     </session>
@@ -77,21 +104,55 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_styles/editor.scss">
+        <entry file="file://$PROJECT_DIR$/src/_styles/theme.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="933">
-              <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#224#262#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_styles/typography.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="52" column="15" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#84#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +161,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="204" selection-start-line="204" selection-end-line="205" selection-end-column="68" />
+            <state relative-caret-position="578">
+              <caret line="88" column="49" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#668#696#0" expanded="true" />
@@ -111,31 +172,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js">
+        <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="224" column="46" lean-forward="true" selection-start-line="224" selection-start-column="46" selection-end-line="224" selection-end-column="46" />
+            <state relative-caret-position="525">
+              <caret line="35" column="21" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="21" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#58#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_styles/typography.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/styles/typography.style.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -143,26 +186,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_actions/editor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="46" column="6" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/styles/toolbar.style.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="188">
+              <caret line="88" column="40" lean-forward="true" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -172,27 +197,15 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rgba</find>
-      <find>togglemark</find>
-      <find>this.tool</find>
-      <find>document</find>
-      <find>document.get</find>
-      <find>dom</find>
-      <find>reactdom</find>
-      <find>customme</find>
-      <find>console</find>
-      <find>var</find>
-      <find>editorref</find>
-      <find>toolbar,</find>
-      <find>selection</find>
-      <find>range</find>
-      <find>getnex</find>
-      <find>getnext</find>
-      <find>console.</find>
-      <find>unwraplis</find>
-      <find>scroll</find>
       <find>editor</find>
       <find>toolbar.st</find>
       <find>tool</find>
@@ -204,6 +217,25 @@
       <find>console.log</find>
       <find>toggle</find>
       <find>togg</find>
+      <find>renderbl</find>
+      <find>handle everythi</find>
+      <find>handlemult</find>
+      <find>hasblock</find>
+      <find>handlemultiple</find>
+      <find>fonta</find>
+      <find>lib</find>
+      <find>loadFonts</find>
+      <find>fontawesome</find>
+      <find>solidicon</find>
+      <find>jquery</find>
+      <find>immutable</find>
+      <find>histor</find>
+      <find>rfs</find>
+      <find>typescript</find>
+      <find>unwrapLists</find>
+      <find>isList</find>
+      <find>handlemultip</find>
+      <find>toggleMark</find>
     </findStrings>
     <replaceStrings>
       <replace>blockIsList</replace>
@@ -219,26 +251,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/Image.js" />
-        <option value="$PROJECT_DIR$/src/main.css" />
-        <option value="$PROJECT_DIR$/config/webpack.config.js" />
-        <option value="$PROJECT_DIR$/config/webpackDevServer.config.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/shared_components/CustomMediumEditor.style.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/Italic.js" />
         <option value="$PROJECT_DIR$/src/EditorPage/EditorPage.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/schema.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/_helpers/index.js" />
-        <option value="$PROJECT_DIR$/src/_helpers/load-fonts.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/initial-value.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/utils/index.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.animation.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/index.js" />
         <option value="$PROJECT_DIR$/.eslintrc" />
         <option value="$PROJECT_DIR$/src/_helpers/process-image.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/utils/range.js" />
@@ -246,23 +267,40 @@
         <option value="$PROJECT_DIR$/src/_styles/main.scss" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.style.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Header.style.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/App.style.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/index.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/margin-wrapper.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/components/index.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/styles/index.js" />
-        <option value="$PROJECT_DIR$/src/_styles/editor.scss" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/styles/typography.style.js" />
-        <option value="$PROJECT_DIR$/src/_styles/typography.scss" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/components/render-components.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/Editor.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/styles/toolbar.style.js" />
-        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" />
         <option value="$PROJECT_DIR$/src/_actions/editor.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/schema.js" />
+        <option value="$PROJECT_DIR$/src/_styles/index.js" />
+        <option value="$PROJECT_DIR$/src/_styles/colors.scss" />
+        <option value="$PROJECT_DIR$/src/_styles/theme.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/styles/toolbar.style.js" />
+        <option value="$PROJECT_DIR$/src/_styles/_colors.scss" />
+        <option value="$PROJECT_DIR$/src/_styles/_typography.scss" />
+        <option value="$PROJECT_DIR$/src/_styles/editor.scss" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/components/render-components.js" />
+        <option value="$PROJECT_DIR$/src/_assets/icon-components/index.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/DynamicIcon.js" />
+        <option value="$PROJECT_DIR$/src/_assets/DynamicIcon.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/index.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.npmrc" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/styles/plus-button.style.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/_helpers/load-fonts.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/utils/index.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/utils/is-has.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js" />
+        <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js" />
+        <option value="$PROJECT_DIR$/src/_styles/typography.scss" />
         <option value="$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js" />
       </list>
     </option>
@@ -284,9 +322,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="675" />
+    <option name="x" value="715" />
     <option name="y" value="23" />
-    <option name="width" value="1245" />
+    <option name="width" value="1205" />
     <option name="height" value="1106" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -317,18 +355,18 @@
               <item name="writing" type="b2602c69:ProjectViewProjectNode" />
               <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="_styles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="writing" type="b2602c69:ProjectViewProjectNode" />
               <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="EditorPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="shared_components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -337,14 +375,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="shared_components" type="462c0819:PsiDirectoryNode" />
               <item name="Editor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="shared_components" type="462c0819:PsiDirectoryNode" />
-              <item name="Editor" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="writing" type="b2602c69:ProjectViewProjectNode" />
@@ -360,7 +390,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="shared_components" type="462c0819:PsiDirectoryNode" />
               <item name="Editor" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -385,6 +415,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/_assets" />
       <recent name="$PROJECT_DIR$/src/shared_components/Editor/styles" />
       <recent name="$PROJECT_DIR$/src/_styles" />
     </key>
@@ -428,18 +460,18 @@
       <workItem from="1557502052313" duration="2506000" />
       <workItem from="1557517058356" duration="41305000" />
       <workItem from="1557650913601" duration="7767000" />
-      <workItem from="1557724635414" duration="5262000" />
+      <workItem from="1557724635414" duration="23145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135943000" />
+    <option name="totallyTimeSpent" value="153826000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="675" y="23" width="1245" height="1106" extended-state="0" />
+    <frame x="715" y="23" width="1205" height="1106" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1985294" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2331081" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -453,7 +485,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.31194472" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.31163707" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.31163707" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -468,90 +500,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/blueimp-load-image/js/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src/shared_components/Editor/Editor.js</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/Editor.js#Button#628;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#CollapseOnEscape#200;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#DEFAULT_NODE#369;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#Editor#86;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#Icon#636;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#ImageNode#593;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#PropTypes#34;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#React#7;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#Toolbar#642;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#Value#155;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#getEventRange#94;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#getEventTransfer#109;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#initialValue#682;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isBoldHotkey#398;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isCodeHotkey#479;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isItalicHotkey#414;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isSaveKey#385;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isStrikethroughHotKey#454;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#isUnderlinedHotkey#432;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#processfile#307;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.js#schema#728;</node>
-            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/Editor.style.js#Button#81;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.style.js#Icon#264;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/Editor.style.js#Toolbar#566;</node>
-            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/Image.js#ImageNode#196;</node>
-            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/config.js#DEFAULT_NODE#46;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isBoldHotkey#122;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isCodeHotkey#259;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isItalicHotkey#165;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isSaveKey#81;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isStrikethroughHotKey#302;/Users/alexkim/Documents/writing/writing/src/shared_components/Editor/config.js#isUnderlinedHotkey#210;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/@types/react/index.d.ts</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/react/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/prop-types/index.js</node>
-            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/initial-value.js#initialValue#104;</node>
-            <node x="" y="">$PROJECT_DIR$/src/_helpers/process-image.js#processfile#177;</node>
-            <node x="" y="">$PROJECT_DIR$/src/shared_components/Editor/schema.js#schema#37;</node>
-            <node x="" y="">Value;</node>
-            <node x="" y="">slate-collapse-on-escape</node>
-            <node x="" y="">Editor;getEventRange;getEventTransfer;</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.7697338203269855" x="635.0" y="189.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3192">
-          <caret line="324" lean-forward="true" selection-start-line="324" selection-end-line="324" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/webpack.config.js" />
-    <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared_components/CustomMediumEditor.style.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Image.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Italic.js" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/config.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/schema.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="12109" column="4" selection-start-line="12109" selection-start-column="4" selection-end-line="12109" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_helpers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/initial-value.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -559,24 +507,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/utils/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/slate-react/lib/slate-react.es.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2107">
           <caret line="5183" column="4" selection-start-line="5183" selection-start-column="4" selection-end-line="5183" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="98" column="11" selection-start-line="98" selection-start-column="11" selection-end-line="98" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -589,13 +523,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.animation.js" />
     <entry file="file://$PROJECT_DIR$/src/shared_components/CustomMediumEditor.js" />
-    <entry file="file://$PROJECT_DIR$/src/shared_components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/slate/lib/slate.es.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -671,17 +598,6 @@
     <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/styles/Editor.style.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#224#262#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -710,16 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/components/render-components.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/Editor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
@@ -732,6 +638,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/schema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1123">
+          <caret line="174" column="6" selection-start-line="174" selection-start-column="6" selection-end-line="174" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/styles/typography.style.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -739,78 +655,228 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_styles/typography.scss">
+    <entry file="file://$PROJECT_DIR$/src/_actions/editor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="308">
+          <caret line="46" column="6" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_styles/editor.scss">
+    <entry file="file://$PROJECT_DIR$/src/_styles/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/styles/toolbar.style.js">
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/components/render-components.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        <state relative-caret-position="126">
+          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_actions/editor.js">
+    <entry file="file://$PROJECT_DIR$/src/_styles/editor.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="46" column="6" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
+        <state relative-caret-position="225">
+          <caret line="15" column="73" lean-forward="true" selection-start-line="15" selection-start-column="73" selection-end-line="15" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js">
+    <entry file="file://$PROJECT_DIR$/src/_styles/_colors.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        <state relative-caret-position="45">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/schema.js">
+    <entry file="file://$PROJECT_DIR$/src/shared_components/DynamicFont.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/styles/toolbar.style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state>
+          <caret selection-end-line="2" selection-end-column="39" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/icon-components/brands/CreativeCommonsSamplingPlus.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/icon-components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="5111" lean-forward="true" selection-start-line="5111" selection-end-line="5111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/DynamicIcon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.npmrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/styles/plus-button.style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/plus-button.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@fortawesome/pro-light-svg-icons/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1885">
+          <caret line="847" column="13" selection-start-line="847" selection-start-column="13" selection-end-line="847" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/utils/is-has.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459">
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/utils/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/keyboard-shortcuts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="224" column="46" lean-forward="true" selection-start-line="224" selection-start-column="46" selection-end-line="224" selection-end-column="46" />
+        <state relative-caret-position="-1172">
+          <caret line="8" column="75" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="75" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/render-functions.js">
+    <entry file="file://$PROJECT_DIR$/src/_styles/theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="933">
-          <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#224#262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/toolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="88" column="40" lean-forward="true" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_styles/typography.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/markdown.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="52" column="15" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#84#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared_components/Editor/plugins/helper-functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="204" selection-start-line="204" selection-end-line="205" selection-end-column="68" />
+        <state relative-caret-position="578">
+          <caret line="88" column="49" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#668#696#0" expanded="true" />

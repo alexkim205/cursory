@@ -1,0 +1,10 @@
+// Colors
+
+$color-main: rgb(255, 88, 43);
+$color-light-main: rgba(255, 88, 43, 0.3);
+
+// Export
+:export {
+  colorMain: $color-main;
+  colorLightMain: $color-light-main;
+}

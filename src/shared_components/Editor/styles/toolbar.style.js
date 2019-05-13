@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import {theme} from '../../../_styles';
 
 export const Button = styled.span`
   cursor: pointer;
   margin: 0 10px;
-  color: ${props => props.active ? 'rgb(255, 88, 43)' : 'white'};
+  color: ${props => props.active ? theme.colors.main : 'white'};
   
   // if button is disabled
   &[disabled], &:disabled {

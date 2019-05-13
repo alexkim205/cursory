@@ -19,105 +19,10 @@
  Save            meta+S         -
  */
 
-import {Block, Range, Selection} from 'slate';
+import {Block} from 'slate';
 import {findDOMRange} from 'slate-react';
 
-/**
- * Checks if type is mark or block or neither
- *
- * @param {String} type
- * @return {String} 'mark' || 'block' || 'system'
- */
-function isMarkorBlockorNeither(type) {
-  switch (type) {
-    case 'bold':
-    case 'italic':
-    case 'underlined':
-    case 'strikethrough':
-    case 'link':
-    case 'code':
-    case 'mark':
-      return 'mark';
-    case 'heading-one':
-    case 'heading-two':
-    case 'heading-three':
-    case 'heading-four':
-    case 'heading-five':
-    case 'heading-six':
-    case 'unordered-list':
-    case 'ordered-list':
-    case 'list-item':
-    case 'todo-list':
-    case 'block-quote':
-    case 'block-code':
-      return 'block';
-    default:
-      return 'system';
-  }
-}
-
-/**
- * Checks if type is list
- *
- * @param {String} type
- * @return {Bool}
- */
-function isList(type) {
-  if (!type) return false;
-  switch (type) {
-    case 'unordered-list':
-    case 'ordered-list':
-    case 'list-item':
-    case 'todo-list':
-      return true;
-    default:
-      return false;
-  }
-}
-
-/**
- * Checks if type is heading
- *
- * @param {String} type
- * @return {Bool}
- */
-function isHeading(type) {
-  if (!type) return false;
-  switch (type) {
-    case 'heading-one':
-    case 'heading-two':
-    case 'heading-three':
-    case 'heading-four':
-    case 'heading-five':
-    case 'heading-six':
-      return true;
-    default:
-      return false;
-  }
-}
-
-/**
- * Check if the current selection has a mark with `type` in it.
- *
- * @param value
- * @param {String} type
- * @return {Boolean}
- */
-
-function hasMark(value, type) {
-  return value.activeMarks.some(mark => mark.type === type);
-}
-
-/**
- * Check if the any of the currently selected blocks are of `type`.
- *
- * @param {Object} value
- * @return {Boolean}
- */
-
-function hasBlock(value, type) {
-  return value.blocks.some(node => node.type === type);
-}
+import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
 
 /**
  * Prevent event before toggling mark
@@ -127,8 +32,18 @@ function hasBlock(value, type) {
  * @param {String} mark
  * @returns {null}
  */
-function toggleMark(event, editor, mark) {
+export function toggleMark(event, editor, mark) {
   event.preventDefault();
+
+  const {value} = editor;
+  const {selection, blocks} = value;
+
+  // if last block is empty, move end focus to start of second to last block
+  if (blocks.size > 1 && selection.end.offset === 0) {
+    editor.moveEndBackward(1);
+    return toggleMark(event, editor, mark); // try again
+  }
+
   editor.toggleMark(mark);
 }
 
@@ -137,7 +52,7 @@ function toggleMark(event, editor, mark) {
  * @param {Event} event
  * @param {Editor} editor
  */
-function unwrapLists(event, editor) {
+export function unwrapLists(event, editor) {
   editor.setBlocks('paragraph').
       unwrapBlock('unordered-list').
       unwrapBlock('ordered-list').
@@ -145,54 +60,41 @@ function unwrapLists(event, editor) {
 }
 
 /**
- * Wrap list blocks
- * @param {Event} event
- * @param {Editor} editor
- */
-function wrapLists(event, editor, block) {
-  editor.unwrapBlock('unordered-list').
-      unwrapBlock('ordered-list').
-      unwrapBlock('todo-list').
-      wrapBlock(block);
-}
-
-/**
- * Remove all marks, clean
- * @param {Event} event
- * @param {Editor} editor
- */
-function removeAllMarks(event, editor) {
-  editor.
-      removeMark('bold').
-      removeMark('italic').
-      removeMark('underline').
-      removeMark('strikethrough').
-      removeMark('link').
-      removeMark('code').
-      removeMark('mark');
-}
-
-/**
  * Handle multiple blocks, and call callback on all affected blocks
  *
  * @param {Event} event
  * @param {Editor} editor
- * @param {function} callback
+ * @param {function} callbackSingle
+ * @param {function} callbackMultiple - defines rules to follow if selected are different blocks
  */
-function handleMultipleBlocks(event, editor, callback) {
+export function handleMultipleBlocks(event, editor, callbackSingle, callbackMultiple = (blocks) => {
+
+  // default loop through each element and toggle (works for lists)
+  blocks.forEach((node, i) => {
+        editor.moveToEndOfNode(node);
+        callbackSingle();
+      },
+  );
+}) {
   event.preventDefault();
 
   const {value} = editor;
   const {document, fragment, selection, blocks} = value;
+  const n = blocks.size;
   // console.log('value blocks', value.blocks);
   const startNode = document.getParent(selection.start.key);
   const endNode = document.getParent(selection.end.key);
-  const oneAfterEnd = document.getNextNode(endNode.key);
+
+  // if last block is empty, move end focus to start of second to last block
+  if (blocks.size > 1 && selection.end.offset === 0) {
+    editor.moveEndBackward(1);
+    return handleMultipleBlocks(event, editor, callbackSingle, callbackMultiple); // try again
+  }
 
   // single block selected
   if (startNode === endNode) {
     console.log('single block selected');
-    callback();
+    callbackSingle();
   }
   // multiple blocks selected
   else {
@@ -204,10 +106,8 @@ function handleMultipleBlocks(event, editor, callback) {
         currentEndTextOffset = selection.end.offset;
     // console.log('start', currentStartTextNode, currentStartTextOffset);
     // console.log('end', currentEndTextNode, currentEndTextOffset);
-    blocks.forEach((node, i) => {
-      editor.moveToEndOfNode(node);
-      callback();
-    });
+    callbackMultiple(blocks);
+
     editor.moveStartTo(currentStartTextNode.key, currentStartTextOffset);
     editor.moveEndTo(currentEndTextNode.key, currentEndTextOffset);
   }
@@ -222,9 +122,33 @@ function handleMultipleBlocks(event, editor, callback) {
  * @param {String} block
  * @returns {null}
  */
-function toggleBlock(event, editor, block) {
+export function toggleBlock(event, editor, block) {
 
-  handleMultipleBlocks(event, editor, () => toggleSingleBlock(event, editor, block));
+  handleMultipleBlocks(event, editor,
+      () => toggleSingleBlock(event, editor, block),
+      (blocks) => {
+        // if some are active, toggle nonactive ones
+        const someAreActive = blocks.some((node) => node.type === block);
+        const allAreActive = blocks.every((node) => node.type === block);
+
+        if (someAreActive && !allAreActive) {
+          console.log('some active');
+          blocks.forEach((node, i) => {
+            editor.moveToEndOfNode(node);
+            if (node.type !== block) {
+              toggleSingleBlock(event, editor, block);
+            }
+          });
+        }
+        // if all are active or all are not active, toggle all
+        else {
+          console.log('all active or none active');
+          blocks.forEach((node, i) => {
+            editor.moveToEndOfNode(node);
+            toggleSingleBlock(event, editor, block);
+          });
+        }
+      });
 }
 
 /**
@@ -235,7 +159,7 @@ function toggleBlock(event, editor, block) {
  * @param {String} block
  * @returns {null}
  */
-function toggleSingleBlock(event, editor, block) {
+export function toggleSingleBlock(event, editor, block) {
   event.preventDefault();
 
   const {value} = editor;
@@ -257,7 +181,7 @@ function toggleSingleBlock(event, editor, block) {
     type: block,
   });
 
-  // Handle everything but lists.
+  // Handle everything but converting to and from lists.
   if (!isList(listItem.type) && !isList(block)) {
     const isActive = hasBlock(value, block);
     editor.setBlocks(isActive ? 'paragraph' : block);
@@ -305,7 +229,7 @@ function toggleSingleBlock(event, editor, block) {
     }
     // TODO - convert to different list
     // else if (list.type !== block) {
-    //
+    //   editor.setNodeByKey(list.key, block);
     // }
   }
 }
@@ -314,7 +238,7 @@ function toggleSingleBlock(event, editor, block) {
  * increase item depth
  *
  */
-function increaseItemDepth(event, editor) {
+export function increaseItemDepth(event, editor) {
   event.preventDefault();
 
   const {document, startBlock} = editor.value;
@@ -387,7 +311,7 @@ function increaseItemDepth(event, editor) {
   }
 }
 
-function decreaseItemDepth(event, editor) {
+export function decreaseItemDepth(event, editor) {
   event.preventDefault();
 
   const {document, startBlock} = editor.value;
@@ -463,19 +387,3 @@ function decreaseItemDepth(event, editor) {
     editor.moveNodeByKey(listItem.key, parentList.key, parentIndex + 1);
   }
 }
-
-export {
-  toggleBlock,
-  toggleMark,
-  isMarkorBlockorNeither,
-  unwrapLists,
-  wrapLists,
-  isList,
-  isHeading,
-  removeAllMarks,
-  increaseItemDepth,
-  decreaseItemDepth,
-  hasBlock,
-  hasMark,
-  handleMultipleBlocks,
-};

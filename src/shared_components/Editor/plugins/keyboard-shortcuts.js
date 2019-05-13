@@ -2,11 +2,11 @@ import {isKeyHotkey} from 'is-hotkey';
 import {
   toggleBlock,
   toggleMark,
-  isList,
   increaseItemDepth,
   decreaseItemDepth,
   handleMultipleBlocks,
 } from './helper-functions';
+import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
 
 /*
  H1              meta+1         node

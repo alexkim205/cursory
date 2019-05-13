@@ -1,27 +1,6 @@
 import React from 'react';
 import {CodeBlock, CustomBlock, HeaderOne, Header} from '../components';
-import {isList} from './helper-functions';
-
-/*
- H1              meta+1         node
- H2              meta+2         node
- H3              meta+3         node
- Line Separator  meta+H         node
- Bold            meta+B         mark
- Italic          meta+I         mark
- Underline       meta+U         mark
- Strikethrough   meta+shift+S   mark
- Link            meta+K         mark
- List            meta+L         node
- Ordered List    meta+shift+L   node
- Quote           meta+Q         node
- Checklist/Todo  meta+shift+T   node
- Code            meta+shift+C   mark
- Code Block      meta+shift+D   node
- Mark            meta+M         mark
- File?           meta+shift+F   -
- Save            meta+S         -
- */
+import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
 
 function RenderPlugin(options) {
   return {

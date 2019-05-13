@@ -10,15 +10,8 @@ const normalizeList = (editor, error) => {
   switch (error.code) {
     case 'next_sibling_type_invalid':
       // insert all first list's children into second list
-      // console.log(secondListChild.type);
-      // if (!isList(secondListChild.type)) {
-      //   editor.insertNodeByKey(document.key, index+1, secondListChild);
-      //   return editor.setNodeByKey(secondListChild.key, secondListChild.type);
-      // }
-
       editor.removeNodeByKey(secondListChild.key);
       editor.insertNodeByKey(firstListChild.key, firstListChild.nodes.size, secondListChild);
-      // editor.unwrapNodeByKey(secondListChild.key, 'ordered-list')
 
       for (let i = 0; i < secondListChild.nodes.size; i++) {
         let listItemChildKey = secondListChild.nodes.get(i).key;
