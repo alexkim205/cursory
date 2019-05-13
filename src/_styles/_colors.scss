@@ -3,8 +3,11 @@
 $color-main: rgb(255, 88, 43);
 $color-light-main: rgba(255, 88, 43, 0.3);
 
+$color-mark: rgba(254, 237, 90, 0.95);
+
 // Export
 :export {
   colorMain: $color-main;
   colorLightMain: $color-light-main;
+  colorMark: $color-mark;
 }

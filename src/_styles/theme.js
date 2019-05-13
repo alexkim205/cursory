@@ -4,5 +4,6 @@ export const theme = {
   colors: {
     main: colors.colorMain,
     light_main: colors.colorLightMain,
+    mark: colors.colorMark,
   },
 };

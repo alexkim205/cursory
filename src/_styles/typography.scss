@@ -68,6 +68,10 @@ nav {
     @include rfs(15);
   }
 
+  mark {
+    background-color: $color-mark;
+  }
+
   code, pre {
     font-family: 'Source Code Pro', monospace;
     @include rfs(14);
@@ -90,14 +94,16 @@ nav {
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 
-    @include rfs(16);
+    @include rfs(14);
   }
 
   blockquote {
     display: block;
     border-left: 3px solid $color-light-main;
-    margin-left: -15px;
+    //margin-left: -15px;
     padding-left: 15px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
     font-style: italic;
     color: #555;
   }

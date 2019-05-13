@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import {PortalWithState} from 'react-portal';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import camelCase from 'camelcase';
 
 import {Button, Icon, Toolbar} from '../styles/toolbar.style';
 import {getVisibleSelectionRect} from '../utils/range';
 
 import {toggleBlock, toggleMark} from './';
-import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
+import {isMarkorBlockorNeither, isList, hasBlock, hasMark, whichList} from '../utils';
 
 // import {BrandIcon, LightIcon, RegularIcon, SolidIcon} from '../../../_assets/DynamicIcon';
 
@@ -24,7 +25,24 @@ class ToolBarComponent extends React.Component {
     // shouldOpen: PropTypes.bool.isRequired,
   };
 
-  state = {isOpen: false, buttonPressed: false};
+  state = {
+    isOpen: false,
+    buttonPressed: false,
+    // disabled: {
+    //   bold: false,
+    //   italic: false,
+    //   underline: false,
+    //   strikethrough: false,
+    //   link: false,
+    //   code: false,
+    //   headingOne: false,
+    //   headingTwo: false,
+    //   blockQuote: false,
+    //   blockCode: false,
+    //   unorderedList: false,
+    //   orderedList: false,
+    // },
+  };
 
   updateMenuAttributes = () => {
     const {isOpen} = this.state;
@@ -53,12 +71,14 @@ class ToolBarComponent extends React.Component {
 
   handleMouseDown = (e) => {
     if (['path', 'svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
+      e.preventDefault();
       return;
     }
     this.setState({buttonPressed: true});
   };
   handleMouseUp = (e) => {
     if (['path', 'svg'].includes(e.target.tagName) || e.target.id === 'toolbar') { // if clicked button or toolbar, ignore
+      e.preventDefault();
       return;
     }
     this.setState({buttonPressed: false});
@@ -79,28 +99,32 @@ class ToolBarComponent extends React.Component {
     this.updateMenuAttributes();
   }
 
-  renderMarkButton = (type, icon) => {
+  renderMarkButton = (type, icon, disabled = false) => {
     const {value} = this.props;
     const isActive = hasMark(value, type);
 
     return (
         <Button
             active={isActive}
-            onMouseDown={event => toggleMark(event, this.props.editor, type)}
+            isDisabled={disabled}
+            onMouseDown={disabled ?
+                (e) => e.preventDefault() :
+                event => toggleMark(event, this.props.editor, type)}
         >
           <FontAwesomeIcon icon={['far', icon]}/>
         </Button>
     );
   };
-  renderBlockButton = (type, icon) => {
+  renderBlockButton = (type, icon, disabled = false) => {
     const {value} = this.props;
     const {document, blocks, startBlock} = value;
 
     let isActive = hasBlock(value, type);
-    // let isDisabled =
 
     // if type is list and document isn't empty
     if (isList(type) && blocks.size > 0) {
+
+      // find if current block is list or not
       const listItem = document.getNode(startBlock.key);
       const list = document.getParent(listItem.key);
       isActive = listItem && list && list.type === type;
@@ -109,10 +133,79 @@ class ToolBarComponent extends React.Component {
     return (
         <Button
             active={isActive}
-            onMouseDown={event => toggleBlock(event, this.props.editor, type)}
+            isDisabled={disabled}
+            onMouseDown={disabled ?
+                (e) => e.preventDefault() :
+                event => toggleBlock(event, this.props.editor, type)}
         >
           <FontAwesomeIcon icon={['far', icon]}/>
         </Button>
+    );
+  };
+
+  renderButtons = () => {
+    const {value} = this.props;
+    const {document, blocks, startBlock} = value;
+
+    const activeMarks = value.activeMarks;
+    // const activeBlocks = value.blocks.map((block) => block.type);
+    let disabledState = {
+      // marks
+      bold: false,
+      italic: false,
+      underline: false,
+      strikethrough: false,
+      link: false,
+      code: false,
+      // blocks
+      headingOne: false,
+      headingTwo: false,
+      blockQuote: false,
+      blockCode: false,
+      unorderedList: false,
+      orderedList: false,
+    };
+    blocks.forEach((block, i) => {
+      console.log(block);
+      if (isList(block.type)) {
+        const listType = whichList(document, block);
+        console.log(listType);
+        if (listType === 'ordered-list') {
+          disabledState.unorderedList = true;
+        } else if (listType === 'unordered-list') {
+          disabledState.orderedList = true;
+        }
+        disabledState = {
+          ...disabledState,
+          headingOne: true,
+          headingTwo: true,
+          blockQuote: true,
+          blockCode: true,
+        };
+      }
+    });
+    console.log(disabledState);
+
+    return (
+        <React.Fragment>
+          {/*<Button onMouseDown={this.onClickImage}>*/}
+          {/*<Icon>image</Icon>*/}
+          {/*</Button>*/}
+          {this.renderMarkButton('bold', 'bold')}
+          {this.renderMarkButton('italic', 'italic')}
+          {this.renderMarkButton('underlined', 'underline')}
+          {this.renderMarkButton('strikethrough', 'strikethrough')}
+          {this.renderMarkButton('link', 'link')}
+          {this.renderMarkButton('code', 'code')}
+          {this.renderMarkButton('mark', 'highlighter')}
+          {this.renderBlockButton('heading-one', 'h1', disabledState.headingOne)}
+          {this.renderBlockButton('heading-two', 'h2', disabledState.headingTwo)}
+          {this.renderBlockButton('block-quote', 'quote-left', disabledState.blockQuote)}
+          {this.renderBlockButton('block-code', 'brackets-curly', disabledState.blockCode)}
+          {this.renderBlockButton('ordered-list', 'list-ol', disabledState.orderedList)}
+          {this.renderBlockButton('unordered-list', 'list-ul', disabledState.unorderedList)}
+          {/*{this.renderBlockButton('todo-list', 'format_list_bulleted')}*/}
+        </React.Fragment>
     );
   };
 
@@ -128,7 +221,10 @@ class ToolBarComponent extends React.Component {
     const shouldOpen = selection.isExpanded && selection.isFocused && !this.state.buttonPressed;
     // const {shouldOpen} = this.props;
 
-    // console.log('should open: ', shouldOpen);
+    // if one of lists are active, disable all other lists
+    // if (oneIsActive) {
+    //
+    // }
 
     return (
         <React.Fragment>
@@ -150,23 +246,7 @@ class ToolBarComponent extends React.Component {
                     <React.Fragment>
                       {portal(
                           <Toolbar ref={this.toolbarRef} id={'toolbar'}>
-                            {/*<Button onMouseDown={this.onClickImage}>*/}
-                            {/*<Icon>image</Icon>*/}
-                            {/*</Button>*/}
-                            {this.renderMarkButton('bold', 'bold')}
-                            {this.renderMarkButton('italic', 'italic')}
-                            {this.renderMarkButton('underlined', 'underline')}
-                            {this.renderMarkButton('strikethrough', 'strikethrough')}
-                            {this.renderMarkButton('link', 'link')}
-                            {this.renderMarkButton('code', 'code')}
-                            {this.renderMarkButton('mark', 'highlighter')}
-                            {this.renderBlockButton('heading-one', 'h1')}
-                            {this.renderBlockButton('heading-two', 'h2')}
-                            {this.renderBlockButton('block-quote', 'quote-left')}
-                            {this.renderBlockButton('block-code', 'brackets-curly')}
-                            {this.renderBlockButton('ordered-list', 'list-ol')}
-                            {this.renderBlockButton('unordered-list', 'list-ul')}
-                            {/*{this.renderBlockButton('todo-list', 'format_list_bulleted')}*/}
+                            {this.renderButtons()}
                           </Toolbar>,
                       )}
                     </React.Fragment>

@@ -52,6 +52,21 @@ export function isList(type) {
 }
 
 /**
+ * Returns which list type it is
+ *
+ * @param {Document} document
+ * @param {Node} node
+ * @return {String}
+ */
+export function whichList(document, node) {
+  if (!node || !isList(node.type)) return;
+  console.log(node)
+  const listItem = document.getNode(node.key);
+  const list = document.getParent(listItem.key);
+  return listItem && list ? list.type : null;
+}
+
+/**
  * Check if the current selection has a mark with `type` in it.
  *
  * @param value

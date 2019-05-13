@@ -8,9 +8,10 @@ export const Button = styled.span`
   color: ${props => props.active ? theme.colors.main : 'white'};
   
   // if button is disabled
-  &[disabled], &:disabled {
+  ${props => props.isDisabled ? `
     color: #666;
-  }
+    cursor: not-allowed;
+  ` : ''}
 `;
 
 export const Icon = styled(({className, ...rest}) => {
