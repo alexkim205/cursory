@@ -6,7 +6,7 @@ import {compose} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 import {withFirebase} from '../../components/Firebase';
 
-import * as ROUTES from '../../_constants/routes';
+import {ROUTES} from '../../_constants';
 import {PasswordForgetLink} from '../PasswordForgetPage';
 import {SignUpLink} from '../SignUpPage';
 
@@ -54,7 +54,7 @@ class SignInPage extends React.Component {
 
     return (
         <React.Fragment>
-          <h1>Sign Up Page</h1>
+          <h1>Sign In Page</h1>
           <form onSubmit={this.onSubmit}>
             <input
                 name="email"

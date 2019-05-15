@@ -6,7 +6,7 @@ import {compose} from 'redux';
 import {Link, withRouter} from 'react-router-dom';
 import {withFirebase} from '../../components/Firebase';
 
-import * as ROUTES from '../../_constants/routes';
+import {ROUTES} from '../../_constants';
 
 const INITIAL_STATE = {
   username: '',
@@ -30,13 +30,22 @@ class SignUpPage extends React.Component {
 
   onSubmit = event => {
     const {username, email, passwordOne} = this.state;
+    const roles = {};
 
-    this.props.firebase.doCreateUserWithEmailAndPassword(email, passwordOne).then(authUser => {
-      this.setState({...INITIAL_STATE});
-      this.props.history.push(ROUTES.HOME);
-    }).catch(error => {
-      this.setState({error});
-    });
+    this.props.firebase.doCreateUserWithEmailAndPassword(email, passwordOne).
+        then(authUser => {
+          // Create a user in Firebase cloud database
+          return this.props.firebase.user(authUser.user.uid).set({
+            username, email, roles,
+          });
+        }).
+        then(() => {
+          this.setState({...INITIAL_STATE});
+          this.props.history.push(ROUTES.HOME);
+        }).
+        catch(error => {
+          this.setState({error});
+        });
 
     event.preventDefault();
   };
@@ -56,7 +65,7 @@ class SignUpPage extends React.Component {
 
     return (
         <React.Fragment>
-          <h1>Sign In Page</h1>
+          <h1>Sign Up Page</h1>
           <form onSubmit={this.onSubmit}>
             <input
                 name="username"
@@ -102,7 +111,7 @@ const SignUpLink = () => (
     <p>
       Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
     </p>
-)
+);
 
 // function mapStateToProps(state) => {
 

@@ -1,5 +1,5 @@
 import { editorConstants } from "../_constants";
-import {writingRef} from '../components/Firebase/firebase';
+// import {writingRef} from '../components/Firebase/firebase';
 import { toast } from "react-toastify";
 
 export const editorActions = {
@@ -15,7 +15,7 @@ export function discard(entry_id, payload) {
     return new Promise((resolve) => {
       // console.log(`Trying to discard Entry #${entry_id}`);
       setTimeout(() => {
-        writingRef.child(entry_id).remove() // firebase
+        // writingRef.child(entry_id).remove() // firebase
         dispatch(success());
         resolve();
       }, 1000);
@@ -48,7 +48,7 @@ export function save(entry_id, payload) {
     return new Promise((resolve, reject) => {
       // console.log(`Trying to save Entry #${entry_id}`);
       setTimeout(() => {
-        writingRef.push().set(payload) // firebase
+        // writingRef.push().set(payload) // firebase
         dispatch(success());
         resolve();
       }, 1000);

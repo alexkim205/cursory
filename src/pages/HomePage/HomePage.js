@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 
-import {withAuthorization} from '../../components/Session';
-import {withFirebase} from '../../components/Firebase';
+import {isUser, withAuthorization} from '../../components/Session';
 
 class HomePage extends React.Component {
   static propTypes = {};
 
   render() {
-    // const {save, discard} = this.props;
-
     return (
         <React.Fragment>
           <h1>Home Page</h1>
@@ -21,10 +18,8 @@ class HomePage extends React.Component {
   }
 }
 
-const condition = authUser => !!authUser;
-
 const connectedPage = compose(
-    withAuthorization(condition),
+    withAuthorization(isUser),
     connect(null, null),
 )(HomePage);
 

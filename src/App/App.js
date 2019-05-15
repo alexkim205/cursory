@@ -5,7 +5,7 @@ import {compose} from 'redux';
 import {Router, Route} from 'react-router-dom';
 
 // Routing
-import * as ROUTES from '../_constants/routes';
+import {ROUTES} from '../_constants';
 
 // Helpers
 import {loadFonts, renderToaster, history} from '../_helpers';

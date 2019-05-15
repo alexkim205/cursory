@@ -5,8 +5,11 @@ import {compose} from 'redux';
 
 import {PasswordChangeForm} from '../PasswordChangeForm';
 import {PasswordForgetForm} from '../PasswordForgetPage';
-import {AuthUserContext, withAuthorization} from '../../components/Session';
-import withAuthentication from '../../components/Session/withAuthentication';
+import {
+  AuthUserContext,
+  isUser,
+  withAuthorization,
+} from '../../components/Session';
 
 const AccountPage = () => (
     <AuthUserContext.Consumer>
@@ -20,10 +23,8 @@ const AccountPage = () => (
     </AuthUserContext.Consumer>
 );
 
-const condition = authUser => !!authUser;
-
 const connectedPage = compose(
-    withAuthorization(condition),
+    withAuthorization(isUser),
     connect(null, null),
 )(AccountPage);
 

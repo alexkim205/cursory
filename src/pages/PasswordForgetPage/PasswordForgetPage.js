@@ -6,7 +6,7 @@ import {compose} from 'redux';
 import {Link} from 'react-router-dom';
 import {withFirebase} from '../../components/Firebase';
 
-import * as ROUTES from '../../_constants/routes';
+import {ROUTES} from '../../_constants';
 
 const INITIAL_STATE = {
   email: '',

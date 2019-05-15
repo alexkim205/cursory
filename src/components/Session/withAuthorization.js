@@ -9,7 +9,7 @@ import AuthUserContext from './context';
 import {withFirebase} from '../Firebase';
 
 // Routes
-import * as ROUTES from '../../_constants/routes';
+import {ROUTES} from '../../_constants';
 
 const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
@@ -19,13 +19,17 @@ const withAuthorization = condition => Component => {
     };
 
     componentDidMount() {
-      this.listener = this.props.firebase.auth.onAuthStateChanged(
+      this.listener = this.props.firebase.onAuthUserListener(
           authUser => {
             if (!condition(authUser)) {
               Log.warn('Not authorized!', 'withAuthorization');
               this.props.history.push(ROUTES.SIGN_IN);
             }
             Log.success('Authorized!', 'withAuthorization');
+          },
+          () => {
+            Log.warn('Not authorized!', 'withAuthorization');
+            this.props.history.push(ROUTES.SIGN_IN);
           },
       );
     }

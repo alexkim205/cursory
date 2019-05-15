@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {compose} from 'redux';
 import {Log} from '../../_helpers';
 
 // HOC Components
@@ -10,22 +11,26 @@ export const withAuthentication = Component => {
   class WithAuthentication extends React.Component {
     static propTypes = {
       firebase: PropTypes.object.isRequired,
+      history: PropTypes.object.isRequired,
     };
 
     state = {
-      authUser: null,
+      authUser: JSON.parse(localStorage.getItem('authUser')),
     };
 
     componentDidMount() {
-      this.listener = this.props.firebase.auth.onAuthStateChanged(
+      this.listener = this.props.firebase.onAuthUserListener(
           authUser => {
             if (authUser) {
               Log.success('Authenticated!', 'withAuthentication');
+              localStorage.setItem('authUser', JSON.stringify(authUser));
               this.setState({authUser});
-            } else {
-              Log.warn('Not authenticated!', 'withAuthentication');
-              this.setState({authUser: null});
             }
+          },
+          () => {
+            Log.warn('Not authenticated!', 'withAuthentication');
+            localStorage.removeItem('authUser');
+            this.setState({ authUser: null });
           },
       );
     }
@@ -43,7 +48,9 @@ export const withAuthentication = Component => {
     }
   }
 
-  return withFirebase(WithAuthentication);
+  return compose(
+      withFirebase,
+  )(WithAuthentication);
 };
 
 export default withAuthentication;
