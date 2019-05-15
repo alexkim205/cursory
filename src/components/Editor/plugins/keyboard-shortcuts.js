@@ -107,12 +107,12 @@ function onEnter(event, editor, next) {
   if (start.offset === 0 && startBlock.text.length === 0) {
     // decrease indent if in list
     if (isList(startBlock.type)) {
-      console.log('start+list');
+      // console.log('start+list');
       return decreaseItemDepth(event, editor);
     }
     // if normal block thats empty, treat as backspace
     else {
-      console.log('start+notlist');
+      // console.log('start+notlist');
       return onBackspace(event, editor, next);
     }
   }
@@ -120,12 +120,12 @@ function onEnter(event, editor, next) {
   // if middle of text, treat as enter
   if (end.offset !== startBlock.text.length) {
     if (startBlock.type === 'block-quote' || startBlock.type === 'block-code') {
-      console.log('middle+block');
+      // console.log('middle+block');
       return onShiftEnter(event, editor, next);
     }
     // if anything else, just make new
     else if (isList(startBlock.type)) {
-      console.log('middle+list');
+      // console.log('middle+list');
       return next();
     }
     // if header or anything else, just make new line
@@ -141,12 +141,12 @@ function onEnter(event, editor, next) {
   if (end.offset === startBlock.text.length) {
     // and list
     if (isList(startBlock.type)) {
-      console.log('end+list');
+      // console.log('end+list');
       return next();
     }
     // not list
     else {
-      console.log('end+notlist');
+      // console.log('end+notlist');
       event.preventDefault();
       editor.withoutNormalizing(() => {
         editor.splitBlock().setBlocks('paragraph');

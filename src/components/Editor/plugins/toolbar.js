@@ -166,10 +166,10 @@ class ToolBarComponent extends React.Component {
       orderedList: false,
     };
     blocks.forEach((block, i) => {
-      console.log(block);
+      // console.log(block);
       if (isList(block.type)) {
         const listType = whichList(document, block);
-        console.log(listType);
+        // console.log(listType);
         if (listType === 'ordered-list') {
           disabledState.unorderedList = true;
         } else if (listType === 'unordered-list') {
@@ -184,7 +184,7 @@ class ToolBarComponent extends React.Component {
         };
       }
     });
-    console.log(disabledState);
+    // console.log(disabledState);
 
     return (
         <React.Fragment>

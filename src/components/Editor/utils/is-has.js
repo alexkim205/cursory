@@ -60,7 +60,7 @@ export function isList(type) {
  */
 export function whichList(document, node) {
   if (!node || !isList(node.type)) return;
-  console.log(node)
+  // console.log(node)
   const listItem = document.getNode(node.key);
   const list = document.getParent(listItem.key);
   return listItem && list ? list.type : null;

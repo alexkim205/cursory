@@ -93,12 +93,12 @@ export function handleMultipleBlocks(event, editor, callbackSingle, callbackMult
 
   // single block selected
   if (startNode === endNode) {
-    console.log('single block selected');
+    // console.log('single block selected');
     callbackSingle();
   }
   // multiple blocks selected
   else {
-    console.log('multiple blocks selected', blocks);
+    // console.log('multiple blocks selected', blocks);
 
     const currentStartTextNode = value.startText,
         currentEndTextNode = value.endText,
@@ -132,7 +132,7 @@ export function toggleBlock(event, editor, block) {
         const allAreActive = blocks.every((node) => node.type === block);
 
         if (someAreActive && !allAreActive) {
-          console.log('some active');
+          // console.log('some active');
           blocks.forEach((node, i) => {
             editor.moveToEndOfNode(node);
             if (node.type !== block) {
@@ -142,7 +142,7 @@ export function toggleBlock(event, editor, block) {
         }
         // if all are active or all are not active, toggle all
         else {
-          console.log('all active or none active');
+          // console.log('all active or none active');
           blocks.forEach((node, i) => {
             editor.moveToEndOfNode(node);
             toggleSingleBlock(event, editor, block);
@@ -188,17 +188,17 @@ export function toggleSingleBlock(event, editor, block) {
   }
   // Handle normal -> lists
   else if (!isList(listItem.type) && isList(block)) {
-    console.log('normal -> list');
+    // console.log('normal -> list');
 
     // if block to toggle to is same as previous list, indent item
-    console.log(block, previousListItem.type);
+    // console.log(block, previousListItem.type);
     if (block === previousListItem.type) {
-      console.log('same type');
+      // console.log('same type');
       increaseItemDepth(event, editor);
     }
     // else create new list of different type
     else {
-      console.log('different type');
+      // console.log('different type');
       editor.withoutNormalizing(() => {
         // editor.setBlocks('list-item');
         editor.setNodeByKey(listItem.key, 'list-item');

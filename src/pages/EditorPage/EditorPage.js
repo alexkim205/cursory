@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {editorActions} from '../_actions';
-import {CustomEditor} from '../components/Editor';
-// import {HelpButton} from '../components/Editor/components';
-// import {CustomMediumEditor} from '../shared_components';
+import {editorActions} from '../../_actions/index';
+import {CustomEditor} from '../../components/Editor/index';
 
 class EditorPage extends React.Component {
   static propTypes = {
@@ -27,7 +25,6 @@ class EditorPage extends React.Component {
     return (
         <React.Fragment>
           <CustomEditor/>
-
         </React.Fragment>
     );
   }
