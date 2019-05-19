@@ -6,6 +6,7 @@ import { compose } from "redux";
 import AuthUserContext from "./context";
 import { withFirebase } from "../Firebase";
 
+// Checks if user logged in with email, verified their email
 const needsEmailVerification = authUser =>
   authUser &&
   !authUser.emailVerified &&
@@ -16,14 +17,18 @@ const needsEmailVerification = authUser =>
 const withEmailVerification = Component => {
   class WithEmailVerification extends React.Component {
     static propTypes = {
-      firebase: PropTypes.object.isRequired
+      firebase: PropTypes.object.isRequired,
+      location: PropTypes.object.isRequired
     };
 
     state = { isSent: false };
 
     onSendEmailVerification = () => {
+      const currentRoute = this.props.location.pathname;
+      console.log("currentroute", currentRoute);
+
       this.props.firebase
-        .doSendEmailVerification()
+        .doSendEmailVerification(currentRoute)
         .then(() => this.setState({ isSent: true }));
     };
 
@@ -35,19 +40,19 @@ const withEmailVerification = Component => {
               <React.Fragment>
                 {this.state.isSent ? (
                   <p>
-                    E-Mail confirmation sent: Check you E-Mails (Spam folder
-                    included) for a confirmation E-Mail. Refresh this page once
-                    you confirmed your E-Mail.
+                    E-mail confirmation sent: Check you e-mails (Spam folder
+                    included) for a confirmation e-mail. Refresh this page once
+                    you confirmed your e-mail.
                   </p>
                 ) : (
                   <p>
-                    Verify your E-Mail: Check you E-Mails (Spam folder included)
-                    for a confirmation E-Mail or send another confirmation
-                    E-Mail.
+                    Verify your e-mail: Check you e-mails (Spam folder included)
+                    for a confirmation e-mail or send another confirmation
+                    e-mail.
                   </p>
                 )}
                 <button type="button" onClick={this.onSendEmailVerification}>
-                  Send confirmation E-Mail
+                  Send confirmation e-mail
                 </button>
               </React.Fragment>
             ) : (

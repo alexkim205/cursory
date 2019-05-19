@@ -8,7 +8,6 @@ import { FirebaseConfig } from "../../_config/keys";
 // Initialize Firebase app
 class Firebase {
   constructor() {
-    // console.log(FirebaseConfig);
     app.initializeApp(FirebaseConfig);
 
     this.auth = app.auth();
@@ -49,15 +48,24 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut();
 
-  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+  doPasswordReset = email =>
+    this.auth.sendPasswordResetEmail(email, {
+      url: FirebaseConfig.passwordResetRedirect
+    });
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
-  doSendEmailVerification = () => {
-    console.log(FirebaseConfig.confirmationEmailRedirect);
-    return this.auth.currentUser.sendEmailVerification({
-      url: FirebaseConfig.confirmationEmailRedirect
+  doSendEmailVerification = (route = "") =>
+    this.auth.currentUser.sendEmailVerification({
+      url: FirebaseConfig.confirmationEmailRedirect + route
     });
+
+  doReauthenticate = password => {
+    const authUser = this.auth.currentUser;
+    console.log(authUser, password);
+    return authUser.reauthenticateAndRetrieveDataWithCredential(
+      app.auth.EmailAuthProvider.credential(authUser.email, password)
+    );
   };
 
   // *** Merge Auth and DB User API *** //

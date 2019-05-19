@@ -11,7 +11,6 @@ export const withAuthentication = Component => {
   class WithAuthentication extends React.Component {
     static propTypes = {
       firebase: PropTypes.object.isRequired,
-      history: PropTypes.object.isRequired,
     };
 
     state = {

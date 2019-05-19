@@ -1,47 +1,54 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { compose } from "redux";
 
-import {editorActions} from '../../_actions/index';
-import {CustomEditor} from '../../components/Editor/index';
+import { editorActions } from "../../_actions/index";
+import { CustomEditor } from "../../components/Editor/index";
+
+import {
+  isUser,
+  withAuthorization,
+  withEmailVerification
+} from "../../components/Session";
 
 class EditorPage extends React.Component {
   static propTypes = {
     save: PropTypes.func.isRequired,
-    discard: PropTypes.func.isRequired,
+    discard: PropTypes.func.isRequired
   };
 
   state = {
-    text: '',
+    text: ""
   };
 
-  handleChange = (text) => {
-    this.setState({text});
+  handleChange = text => {
+    this.setState({ text });
   };
 
   render() {
     // const {save, discard} = this.props;
 
     return (
-        <React.Fragment>
-          <CustomEditor/>
-        </React.Fragment>
+      <React.Fragment>
+        <CustomEditor />
+      </React.Fragment>
     );
   }
 }
 
-// function mapStateToProps(state) => {
-
-// }
-
 const mapDispatchToProps = {
-  save: (entry_id) => editorActions.save(entry_id),
-  discard: (entry_id) => editorActions.discard(entry_id),
+  save: entry_id => editorActions.save(entry_id),
+  discard: entry_id => editorActions.discard(entry_id)
 };
 
-const connectedEditorPage = connect(
+const connectedPage = compose(
+  withEmailVerification,
+  withAuthorization(isUser),
+  connect(
     null,
-    mapDispatchToProps,
+    mapDispatchToProps
+  )
 )(EditorPage);
 
-export {connectedEditorPage as EditorPage};
+export { connectedPage as EditorPage };
