@@ -60,13 +60,13 @@ class Firebase {
       url: FirebaseConfig.confirmationEmailRedirect + route
     });
 
-  doReauthenticate = password => {
-    const authUser = this.auth.currentUser;
-    console.log(authUser, password);
-    return authUser.reauthenticateAndRetrieveDataWithCredential(
-      app.auth.EmailAuthProvider.credential(authUser.email, password)
+  doReauthenticate = password =>
+    this.auth.currentUser.reauthenticateAndRetrieveDataWithCredential(
+      app.auth.EmailAuthProvider.credential(
+        this.auth.currentUser.email,
+        password
+      )
     );
-  };
 
   // *** Merge Auth and DB User API *** //
 
