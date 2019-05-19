@@ -1,7 +1,7 @@
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {
   // faPalette
-} from '@fortawesome/pro-solid-svg-icons'
+} from '@fortawesome/pro-solid-svg-icons';
 
 import {
   faH1,
@@ -19,19 +19,19 @@ import {
   faListOl,
   faListUl,
   faBracketsCurly,
-    faPenNib,
-    faPenFancy,
+  faPenNib,
+  faPenFancy,
+  // faQuestionCircle,
 } from '@fortawesome/pro-regular-svg-icons';
 
 import {
   // faPenNib,
-  faPalette
+  // faPalette,
+  faQuestionCircle,
 } from '@fortawesome/pro-light-svg-icons';
 
 export const loadFonts = () => {
   library.add(
-      faPalette,
-
       faH1,
       faH2,
       faBold,
@@ -47,9 +47,9 @@ export const loadFonts = () => {
       faListOl,
       faListUl,
       faBracketsCurly,
-
       faPenNib,
       faPenFancy,
+      faQuestionCircle,
   );
 };
 

@@ -5,9 +5,14 @@ $color-light-main: rgba(255, 88, 43, 0.3);
 
 $color-mark: rgba(254, 237, 90, 0.95);
 
+$color-gray: rgba(0, 0, 0, 0.2);
+$color-light-gray: rgba(0, 0, 0, 0.1);
+
 // Export
 :export {
   colorMain: $color-main;
   colorLightMain: $color-light-main;
   colorMark: $color-mark;
+  colorGray: $color-gray;
+  colorLightGray: $color-light-gray;
 }

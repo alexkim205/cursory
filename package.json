@@ -1,70 +1,70 @@
 {
-  "name": "writing",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1",
-    "@fortawesome/fontawesome-pro": "^5.8.2",
-    "@fortawesome/fontawesome-svg-core": "^1.2.18",
-    "@fortawesome/free-brands-svg-icons": "^5.8.2",
-    "@fortawesome/free-solid-svg-icons": "^5.8.2",
-    "@fortawesome/pro-light-svg-icons": "^5.8.2",
-    "@fortawesome/pro-regular-svg-icons": "^5.8.2",
-    "@fortawesome/pro-solid-svg-icons": "^5.8.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "camelcase": "^5.3.1",
-    "debug": "^4.1.1",
-    "firebase": "^6.0.2",
-    "history": "^4.9.0",
-    "immutable": "^4.0.0-rc.12",
-    "is-hotkey": "^0.1.4",
-    "node-sass": "^4.12.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-portal": "^4.2.0",
-    "react-redux": "^7.0.3",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0",
-    "react-toastify": "^5.1.0",
-    "react-transition-group": "^4.0.1",
-    "redux": "^4.0.1",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "rfs": "^8.0.4",
-    "slate": "^0.46.1",
-    "slate-collapse-on-escape": "^0.8.1",
-    "slate-react": "^0.21.24",
-    "styled-components": "^4.2.0",
-    "typescript": "^3.4.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.4.4",
-    "@types/react": "^16.8.16",
-    "@types/react-dom": "^16.8.4",
-    "babel-eslint": "^10.0.1",
-    "eslint-config-google": "^0.12.0",
-    "redux-devtools": "^3.5.0"
-  }
+    "name": "writing",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@fortawesome/fontawesome-pro": "^5.8.2",
+        "@fortawesome/fontawesome-svg-core": "^1.2.18",
+        "@fortawesome/free-brands-svg-icons": "^5.8.2",
+        "@fortawesome/pro-light-svg-icons": "^5.8.2",
+        "@fortawesome/pro-regular-svg-icons": "^5.8.2",
+        "@fortawesome/pro-solid-svg-icons": "^5.8.2",
+        "@fortawesome/react-fontawesome": "^0.1.4",
+        "camelcase": "^5.3.1",
+        "debug": "^4.1.1",
+        "firebase": "^6.0.2",
+        "history": "^4.9.0",
+        "immutable": "^4.0.0-rc.12",
+        "is-hotkey": "^0.1.4",
+        "node-sass": "^4.12.0",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-portal": "^4.2.0",
+        "react-pose": "^4.0.8",
+        "react-redux": "^7.0.3",
+        "react-router-dom": "^5.0.0",
+        "react-scripts": "3.0.0",
+        "react-toastify": "^5.1.0",
+        "react-transition-group": "^4.0.1",
+        "redux": "^4.0.1",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.3.0",
+        "rfs": "^8.0.4",
+        "slate": "^0.46.1",
+        "slate-collapse-on-escape": "^0.8.1",
+        "slate-react": "^0.21.24",
+        "styled-components": "^4.2.0",
+        "typescript": "^3.4.5"
+    },
+    "scripts": {
+        "start": "HTTPS=true&&react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-decorators": "^7.4.4",
+        "@types/react": "^16.8.16",
+        "@types/react-dom": "^16.8.4",
+        "babel-eslint": "^10.0.1",
+        "eslint": "^5.16.0",
+        "eslint-config-google": "^0.13.0",
+        "redux-devtools": "^3.5.0"
+    }
 }

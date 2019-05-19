@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {compose} from 'redux';
-import {Router, Route} from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { Router, Route } from "react-router-dom";
 
 // Routing
-import {ROUTES} from '../_constants';
+import { ROUTES } from "../_constants";
 
 // Helpers
-import {loadFonts, renderToaster, history} from '../_helpers';
+import { loadFonts, renderToaster, history } from "../_helpers";
 
 // Components
-import {withAuthentication} from '../components/Session';
+import { withAuthentication } from "../components/Session";
 import {
   AccountPage,
   AdminPage,
@@ -21,40 +21,47 @@ import {
   PasswordForgetPage,
   SignInPage,
   SignUpPage,
-} from '../pages';
-import {Navigation, Footer} from '../components';
-import {RootWrapper} from './App.style';
+  LegalPage
+} from "../pages";
+import { Navigation, Footer } from "../components";
+import { RootWrapper } from "./App.style";
 
 loadFonts();
 
 const App = () => (
-    <RootWrapper>
-      <Router history={history}>
-        <Navigation/>
-
-        <React.Fragment>
-          <Route exact path={ROUTES.LANDING} component={LandingPage}/>
-          <Route exact path={ROUTES.SIGN_UP} component={SignUpPage}/>
-          <Route exact path={ROUTES.SIGN_IN} component={SignInPage}/>
-          <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage}/>
-          <Route exact path={ROUTES.HOME} component={HomePage}/>
-          <Route exact path={ROUTES.ACCOUNT} component={AccountPage}/>
-          <Route exact path={ROUTES.ADMIN} component={AdminPage}/>
-          <Route exact path={ROUTES.EDITOR} component={EditorPage}/>
-        </React.Fragment>
-
-        {/*<Footer/>*/}
-      </Router>
-      {renderToaster()}
-    </RootWrapper>
+  <RootWrapper>
+    <Router history={history}>
+      <React.Fragment>
+        <Navigation />
+        <Route exact path={ROUTES.LANDING} component={LandingPage} />
+        <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+        <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+        <Route
+          exact
+          path={ROUTES.PASSWORD_FORGET}
+          component={PasswordForgetPage}
+        />
+        <Route exact path={ROUTES.HOME} component={HomePage} />
+        <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
+        <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+        <Route exact path={ROUTES.EDITOR} component={EditorPage} />
+      </React.Fragment>
+      <Route exact path={ROUTES.LEGAL} component={LegalPage} />
+      {/*<Footer/>*/}
+    </Router>
+    {renderToaster()}
+  </RootWrapper>
 );
 // function mapStateToProps(state) {
 //   return {};
 // }
 
 const connectedPage = compose(
-    withAuthentication,
-    connect(null, null)
+  withAuthentication,
+  connect(
+    null,
+    null
+  )
 )(App);
 
-export {connectedPage as App};
+export { connectedPage as App };

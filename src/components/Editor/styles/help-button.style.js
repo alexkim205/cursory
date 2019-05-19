@@ -7,17 +7,21 @@ export const StyledHelpButton = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 70px;
+  bottom: 50px;
   width: 40px;
   height: 40px;
   right: 50px;
   border-radius: 50%;
   background-color: white;
   // border: 1px solid black;
-  -webkit-transition: transform 100ms ease-in; /* Safari */
-  transition: transform 100ms ease-in;
+  -webkit-transition: color 400ms ease; /* Safari */
+  transition: color 400ms ease;
+  transform: scale(1.5);
+  color: ${props => props.isOpen ? theme.colors.gray : theme.colors.light_gray};
+  cursor: default;
   
   &:hover {
-    transform: scale(1.5);
+    color: ${theme.colors.gray};
+    // transform: scale(1.5);
   }
-`
+`;

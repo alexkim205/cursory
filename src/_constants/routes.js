@@ -7,4 +7,5 @@ export const ROUTES = {
   ADMIN: '/admin',
   PASSWORD_FORGET: '/pw-forget',
   EDITOR: '/editor',
+  LEGAL: '/legal',
 };

@@ -21,7 +21,7 @@ import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
  List            meta+L         node
  Ordered List    meta+shift+L   node
  Quote           meta+shift+U   node
- Checklist/Todo  meta+T         node
+ Checklist/Todo  meta+alt+shift+l         node
  Code            meta+shift+C   mark
  Code Block      meta+shift+D   node
  Mark            meta+M         mark
