@@ -26,9 +26,9 @@ class PasswordChangeForm extends React.Component {
   };
 
   onSubmit = event => {
-    const {email} = this.state;
+    const {passwordOne} = this.state;
 
-    this.props.firebase.doPasswordReset(email).then(() => {
+    this.props.firebase.doPasswordUpdate(passwordOne).then(() => {
       this.setState({...INITIAL_STATE});
     }).catch(error => {
       this.setState({error});

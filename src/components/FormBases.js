@@ -11,7 +11,8 @@ export {
   SignInGoogle,
   SignInFacebook,
   SignInTwitter,
-  SignInGithub
+  SignInGithub,
+  SignInMicrosoft
 };
 
 const INITIAL_STATE = {
@@ -176,7 +177,6 @@ class SignInTwitterBase extends React.Component {
       .doSignInWithTwitter()
       .then(socialAuthUser => {
         // Create a user in your Firebase Realtime Database too
-        console.log(socialAuthUser);
         return this.props.firebase.user(socialAuthUser.user.uid).set({
           username: socialAuthUser.additionalUserInfo.profile.name,
           email: socialAuthUser.additionalUserInfo.profile.email,
@@ -203,7 +203,7 @@ class SignInTwitterBase extends React.Component {
   }
 }
 
-/* Twitter Sign In Form Base */
+/* Github Sign In Form Base */
 class SignInGithubBase extends React.Component {
   static propTypes = {
     firebase: PropTypes.object.isRequired,
@@ -243,6 +243,47 @@ class SignInGithubBase extends React.Component {
   }
 }
 
+/* Microsoft Sign In Form Base */
+class SignInMicrosoftBase extends React.Component {
+  static propTypes = {
+    firebase: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
+
+  state = { error: null };
+
+  onSubmit = event => {
+    this.props.firebase
+      .doSignInWithMicrosoft()
+      .then(socialAuthUser => {
+        console.log(socialAuthUser);
+        // Create a user in your Firebase Realtime Database too
+        return this.props.firebase.user(socialAuthUser.user.uid).set({
+          username: socialAuthUser.additionalUserInfo.profile.name,
+          email: socialAuthUser.additionalUserInfo.profile.email,
+          roles: {}
+        });
+      })
+      .then(() => {
+        this.setState({ error: null });
+        this.props.history.push(ROUTES.HOME);
+      })
+      .catch(error => this.setState({ error }));
+    event.preventDefault();
+  };
+
+  render() {
+    const { error } = this.state;
+
+    return (
+      <form onSubmit={this.onSubmit}>
+        <button type="submit">Sign In with Microsoft</button>
+        {error && <p>{error.message}</p>}
+      </form>
+    );
+  }
+}
+
 const SignInForm = compose(
   withRouter,
   withFirebase
@@ -267,3 +308,8 @@ const SignInGithub = compose(
   withRouter,
   withFirebase
 )(SignInGithubBase);
+
+const SignInMicrosoft = compose(
+  withRouter,
+  withFirebase
+)(SignInMicrosoftBase);

@@ -15,14 +15,17 @@ class Firebase {
     this.firestore = app.firestore();
 
     /*
-     *  Google: https://console.firebase.google.com
-     *  Facebook: https://developers.facebook.com/apps/
-     *  Twitter: https://developer.twitter.com/en/apps
+     * Google: https://console.firebase.google.com
+     * Facebook: https://developers.facebook.com/apps/
+     * Twitter: https://developer.twitter.com/en/apps
+     * Github: https://github.com/settings/applications
+     * Microsoft/Xbox/Outlook: https://portal.azure.com
      */
     this.googleProvider = new app.auth.GoogleAuthProvider();
     this.facebookProvider = new app.auth.FacebookAuthProvider();
     this.twitterProvider = new app.auth.TwitterAuthProvider();
     this.githubProvider = new app.auth.GithubAuthProvider();
+    this.microsoftProvider = new app.auth.OAuthProvider("microsoft.com");
   }
 
   // *** Auth API ***
@@ -41,11 +44,21 @@ class Firebase {
 
   doSignInWithGithub = () => this.auth.signInWithPopup(this.githubProvider);
 
+  doSignInWithMicrosoft = () =>
+    this.auth.signInWithPopup(this.microsoftProvider);
+
   doSignOut = () => this.auth.signOut();
 
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+
+  doSendEmailVerification = () => {
+    console.log(FirebaseConfig.confirmationEmailRedirect);
+    return this.auth.currentUser.sendEmailVerification({
+      url: FirebaseConfig.confirmationEmailRedirect
+    });
+  };
 
   // *** Merge Auth and DB User API *** //
 
@@ -54,7 +67,7 @@ class Firebase {
       if (authUser) {
         this.user(authUser.uid).onSnapshot(doc => {
           const dbUser = doc.data();
-          Log.info(dbUser, "firebase.js");
+          //   Log.info(dbUser, "firebase.js");
 
           // default empty roles
           if (dbUser && !dbUser.roles) {

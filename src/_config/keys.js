@@ -6,6 +6,7 @@ const prodConfig = {
   storageBucket: process.env.REACT_APP_PROD_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_PROD_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_PROD_ID,
+  confirmationEmailRedirect: process.env.REACT_APP_PROD_CONFIRMATION_EMAIL_REDIRECT
 };
 
 const devConfig = {
@@ -16,6 +17,7 @@ const devConfig = {
   storageBucket: process.env.REACT_APP_DEV_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_DEV_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_DEV_ID,
+  confirmationEmailRedirect: process.env.REACT_APP_DEV_CONFIRMATION_EMAIL_REDIRECT
 };
 
 export const FirebaseConfig = process.env.NODE_ENV === 'production' ? prodConfig : devConfig;

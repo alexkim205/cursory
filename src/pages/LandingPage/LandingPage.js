@@ -12,7 +12,7 @@ class LandingPage extends React.Component {
 
     return (
         <React.Fragment>
-          <h1>Account Page</h1>
+          <h1>Landing Page</h1>
         </React.Fragment>
     );
   }

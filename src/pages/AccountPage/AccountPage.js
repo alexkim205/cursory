@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 import {compose} from 'redux';
 
 import {PasswordChangeForm} from '../PasswordChangeForm';
-import {PasswordForgetForm} from '../PasswordForgetPage';
 import {
   AuthUserContext,
   isUser,
   withAuthorization,
+  withEmailVerification
 } from '../../components/Session';
 
 const AccountPage = () => (
@@ -16,7 +16,6 @@ const AccountPage = () => (
       {authUser =>
           <React.Fragment>
             <h1>Account: {authUser.email}</h1>
-            <PasswordForgetForm/>
             <PasswordChangeForm/>
           </React.Fragment>
       }
@@ -24,6 +23,7 @@ const AccountPage = () => (
 );
 
 const connectedPage = compose(
+    withEmailVerification,
     withAuthorization(isUser),
     connect(null, null),
 )(AccountPage);

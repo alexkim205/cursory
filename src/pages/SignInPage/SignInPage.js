@@ -8,6 +8,7 @@ import {
   SignInFacebook,
   SignInTwitter,
   SignInGithub,
+  SignInMicrosoft
 } from "../../components";
 
 import { ROUTES } from "../../_constants";
@@ -20,8 +21,9 @@ const SignInPage = () => (
     <SignInForm />
     <SignInGoogle />
     <SignInFacebook />
-    <SignInGithub/>
-    <SignInTwitter /> 
+    <SignInTwitter />
+    <SignInGithub />
+    <SignInMicrosoft />
     <PasswordForgetLink />
     <SignUpLink />
   </React.Fragment>
