@@ -1,25 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 // Slate Main
-import {Editor} from 'slate-react';
-import {Value} from 'slate';
+import { Editor } from "slate-react";
+import { Value } from "slate";
 // Slate plugins
-import CollapseOnEscape from 'slate-collapse-on-escape';
+import CollapseOnEscape from "slate-collapse-on-escape";
 import {
   MarkdownShortcutPlugin,
   KeyboardPlugin,
   RenderPlugin,
   ToolBarPlugin,
-  MarginPlugin,
-} from './plugins';
+  MarginPlugin
+} from "./plugins";
 // import {renderBlockButton, renderMarkButton} from './plugins';
 
-import {processfile} from '../../_helpers/process-image';
+import { processfile } from "../../_helpers/process-image";
 
-import {initialValue} from './initial-value';
-import {schema} from './schema';
-import {HelpButton} from './components';
+import { initialValue } from "./initial-value";
+import { schema } from "./schema";
+import { HelpButton } from "./components";
 
 // https://docs.slatejs.org/guides/commands-and-queries
 
@@ -29,10 +29,17 @@ const plugins = [
   MarkdownShortcutPlugin(),
   KeyboardPlugin(),
   RenderPlugin(),
-  ToolBarPlugin(),
+  ToolBarPlugin()
 ];
 
 class CustomEditor extends React.Component {
+  static propTypes = {
+    withToolbar: PropTypes.bool
+  };
+
+  static defaultProps = {
+    withToolbar: true
+  };
 
   /**
    * Deserialize the initial editor value.
@@ -41,7 +48,7 @@ class CustomEditor extends React.Component {
    */
 
   state = {
-    value: initialValue,
+    value: initialValue
   };
 
   /**
@@ -55,23 +62,22 @@ class CustomEditor extends React.Component {
   };
 
   render() {
+    const { withToolbar } = this.props;
 
     return (
-        <React.Fragment>
-          <Editor
-              spellCheck={false}
-              ref={this.ref}
-              value={this.state.value}
-              onChange={this.onChange}
-              className={'editor-container'}
-              plugins={plugins}
-              schema={schema}
-              placeholder={'Type here to get started...'}
-          />
-          {this.editor &&
-          <HelpButton editorRef={this.editor}/>
-          }
-        </React.Fragment>
+      <React.Fragment>
+        <Editor
+          spellCheck={false}
+          ref={this.ref}
+          value={this.state.value}
+          onChange={this.onChange}
+          className={"editor-container"}
+          plugins={withToolbar ? plugins : plugins.slice(0, -1)}
+          schema={schema}
+          placeholder={"Type here to get started..."}
+        />
+        {this.editor && <HelpButton editorRef={this.editor} />}
+      </React.Fragment>
     );
   }
 
@@ -81,16 +87,16 @@ class CustomEditor extends React.Component {
    * @param {Editor} editor
    */
 
-  onChange = ({value}) => {
+  onChange = ({ value }) => {
     // Check to see if document changed before saving.
     if (value.document != this.state.value.document) {
       // Save the value to local storage
       const content = JSON.stringify(value.toJSON());
       // const content = Plain.serialize(value)
-      localStorage.setItem('content', content);
+      localStorage.setItem("content", content);
     }
 
-    this.setState({value});
+    this.setState({ value });
   };
 
   // /**
@@ -103,7 +109,6 @@ class CustomEditor extends React.Component {
   //   const shouldOpen = selection.isExpanded && selection.isFocused;
   //   this.setState({toolbarShouldOpen: shouldOpen})
   // }
-
 }
 
-export {CustomEditor};
+export { CustomEditor };
