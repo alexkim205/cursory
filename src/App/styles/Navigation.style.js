@@ -8,7 +8,8 @@ export const Navbar = styled.nav`
   vertical-align: middle;
   /* align-content: center; */
   align-items: center;
-  margin: 0 20px;
+  padding: 0 20px;
+  background-color: antiquewhite;
   
   .flex-grow {
     flex: 1;

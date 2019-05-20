@@ -8,4 +8,10 @@ export const ROUTES = {
   PASSWORD_FORGET: '/pw-forget',
   EDITOR: '/editor',
   LEGAL: '/legal',
+  // PRIVATE
+  FAVORITES: '/favorites',
+  TAGS: '/tags',
+  RECENT: '/recent',
+  TRENDING: '/trending',
+  PEOPLE: '/people',
 };

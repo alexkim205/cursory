@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../_constants";
+import { ROUTES } from "../_constants";
 
 // import PropTypes from 'prop-types';
 

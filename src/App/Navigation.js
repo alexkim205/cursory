@@ -1,10 +1,10 @@
 import React from 'react';
-import {AuthUserContext, isAdmin, isUser} from '../Session';
+import {AuthUserContext, isAdmin, isUser} from '../components/Session';
 
 // Components
-import {Navbar, NavbarItem} from './Navigation.style';
-import {ROUTES} from '../../_constants';
-import {SignOutButton} from '../SignOutButton';
+import {Navbar, NavbarItem} from './styles/Navigation.style';
+import {ROUTES} from '../_constants';
+import {SignOutButton} from '../components/SignOutButton';
 
 const Navigation = () => (
     <div>

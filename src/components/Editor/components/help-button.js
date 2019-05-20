@@ -136,7 +136,7 @@ export class HelpButton extends React.Component {
               return (
                   <HelpModalItem key={i}>
                     <div className={'icon'}>
-                      <FontAwesomeIcon icon={icon}/>
+                      {/* <FontAwesomeIcon icon={['far', icon]}/> */}
                     </div>
                     <div className={'text'}>{text}</div>
                     <div className={'key'}>{key}</div>

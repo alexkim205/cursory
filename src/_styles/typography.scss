@@ -1,24 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400|Poppins:400');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400');
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i');
 @import "~rfs/scss";
 @import "colors";
 
 html {
   @include rfs(15);
-}
-
-// Navbar
-nav {
-  @include rfs(15);
-}
-
-// Editor Typography
-
-.editor-container {
 
   body {
     background-color: white;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: 400;
     line-height: 1.45;
     color: #333;
@@ -111,4 +102,27 @@ nav {
     color: #555;
   }
 
+}
+
+// Navbar
+nav {
+  @include rfs(15);
+}
+
+// Editor Typography
+
+.editor-container {
+    @extend html;
+
+  body {
+    font-family: 'Crimson Text', serif;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Crimson Text', serif;
+  }
+
+  code, pre {
+    font-family: 'Source Code Pro', monospace;
+  }
 }
