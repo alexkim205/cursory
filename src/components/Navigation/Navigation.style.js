@@ -9,7 +9,8 @@ export const Navbar = styled.nav`
   /* align-content: center; */
   align-items: center;
   padding: 0 20px;
-  background-color: antiquewhite;
+  // background-color: antiquewhite;
+  border-bottom: 1px solid #F3F4F8;
   
   .flex-grow {
     flex: 1;
@@ -19,5 +20,4 @@ export const Navbar = styled.nav`
 export const NavbarItem = styled(NavLink)`
   margin: 0 10px;
   text-decoration: none;
-  
 `;

@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
   ToolbarWrapper,
   ToolbarItemWrapper,
+  ToolbarItemSelector,
 } from './styles';
 
 const toolbarIcons = [
@@ -25,7 +26,7 @@ class Toolbar extends React.Component {
     whichActive: PropTypes.number.isRequired,
     handleClick: PropTypes.func.isRequired,
   };
-  //
+
   // state = {
   //   isOpen: false,
   // };
@@ -37,14 +38,21 @@ class Toolbar extends React.Component {
         <ToolbarWrapper
             // pose={this.state.isOpen ? 'open' : 'closed'}
         >
-          {toolbarIcons.map((e, i) => (
-              <ToolbarItem
-                  key={i}
-                  icon={e.icon}
-                  active={this.props.whichActive === i}
-                  handleClick={(e) => this.props.handleClick(e, i)}
-              />
-          ))}
+          <div className={'selector-container'}>
+            <ToolbarItemSelector i={this.props.whichActive}
+                                 pose={'visible'}
+                                 poseKey={this.props.whichActive}/>
+          </div>
+          <div className={'icons-container'}>
+            {toolbarIcons.map((e, i) => (
+                <ToolbarItem
+                    key={i}
+                    icon={e.icon}
+                    active={this.props.whichActive === i}
+                    handleClick={(e) => this.props.handleClick(e, i)}
+                />
+            ))}
+          </div>
         </ToolbarWrapper>
     );
   }
@@ -68,7 +76,8 @@ class ToolbarItem extends React.Component {
             pose={this.props.active ? 'active' : 'inactive'}
             i={this.props.key}
         >
-          <FontAwesomeIcon icon={['fas', this.props.icon]}/>
+          <FontAwesomeIcon icon={['fas', this.props.icon]}
+                           transform={'grow-4'}/>
         </ToolbarItemWrapper>
     );
   }

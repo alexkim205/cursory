@@ -12,6 +12,8 @@ import {loadFonts, renderToaster, history} from '../_helpers';
 
 // Components
 import {withAuthentication} from '../components/Session';
+import {Content} from '../components/Layout/Content';
+import {Navigation} from '../components/Navigation';
 import {
   AccountPage,
   AdminPage,
@@ -23,16 +25,8 @@ import {
   SignUpPage,
   LegalPage,
 } from '../pages';
-import {
-  FavoritesPage,
-  TagsPage,
-  RecentPage,
-  TrendingPage,
-  PeoplePage,
-} from '../pages/PrivatePages';
-import {Navigation, Footer} from './';
+import {Footer} from './';
 import {BodyWrapper, RootWrapper} from './styles';
-import {Content} from '../components/Layout/Content';
 
 loadFonts();
 
@@ -53,7 +47,7 @@ const App = () => (
             />
             <Route exact path={ROUTES.ACCOUNT} component={AccountPage}/>
             <Route exact path={ROUTES.ADMIN} component={AdminPage}/>
-            <Route exact path={ROUTES.EDITOR} component={EditorPage}/>
+            {/*<Route exact path={ROUTES.EDITOR} component={EditorPage}/>*/}
             <Route exact path={ROUTES.LEGAL} component={LegalPage}/>
           </Content>
           {/* <Footer /> */}

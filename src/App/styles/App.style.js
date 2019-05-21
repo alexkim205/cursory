@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import styled from 'styled-components';
 import posed, {PoseGroup} from 'react-pose';
-import {Navigation} from '../Navigation';
+import {Navigation} from '../../components/Navigation/Navigation';
 
 const RootWrapper = styled.div`
     display: flex;
@@ -29,20 +29,6 @@ const BodyWrapperUnposed = posed(styled.div`
   cursor: text;
   // background-color: lightblue;
 `)({
-  // enter: {
-  //   // opacity: 1,
-  //   beforeChildren: true,
-  //   transition: {
-  //     opacity: {ease: 'easeInOut', duration: 200},
-  //   },
-  // },
-  // exit: {
-  //   // opacity: 0.1,
-  //   transition: {
-  //     opacity: {ease: 'easeInOut', duration: 200},
-  //     x: {duration: 500},
-  //   },
-  // },
   enter: {
     // y: 0,
     opacity: 1,

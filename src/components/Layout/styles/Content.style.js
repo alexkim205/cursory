@@ -9,30 +9,22 @@ export const ContentWrapper = posed(styled.div`
     padding: 50px;
     // background-color: pink;
 `)({
-  // Enter exit with route transition
-  // enter: {
-  //   x: "0%",
-  // },
-  // exit: {
-  //   x: "-100%",
-  // },
-
 
   enter: {
     y: 0,
     opacity: 1,
     // delayChildren: 100,
     // staggerChildren: 100,
-    // transition: {
-    //   default: { duration: 800 },
-    // }
+    transition: {
+      default: { duration: 100 },
+    }
   },
   exit: {
     opacity: 0,
     // staggerChildren: 100,
     y: -20,
-    // transition: {
-    //   default: { duration: 800 },
-    // }
+    transition: {
+      default: { duration: 80 },
+    }
   }
 });
