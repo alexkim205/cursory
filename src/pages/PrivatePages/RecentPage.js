@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types"
 import { compose } from "redux";
 
-import { withDashboardLayout } from "../../components/Layouts";
 
 class RecentPage extends React.Component {
     static propTypes = {
@@ -12,14 +11,14 @@ class RecentPage extends React.Component {
     render() {
         return (
             <React.Fragment>
-            
+              <h1>Recent</h1>
             </React.Fragment>
         )
     }
 }
 
 const connectedComponent = compose(
-  withDashboardLayout
+
 )(RecentPage);
 
 export { connectedComponent as RecentPage };

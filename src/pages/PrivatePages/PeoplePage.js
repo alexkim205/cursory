@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types"
 import { compose } from "redux";
 
-import { withDashboardLayout } from "../../components/Layouts";
-
 class PeoplePage extends React.Component {
     static propTypes = {
         // aProp: PropTypes.object.isRequired,
@@ -12,14 +10,14 @@ class PeoplePage extends React.Component {
     render() {
         return (
             <React.Fragment>
-            
+              <h1>People</h1>
             </React.Fragment>
         )
     }
 }
 
 const connectedComponent = compose(
-  withDashboardLayout
+
 )(PeoplePage);
 
 export { connectedComponent as PeoplePage };

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import {compose} from 'redux';
+import withDashboard from '../../components/Layout/withDashboard';
 
 class LandingPage extends React.Component {
   static propTypes = {
@@ -18,18 +19,7 @@ class LandingPage extends React.Component {
   }
 }
 
-// function mapStateToProps(state) => {
-
-// }
-
-// const mapDispatchToProps = {
-//   save: (entry_id) => editorActions.save(entry_id),
-//   discard: (entry_id) => editorActions.discard(entry_id),
-// };
-
-const connectedLandingPage = connect(
-    null,
-    // mapDispatchToProps,
+const connectedPage = compose(
 )(LandingPage);
 
-export {LandingPage};
+export {connectedPage as LandingPage};

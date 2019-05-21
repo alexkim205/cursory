@@ -1,7 +1,24 @@
+import React from 'react';
+import {Route, Switch} from 'react-router-dom';
 import styled from 'styled-components';
+import posed, {PoseGroup} from 'react-pose';
+import {Navigation} from '../Navigation';
 
 const RootWrapper = styled.div`
-  position: fixed;
+    display: flex;
+    // align-items: stretch;
+    flex-direction: column;
+    // align-content: stretch;
+    // background-color: azure;
+    flex: 1;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+`;
+
+const BodyWrapperUnposed = posed(styled.div`
+  // position: fixed;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -10,7 +27,54 @@ const RootWrapper = styled.div`
   top: 0;
   overflow: scroll;
   cursor: text;
-  background-color: lightblue;
-`;
+  // background-color: lightblue;
+`)({
+  // enter: {
+  //   // opacity: 1,
+  //   beforeChildren: true,
+  //   transition: {
+  //     opacity: {ease: 'easeInOut', duration: 200},
+  //   },
+  // },
+  // exit: {
+  //   // opacity: 0.1,
+  //   transition: {
+  //     opacity: {ease: 'easeInOut', duration: 200},
+  //     x: {duration: 500},
+  //   },
+  // },
+  enter: {
+    // y: 0,
+    opacity: 1,
+    beforeChildren: true,
+    // Children: true,
+    // delay: 300,
+    transition: {
+      default: {duration: 200},
+    },
+  },
+  exit: {
+    // y: 50,
+    opacity: 0,
+    // beforeChildren: true,
+    // afterChildren: true,
+    transition: {
+      default: {duration: 200},
+    },
+  },
+});
 
-export {RootWrapper};
+const BodyWrapper = ({children}) =>
+    <Route
+        render={({location}) => (
+            <PoseGroup>
+              <BodyWrapperUnposed key={location.pathname}>
+                <Switch location={location}>
+                  {children}
+                </Switch>
+              </BodyWrapperUnposed>
+            </PoseGroup>
+        )}
+    />;
+
+export {BodyWrapper, RootWrapper};

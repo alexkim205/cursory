@@ -6,10 +6,11 @@ const MarginWrapper = styled.div`
   //min-height: 100vh;
   box-sizing: border-box;
 
-  //width: 100%;
+  width: 100%;
+  height: 100%;
   // max-width: 740px;
   //border-radius: 5px;
-  margin: auto;
+  // margin: auto;
   padding: 0 40px;
   //overflow: scroll;
   background-color: white;
