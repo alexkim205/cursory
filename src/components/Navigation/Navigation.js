@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import {AuthUserContext, isAdmin, isUser} from '../Session/index';
 
 // Components
-import {Navbar, NavbarItem} from './Navigation.style';
+import {Navbar, NavbarItem, OutlinedNavbarItem} from './styles/Navigation.style';
 import {ProfileBar} from './ProfileBar';
 import {ROUTES} from '../../_constants/index';
 import {SignOutButton} from '../SignOutButton';
@@ -39,11 +38,12 @@ class NavigationAuth extends React.Component {
           {/*<NavbarItem to={ROUTES.LANDING}>Landing</NavbarItem>*/}
           <NavbarItem to={ROUTES.HOME}>Home</NavbarItem>
           <div className={'flex-grow'}/>
-          Community
+          <OutlinedNavbarItem to={'/hello'}>
+            Community
+          </OutlinedNavbarItem>
           <div className={'flex-grow'}/>
           <ProfileBar username={authUser.username}/>
           {/*<NavbarItem to={ROUTES.EDITOR}>Editor</NavbarItem>*/}
-          <SignOutButton/>
         </Navbar>
     );
   }

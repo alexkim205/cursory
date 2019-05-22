@@ -1,26 +1,28 @@
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom'
 import jdenticon from 'jdenticon';
 import PropTypes from 'prop-types';
+import {PoseGroup} from 'react-pose';
 
-import {ProfileBarWrapper} from './styles/ProfileBar.style';
+import {ProfileBarWrapper, Spacer} from './styles/ProfileBar.style';
 import {ROUTES} from '../../_constants';
-import {DropdownMenu} from '../Dropdown';
-import {NavbarItem} from './Navigation.style';
+import {DropdownMenuWrapper, DropdownMenuItemWrapper} from '../Dropdown';
+import {NavbarItem} from './styles/Navigation.style';
 import {SignOutButton} from '../SignOutButton';
 
 jdenticon.config = {
   // lightness: {color: [0.9,1.0]},
-  // backColor: "#1E90FF"
+  backColor: '#F3F4F8',
 };
 
 const profileBarItems = [
-  <NavbarItem to={ROUTES.ACCOUNT}>
+  <NavLink to={ROUTES.ACCOUNT}>
     Profile
-  </NavbarItem>,
+  </NavLink>,
   'Settings',
   'Badges',
-  <SignOutButton/>
-]
+  <SignOutButton/>,
+];
 
 class ProfileBar extends Component {
   constructor(props) {
@@ -33,8 +35,12 @@ class ProfileBar extends Component {
   };
 
   state = {dropdownIsActive: false};
-  handleHover = (e) => this.setState({dropdownIsActive: true});
-  handleUnhover = (e) => this.setState({dropdownIsActive: false});
+  handleHover = (e) => {
+    this.setState({dropdownIsActive: true});
+  };
+  handleUnhover = (e) => {
+    this.setState({dropdownIsActive: false});
+  };
 
   componentDidMount() {
     this.updateCanvas();
@@ -42,21 +48,38 @@ class ProfileBar extends Component {
 
   updateCanvas = () => {
     const context = this.canvasRef.current.getContext('2d');
-    jdenticon.drawIcon(context, this.props.username, 25);
+    jdenticon.drawIcon(context, this.props.username, 30);
   };
 
   render() {
     const {dropdownIsActive} = this.state;
 
     return (
-        <ProfileBarWrapper onMouseEnter={this.handleHover}
-                           onMouseLeave={this.handleUnhover}>
-          <canvas ref={this.canvasRef} width={25} height={25}/>
-          <DropdownMenu
-              items={profileBarItems}
-              isActive={dropdownIsActive}/>
-
-        </ProfileBarWrapper>
+        <React.Fragment>
+          <ProfileBarWrapper onMouseEnter={this.handleHover}
+                             onMouseLeave={this.handleUnhover}
+                             pose={dropdownIsActive ? 'hover' : 'init'}
+          >
+            <div className={'icon'}>
+              <canvas ref={this.canvasRef} width={30} height={30}/>
+            </div>
+            <div className={'name'}>{this.props.username}</div>
+          </ProfileBarWrapper>
+          <PoseGroup>
+            {dropdownIsActive &&
+            <DropdownMenuWrapper
+                key={'dropdown'}
+                onMouseEnter={this.handleHover}
+                onMouseLeave={this.handleUnhover}>
+              <Spacer/>
+              {profileBarItems.map((item, key) =>
+                  <DropdownMenuItemWrapper
+                      key={key}>{item}</DropdownMenuItemWrapper>,
+              )}
+            </DropdownMenuWrapper>
+            }
+          </PoseGroup>
+        </React.Fragment>
     );
   }
 

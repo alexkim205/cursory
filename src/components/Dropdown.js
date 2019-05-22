@@ -3,55 +3,81 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import posed from 'react-pose';
 
-export class DropdownMenu extends React.Component {
-  static propTypes = {
-    items: PropTypes.array.isRequired,
-    isActive: PropTypes.bool.isRequired,
-  };
+export const DropdownMenuWrapper = props =>
+    <Perspective>
+      <DropdownMenu {...props}/>
+    </Perspective>;
 
-  render() {
-    const {items, isActive} = this.props;
+const Perspective = styled.div`
+  perspective: 1000px;
+`;
 
-    return (
-        <MenuWrapper
-            pose={isActive ? 'open' : 'closed'}
-        >
-          {items && items.map((item, key) =>
-              <MenuItem key={key}>{item}</MenuItem>,
-          )}
-        </MenuWrapper>
-    );
-  }
-}
-
-const MenuWrapper = posed(styled.ul`
-  position: relative;
+const DropdownMenu = posed(styled.div`
+  position: absolute;
   display: block;
-  right:  20px;
-  // top: -10px;
-  // height: 300px;
-  // transition: translate(-150px, 0);
-  width: 150px;
-  background-color: blue;
+  right:  0px;
+  top: 40px;
+  align-items: center;
+  width: 250px;
+  background-color: #242E49;
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  border-radius: 5px;
+  
+  box-shadow: 0px 0px 59px -14px rgba(0,0,0,0.21);
+  
+  &:after {
+    bottom: 100%;
+    right: 20%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #242E49;
+    border-width: 15px;
+    margin-left: -15px;
+  }
+
 `)({
-  open: {
+  enter: {
     opacity: 1,
-    y: '0%',
-    delayChildren: 100,
-    staggerChildren: 50,
+    rotateX: 0,
+    transition: {
+      opacity: {duration: 100},
+      rotateX: {duration: 200}
+    }
   },
-  closed: {
+  exit: {
     opacity: 0,
-    y: '-10%',
-    delay: 300,
+    rotateX: -30,
+    transition: {
+      opacity: {duration: 100},
+      rotateX: {duration: 200}
+    }
   },
 });
 
-const MenuItem = posed(styled.li`
-  height: 50px;
+export const DropdownMenuItemWrapper = posed(styled.div`
+  display: flex;
+  align-items: center;
+  height: 60px;
   width: 100%;
-  background-color: red;
+  // background-color: red;
+  color: white;
+  // margin: 1em 0;
+  padding: 1em 2em;
+  box-sizing: border-box;
+ 
 `)({
-  open: {y: 0, opacity: 1},
-  closed: {y: 20, opacity: 0},
+  enter: {
+    // x: 0,
+    // opacity: 1,
+  },
+  exit: {
+    // x: 20,
+    // opacity: 0,
+  },
 });
