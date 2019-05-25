@@ -33,11 +33,14 @@ export const NarrowWrapper = styled.div`
     box-sizing: border-box;
     margin-top: 1.2em;
     width: 100%;
-    color: white;
     cursor: pointer;
+    color: white;
     margin-bottom: 0.5em;
     background-color: ${theme.colors.light_main};
     transition: 0.2s all;
+    &:disabled {
+      cursor: not-allowed;
+    }
     
     &:hover, &:focus, &:active {
       background-color: ${theme.colors.main};

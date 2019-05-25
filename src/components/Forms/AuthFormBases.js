@@ -43,7 +43,7 @@ class SignInFormBase extends React.Component {
           this.props.history.push(ROUTES.HOME);
         }).
         catch(error => {
-          this.props.setError(error)
+          this.props.setError(error);
         });
 
     event.preventDefault();
@@ -127,7 +127,7 @@ class SignUpFormBase extends React.Component {
           this.props.history.push(ROUTES.HOME);
         }).
         catch(error => {
-          this.props.setError(error)
+          this.props.setError(error);
         });
 
     event.preventDefault();
@@ -187,6 +187,81 @@ class SignUpFormBase extends React.Component {
               Sign Up
             </button>
           </form>
+        </React.Fragment>
+    );
+  }
+}
+
+/* Password Forget Base */
+
+const PW_FORGET_INITIAL_STATE = {
+  email: '',
+  isSent: false, // is reset email sent?
+  error: null,
+};
+
+class PasswordForgetBase extends React.Component {
+  static propTypes = {
+    firebase: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+    setError: PropTypes.func.isRequired,
+  };
+
+  state = {...PW_FORGET_INITIAL_STATE};
+
+  onChange = event => {
+    this.setState({[event.target.name]: event.target.value});
+  };
+
+  onSubmit = event => {
+    const {email} = this.state;
+
+    this.props.firebase.doPasswordReset(email).then(() => {
+      this.setState({isSent: true});
+      this.props.setError(null);
+    }).catch(error => {
+      this.props.setError(error);
+    });
+
+    event.preventDefault();
+  };
+
+  checkRules = () => {
+    const {email} = this.state;
+    return email.length === 0;
+  };
+
+  render() {
+    const {email, isSent, error} = this.state;
+    const isInvalid = this.checkRules();
+
+    return (
+        <React.Fragment>
+          {isSent ? (
+              <React.Fragment>
+                <p>
+                  Password reset email has been sent. Please check your email
+                  including your spam folder.
+                </p>
+                <button type="button" onClick={this.onSubmit}>
+                  Resend e-mail.
+                </button>
+              </React.Fragment>
+          ) : (
+              <form onSubmit={this.onSubmit}>
+                <FormField
+                    label={'Email Address'}
+                    name="email"
+                    value={email}
+                    onChange={this.onChange}
+                    type="text"
+                    placeholder="Email Address"
+                />
+                <button disabled={isInvalid} type="submit">
+                  Reset
+                </button>
+              </form>
+          )}
         </React.Fragment>
     );
   }
@@ -401,6 +476,11 @@ const SignUpForm = compose(
     withFirebase,
 )(SignUpFormBase);
 
+const PasswordForgetForm = compose(
+    withRouter,
+    withFirebase,
+)(PasswordForgetBase);
+
 const SignInGoogle = compose(
     withRouter,
     withFirebase,
@@ -429,6 +509,7 @@ const SignInMicrosoft = compose(
 export {
   SignInForm,
   SignUpForm,
+  PasswordForgetForm,
   SignInGoogle,
   SignInFacebook,
   SignInTwitter,

@@ -44,7 +44,7 @@ export const FormWrapper = styled.div`
   
   button {
     color: white;
-    cursor: pointer;
+    // cursor: pointer;
     margin-bottom: 0.5em;
     background-color: ${theme.colors.light_main};
     transition: 0.2s all;
@@ -64,9 +64,9 @@ export const SocialButton = styled.button`
   background-color: white !important;
   transition: 0.3s all;
   
-  &:hover, &:focus, &:active {
-    transform: scale(1.08);
-  }
+  // &:hover, &:focus, &:active {
+  //   transform: scale(1.08);
+  // }
 `;
 
 const FormFieldWrapper = styled.div`

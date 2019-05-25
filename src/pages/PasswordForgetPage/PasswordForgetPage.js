@@ -1,105 +1,48 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { compose } from "redux";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
-import { Link } from "react-router-dom";
-import { withFirebase } from "../../components/Firebase";
+import {
+  FormWrapper,
+  PasswordForgetForm,
+  SignUpForm,
+} from '../../components/Forms';
 
-import { ROUTES } from "../../_constants";
+import {ROUTES} from '../../_constants';
+import {SignInLink} from '../SignInPage';
+import {NarrowWrapper} from '../../components';
 
-const INITIAL_STATE = {
-  email: "",
-  isSent: false, // is reset email sent?
-  error: null
-};
+const PasswordForgetLink = () => (
+    <React.Fragment>
+      <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
+    </React.Fragment>
+);
 
-class PasswordForgetBase extends React.Component {
-  static propTypes = {
-    firebase: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
-  };
-
-  state = { ...INITIAL_STATE };
-
-  onChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
-  onSubmit = event => {
-    const { email } = this.state;
-
-    this.props.firebase
-      .doPasswordReset(email)
-      .then(() => {
-        this.setState({ ...INITIAL_STATE, isSent: true });
-      })
-      .catch(error => {
-        this.setState({ error });
-      });
-
-    event.preventDefault();
-  };
-
-  checkRules = () => {
-    const { email } = this.state;
-    return email.length === 0;
+class PasswordForgetPage extends React.Component {
+  state = {error: null};
+  setError = (error) => {
+    this.setState({error});
   };
 
   render() {
-    const { email, isSent, error } = this.state;
-    const isInvalid = this.checkRules();
-
     return (
-      <React.Fragment>
-        {isSent ? (
-          <React.Fragment>
-            <p>
-              Password reset email has been sent. Please check your email
-              including your spam folder.
-            </p>
-            <button type="button" onClick={this.onSubmit}>
-              Resend password reset e-mail.
-            </button>
-          </React.Fragment>
-        ) : (
-          <form onSubmit={this.onSubmit}>
-            <input
-              name="email"
-              value={email}
-              onChange={this.onChange}
-              type="text"
-              placeholder="Email Address"
-            />
-            <button disabled={isInvalid} type="submit">
-              Reset My Password
-            </button>
-
-            {error && <p>{error.message}</p>}
-          </form>
-        )}
-      </React.Fragment>
+        <NarrowWrapper>
+          <h2>Reset Password</h2>
+          <FormWrapper>
+            {this.state.error &&
+            <div className={'error'}>
+              {this.state.error.message}
+            </div>
+            }
+            <PasswordForgetForm setError={this.setError}/>
+          </FormWrapper>
+          <div className={'form-links'}>
+            <SignInLink/>
+            <div className={'divider'}/>
+            <PasswordForgetLink/>
+          </div>
+        </NarrowWrapper>
     );
   }
 }
 
-const PasswordForgetForm = compose(
-  withRouter,
-  withFirebase
-)(PasswordForgetBase);
-
-const PasswordForgetLink = () => (
-  <React.Fragment>
-    <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
-  </React.Fragment>
-);
-
-const PasswordForgetPage = () => (
-  <React.Fragment>
-    <h1>Password Forget Page</h1>
-    <PasswordForgetForm />
-  </React.Fragment>
-);
-
-export { PasswordForgetPage, PasswordForgetForm, PasswordForgetLink };
+export {PasswordForgetPage, PasswordForgetLink};
