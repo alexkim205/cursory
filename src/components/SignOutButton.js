@@ -5,7 +5,7 @@ import { withFirebase } from "./Firebase";
 import { ROUTES } from "../_constants";
 
 const SignOutButton = ({ firebase, history }) => (
-  <button
+  <a
     type="button"
     onClick={() => {
       firebase.doSignOut();
@@ -13,7 +13,7 @@ const SignOutButton = ({ firebase, history }) => (
     }}
   >
     Sign Out
-  </button>
+  </a>
 );
 
 const connectedComponent = compose(

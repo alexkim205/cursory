@@ -3,9 +3,13 @@ import styled from 'styled-components';
 
 export const ContentWrapper = posed(styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
+    
     flex-direction: column;
     height: 100%;
     width: 100%;
+    box-sizing: border-box;
     padding: 50px;
     // background-color: pink;
 `)({

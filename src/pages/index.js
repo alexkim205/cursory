@@ -8,3 +8,4 @@ export * from "./PasswordChangeForm";
 export * from "./SignInPage";
 export * from "./SignUpPage";
 export * from "./LegalPage";
+export * from "./AddCommunityPage"

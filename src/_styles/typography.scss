@@ -39,6 +39,25 @@ html {
     //margin: 0;
   }
 
+  button {
+    @include rfs(15);
+  }
+
+  form {
+    label {
+      @include rfs(15);
+    }
+    p {
+      @include rfs(15);
+    }
+    input {
+      @include rfs(14);
+    }
+  }
+  .form-links {
+    @include rfs(14);
+  }
+
   p {
     margin-bottom: 1.25em;
     text-align: justify;

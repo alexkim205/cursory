@@ -28,9 +28,11 @@ export const ProfileBarWrapper = posed(styled.div`
   hoverable: true,
   init: {
     backgroundColor: '#ffffff',
+    transition: {duration: 200}
   },
   hover: {
     backgroundColor: '#F3F4F8',
+    transition: {duration: 200}
   }
 })
 

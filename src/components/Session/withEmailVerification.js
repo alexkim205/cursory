@@ -6,6 +6,8 @@ import { compose } from "redux";
 import AuthUserContext from "./context";
 import { withFirebase } from "../Firebase";
 
+import {NarrowWrapper} from '../PageWrappers';
+
 // Checks if user logged in with email, verified their email
 const needsEmailVerification = authUser =>
   authUser &&
@@ -37,7 +39,7 @@ const withEmailVerification = Component => {
         <AuthUserContext.Consumer>
           {authUser =>
             needsEmailVerification(authUser) ? (
-              <React.Fragment>
+              <NarrowWrapper>
                 {this.state.isSent ? (
                   <p>
                     E-mail confirmation sent: Check you e-mails (Spam folder
@@ -54,7 +56,7 @@ const withEmailVerification = Component => {
                 <button type="button" onClick={this.onSendEmailVerification}>
                   Send confirmation e-mail
                 </button>
-              </React.Fragment>
+              </NarrowWrapper>
             ) : (
               <Component {...this.props} />
             )

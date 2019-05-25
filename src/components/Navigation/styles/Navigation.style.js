@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
+import {theme} from '../../../_styles';
 
 export const Navbar = styled.nav`
   display: flex;
@@ -20,22 +21,50 @@ export const Navbar = styled.nav`
 
 export const NavbarItem = styled(NavLink)`
   margin: 0 10px;
-  text-decoration: none;
+  transition: 0.1s all;
+  opacity: 0.7;
   
-  a {
-    text-decoration: none;
-  }
-
-  &:focus, &:hover, &:visited, &:link, &:active {
-      text-decoration: none;
+  &:hover {
+    opacity: 1;
   }
 `;
 
 export const OutlinedNavbarItem = styled(NavbarItem)`
   display: flex;
   align-items: center;
-  border: 2px solid #F3F4F8;
   border-radius: 5px;
-  padding: 3px 0;
+  padding: 3px 8px;
   height: 30px;
+  transition: 0.2s all;
+  
+  .icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5em;
+    align-items: center;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .main{
+    // margin: auto 1em auto 0.5em;
+  }
+  
+  ${props => props.solid ? `
+    color: white !important;
+    background-color: ${theme.colors.light_main};
+    border: 2px solid ${theme.colors.light_main};
+    &:hover {
+      background-color: ${theme.colors.main};
+      border: 2px solid ${theme.colors.main};
+    }
+    
+  ` : `
+    background-color: white;
+    border: 2px solid ${theme.colors.light_gray};
+    &:hover {
+      background-color: ${theme.colors.light_gray};
+    }
+  `};
 `;

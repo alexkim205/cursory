@@ -90,9 +90,9 @@ const PasswordForgetForm = compose(
 )(PasswordForgetBase);
 
 const PasswordForgetLink = () => (
-  <p>
+  <React.Fragment>
     <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
-  </p>
+  </React.Fragment>
 );
 
 const PasswordForgetPage = () => (

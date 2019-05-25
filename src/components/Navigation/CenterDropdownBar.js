@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom'
-import jdenticon from 'jdenticon';
 import PropTypes from 'prop-types';
 import {PoseGroup} from 'react-pose';
 
@@ -10,14 +9,9 @@ import {DropdownMenuWrapper, DropdownMenuItemWrapper} from '../Dropdown';
 import {NavbarItem} from './styles/Navigation.style';
 import {SignOutButton} from '../SignOutButton';
 
-jdenticon.config = {
-  // lightness: {color: [0.9,1.0]},
-  backColor: '#F3F4F8',
-};
-
 const profileBarItems = [
   <NavLink to={ROUTES.ACCOUNT}>
-    <b>My Account</b>
+    Profile
   </NavLink>,
   <NavLink to={ROUTES.ACCOUNT}>
     Settings
@@ -25,7 +19,7 @@ const profileBarItems = [
   <SignOutButton/>,
 ];
 
-class ProfileBar extends Component {
+class CenterDropdownBar extends Component {
   constructor(props) {
     super(props);
     this.canvasRef = React.createRef();
@@ -49,7 +43,7 @@ class ProfileBar extends Component {
 
   updateCanvas = () => {
     const context = this.canvasRef.current.getContext('2d');
-    jdenticon.drawIcon(context, this.props.username, 30);
+    // jdenticon.drawIcon(context, this.props.username, 30);
   };
 
   render() {
@@ -86,6 +80,4 @@ class ProfileBar extends Component {
 
 }
 
-ProfileBar.propTypes = {};
-
-export {ProfileBar};
+export {CenterDropdownBar};

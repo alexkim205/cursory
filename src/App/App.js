@@ -24,6 +24,7 @@ import {
   SignInPage,
   SignUpPage,
   LegalPage,
+  AddCommunityPage,
 } from '../pages';
 import {Footer} from './';
 import {BodyWrapper, RootWrapper} from './styles';
@@ -49,6 +50,9 @@ const App = () => (
             <Route exact path={ROUTES.ADMIN} component={AdminPage}/>
             {/*<Route exact path={ROUTES.EDITOR} component={EditorPage}/>*/}
             <Route exact path={ROUTES.LEGAL} component={LegalPage}/>
+
+            <Route exact path={ROUTES.CREATE_COMMUNITY}
+                   component={AddCommunityPage}/>
           </Content>
           {/* <Footer /> */}
           {/* {renderToaster()} */}

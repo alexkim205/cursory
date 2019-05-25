@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import styled from 'styled-components';
 import posed, {PoseGroup} from 'react-pose';
 import {Navigation} from '../../components/Navigation/Navigation';
+import {theme} from '../../_styles';
 
 const RootWrapper = styled.div`
     display: flex;
@@ -27,7 +28,7 @@ const BodyWrapperUnposed = posed(styled.div`
   top: 0;
   overflow: scroll;
   cursor: text;
-  // background-color: lightblue;
+  background-color: ${theme.colors.background};
 `)({
   enter: {
     // y: 0,

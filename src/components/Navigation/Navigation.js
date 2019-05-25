@@ -9,6 +9,8 @@ import {ProfileBar} from './ProfileBar';
 import {ROUTES} from '../../_constants/index';
 import {SignOutButton} from '../SignOutButton';
 import {DropdownMenu} from '../Dropdown';
+import {ProfileBarWrapper} from './styles/ProfileBar.style';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const Navigation = () => (
     <AuthUserContext.Consumer>
@@ -38,8 +40,16 @@ class NavigationAuth extends React.Component {
           {/*<NavbarItem to={ROUTES.LANDING}>Landing</NavbarItem>*/}
           <NavbarItem to={ROUTES.HOME}>Home</NavbarItem>
           <div className={'flex-grow'}/>
-          <OutlinedNavbarItem to={'/hello'}>
-            Community
+          {/*<OutlinedNavbarItem to={'/hello'}>*/}
+            {/*Community*/}
+          {/*</OutlinedNavbarItem>*/}
+          <OutlinedNavbarItem to={'/create'} solid>
+            <div className={'icon'}>
+              <FontAwesomeIcon icon={['fal', 'plus-hexagon']}
+                               size={'2x'}
+              />
+            </div>
+            <div className={'main'}>Create a Community</div>
           </OutlinedNavbarItem>
           <div className={'flex-grow'}/>
           <ProfileBar username={authUser.username}/>

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import posed from 'react-pose';
+import {theme} from '../_styles';
 
 export const DropdownMenuWrapper = props =>
     <Perspective>
@@ -14,17 +15,20 @@ const Perspective = styled.div`
 
 const DropdownMenu = posed(styled.div`
   position: absolute;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   right:  0px;
   top: 40px;
   align-items: center;
   width: 250px;
-  background-color: #242E49;
+  background-color: ${theme.colors.dark};
   transform-origin: center top;
   transform-style: preserve-3d;
   border-radius: 5px;
-  
-  box-shadow: 0px 0px 59px -14px rgba(0,0,0,0.21);
+  box-shadow: ${theme.shadow};
+  // padding: 1em 0;
+  height: 160px;
   
   &:after {
     bottom: 100%;
@@ -63,13 +67,15 @@ const DropdownMenu = posed(styled.div`
 export const DropdownMenuItemWrapper = posed(styled.div`
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 40px;
   width: 100%;
-  // background-color: red;
-  color: white;
-  // margin: 1em 0;
-  padding: 1em 2em;
+  padding: 0.5em 2em;
   box-sizing: border-box;
+  
+  a {
+    cursor: pointer;
+    color: white;
+  }
  
 `)({
   enter: {

@@ -1,18 +1,28 @@
 // Colors
 
-$color-main: rgb(255, 88, 43);
-$color-light-main: rgba(255, 88, 43, 0.3);
+$color-main: #0483ff;
+$color-light-main: #1E90FF;
+
+$color-background: #F6FBFD;
+
+$color-dark: #242E49;
+$color-light-dark: #9196a4;
 
 $color-mark: rgba(254, 237, 90, 0.95);
+$color-error: #FF4C4C;
 
-$color-gray: rgba(0, 0, 0, 0.2);
-$color-light-gray: rgba(0, 0, 0, 0.1);
+$color-gray: #F6FBFD;
+$color-light-gray: #F3F4F8;
 
 // Export
 :export {
   colorMain: $color-main;
   colorLightMain: $color-light-main;
+  colorBackground: $color-background;
   colorMark: $color-mark;
+  colorError: $color-error;
   colorGray: $color-gray;
   colorLightGray: $color-light-gray;
+  colorDark: $color-dark;
+  colorLightDark: $color-light-dark;
 }

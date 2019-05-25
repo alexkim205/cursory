@@ -5,12 +5,13 @@ export const ToolbarWrapper = posed(styled.div`
     display: flex;
     flex-direction: row;
 
-    // background-color: chartreuse;
+    background-color: white;
     height: 100%;
     width: 60px;
     z-index: 1000;
     border-right: 1px solid #F3F4F8;
     padding-top: 13px;
+    box-sizing: border-box;
     
     .selector-container {
       width: 4px;
