@@ -8,7 +8,7 @@ import {Navbar, NavbarItem, OutlinedNavbarItem} from './styles/Navigation.style'
 import {ProfileBar} from './ProfileBar';
 import {ROUTES} from '../../_constants/index';
 import {SignOutButton} from '../SignOutButton';
-import {DropdownMenu} from '../Dropdown';
+import {DropdownMenu} from './Dropdown';
 import {ProfileBarWrapper} from './styles/ProfileBar.style';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 

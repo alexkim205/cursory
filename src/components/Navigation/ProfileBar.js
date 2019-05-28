@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
 import jdenticon from 'jdenticon';
 import PropTypes from 'prop-types';
 import {PoseGroup} from 'react-pose';
 
 import {ProfileBarWrapper, Spacer} from './styles/ProfileBar.style';
 import {ROUTES} from '../../_constants';
-import {DropdownMenuWrapper, DropdownMenuItemWrapper} from '../Dropdown';
+import {DropdownMenuWrapper, DropdownMenuItemWrapper} from './Dropdown';
 import {NavbarItem} from './styles/Navigation.style';
 import {SignOutButton} from '../SignOutButton';
 
@@ -20,7 +20,10 @@ const profileBarItems = [
     <b>My Account</b>
   </NavLink>,
   <NavLink to={ROUTES.ACCOUNT}>
-    Settings
+    My Communities
+  </NavLink>,
+  <NavLink to={ROUTES.ACCOUNT}>
+    Go Pro!
   </NavLink>,
   <SignOutButton/>,
 ];

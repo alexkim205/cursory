@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
+import posed from 'react-pose';
+
 import {theme} from '../../../_styles';
 
 export const Navbar = styled.nav`
@@ -10,14 +12,13 @@ export const Navbar = styled.nav`
   /* align-content: center; */
   align-items: center;
   padding: 0 8px;
-  // background-color: antiquewhite;
+  background-color: white;
   border-bottom: 1px solid #F3F4F8;
   
   .flex-grow {
     flex: 1;
   }
-  
-`;
+`
 
 export const NavbarItem = styled(NavLink)`
   margin: 0 10px;

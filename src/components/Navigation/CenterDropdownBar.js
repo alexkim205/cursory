@@ -5,7 +5,7 @@ import {PoseGroup} from 'react-pose';
 
 import {ProfileBarWrapper, Spacer} from './styles/ProfileBar.style';
 import {ROUTES} from '../../_constants';
-import {DropdownMenuWrapper, DropdownMenuItemWrapper} from '../Dropdown';
+import {DropdownMenuWrapper, DropdownMenuItemWrapper} from './Dropdown';
 import {NavbarItem} from './styles/Navigation.style';
 import {SignOutButton} from '../SignOutButton';
 

@@ -40,7 +40,7 @@ export const Spacer = styled.div`
   position: absolute;
   // display: block;
   top: -30px;
-  // background-color: red;
+  background-color: red;
   width: 250px;
-  height: 30px;
+  height: 40px;
 `

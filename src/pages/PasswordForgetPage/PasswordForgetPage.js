@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {compose} from 'redux';
 
 import {
   FormWrapper,
@@ -45,4 +46,8 @@ class PasswordForgetPage extends React.Component {
   }
 }
 
-export {PasswordForgetPage, PasswordForgetLink};
+const connectedPage = compose(
+    // withNavbar(),
+)(PasswordForgetPage);
+
+export {connectedPage as PasswordForgetPage, PasswordForgetLink};

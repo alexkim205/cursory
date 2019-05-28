@@ -52,6 +52,8 @@ const SignUpLink = () => (
     </React.Fragment>
 );
 
-const connectedPage = compose()(SignUpPage);
+const connectedPage = compose(
+
+)(SignUpPage);
 
 export {connectedPage as SignUpPage, SignUpLink};

@@ -9,6 +9,7 @@ import {
   TrendingPage,
 } from '../../pages/PrivatePages';
 import {Content} from './Content';
+import {Navigation} from '../Navigation';
 
 const Left = styled.div`
   // width: 60px;
@@ -52,17 +53,19 @@ const withDashboard = Component => {
 
     render() {
       return (
-          <Wrapper>
-            <Left>
-              <Toolbar whichActive={this.state.whichRightActive}
-                       handleClick={this.handleClick}/>
-            </Left>
-            <Right>
-              <Content>
-                {this.renderActiveComponent()}
-              </Content>
-            </Right>
-          </Wrapper>
+          <React.Fragment>
+            <Wrapper>
+              <Left>
+                <Toolbar whichActive={this.state.whichRightActive}
+                         handleClick={this.handleClick}/>
+              </Left>
+              <Right>
+                <Content>
+                  {this.renderActiveComponent()}
+                </Content>
+              </Right>
+            </Wrapper>
+          </React.Fragment>
       );
     }
   }

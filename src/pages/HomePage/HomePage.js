@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 
+import {withDashboard} from '../../components/Layout'
+
 import {
   isUser,
   withAuthorization,
   withEmailVerification,
 } from '../../components/Session';
-import {withDashboard} from '../../components/Layout';
 
 class HomePage extends React.Component {
   static propTypes = {};

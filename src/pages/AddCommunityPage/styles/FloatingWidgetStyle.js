@@ -1,22 +1,38 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import posed from 'react-pose';
-import {theme} from '../_styles';
+import {theme} from '../../../_styles';
 
-export const DropdownMenuWrapper = props =>
-    <Perspective>
-      <DropdownMenu {...props}/>
-    </Perspective>;
+export const FloatingWidgetWrapper = posed(styled.div`
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  right: 100px;
+  top: 100px;
+  padding: 0 1em;
+  border-radius: 5px;
+`)({
 
-const Perspective = styled.div`
-  perspective: 1000px;
-`;
+})
 
-const DropdownMenu = posed(styled.div`
+
+export const FloatingWidgetItemWrapper = posed(styled.div`
+  // background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+`)({
+
+})
+
+export const FloatingWidgetDropdownWrapper = posed(styled.div`
+  background-color: green;
   position: absolute;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   right:  0px;
   top: 40px;
@@ -26,9 +42,10 @@ const DropdownMenu = posed(styled.div`
   transform-origin: center top;
   transform-style: preserve-3d;
   border-radius: 5px;
-  box-shadow: ${theme.shadow};
+  box-shadow: ${theme.shadows.intense};
   // padding: 1em 0;
-  height: 160px;
+  // height: 190px;
+  z-index: 1000;
   
   &:after {
     bottom: 100%;
@@ -64,7 +81,7 @@ const DropdownMenu = posed(styled.div`
   },
 });
 
-export const DropdownMenuItemWrapper = posed(styled.div`
+export const FloatingWidgetDropdownItemWrapper = posed(styled.div`
   display: flex;
   align-items: center;
   height: 40px;

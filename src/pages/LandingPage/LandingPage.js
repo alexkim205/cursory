@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {compose} from 'redux';
-import withDashboard from '../../components/Layout/withDashboard';
 
 class LandingPage extends React.Component {
   static propTypes = {
@@ -20,6 +19,7 @@ class LandingPage extends React.Component {
 }
 
 const connectedPage = compose(
+    // withNavbar(),
 )(LandingPage);
 
 export {connectedPage as LandingPage};

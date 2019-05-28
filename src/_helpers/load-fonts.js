@@ -43,7 +43,27 @@ import {
   faQuestionCircle,
   faPlusHexagon,
   faPlusCircle,
-  faPlus,
+
+  faPlus, // add
+  faFileAlt, // document/page
+  faBars, // settings
+  faRss, // feed
+  faNewspaper, // statistics
+  faRulerHorizontal, // rules/guidelines
+  faFont, // Text
+  faPencilAlt, // Form
+  faClock, // Timer
+  faLink as falLink, // Link
+  faAppleAlt, // Icons
+  faTh, // Container
+  faImage, //Image
+  faVideo, // Video
+  faCameraRetro, // Gallery
+  faPepperHot, // Widget
+  faCode as falCode, //Embed
+  faSearch, // Search Bar
+  faGripLines, // Divider
+
 } from '@fortawesome/pro-light-svg-icons';
 
 export const loadFonts = () => {
@@ -83,5 +103,26 @@ export const loadFonts = () => {
       faFacebookF,
       faTwitter,
       faMicrosoft,
+
+      // For Floating Widget
+      faPlus, // add new element
+      faFileAlt, // document/page
+      faBars, // settings
+      faRss, // feed
+      faNewspaper, // statistics
+      faRulerHorizontal, // rules/guidelines
+      faFont, // Text
+      faPencilAlt, // Form
+      faClock, // Timer
+      falLink, // Link
+      faAppleAlt, // Icons
+      faTh, // Container
+      faImage, //Image
+      faVideo, // Video
+      faCameraRetro, // Gallery
+      faPepperHot, // Widget
+      falCode, //Embed
+      faSearch, // Search Bar
+      faGripLines, // Divider
   );
 };

@@ -8,7 +8,6 @@ export const ToolbarWrapper = posed(styled.div`
     background-color: white;
     height: 100%;
     width: 60px;
-    z-index: 1000;
     border-right: 1px solid #F3F4F8;
     padding-top: 13px;
     box-sizing: border-box;
@@ -73,7 +72,6 @@ export const ToolbarItemWrapper = posed(styled.button`
     padding: 0;
     margin: 13px auto;
     cursor: pointer;
-    z-index: 1001;
     
 `)({
   // entering and exiting stagger

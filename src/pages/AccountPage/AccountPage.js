@@ -10,6 +10,7 @@ import {
   withAuthorization,
   withEmailVerification
 } from '../../components/Session';
+import withDashboard from '../../components/Layout/withDashboard';
 
 const AccountPage = () => (
     <AuthUserContext.Consumer>
@@ -25,7 +26,6 @@ const AccountPage = () => (
 const connectedPage = compose(
     withEmailVerification,
     withAuthorization(isUser),
-    connect(null, null),
 )(AccountPage);
 
 export {connectedPage as AccountPage};

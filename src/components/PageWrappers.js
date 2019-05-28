@@ -47,10 +47,10 @@ export const NarrowWrapper = styled.div`
     }
   }
 `
-export const WideWrapper = styled.div`
-  width: 46em;
+export const FullWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  text-align: center;
 `

@@ -59,6 +59,8 @@ const SignInLink = () => (
     </React.Fragment>
 );
 
-const connectedPage = compose()(SignInPage);
+const connectedPage = compose(
+    // withNavbar()
+)(SignInPage);
 
 export {connectedPage as SignInPage, SignInLink};

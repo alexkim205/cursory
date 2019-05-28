@@ -79,6 +79,7 @@ const UserList = ({ users }) => (
 const connectedPage = compose(
   withEmailVerification,
   withAuthorization(isAdmin),
+  // withNavbar(),
   withFirebase
 )(AdminPage);
 

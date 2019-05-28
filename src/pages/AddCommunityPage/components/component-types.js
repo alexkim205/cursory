@@ -1,0 +1,7 @@
+export const componentTypes = {
+  GENERIC: 'GENERIC',
+  CONTAINER: 'CONTAINER',
+  CONTAINER_ITEM: 'CONTAINER-ITEM',
+  BACKGROUND: 'BACKGROUND',
+  PAGE: 'PAGE',
+};
