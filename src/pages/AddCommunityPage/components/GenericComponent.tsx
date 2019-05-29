@@ -1,19 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {componentTypes} from './component-types';
+import {componentTypes} from '../constants/component-types';
 import {ContainerComponent} from './Container';
 
 interface GenericComponentWrapperProps {
   backgroundColor?: string;
   direction?: 'columns' | 'rows' | 'default';
   alignment?: 'center' | 'left' | 'right' | 'auto';
-  width: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  padding: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  width?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  padding?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+}
+
+export interface GenericComponentInterface extends GenericComponentWrapperProps {
+  name: string;
+  type: string;
+  childComponents?: GenericComponentInterface[];
 }
 
 const GenericComponentWrapper = styled.div<GenericComponentWrapperProps>`
-  background-color: ${props => props.color};
+  background-color: ${props => props.backgroundColor};
   
   display: flex;
   ${props => {
@@ -43,24 +49,13 @@ const GenericComponentWrapper = styled.div<GenericComponentWrapperProps>`
   }
 }}
   
-  width: ${props => props.width / 12 * 100}%;
-  padding: ${props => props.padding / 12 * 100}%;
+  width: ${props => (props.width ? props.width : 12) / 12 * 100}%;
+  padding: ${props => (props.padding ? props.padding : 12) / 12 * 100}%;
 `;
-
-export interface GenericComponentInterface {
-  name: string;
-  type: string;
-  backgroundColor?: string;
-  direction?: 'columns' | 'rows' | 'default';
-  alignment?: 'center' | 'left' | 'right' | 'auto';
-  width: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  padding: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  childComponents?: GenericComponentInterface[];
-}
 
 export class GenericComponent extends React.Component<GenericComponentInterface> {
 
-  static defaultProps = {
+  static defaultProps: GenericComponentInterface = {
     name: '',
     type: componentTypes.GENERIC,
     backgroundColor: '#FFFFFF',
@@ -68,7 +63,7 @@ export class GenericComponent extends React.Component<GenericComponentInterface>
     alignment: 'center',
     width: 12,
     padding: 1,
-    childComponents: null,
+    childComponents: [],
   };
 
   render() {

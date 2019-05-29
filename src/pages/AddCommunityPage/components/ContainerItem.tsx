@@ -2,11 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {GenericComponentInterface, GenericComponent} from './GenericComponent';
-import {componentTypes} from './component-types';
+import {componentTypes} from '../constants/component-types';
+
+/*
+ * Container column where elements can be dropped into.
+ */
 
 interface ContainerItemWrapperProps {
   alignment?: 'center' | 'left' | 'right' | 'auto';
-  width: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  width?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+}
+
+export interface ContainerItemInterface extends ContainerItemWrapperProps{
+  type: string;
+  name: string;
+  childComponents?: GenericComponentInterface[];
 }
 
 const ContainerItemWrapper = styled.div<ContainerItemWrapperProps>`
@@ -26,29 +36,17 @@ const ContainerItemWrapper = styled.div<ContainerItemWrapperProps>`
     }
   }}
   
-  width: ${props => props.width / 12 * 100}%;
+  width: ${props => (props.width ? props.width : 12) / 12 * 100}%;
 `;
-
-/*
- * Container column where elements can be dropped into.
- */
-export interface ContainerItemInterface {
-  type: string;
-  name: string;
-  alignment?: 'center' | 'left' | 'right' | 'auto';
-  width: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  // padding?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  childComponents?: GenericComponentInterface[];
-}
 
 export class ContainerItemComponent extends React.Component<ContainerItemInterface> {
 
-  static defaultProps = {
+  static defaultProps: ContainerItemInterface = {
     type: componentTypes.CONTAINER_ITEM,
     name: '',
     alignment: 'center',
     width: 6,
-    childComponents: null,
+    childComponents: [],
   };
 
   render() {

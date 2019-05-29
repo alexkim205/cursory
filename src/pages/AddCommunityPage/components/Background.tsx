@@ -1,26 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {componentTypes} from './component-types';
+import {componentTypes} from '../constants/component-types';
 import {PageComponent, PageInterface} from './Page';
 
 interface BackgroundWrapperProps {
   backgroundColor?: string;
 }
 
-const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
-  background-color: ${props => props.color};
-`;
-
-export interface BackgroundInterface {
+export interface BackgroundInterface extends BackgroundWrapperProps{
   type: string;
-  backgroundColor?: string;
   page: PageInterface;
 }
 
+const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
+  background-color: ${props => props.backgroundColor};
+`;
+
 export class BackgroundComponent extends React.Component<BackgroundInterface> {
 
-  static defaultProps = {
+  static defaultProps: BackgroundInterface = {
     type: componentTypes.BACKGROUND,
     backgroundColor: '#FFFFFF',
     page: {

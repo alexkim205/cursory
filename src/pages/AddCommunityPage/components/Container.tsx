@@ -3,18 +3,24 @@ import styled from 'styled-components';
 
 import {ContainerItemInterface, ContainerItemComponent} from './ContainerItem';
 import {GenericComponentInterface} from './GenericComponent';
-import {componentTypes} from './component-types';
+import {componentTypes} from '../constants/component-types';
 
 interface ContainerWrapperProps {
   backgroundColor?: string;
   direction?: 'columns' | 'rows' | 'default';
   alignment?: 'center' | 'left' | 'right' | 'auto';
-  width: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  padding: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  width?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  padding?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+}
+
+export interface ContainerInterface extends ContainerWrapperProps {
+  type: string;
+  name: string;
+  childComponents?: GenericComponentInterface[];
 }
 
 const ContainerWrapper = styled.div<ContainerWrapperProps>`
-  background-color: ${props => props.color};
+  background-color: ${props => props.backgroundColor};
   
   display: flex;
   ${props => {
@@ -44,20 +50,9 @@ const ContainerWrapper = styled.div<ContainerWrapperProps>`
   }
 }}
   
-  width: ${props => props.width / 12 * 100}%;
-  padding: ${props => props.padding / 12 * 100}%;
+  width: ${props => (props.width ? props.width : 12) / 12 * 100}%;
+  padding: ${props => (props.padding ? props.padding : 12) / 12 * 100}%;
 `;
-
-export interface ContainerInterface {
-  type: string;
-  name: string;
-  backgroundColor?: string;
-  direction?: 'columns' | 'rows' | 'default';
-  alignment?: 'center' | 'left' | 'right' | 'auto';
-  width: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  padding: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  childComponents?: GenericComponentInterface[];
-}
 
 export class ContainerComponent extends React.Component<ContainerInterface> {
 

@@ -17,6 +17,7 @@ import {
 } from 'react-live';
 import { DragDropContext } from 'react-beautiful-dnd';
 import {FloatingWidget} from './FloatingWidget';
+import {BuilderLayout} from './BuilderLayout';
 
 
 const INITIAL_STATE = {
@@ -40,26 +41,7 @@ class AddCommunityPage extends React.Component {
     return (
         <FullWrapper>
           <h1>Create a Community</h1>
-          <input
-              name="name"
-              value={name}
-              onChange={this.onChange}
-              type="text"
-              placeholder="Name your community"
-          />
-          <input
-              name="description"
-              value={description}
-              onChange={this.onChange}
-              type="text"
-              placeholder="Who's it for?"
-          />
-
-          <LiveProvider code={code}>
-            <LiveEditor/>
-            <LiveError/>
-            <LivePreview/>
-          </LiveProvider>
+          <BuilderLayout/>
 
           {/*<FloatingWidget/>*/}
 
