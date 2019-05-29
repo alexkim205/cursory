@@ -6,6 +6,7 @@ import {PageComponent, PageInterface} from './Page';
 
 interface BackgroundWrapperProps {
   backgroundColor?: string;
+
 }
 
 export interface BackgroundInterface extends BackgroundWrapperProps{
@@ -13,8 +14,11 @@ export interface BackgroundInterface extends BackgroundWrapperProps{
   page: PageInterface;
 }
 
-const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
+export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
   background-color: ${props => props.backgroundColor};
+  box-sizing: border-box;
+  width:100%;
+  height: 100%;
 `;
 
 export class BackgroundComponent extends React.Component<BackgroundInterface> {
@@ -24,8 +28,6 @@ export class BackgroundComponent extends React.Component<BackgroundInterface> {
     backgroundColor: '#FFFFFF',
     page: {
       type: componentTypes.PAGE,
-      width: 12,
-      padding: 3,
     }
   };
 

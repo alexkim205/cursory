@@ -5,8 +5,11 @@ import {
   BackgroundInterface,
   GenericComponent,
   GenericComponentInterface,
+  ContentBuildComponent, DroppableCanvasArea,
+  BackgroundWrapper,
 } from './components';
 import {componentTypes} from './constants/component-types';
+import {withDroppable} from './draggable-droppable';
 
 /*
  * Every state will have a `background {page { ... } }`
@@ -24,19 +27,37 @@ const initialState: BackgroundInterface = {
   type: componentTypes.BACKGROUND,
   page: {
     type: componentTypes.PAGE,
-    width: 12,
-    padding: 3,
+    width: 100,
+    childComponents: [
+      {
+        name: 'Container 1',
+        type: componentTypes.CONTAINER,
+        childComponents: [
+          {
+            name: 'Container 1.a',
+            type: componentTypes.CONTAINER_ITEM,
+          },
+          {
+            name: 'Container 1.b',
+            type: componentTypes.CONTAINER_ITEM,
+          },
+        ],
+      },
+      {
+        name: 'Container 2',
+        type: componentTypes.CONTAINER,
+      },
+      {
+        name: 'Container 2',
+        type: componentTypes.CONTAINER,
+      },
+      {
+        name: 'Container 2',
+        type: componentTypes.CONTAINER,
+      },
+    ],
   },
 };
-
-interface BuilderLayoutProps {
-  builderState: BackgroundInterface
-}
-
-const ContentBuildComponent = React.memo <BuilderLayoutProps>(
-    ({builderState}) =>
-        <BackgroundComponent {...builderState}/>,
-);
 
 export class BuilderLayout extends React.Component {
 
@@ -51,11 +72,12 @@ export class BuilderLayout extends React.Component {
     return (
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable droppableId={'canvas'}>
-            {(provided, snapshot) => (
-                <div ref={provided.innerRef} {...provided.droppableProps}>
+            {provided => (
+                <DroppableCanvasArea ref={provided.innerRef}
+                                     {...provided.droppableProps}>
                   <ContentBuildComponent builderState={builderState}/>
                   {provided.placeholder}
-                </div>
+                </DroppableCanvasArea>
             )}
           </Droppable>
         </DragDropContext>
@@ -66,13 +88,13 @@ export class BuilderLayout extends React.Component {
     console.log(result);
   }
 
-  private generateComponentInterface(
-      name: string, type: string): GenericComponentInterface {
-    let newComponent: GenericComponentInterface = {
-      name, type,
-    };
-
-    return newComponent;
-  }
+  // private generateComponentInterface(
+  //     name: string, type: string): GenericComponentInterface {
+  //   let newComponent: GenericComponentInterface = {
+  //     name, type,
+  //   };
+  //
+  //   return newComponent;
+  // }
 
 }

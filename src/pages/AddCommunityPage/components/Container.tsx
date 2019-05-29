@@ -1,19 +1,33 @@
 import React from 'react';
+import {compose} from 'redux';
 import styled from 'styled-components';
 
 import {ContainerItemInterface, ContainerItemComponent} from './ContainerItem';
 import {GenericComponentInterface} from './GenericComponent';
 import {componentTypes} from '../constants/component-types';
+import {
+  Alignments,
+  Directions,
+  Paddings,
+  Widths,
+  Margins,
+} from '../constants/style-enums';
+import {Droppable} from 'react-beautiful-dnd';
+import {DroppableArea} from './ContentBuildComponent';
 
 interface ContainerWrapperProps {
   backgroundColor?: string;
-  direction?: 'columns' | 'rows' | 'default';
-  alignment?: 'center' | 'left' | 'right' | 'auto';
-  width?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  padding?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  direction?: Directions;
+  alignment?: Alignments;
+  width?: Widths;
+  paddingVertical?: Paddings;
+  paddingHorizontal?: Paddings;
+  marginTop?: Margins;
+  marginBottom?: Margins;
 }
 
 export interface ContainerInterface extends ContainerWrapperProps {
+  id: string; // keeps track of place in nested object
   type: string;
   name: string;
   childComponents?: GenericComponentInterface[];
@@ -23,13 +37,17 @@ const ContainerWrapper = styled.div<ContainerWrapperProps>`
   background-color: ${props => props.backgroundColor};
   
   display: flex;
+  box-sizing: border-box;
+  background-color: red;
+  min-height: 200px;
+  
   ${props => {
   switch (props.direction) {
-    case 'columns':
-      return 'flex-direction: column;';
-    case 'rows':
+    case Directions.Columns:
       return 'flex-direction: row;';
-    case 'default':
+    case Directions.Rows:
+      return 'flex-direction: column;';
+    case Directions.Default:
       return 'flex-direction: auto;';
   }
 }}
@@ -39,57 +57,94 @@ const ContainerWrapper = styled.div<ContainerWrapperProps>`
   
   ${props => {
   switch (props.alignment) {
-    case 'center':
+    case Alignments.Center:
       return 'align-items: center;';
-    case 'left':
+    case Alignments.Left:
       return 'align-items: flex-start;';
-    case 'right':
+    case Alignments.Right:
       return 'align-items: flex-end;';
-    case 'auto':
+    case Alignments.Auto:
       return 'align-items: auto;';
   }
 }}
   
-  width: ${props => (props.width ? props.width : 12) / 12 * 100}%;
-  padding: ${props => (props.padding ? props.padding : 12) / 12 * 100}%;
+  width: ${props => typeof props.width !== 'undefined' ? props.width : 100}%;
+  
+  // Padding
+  padding: ${props => typeof props.paddingVertical !== 'undefined'
+    ? props.paddingVertical
+    : 0}px 
+    ${props => typeof props.paddingHorizontal !== 'undefined'
+    ? props.paddingHorizontal
+    : 0}px;
+    
+  // Margin
+  margin: ${props => typeof props.marginTop !== 'undefined'
+    ? props.marginTop
+    : 0}px 0 
+    ${props => typeof props.marginBottom !== 'undefined'
+    ? props.marginBottom
+    : 0}px 0;
 `;
 
 export class ContainerComponent extends React.Component<ContainerInterface> {
 
   static defaultProps = {
+    id: 'bg_page_0',
     type: componentTypes.CONTAINER,
     name: '',
     backgroundColor: '#FFFFFF',
-    direction: 'default',
-    alignment: 'center',
-    width: 12,
-    padding: 3,
+    direction: Directions.Columns,
+    alignment: Alignments.Center,
+    width: (100 as Widths),
+    paddingVertical: (10 as Paddings),
+    paddingHorizontal: (10 as Paddings),
+    marginTop: (20 as Margins),
+    marginBottom: (20 as Margins),
     childComponents: [
       {
-        alignment: 'center',
-        width: 6,
-        padding: 1,
+        name: 'Column 1',
+        type: componentTypes.CONTAINER_ITEM,
+        alignment: Alignments.Center,
       }, {
-        alignment: 'center',
-        width: 6,
-        padding: 1,
+        name: 'Column 2',
+        type: componentTypes.CONTAINER_ITEM,
+        alignment: Alignments.Center,
       }],
   };
 
   render() {
-    const {childComponents, name, ...otherProps} = this.props;
+    const {id, childComponents, name, ...otherProps} = this.props;
 
     return (
-        <ContainerWrapper {...otherProps}>
-          {name}
-          {childComponents && childComponents.map((elementProps, key) => {
+        <Droppable droppableId={id}>
+          {provided => (
+              <DroppableArea ref={provided.innerRef}
+                             {...provided.droppableProps}
+                             {...otherProps}
+              >
+                <ContainerWrapper {...otherProps}>
+                  {childComponents &&
+                  childComponents.map((elementProps, key) => {
 
-            return (
-                <ContainerItemComponent {...elementProps} key={key}/>
-            );
-          })}
-        </ContainerWrapper>
+                    return (
+                        <ContainerItemComponent {...elementProps}
+                                                key={key}
+                                                id={id}
+                                                index={key}/>
+                    );
+                  })}
+                </ContainerWrapper>
+                {provided.placeholder}
+              </DroppableArea>
+          )}
+        </Droppable>
     );
   }
 }
 
+// const connectedComponent = compose(
+//     withDraggable,
+// )(ContainerComponent);
+//
+// export {connectedComponent as ContainerComponent};

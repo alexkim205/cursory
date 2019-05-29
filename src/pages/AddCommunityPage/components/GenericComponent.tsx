@@ -3,16 +3,27 @@ import styled from 'styled-components';
 
 import {componentTypes} from '../constants/component-types';
 import {ContainerComponent} from './Container';
+import {withDraggable} from '../draggable-droppable';
+import {
+  Alignments,
+  Directions, Margins,
+  Paddings,
+  Widths,
+} from '../constants/style-enums';
 
 interface GenericComponentWrapperProps {
   backgroundColor?: string;
-  direction?: 'columns' | 'rows' | 'default';
-  alignment?: 'center' | 'left' | 'right' | 'auto';
-  width?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-  padding?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  direction?: Directions;
+  alignment?: Alignments;
+  width?: Widths;
+  paddingVertical?: Paddings;
+  paddingHorizontal?: Paddings;
+  marginTop?: Margins;
+  marginBottom?: Margins;
 }
 
 export interface GenericComponentInterface extends GenericComponentWrapperProps {
+  id?: string; // keeps track of place in nested object
   name: string;
   type: string;
   childComponents?: GenericComponentInterface[];
@@ -22,13 +33,14 @@ const GenericComponentWrapper = styled.div<GenericComponentWrapperProps>`
   background-color: ${props => props.backgroundColor};
   
   display: flex;
+  box-sizing: border-box;
   ${props => {
   switch (props.direction) {
-    case 'columns':
+    case Directions.Columns:
       return 'flex-direction: column;';
-    case 'rows':
+    case Directions.Rows:
       return 'flex-direction: row;';
-    case 'default':
+    case Directions.Default:
       return 'flex-direction: auto;';
   }
 }}
@@ -38,40 +50,55 @@ const GenericComponentWrapper = styled.div<GenericComponentWrapperProps>`
   
   ${props => {
   switch (props.alignment) {
-    case 'center':
+    case Alignments.Center:
       return 'align-items: center;';
-    case 'left':
+    case Alignments.Left:
       return 'align-items: flex-start;';
-    case 'right':
+    case Alignments.Right:
       return 'align-items: flex-end;';
-    case 'auto':
+    case Alignments.Auto:
       return 'align-items: auto;';
   }
 }}
   
-  width: ${props => (props.width ? props.width : 12) / 12 * 100}%;
-  padding: ${props => (props.padding ? props.padding : 12) / 12 * 100}%;
+  width: ${props => typeof props.width !== 'undefined' ? props.width : 100}%;
+  
+  // Padding
+  padding: ${props => typeof props.paddingVertical !== 'undefined'
+    ? props.paddingVertical
+    : 0}px 
+    ${props => typeof props.paddingHorizontal !== 'undefined'
+    ? props.paddingHorizontal
+    : 0}px;
+    
+  // Margin
+  margin: ${props => typeof props.marginTop !== 'undefined'
+    ? props.marginTop
+    : 0}px 0 
+    ${props => typeof props.marginBottom !== 'undefined'
+    ? props.marginBottom
+    : 0}px 0;
 `;
 
-export class GenericComponent extends React.Component<GenericComponentInterface> {
+class GenericComponent extends React.Component<GenericComponentInterface> {
 
   static defaultProps: GenericComponentInterface = {
+    id: 'bg_page_0',
     name: '',
     type: componentTypes.GENERIC,
     backgroundColor: '#FFFFFF',
-    direction: 'default',
-    alignment: 'center',
-    width: 12,
-    padding: 1,
+    direction: Directions.Rows,
+    alignment: Alignments.Center,
+    width: 100,
     childComponents: [],
   };
 
   render() {
-    const {childComponents, type, name, ...otherProps} = this.props;
+    const {id, childComponents, type, name, ...otherProps} = this.props;
 
     if (type === componentTypes.CONTAINER) {
       return (
-          <ContainerComponent type={type} name={name}
+          <ContainerComponent type={type} name={name} id={id}
                               childComponents={childComponents}
                               {...otherProps}/>
       );
@@ -85,3 +112,6 @@ export class GenericComponent extends React.Component<GenericComponentInterface>
   }
 }
 
+const connectedComponent = withDraggable(GenericComponent);
+
+export {connectedComponent as GenericComponent};
