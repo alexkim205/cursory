@@ -15,10 +15,9 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live';
-import { DragDropContext } from 'react-beautiful-dnd';
+import {DragDropContext} from 'react-beautiful-dnd';
 import {FloatingWidget} from './FloatingWidget';
 import {BuilderLayout} from './BuilderLayout';
-
 
 const INITIAL_STATE = {
   name: '',

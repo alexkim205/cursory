@@ -1,7 +1,7 @@
-import {GenericComponentInterface} from '../components/GenericComponent';
+import {GenericComponentInterface} from '../components/Generic';
 import {componentTypes} from './component-types';
 
-export const DraggableComponents: GenericComponentInterface[] = [
+export const DraggableComponents = [
   {
     name: 'Generic',
     type: componentTypes.GENERIC,
