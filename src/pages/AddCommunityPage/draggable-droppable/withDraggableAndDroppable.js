@@ -5,29 +5,63 @@ import {componentTypes} from '../constants/component-types';
 export const connectAsTargetAndSource = Component => DropTarget(
     componentTypes.GENERIC,
     {
-      canDrop() {
-        return false;
+      drop(props, monitor, component) {
+
+        if (!component) {return;}
+        const hasDroppedOnChild = monitor.didDrop();
+        if (hasDroppedOnChild) {return;} // not greedy
+
+        const {id: draggedId} = monitor.getItem();
+        const {id: overId} = props[Object.keys(props)[0]];
+
+        props.move(draggedId, overId);
       },
 
-      hover(props, monitor) {
+      hover(props, monitor, component) {
         const {id: draggedId} = monitor.getItem();
-        const {id: overId} = props;
+        const {id: overId} = props[Object.keys(props)[0]];
 
         if (draggedId === overId || draggedId === props.parent) return;
         if (!monitor.isOver({shallow: true})) return;
 
-        // move/rearrange
+        const hoverBoundingRect = component.node.current.getBoundingClientRect();
+        const hoverMiddleY = (hoverBoundingRect.bottom -
+            hoverBoundingRect.top) / 2;
+        const hoverMiddleX = (hoverBoundingRect.right -
+            hoverBoundingRect.left) / 2;
+        const clientOffset = monitor.getClientOffset();
+        const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+        const hoverClientX = clientOffset.x - hoverBoundingRect.left;
+
+        // console.log('HoverXY:', hoverMiddleX, hoverMiddleY);
+        // console.log('MouseXY: ', hoverClientX, hoverClientY);
+
+        component.changeBorder(clientOffset);
+
+        const HOVER_AREA = 10; //px
+        // top
+
+        // right
+
+        // bottom
+
+        // left
+
       },
     },
-    connect => ({
+    (connect, monitor) => ({
       connectDropTarget: connect.dropTarget(),
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop(),
+      clientOffset: monitor.getClientOffset(),
     }),
 )(DragSource(
     componentTypes.GENERIC,
     {
       beginDrag(props) {
+        console.log('begin drag', props[Object.keys(props)[0]].id);
         return {
-          id: props.id,
+          id: props[Object.keys(props)[0]].id,
         };
       },
       isDragging(props, monitor) {
@@ -38,6 +72,7 @@ export const connectAsTargetAndSource = Component => DropTarget(
       connectDragSource: connect.dragSource(),
       connectDragPreview: connect.dragPreview(),
       isDragging: monitor.isDragging(),
+
     }),
     )(Component),
 );

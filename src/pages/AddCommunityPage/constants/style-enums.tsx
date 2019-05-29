@@ -4,14 +4,6 @@ export enum Directions {
   Default,
 }
 
-export enum Alignments {
-  Center,
-  Left,
-  Right,
-  SpaceBetween,
-  Auto,
-}
-
 export const directionStyle = (direction: Directions) => {
   switch (direction) {
     case Directions.Columns:
@@ -22,6 +14,14 @@ export const directionStyle = (direction: Directions) => {
       return 'flex-direction: auto;';
   }
 };
+
+export enum Alignments {
+  Center,
+  Left,
+  Right,
+  SpaceBetween,
+  Auto,
+}
 
 export const alignmentStyle = (alignment: Alignments) => {
   switch (alignment) {
@@ -35,6 +35,35 @@ export const alignmentStyle = (alignment: Alignments) => {
       return 'align-items: space-between; justify-content: space-between;';
     case Alignments.Auto:
       return 'align-items: auto; justify-content: auto;';
+  }
+};
+
+export enum BorderHighlight {
+  Top,
+  Right,
+  Bottom,
+  Left,
+  Center,
+  None,
+}
+
+export const borderHighlightStyle = (
+    position: BorderHighlight, isOver: boolean) => {
+  const base = `border: 5px solid transparent;`
+  if (!isOver) {return base;}
+  switch (position) {
+    case BorderHighlight.Top:
+      return base + `border-top: 5px dashed black;`;
+    case BorderHighlight.Right:
+      return base + `border-right: 5px dashed black;`;
+    case BorderHighlight.Bottom:
+      return base + `border-bottom: 5px dashed black;`;
+    case BorderHighlight.Left:
+      return base + `border-left: 5px dashed black;`;
+    case BorderHighlight.Center:
+      return base + `border: 5px dashed black;`;
+    case BorderHighlight.None:
+      return base;
   }
 };
 

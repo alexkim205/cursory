@@ -64,6 +64,11 @@ const GenericWrapper = styled.div`
 
 class GenericComponent extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.node = React.createRef();
+  }
+
   static propTypes = {
     genericComponent: PropTypes.oneOfType([
       PropTypes.instanceOf(GenericClass),
@@ -73,15 +78,18 @@ class GenericComponent extends React.Component {
     connectDragSource: PropTypes.func.isRequired,
     connectDragPreview: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
+    move: PropTypes.func,
   };
 
   render() {
     const {id, index, childComponents, type, name, ...otherProps} = this.props.genericComponent;
-    const {connectDropTarget, connectDragSource,connectDragPreview, isDragging} = this.props;
+    const {connectDropTarget, connectDragSource, connectDragPreview, isDragging, move} = this.props;
 
     if (type === componentTypes.CONTAINER) {
       return (
-          <ContainerComponent container={this.props.genericComponent}/>
+          <ContainerComponent container={this.props.genericComponent}
+                              move={move}
+          />
       );
     }
 
@@ -89,9 +97,13 @@ class GenericComponent extends React.Component {
     // Use switch statement when I add more element types
     return (
         <GenericWrapper {...otherProps}
-                        ref={instance => connectDropTarget(
-                            connectDragPreview(
-                                connectDragSource(instance)))}>
+                        ref={instance => {
+                          this.node(instance);
+                          return connectDropTarget(
+                              connectDragPreview(
+                                  connectDragSource(instance)));
+                        }}
+        >
           {id}
         </GenericWrapper>
     );

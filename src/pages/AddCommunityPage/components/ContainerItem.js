@@ -6,6 +6,7 @@ import {GenericComponent} from './Generic';
 import {componentTypes} from '../constants/component-types';
 import {
   Alignments, alignmentStyle,
+  BorderHighlight, borderHighlightStyle,
   Directions, directionStyle,
   Margins, marginStyle,
   Paddings, paddingStyle,
@@ -78,9 +79,19 @@ const ContainerItemWrapper = styled.div`
     
   // Margin
   ${props => marginStyle(props.marginTop, props.marginBottom)}
+  
+    // Border Highlight
+  ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
 `;
 
 class ContainerItemComponent extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.node = React.createRef();
+  }
+
+  state = {borderHighlight: null};
 
   static propTypes = {
     containerItem: PropTypes.instanceOf(ContainerItemClass),
@@ -88,17 +99,80 @@ class ContainerItemComponent extends React.Component {
     connectDragSource: PropTypes.func.isRequired,
     connectDragPreview: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
+    isOver: PropTypes.bool.isRequired,
+    canDrop: PropTypes.bool.isRequired,
+    clientOffset: PropTypes.object,
+    move: PropTypes.func,
+  };
+
+  changeBorder = (clientOffset) => {
+    this.setState({borderHighlight: this.calcWhichBorder(clientOffset)});
+  };
+
+  calcWhichBorder = (clientOffset) => {
+    const {isOver, canDrop} = this.props;
+
+    if (!isOver || !canDrop) {
+      return BorderHighlight.None; // None
+    }
+
+    const dragging = clientOffset; //this.props.clientOffset;
+    const targetOffset = this.node.current.getBoundingClientRect();
+
+    const draggingOffsetX = dragging.x,
+        draggingOffsetY = dragging.y;
+
+    // console.log('mouse', draggingOffsetX, draggingOffsetY);
+    // console.log('target', targetOffset);
+
+    const HOVER_AREA = 10; //px;
+
+    if (draggingOffsetY >= targetOffset.top && draggingOffsetY <
+        targetOffset.top + HOVER_AREA) {
+      return BorderHighlight.Top; // Top
+    } else if (draggingOffsetX <= targetOffset.right && draggingOffsetX >
+        targetOffset.right - HOVER_AREA) {
+      return BorderHighlight.Right; // right
+    } else if (draggingOffsetY <= targetOffset.bottom && draggingOffsetY >
+        targetOffset.bottom - HOVER_AREA) {
+      return BorderHighlight.Bottom; // bottom
+    } else if (draggingOffsetX >= targetOffset.left && draggingOffsetX <
+        targetOffset.left + HOVER_AREA) {
+      return BorderHighlight.Left; // left
+    } else if (draggingOffsetX >= targetOffset.left && draggingOffsetX <=
+        targetOffset.right && draggingOffsetY <= targetOffset.bottom &&
+        draggingOffsetY >= targetOffset.top) {
+      return BorderHighlight.Center; // center
+    } else {
+      return BorderHighlight.None; // none
+    }
+
   };
 
   render() {
     const {id, index, childComponents, name, type, ...otherProps} = this.props.containerItem;
-    const {connectDropTarget, connectDragSource, connectDragPreview, isDragging} = this.props;
+    const {
+      connectDropTarget,
+      connectDragSource,
+      connectDragPreview,
+      isDragging,
+      isOver,
+      canDrop,
+      clientOffset,
+      move,
+    } = this.props;
+    const {borderHighlight} = this.state;
 
     return (
         <ContainerItemWrapper {...otherProps}
-                              ref={instance => connectDropTarget(
-                                  connectDragPreview(
-                                      connectDragSource(instance)))}>
+                              borderHighlight={borderHighlight}
+                              isOver={isOver}
+                              ref={instance => {
+                                this.node.current = instance;
+                                return connectDropTarget(
+                                    connectDragPreview(
+                                        connectDragSource(instance)));
+                              }}>
           {id}
           {childComponents &&
           childComponents.map((e, key) => {
@@ -108,7 +182,9 @@ class ContainerItemComponent extends React.Component {
             newComponent.index = key;
 
             return (
-                <GenericComponent genericComponent={newComponent} key={key}/>
+                <GenericComponent genericComponent={newComponent} key={key}
+                                  move={move}
+                />
             );
           })}
         </ContainerItemWrapper>

@@ -7,11 +7,11 @@ import React from 'react';
 import styled from 'styled-components';
 import {withDroppable} from '../draggable-droppable/index';
 
-export const ContentBuildComponent = React.memo(({builderState}) => {
+export const ContentBuildComponent = React.memo(({builderState, move}) => {
       console.log(builderState);
 
       return (
-          <BackgroundComponent background={builderState}/>
+          <BackgroundComponent background={builderState} move={move}/>
       );
     },
 );

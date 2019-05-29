@@ -38,9 +38,15 @@ export class PageClass extends StyledClass {
 
 class PageComponent extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.node = React.createRef();
+  }
+
   static propTypes = {
     page: PropTypes.instanceOf(PageClass),
     connectDropTarget: PropTypes.func.isRequired,
+    move: PropTypes.func,
   };
 
   render() {
@@ -50,7 +56,10 @@ class PageComponent extends React.Component {
 
     return (
         <PageWrapper {...otherProps}
-                     ref={instance => connectDropTarget(instance)}>
+                     ref={instance => {
+                       this.node.current = instance;
+                       return connectDropTarget(instance)
+                     }}>
           {childComponents && childComponents.map((e, key) => {
             const newComponent = Object.assign(
                 Object.create(Object.getPrototypeOf(e)), e);
@@ -58,7 +67,8 @@ class PageComponent extends React.Component {
             newComponent.index = key;
 
             return (
-                <GenericComponent key={key} genericComponent={newComponent}/>
+                <GenericComponent key={key} genericComponent={newComponent}
+                                  move={this.props.move}/>
             );
           })}
         </PageWrapper>

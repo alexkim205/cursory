@@ -2,23 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/StyledClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/GenericComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Generic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/draggable-components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/draggable-components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Generic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Generic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,42 +41,42 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="17622" />
+          <entry key="js" value="20793" />
           <entry key="json" value="37" />
           <entry key="scss" value="381" />
           <entry key="ts" value="444" />
-          <entry key="tsx" value="13561" />
+          <entry key="tsx" value="14209" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="7" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="17615" />
+          <entry key="JavaScript" value="20786" />
           <entry key="SCSS" value="381" />
           <entry key="TypeScript" value="444" />
-          <entry key="TypeScript JSX" value="13561" />
+          <entry key="TypeScript JSX" value="14209" />
           <entry key="tsconfig" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="209" />
+          <entry key="js" value="219" />
           <entry key="json" value="9" />
           <entry key="scss" value="6" />
           <entry key="ts" value="2" />
-          <entry key="tsx" value="82" />
+          <entry key="tsx" value="83" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="209" />
+          <entry key="JavaScript" value="219" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SCSS" value="6" />
           <entry key="TypeScript" value="2" />
-          <entry key="TypeScript JSX" value="82" />
+          <entry key="TypeScript JSX" value="83" />
           <entry key="tsconfig" value="6" />
         </counts>
       </usages-collector>
@@ -95,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+            <state relative-caret-position="516">
+              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -107,17 +99,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Generic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+            <state relative-caret-position="600">
+              <caret line="112" column="6" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="100" selection-end-column="69" />
+            <state relative-caret-position="165">
+              <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="38" column="72" lean-forward="true" selection-start-line="38" selection-start-column="72" selection-end-line="38" selection-end-column="72" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="59" column="52" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="52" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -128,8 +144,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="92" column="12" lean-forward="true" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
+            <state relative-caret-position="394">
+              <caret line="93" selection-start-line="93" selection-end-line="93" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-125">
+              <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -138,13 +178,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="429">
+              <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -161,8 +198,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>props</find>
-      <find>input</find>
       <find>box-shadow</find>
       <find>narrowwr</find>
       <find>icons-cont</find>
@@ -191,6 +226,8 @@
       <find>display: flex;</find>
       <find>style-en</find>
       <find>Generic</find>
+      <find>innerRef</find>
+      <find>reactdom</find>
     </findStrings>
     <replaceStrings>
       <replace>blockIsList</replace>
@@ -257,17 +294,17 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/GenericComponent.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.tsx" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Generic.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx" />
       </list>
     </option>
   </component>
@@ -288,9 +325,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="569" />
+    <option name="x" value="811" />
     <option name="y" value="23" />
-    <option name="width" value="1351" />
+    <option name="width" value="1109" />
     <option name="height" value="1177" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -525,12 +562,12 @@
       <workItem from="1558738522843" duration="29469000" />
       <workItem from="1558793236324" duration="7176000" />
       <workItem from="1558976439056" duration="10494000" />
-      <workItem from="1559075827667" duration="50448000" />
+      <workItem from="1559075827667" duration="63013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335103000" />
+    <option name="totallyTimeSpent" value="347668000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,10 +579,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="569" y="23" width="1351" height="1177" extended-state="0" />
+    <frame x="811" y="23" width="1109" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21052632" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22702205" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -566,28 +603,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24384432" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32938856" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32971373" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3149062" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299539" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.31194472" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.27096775" />
-      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3299539" />
-      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -599,7 +614,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/_reducers/users.js" />
     <entry file="file://$PROJECT_DIR$/src/components/Navigation/styles/index.js" />
     <entry file="file://$PROJECT_DIR$/src/components/Navigation/Navigation.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -816,49 +830,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/StyledClass.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding>
             <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="852">
-          <caret line="68" selection-start-line="68" selection-end-line="69" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -887,10 +864,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Generic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="98" column="30" selection-start-line="98" selection-start-column="30" selection-end-line="100" selection-end-column="69" />
+        <state relative-caret-position="600">
+          <caret line="112" column="6" selection-start-line="112" selection-start-column="6" selection-end-line="112" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="38" column="72" lean-forward="true" selection-start-line="38" selection-start-column="72" selection-end-line="38" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="59" column="52" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="52" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -899,25 +910,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        <state relative-caret-position="516">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Generic.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+        <state relative-caret-position="394">
+          <caret line="93" selection-start-line="93" selection-end-line="93" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Container.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContainerItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="92" column="12" lean-forward="true" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
+        <state relative-caret-position="410">
+          <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -926,11 +940,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+        <state relative-caret-position="-125">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
         </state>
       </provider>
     </entry>

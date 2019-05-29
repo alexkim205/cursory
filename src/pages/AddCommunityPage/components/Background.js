@@ -28,6 +28,7 @@ export class BackgroundComponent extends React.Component {
 
   static propTypes = {
     background: PropTypes.instanceOf(BackgroundClass),
+    move: PropTypes.func
   };
 
   render() {
@@ -36,7 +37,7 @@ export class BackgroundComponent extends React.Component {
 
     return (
         <BackgroundWrapper {...backgroundProps}>
-          <PageComponent page={page}/>
+          <PageComponent page={page} move={this.props.move}/>
         </BackgroundWrapper>
     );
   }

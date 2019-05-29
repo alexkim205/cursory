@@ -51,26 +51,13 @@ class BuilderLayout extends React.Component {
     console.log('BuilderState', builderState);
 
     return (
-        <ContentBuildComponent builderState={builderState}/>
+        <ContentBuildComponent builderState={builderState} move={this.move}/>
     );
   }
 
-  onDragStart() {
-
+  move = (oldId, newId) => {
+    console.log(oldId, newId)
   }
-
-  onDragEnd = (result) => {
-    console.log(result);
-  };
-
-  // private generateComponentInterface(
-  //     name: string, type: string): GenericComponentInterface {
-  //   let newComponent: GenericComponentInterface = {
-  //     name, type,
-  //   };
-  //
-  //   return newComponent;
-  // }
 
 }
 
