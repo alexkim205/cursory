@@ -5,6 +5,12 @@ import {componentTypes} from '../constants/component-types';
 export const connectAsTargetAndSource = Component => DropTarget(
     componentTypes.GENERIC,
     {
+      canDrop(props, monitor) {
+        if (props.isDragging) {return false;} // can't drop on self
+        // if (monitor.isOver({shallow: false})) {return false;} // can't drop parent on children
+
+        return true;
+      },
       drop(props, monitor, component) {
 
         if (!component) {return;}
@@ -65,7 +71,10 @@ export const connectAsTargetAndSource = Component => DropTarget(
         };
       },
       isDragging(props, monitor) {
-        return props.id === monitor.getItem().id;
+        const {id: draggedId} = monitor.getItem();
+        const {id: overId} = props[Object.keys(props)[0]];
+
+        return overId === draggedId;
       },
     },
     (connect, monitor) => ({

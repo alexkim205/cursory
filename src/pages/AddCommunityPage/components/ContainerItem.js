@@ -7,7 +7,7 @@ import {componentTypes} from '../constants/component-types';
 import {
   Alignments, alignmentStyle,
   BorderHighlight, borderHighlightStyle,
-  Directions, directionStyle,
+  Directions, directionStyle, draggingDisableStyle,
   Margins, marginStyle,
   Paddings, paddingStyle,
   Widths, widthStyle,
@@ -16,6 +16,10 @@ import {Draggable} from 'react-beautiful-dnd';
 import {StyledClass} from './StyledClass';
 import {ContainerClass} from './Container';
 import {connectAsTargetAndSource} from '../draggable-droppable';
+import {
+  calcWhichBorder,
+  renderOverlay,
+} from '../draggable-droppable/withBorderHighlights';
 
 /*
  * Container column where elements can be dropped into.
@@ -63,7 +67,9 @@ const ContainerItemWrapper = styled.div`
   box-sizing: border-box;
   
   background-color: ${props => props.backgroundColor};
-  background-color: green;
+  // background-color: green;
+  border: 2px dotted gray;
+  min-height: 150px;
   
   display: flex;
   box-sizing: border-box;
@@ -80,8 +86,11 @@ const ContainerItemWrapper = styled.div`
   // Margin
   ${props => marginStyle(props.marginTop, props.marginBottom)}
   
-    // Border Highlight
+  // Border Highlight
   ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
+  
+  // If Dragging disable
+  ${props => draggingDisableStyle(props.isDragging)}
 `;
 
 class ContainerItemComponent extends React.Component {
@@ -106,47 +115,11 @@ class ContainerItemComponent extends React.Component {
   };
 
   changeBorder = (clientOffset) => {
-    this.setState({borderHighlight: this.calcWhichBorder(clientOffset)});
-  };
-
-  calcWhichBorder = (clientOffset) => {
     const {isOver, canDrop} = this.props;
-
-    if (!isOver || !canDrop) {
-      return BorderHighlight.None; // None
-    }
-
-    const dragging = clientOffset; //this.props.clientOffset;
-    const targetOffset = this.node.current.getBoundingClientRect();
-
-    const draggingOffsetX = dragging.x,
-        draggingOffsetY = dragging.y;
-
-    // console.log('mouse', draggingOffsetX, draggingOffsetY);
-    // console.log('target', targetOffset);
-
-    const HOVER_AREA = 10; //px;
-
-    if (draggingOffsetY >= targetOffset.top && draggingOffsetY <
-        targetOffset.top + HOVER_AREA) {
-      return BorderHighlight.Top; // Top
-    } else if (draggingOffsetX <= targetOffset.right && draggingOffsetX >
-        targetOffset.right - HOVER_AREA) {
-      return BorderHighlight.Right; // right
-    } else if (draggingOffsetY <= targetOffset.bottom && draggingOffsetY >
-        targetOffset.bottom - HOVER_AREA) {
-      return BorderHighlight.Bottom; // bottom
-    } else if (draggingOffsetX >= targetOffset.left && draggingOffsetX <
-        targetOffset.left + HOVER_AREA) {
-      return BorderHighlight.Left; // left
-    } else if (draggingOffsetX >= targetOffset.left && draggingOffsetX <=
-        targetOffset.right && draggingOffsetY <= targetOffset.bottom &&
-        draggingOffsetY >= targetOffset.top) {
-      return BorderHighlight.Center; // center
-    } else {
-      return BorderHighlight.None; // none
-    }
-
+    this.setState({
+      borderHighlight: calcWhichBorder(clientOffset, this.node, isOver,
+          canDrop),
+    });
   };
 
   render() {
@@ -167,13 +140,14 @@ class ContainerItemComponent extends React.Component {
         <ContainerItemWrapper {...otherProps}
                               borderHighlight={borderHighlight}
                               isOver={isOver}
+                              isDragging={isDragging}
                               ref={instance => {
                                 this.node.current = instance;
                                 return connectDropTarget(
                                     connectDragPreview(
                                         connectDragSource(instance)));
                               }}>
-          {id}
+          {/*{id}*/}
           {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(

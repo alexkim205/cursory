@@ -8,7 +8,7 @@ import {componentTypes} from '../constants/component-types';
 import {
   Alignments, alignmentStyle,
   BorderHighlight, borderHighlightStyle,
-  Directions, directionStyle,
+  Directions, directionStyle, draggingDisableStyle,
   Margins, marginStyle,
   Paddings, paddingStyle,
   Widths, widthStyle,
@@ -19,6 +19,10 @@ import {StyledClass} from './StyledClass';
 import PropTypes from 'prop-types';
 import {DragSource, DropTarget} from 'react-dnd';
 import {connectAsTargetAndSource} from '../draggable-droppable';
+import {
+  calcWhichBorder,
+  renderOverlay,
+} from '../draggable-droppable/withBorderHighlights';
 
 export class ContainerClass extends StyledClass {
   constructor(
@@ -61,8 +65,9 @@ const ContainerWrapper = styled.div`
   
   display: flex;
   box-sizing: border-box;
-  background-color: red;
+  // background-color: red;
   height: 100%;
+  border: 2px dotted gray;
   // min-height: 200px;
   
   // Alignment
@@ -82,6 +87,9 @@ const ContainerWrapper = styled.div`
   
   // Border Highlight
   ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
+  
+  // If Dragging disable
+  ${props => draggingDisableStyle(props.isDragging)}
 `;
 
 class ContainerComponent extends React.Component {
@@ -106,47 +114,11 @@ class ContainerComponent extends React.Component {
   };
 
   changeBorder = (clientOffset) => {
-    this.setState({borderHighlight: this.calcWhichBorder(clientOffset)});
-  };
-
-  calcWhichBorder = (clientOffset) => {
     const {isOver, canDrop} = this.props;
-
-    if (!isOver || !canDrop) {
-      return BorderHighlight.None; // None
-    }
-
-    const dragging = clientOffset; //this.props.clientOffset;
-    const targetOffset = this.node.current.getBoundingClientRect();
-
-    const draggingOffsetX = dragging.x,
-        draggingOffsetY = dragging.y;
-
-    // console.log('mouse', draggingOffsetX, draggingOffsetY);
-    // console.log('target', targetOffset);
-
-    const HOVER_AREA = 10; //px;
-
-    if (draggingOffsetY >= targetOffset.top && draggingOffsetY <
-        targetOffset.top + HOVER_AREA) {
-      return BorderHighlight.Top; // Top
-    } else if (draggingOffsetX <= targetOffset.right && draggingOffsetX >
-        targetOffset.right - HOVER_AREA) {
-      return BorderHighlight.Right; // right
-    } else if (draggingOffsetY <= targetOffset.bottom && draggingOffsetY >
-        targetOffset.bottom - HOVER_AREA) {
-      return BorderHighlight.Bottom; // bottom
-    } else if (draggingOffsetX >= targetOffset.left && draggingOffsetX <
-        targetOffset.left + HOVER_AREA) {
-      return BorderHighlight.Left; // left
-    } else if (draggingOffsetX >= targetOffset.left && draggingOffsetX <=
-        targetOffset.right && draggingOffsetY <= targetOffset.bottom &&
-        draggingOffsetY >= targetOffset.top) {
-      return BorderHighlight.Center; // center
-    } else {
-      return BorderHighlight.None; // none
-    }
-
+    this.setState({
+      borderHighlight: calcWhichBorder(clientOffset, this.node, isOver,
+          canDrop),
+    });
   };
 
   render() {
@@ -167,13 +139,14 @@ class ContainerComponent extends React.Component {
         <ContainerWrapper {...otherProps}
                           borderHighlight={borderHighlight}
                           isOver={isOver}
+                          isDragging={isDragging}
                           ref={instance => {
                             this.node.current = instance;
                             return connectDropTarget(
                                 connectDragPreview(
                                     connectDragSource(instance)));
                           }}>
-          {id}
+          {/*{id}*/}
           {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(
@@ -184,8 +157,7 @@ class ContainerComponent extends React.Component {
             return (
                 <ContainerItemComponent containerItem={newComponent}
                                         key={key}
-                                        move={move}
-                />
+                                        move={move}/>
             );
           })}
         </ContainerWrapper>

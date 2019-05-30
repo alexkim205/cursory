@@ -49,21 +49,34 @@ export enum BorderHighlight {
 
 export const borderHighlightStyle = (
     position: BorderHighlight, isOver: boolean) => {
-  const base = `border: 5px solid transparent;`
+  const base = `border: 2px dotted gray;`;
   if (!isOver) {return base;}
   switch (position) {
     case BorderHighlight.Top:
-      return base + `border-top: 5px dashed black;`;
+      return base + `border-top: 2px solid black;`;
     case BorderHighlight.Right:
-      return base + `border-right: 5px dashed black;`;
+      return base + `border-right: 2px solid black;`;
     case BorderHighlight.Bottom:
-      return base + `border-bottom: 5px dashed black;`;
+      return base + `border-bottom: 2px solid black;`;
     case BorderHighlight.Left:
-      return base + `border-left: 5px dashed black;`;
+      return base + `border-left: 2px solid black;`;
     case BorderHighlight.Center:
-      return base + `border: 5px dashed black;`;
+      return base + `border: 2px solid black;`;
     case BorderHighlight.None:
       return base;
+  }
+};
+
+export const draggingDisableStyle = (isDragging: boolean) => {
+  if (isDragging) {
+    return `
+    background-color: gray;
+    border: 2px dotted gray;
+    & * {
+      background-color: gray;
+      visibility: hidden;
+    }
+    `;
   }
 };
 

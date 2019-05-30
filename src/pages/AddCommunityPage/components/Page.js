@@ -23,12 +23,15 @@ export class PageClass extends StyledClass {
   constructor(
       type = componentTypes.PAGE,
       childComponents = [],
+      paddingHorizontal = 30,
       ...arg
   ) {
     super(...arg);
 
     this.type = type;
     this.childComponents = childComponents;
+
+    this.paddingHorizontal = paddingHorizontal;
   }
 
   addChild = (e) => {
@@ -38,7 +41,7 @@ export class PageClass extends StyledClass {
 
 class PageComponent extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.node = React.createRef();
   }
@@ -58,7 +61,7 @@ class PageComponent extends React.Component {
         <PageWrapper {...otherProps}
                      ref={instance => {
                        this.node.current = instance;
-                       return connectDropTarget(instance)
+                       return connectDropTarget(instance);
                      }}>
           {childComponents && childComponents.map((e, key) => {
             const newComponent = Object.assign(
