@@ -19,21 +19,21 @@ export const calcWhichBorder = (clientOffset, ref, isOver, canDrop) => {
 
   const HOVER_AREA = 15; //px;
 
-  if (draggingOffsetY > targetOffset.top - HOVER_AREA && draggingOffsetY <
+  if (draggingOffsetY > targetOffset.top && draggingOffsetY <
       targetOffset.top + HOVER_AREA) {
     return BorderHighlight.Top; // Top
 
-  } else if (draggingOffsetX < targetOffset.right + HOVER_AREA &&
+  } else if (draggingOffsetX < targetOffset.right &&
       draggingOffsetX >
       targetOffset.right - HOVER_AREA) {
     return BorderHighlight.Right; // right
 
-  } else if (draggingOffsetY < targetOffset.bottom + HOVER_AREA &&
+  } else if (draggingOffsetY < targetOffset.bottom &&
       draggingOffsetY >
       targetOffset.bottom - HOVER_AREA) {
     return BorderHighlight.Bottom; // bottom
 
-  } else if (draggingOffsetX > targetOffset.left - HOVER_AREA &&
+  } else if (draggingOffsetX > targetOffset.left &&
       draggingOffsetX <
       targetOffset.left + HOVER_AREA) {
     return BorderHighlight.Left; // left

@@ -15,7 +15,9 @@ import {
 import {Draggable} from 'react-beautiful-dnd';
 import {StyledClass} from './StyledClass';
 import {ContainerClass} from './Container';
-import {connectAsTargetAndSource} from '../draggable-droppable';
+import {
+  connectAsTargetContainerItem,
+} from '../draggable-droppable';
 import {
   calcWhichBorder,
   renderOverlay,
@@ -32,7 +34,7 @@ export class ContainerItemClass extends StyledClass {
       name = '',
       type = componentTypes.CONTAINER_ITEM,
       childComponents = [],
-      direction = Directions.Columns,
+      direction = Directions.Rows,
       width = 30,
       paddingVertical = 10,
       paddingHorizontal = 10,
@@ -77,6 +79,9 @@ const ContainerItemWrapper = styled.div`
   // Alignment
   ${props => alignmentStyle(props.alignment)}
   
+  // Direction
+  ${props => directionStyle(props.direction)}
+  
   // Width
   ${props => widthStyle(props.width)}
   
@@ -90,7 +95,7 @@ const ContainerItemWrapper = styled.div`
   ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
   
   // If Dragging disable
-  ${props => draggingDisableStyle(props.isDragging)}
+  // ${props => draggingDisableStyle(props.isDragging)}
 `;
 
 class ContainerItemComponent extends React.Component {
@@ -103,11 +108,11 @@ class ContainerItemComponent extends React.Component {
   state = {borderHighlight: null};
 
   static propTypes = {
-    containerItem: PropTypes.instanceOf(ContainerItemClass),
+    containerItem: PropTypes.oneOfType(
+        PropTypes.instanceOf(ContainerItemClass),
+        PropTypes.object,
+    ),
     connectDropTarget: PropTypes.func.isRequired,
-    connectDragSource: PropTypes.func.isRequired,
-    connectDragPreview: PropTypes.func.isRequired,
-    isDragging: PropTypes.bool.isRequired,
     isOver: PropTypes.bool.isRequired,
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
@@ -126,9 +131,9 @@ class ContainerItemComponent extends React.Component {
     const {id, index, childComponents, name, type, ...otherProps} = this.props.containerItem;
     const {
       connectDropTarget,
-      connectDragSource,
-      connectDragPreview,
-      isDragging,
+      // connectDragSource,
+      // connectDragPreview,
+      // isDragging,
       isOver,
       canDrop,
       clientOffset,
@@ -140,19 +145,17 @@ class ContainerItemComponent extends React.Component {
         <ContainerItemWrapper {...otherProps}
                               borderHighlight={borderHighlight}
                               isOver={isOver}
-                              isDragging={isDragging}
+            // isDragging={isDragging}
                               ref={instance => {
                                 this.node.current = instance;
-                                return connectDropTarget(
-                                    connectDragPreview(
-                                        connectDragSource(instance)));
+                                return connectDropTarget(instance);
                               }}>
           {/*{id}*/}
           {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(
                 Object.create(Object.getPrototypeOf(e)), e);
-            newComponent.id = `bg_page_${key}`;
+            newComponent.id = `${id}_${key}`;
             newComponent.index = key;
 
             return (
@@ -167,5 +170,5 @@ class ContainerItemComponent extends React.Component {
 
 }
 
-const connectedComponent = connectAsTargetAndSource(ContainerItemComponent);
+const connectedComponent = connectAsTargetContainerItem(ContainerItemComponent);
 export {connectedComponent as ContainerItemComponent};

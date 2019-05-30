@@ -18,6 +18,7 @@ import {
   connectAsTarget,
   connectAsTargetAndSource,
 } from '../draggable-droppable';
+import {BackgroundClass} from './Background';
 
 export class PageClass extends StyledClass {
   constructor(
@@ -47,7 +48,10 @@ class PageComponent extends React.Component {
   }
 
   static propTypes = {
-    page: PropTypes.instanceOf(PageClass),
+    page: PropTypes.oneOfType(
+        PropTypes.instanceOf(PageClass),
+        PropTypes.object,
+    ),
     connectDropTarget: PropTypes.func.isRequired,
     move: PropTypes.func,
   };

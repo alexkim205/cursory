@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import {componentTypes} from '../constants/component-types';
 import {PageClass, PageComponent, PageInterface} from './Page';
+import {ContainerClass} from './Container';
 
 export const BackgroundWrapper = styled.div`
   background-color: ${props => props.backgroundColor};
@@ -27,7 +28,10 @@ export class BackgroundClass {
 export class BackgroundComponent extends React.Component {
 
   static propTypes = {
-    background: PropTypes.instanceOf(BackgroundClass),
+    background: PropTypes.oneOfType(
+        PropTypes.instanceOf(BackgroundClass),
+        PropTypes.object
+    ),
     move: PropTypes.func
   };
 

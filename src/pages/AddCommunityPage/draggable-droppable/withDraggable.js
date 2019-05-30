@@ -3,25 +3,14 @@ import {findDOMNode} from 'react-dom';
 import {DragSource, DropTarget} from 'react-dnd';
 import {componentTypes} from '../constants/component-types';
 import {BorderHighlight} from '../constants/style-enums';
-import {targetSpec} from './withDroppable';
 
-export const connectAsTargetAndSource = Component => DropTarget(
-    componentTypes.GENERIC,
-    targetSpec,
-    (connect, monitor) => ({
-      connectDropTarget: connect.dropTarget(),
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
-      clientOffset: monitor.getClientOffset(),
-    }),
-)(DragSource(
+export const connectAsTargetAndSource = Component => DragSource(
     componentTypes.GENERIC,
     {
       beginDrag(props) {
-        console.log('begin drag', props);
+        console.log('begin drag', props[Object.keys(props)[0]].id);
         return {
           id: props[Object.keys(props)[0]].id,
-          type: props[Object.keys(props)[0]].type,
         };
       },
       // isDragging(props, monitor) {
@@ -37,5 +26,4 @@ export const connectAsTargetAndSource = Component => DropTarget(
       isDragging: monitor.isDragging(),
 
     }),
-    )(Component),
-);
+)(Component);

@@ -102,7 +102,10 @@ class ContainerComponent extends React.Component {
   state = {borderHighlight: null};
 
   static propTypes = {
-    container: PropTypes.instanceOf(ContainerClass),
+    container: PropTypes.oneOfType(
+        PropTypes.instanceOf(ContainerClass),
+        PropTypes.object
+    ),
     connectDropTarget: PropTypes.func.isRequired,
     connectDragSource: PropTypes.func.isRequired,
     connectDragPreview: PropTypes.func.isRequired,
