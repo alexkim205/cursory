@@ -105,6 +105,10 @@ class ContainerItemComponent extends React.Component {
     this.node = React.createRef();
   }
 
+  componentDidMount() {
+    this.props.updateState(this.props.containerItem.id);
+  }
+
   state = {borderHighlight: null};
 
   static propTypes = {
@@ -117,6 +121,7 @@ class ContainerItemComponent extends React.Component {
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
     move: PropTypes.func,
+    updateState: PropTypes.func
   };
 
   changeBorder = (clientOffset) => {
@@ -138,6 +143,7 @@ class ContainerItemComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
+      updateState
     } = this.props;
     const {borderHighlight} = this.state;
 
@@ -161,6 +167,7 @@ class ContainerItemComponent extends React.Component {
             return (
                 <GenericComponent genericComponent={newComponent} key={key}
                                   move={move}
+                                  updateState={updateState}
                 />
             );
           })}

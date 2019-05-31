@@ -95,6 +95,10 @@ class GenericComponent extends React.Component {
     this.node = React.createRef();
   }
 
+  componentDidMount() {
+    this.props.updateState(this.props.genericComponent.id);
+  }
+
   state = {borderHighlight: null};
 
   static propTypes = {
@@ -111,6 +115,7 @@ class GenericComponent extends React.Component {
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
     move: PropTypes.func,
+    updateState: PropTypes.func,
   };
 
   changeBorder = (clientOffset) => {
@@ -132,13 +137,14 @@ class GenericComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
+      updateState
     } = this.props;
     const {borderHighlight} = this.state;
 
     if (type === componentTypes.CONTAINER) {
       return (
           <ContainerComponent container={this.props.genericComponent}
-                              move={move}
+                              move={move} updateState={updateState}
           />
       );
     }

@@ -32,7 +32,8 @@ export class BackgroundComponent extends React.Component {
         PropTypes.instanceOf(BackgroundClass),
         PropTypes.object
     ),
-    move: PropTypes.func
+    move: PropTypes.func,
+    updateState: PropTypes.func,
   };
 
   render() {
@@ -41,7 +42,7 @@ export class BackgroundComponent extends React.Component {
 
     return (
         <BackgroundWrapper {...backgroundProps}>
-          <PageComponent page={page} move={this.props.move}/>
+          <PageComponent page={page} move={this.props.move} updateState={this.props.updateState}/>
         </BackgroundWrapper>
     );
   }

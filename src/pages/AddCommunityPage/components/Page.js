@@ -54,12 +54,13 @@ class PageComponent extends React.Component {
     ),
     connectDropTarget: PropTypes.func.isRequired,
     move: PropTypes.func,
+    updateState: PropTypes.func,
   };
 
   render() {
-    console.log(this.props.page);
     const {childComponents, type, ...otherProps} = this.props.page;
-    const {connectDropTarget} = this.props;
+    const {connectDropTarget, updateState} = this.props;
+    console.log(this.props.updateState)
 
     return (
         <PageWrapper {...otherProps}
@@ -75,7 +76,8 @@ class PageComponent extends React.Component {
 
             return (
                 <GenericComponent key={key} genericComponent={newComponent}
-                                  move={this.props.move}/>
+                                  move={this.props.move}
+                                  updateState={updateState}/>
             );
           })}
         </PageWrapper>
