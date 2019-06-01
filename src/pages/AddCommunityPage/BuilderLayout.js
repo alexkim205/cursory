@@ -291,7 +291,7 @@ class BuilderLayout extends React.Component {
     // i: insert entire container to end of target's children
     if (oldisContainer && newisContainerI) {
       // parent: wrapper (container's childComponents)
-      // current: container
+      // current: container-item
       // child: childComponents (container-Item's childComponents)
 
       // if container is empty, don't do anything
@@ -308,12 +308,12 @@ class BuilderLayout extends React.Component {
                   concat(sourceElChild).
                   concat(targetElParent.slice(
                       targetPath[targetPath.length - 1])));
-          deleteCurrent() // important to delete after combining containers
+          deleteCurrent(); // important to delete after combining containers
           break;
         case BorderHighlight.Bottom:
         case BorderHighlight.Right:
         case BorderHighlight.Center:
-          Log.info('C->CI.Bottom/Left/Center');
+          Log.info('C->CI.Bottom/Right/Center');
           // basically merges lists after specific index
           componentState = componentState.setIn(targetParentPath,
               targetElParent.slice(0,
@@ -321,31 +321,57 @@ class BuilderLayout extends React.Component {
                   concat(sourceElChild).
                   concat(targetElParent.slice(
                       targetPath[targetPath.length - 1] + 1)));
-          deleteCurrent() // important to delete after combining containers
+          deleteCurrent(); // important to delete after combining containers
           break;
       }
       this.setState({builderState: componentState.toJS()});
     }
 
     /* CONTAINER to CONTAINER */
-    // t: remove then insert before target
-    // r: undefined
-    // b: remove then insert after target
-    // l: undefined
+    // t: insert before target
+    // r: insert after target
+    // b: insert after target
+    // l: insert before target
     // i: undefined
     if (oldisContainer && newisContainer) {
+      // parent: wrapper (page's childComponents)
+      // current: container
+      // child: childComponents (container's childComponents)
+
+      // If source container is before target, delete current as normal. However
+      // if source is after target, there is a +1 offset where the old source
+      // must be deleted.
+      let pathToErase = sourcePath.slice();
+      if (sourcePath.length === targetPath.length &&
+          sourcePath[sourcePath.length - 1] >
+          targetPath[sourcePath.length - 1]) {
+        pathToErase[sourcePath.length - 1] += 1;
+      }
+
       switch (targetSide) {
         case BorderHighlight.Top:
-          break;
-        case BorderHighlight.Right:
+        case BorderHighlight.Left:
+          Log.info('C->C.Top/Left');
+          componentState = componentState.updateIn(targetParentPath,
+              targetElParent => targetElParent.splice(
+                  targetPath[targetPath.length - 1], 0,
+                  sourceEl));
+          componentState = componentState.deleteIn(pathToErase); // important to delete after combining containers
           break;
         case BorderHighlight.Bottom:
-          break;
-        case BorderHighlight.Left:
+        case BorderHighlight.Right:
+          Log.info('C->C.Bottom/Right');
+          componentState = componentState.updateIn(targetParentPath,
+              targetElParent => targetElParent.splice(
+                  targetPath[targetPath.length - 1] + 1, 0,
+                  sourceEl));
+          componentState = componentState.deleteIn(pathToErase); // important to delete after combining containers
           break;
         case BorderHighlight.Center:
+          Log.info('C->C.Center');
           break;
       }
+      this.setState({builderState: componentState.toJS()});
     }
 
     /* CONTAINER-ITEM to Anything */ // Cannot drag Container-item
