@@ -28,38 +28,30 @@ import {
  */
 
 export class ContainerItemClass extends StyledClass {
-  constructor(
-      id = 'bg_page_0',
-      index = 0,
-      name = '',
-      type = componentTypes.CONTAINER_ITEM,
-      childComponents = [],
-      direction = Directions.Rows,
-      width = 30,
-      paddingVertical = 10,
-      paddingHorizontal = 10,
-      marginTop = 20,
-      marginBottom = 20,
-      ...arg
-  ) {
-    super(...arg);
 
-    this.id = id;
-    this.index = index;
-    this.name = name;
-    this.type = type;
-    this.childComponents = childComponents;
-
-    this.width = width;
-    this.direction = direction;
-    this.paddingVertical = paddingVertical;
-    this.paddingHorizontal = paddingHorizontal;
-    this.marginTop = marginTop;
-    this.marginBottom = marginBottom;
+  constructor(options = {}) {
+    super(options);
+    Object.assign(this, {
+      id: 'bg_page_0',
+      index: 0,
+      name: '',
+      type: componentTypes.CONTAINER_ITEM,
+      childComponents: [],
+      direction: Directions.Rows,
+      width: 30,
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+      marginTop: 20,
+      marginBottom: 20,
+    }, options);
   }
 
   addChild = (e) => {
     this.childComponents.push(e);
+  };
+
+  isEmpty = () => {
+    return this.childComponents.length === 0;
   };
 }
 
@@ -121,7 +113,7 @@ class ContainerItemComponent extends React.Component {
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
     move: PropTypes.func,
-    updateState: PropTypes.func
+    updateState: PropTypes.func,
   };
 
   changeBorder = (clientOffset) => {
@@ -143,7 +135,7 @@ class ContainerItemComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
-      updateState
+      updateState,
     } = this.props;
     const {borderHighlight} = this.state;
 
@@ -156,7 +148,7 @@ class ContainerItemComponent extends React.Component {
                                 this.node.current = instance;
                                 return connectDropTarget(instance);
                               }}>
-          {/*{id}*/}
+          {id}
           {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(

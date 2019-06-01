@@ -49,19 +49,30 @@ export enum BorderHighlight {
 
 export const borderHighlightStyle = (
     position: BorderHighlight, isOver: boolean) => {
+
+  const borderWidth = 10;
   const base = `border: 2px dotted gray;`;
   if (!isOver) {return base;}
+  const pseudoBorder = (dir: string) => `
+    box-shadow: inset ${dir} 0 -5px orange; // 4th parameter is spread(perspective)
+  `;
   switch (position) {
     case BorderHighlight.Top:
-      return base + `border-top: 2px solid black;`;
+      return base + pseudoBorder(`0 ${borderWidth}px`);
     case BorderHighlight.Right:
-      return base + `border-right: 2px solid black;`;
+      return base + pseudoBorder(`-${borderWidth}px 0`);
     case BorderHighlight.Bottom:
-      return base + `border-bottom: 2px solid black;`;
+      return base + pseudoBorder(`0 -${borderWidth}px`);
     case BorderHighlight.Left:
-      return base + `border-left: 2px solid black;`;
+      return base + pseudoBorder(`${borderWidth}px 0`);
     case BorderHighlight.Center:
-      return base + `border: 2px solid black;`;
+      return base + `
+        box-shadow: 
+          inset  ${borderWidth}px 0 0 -5px orange,
+          inset -${borderWidth}px 0 0 -5px orange,
+          inset 0  ${borderWidth}px 0 -5px orange,
+          inset 0 -${borderWidth}px 0 -5px orange;
+      `;
     case BorderHighlight.None:
       return base;
   }

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {componentTypes} from '../constants/component-types';
 import {PageClass, PageComponent, PageInterface} from './Page';
 import {ContainerClass} from './Container';
+import {Alignments} from '../constants/style-enums';
 
 export const BackgroundWrapper = styled.div`
   background-color: ${props => props.backgroundColor};
@@ -14,14 +15,12 @@ export const BackgroundWrapper = styled.div`
 `;
 
 export class BackgroundClass {
-  constructor(
-      type = componentTypes.BACKGROUND,
-      backgroundColor = '#FFFFFF',
-      page = new PageClass(),
-  ) {
-    this.type = type;
-    this.backgroundColor = backgroundColor;
-    this.page = page;
+  constructor(options = {}) {
+    Object.assign(this, {
+      backgroundColor: '#FFFFFF',
+      type: componentTypes.BACKGROUND,
+      page: new PageClass(),
+    }, options);
   }
 }
 
@@ -37,7 +36,6 @@ export class BackgroundComponent extends React.Component {
   };
 
   render() {
-    console.log(this.props.background);
     const {page, type, ...backgroundProps} = this.props.background;
 
     return (

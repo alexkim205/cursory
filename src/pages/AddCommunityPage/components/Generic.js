@@ -23,30 +23,19 @@ import {
 import {calcWhichBorder} from '../draggable-droppable/withBorderHighlights';
 
 export class GenericClass extends StyledClass {
-  constructor(
-      id = 'bg_page_0',
-      index = 0,
-      name = '',
-      type = componentTypes.GENERIC,
-      childComponents = [],
-      width = 30,
-      paddingVertical = 10,
-      paddingHorizontal = 10,
-      marginBottom = 20,
-      ...arg
-  ) {
-    super(...arg);
-
-    this.id = id;
-    this.index = index;
-    this.name = name;
-    this.type = type;
-    this.childComponents = childComponents;
-
-    this.width = width;
-    this.paddingVertical = paddingVertical;
-    this.paddingHorizontal = paddingHorizontal;
-    this.marginBottom = marginBottom;
+  constructor(options = {}) {
+    super(options);
+    Object.assign(this, {
+      id: 'bg_page_0',
+      index: 0,
+      name: '',
+      type: componentTypes.GENERIC,
+      childComponents: [],
+      width: 30,
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+      marginBottom: 20,
+    }, options);
   }
 
   addChild = (e) => {
@@ -137,7 +126,7 @@ class GenericComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
-      updateState
+      updateState,
     } = this.props;
     const {borderHighlight} = this.state;
 
@@ -163,7 +152,7 @@ class GenericComponent extends React.Component {
                                   connectDragSource(instance)));
                         }}
         >
-          {/*{id}*/}
+          {id}
         </GenericWrapper>
     );
   }

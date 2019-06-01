@@ -43,7 +43,7 @@ class NavigationAuth extends React.Component {
           {/*<OutlinedNavbarItem to={'/hello'}>*/}
             {/*Community*/}
           {/*</OutlinedNavbarItem>*/}
-          <OutlinedNavbarItem to={'/create'} solid>
+          <OutlinedNavbarItem to={'/create'} solid={1}>
             <div className={'icon'}>
               <FontAwesomeIcon icon={['fal', 'plus-hexagon']}
                                size={'2x'}

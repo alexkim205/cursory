@@ -25,34 +25,21 @@ import {
 } from '../draggable-droppable/withBorderHighlights';
 
 export class ContainerClass extends StyledClass {
-  constructor(
-      id = 'bg_page_0',
-      index = 0,
-      name = '',
-      type = componentTypes.CONTAINER,
-      childComponents = [],
-      direction = Directions.Columns,
-      alignment = Alignments.SpaceBetween,
-      paddingVertical = 40,
-      paddingHorizontal = 10,
-      marginTop = 20,
-      marginBottom = 20,
-      ...arg
-  ) {
-    super(...arg);
-
-    this.id = id;
-    this.index = index;
-    this.name = name;
-    this.type = type;
-    this.childComponents = childComponents;
-
-    this.direction = direction;
-    this.alignment = alignment;
-    this.paddingVertical = paddingVertical;
-    this.paddingHorizontal = paddingHorizontal;
-    this.marginTop = marginTop;
-    this.marginBottom = marginBottom;
+  constructor(options = {}) {
+    super(options);
+    Object.assign(this, {
+      id: 'bg_page_0',
+      index: 0,
+      name: '',
+      type: componentTypes.CONTAINER,
+      childComponents: [],
+      direction: Directions.Columns,
+      alignment: Alignments.SpaceBetween,
+      paddingVertical: 40,
+      paddingHorizontal: 10,
+      marginTop: 20,
+      marginBottom: 20,
+    }, options);
   }
 
   addChild = (e) => {
@@ -108,7 +95,7 @@ class ContainerComponent extends React.Component {
   static propTypes = {
     container: PropTypes.oneOfType(
         PropTypes.instanceOf(ContainerClass),
-        PropTypes.object
+        PropTypes.object,
     ),
     connectDropTarget: PropTypes.func.isRequired,
     connectDragSource: PropTypes.func.isRequired,
@@ -140,9 +127,10 @@ class ContainerComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
-      updateState
+      updateState,
     } = this.props;
     const {borderHighlight} = this.state;
+    const numberOfColumns = childComponents.length;
 
     return (
         <ContainerWrapper {...otherProps}
@@ -155,13 +143,14 @@ class ContainerComponent extends React.Component {
                                 connectDragPreview(
                                     connectDragSource(instance)));
                           }}>
-          {/*{id}*/}
+          {id}
           {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(
                 Object.create(Object.getPrototypeOf(e)), e);
             newComponent.id = `${id}_${key}`;
             newComponent.index = key;
+            newComponent.width = 100 / numberOfColumns;
 
             return (
                 <ContainerItemComponent containerItem={newComponent}

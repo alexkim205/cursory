@@ -21,18 +21,13 @@ import {
 import {BackgroundClass} from './Background';
 
 export class PageClass extends StyledClass {
-  constructor(
-      type = componentTypes.PAGE,
-      childComponents = [],
-      paddingHorizontal = 30,
-      ...arg
-  ) {
-    super(...arg);
-
-    this.type = type;
-    this.childComponents = childComponents;
-
-    this.paddingHorizontal = paddingHorizontal;
+  constructor(options = {}) {
+    super(options);
+    Object.assign(this, {
+      type: componentTypes.PAGE,
+      childComponents: [],
+      paddingHorizontal: 30,
+    }, options);
   }
 
   addChild = (e) => {
@@ -60,7 +55,7 @@ class PageComponent extends React.Component {
   render() {
     const {childComponents, type, ...otherProps} = this.props.page;
     const {connectDropTarget, updateState} = this.props;
-    console.log(this.props.updateState)
+    console.log(this.props.updateState);
 
     return (
         <PageWrapper {...otherProps}

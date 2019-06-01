@@ -23,7 +23,7 @@ export const targetSpec = {
     const HOVER_AREA = 15; //px
 
     // Get mouse and target area positions
-    console.log('items', monitor.getItem(), props[Object.keys(props)[0]]);
+    //console.log('items', monitor.getItem(), props[Object.keys(props)[0]]);
     const targetOffset = findDOMNode(component).getBoundingClientRect();
     const clientOffset = monitor.getClientOffset();
     const draggingOffsetX = clientOffset.x,
