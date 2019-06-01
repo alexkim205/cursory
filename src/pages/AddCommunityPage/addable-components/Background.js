@@ -4,8 +4,6 @@ import styled from 'styled-components';
 
 import {componentTypes} from '../constants/component-types';
 import {PageClass, PageComponent, PageInterface} from './Page';
-import {ContainerClass} from './Container';
-import {Alignments} from '../constants/style-enums';
 
 export const BackgroundWrapper = styled.div`
   background-color: ${props => props.backgroundColor};

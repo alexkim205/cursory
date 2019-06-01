@@ -1,25 +1,19 @@
 import React from 'react';
-import Immutable, {fromJS} from 'immutable';
+import {fromJS} from 'immutable';
 import {
-  BackgroundComponent,
-  BackgroundInterface,
-  GenericComponent,
-  GenericComponentInterface,
-  ContentBuildComponent,
-  DroppableCanvasArea,
-  BackgroundWrapper,
   BackgroundClass,
-  PageClass,
   ContainerClass,
-  ContainerItemClass, GenericClass,
-} from './components/index';
+  ContainerItemClass,
+  GenericClass,
+} from './addable-components';
+import {ContentBuildComponent, History} from './components';
 import {componentTypes} from './constants/component-types';
-import {withDroppable} from './draggable-droppable/index';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import {DragDropContext} from 'react-dnd';
-import {BorderHighlight, borderHighlightStyle} from './constants/style-enums';
+import {BorderHighlight} from './constants/style-enums';
 import {Log} from '../../_helpers';
+import {isKeyHotkey} from 'is-hotkey';
 
 /*
  * Every state will have a `background {page { ... } }`
@@ -56,9 +50,28 @@ initialState.page.childComponents[1].childComponents[2].addChild(
 
 class BuilderLayout extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.isUndoKey = isKeyHotkey('mod+z');
+    this.isRedoKey = isKeyHotkey('mod+shift+z');
+  }
+
+  initSession = () => {
+
+  };
+
   state = {
     builderState: initialState,
+    history: new History(15, initialState),
   };
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyDown, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown, false);
+  }
 
   render() {
     const {builderState} = this.state;
@@ -88,8 +101,16 @@ class BuilderLayout extends React.Component {
     // update id of current element
     // console.log(path.concat(['id']), newId);
     const newComponentState = componentState.setIn(path.concat(['id']), newId);
-    // console.log(newComponentState.toJS());
-    this.setState({builderState: newComponentState.toJS()});
+    // this.setState({builderState: newComponentState.toJS()});
+  };
+
+  handleKeyDown = (event) => {
+    // this.state.history.traverse()
+    if (this.isUndoKey(event)) {
+      this.setState({builderState: this.state.history.undo()});
+    } else if (this.isRedoKey(event)) {
+      this.setState({builderState: this.state.history.redo()});
+    }
   };
 
   move = (oldId, oldType, newId, newType, targetSide) => {
@@ -120,7 +141,6 @@ class BuilderLayout extends React.Component {
     const sourceParentPath = sourcePath.slice(0, sourcePath.length - 1);
     const targetChildPath = targetPath.concat(['childComponents']);
     const targetParentPath = targetPath.slice(0, targetPath.length - 1);
-    // console.log(targetChildPath, targetParentPath);
 
     let sourceEl = componentState.getIn(sourcePath);
     let sourceElChild = componentState.getIn(sourceChildPath);
@@ -128,7 +148,7 @@ class BuilderLayout extends React.Component {
     let targetEl = componentState.getIn(targetPath);
     let targetElChild = componentState.getIn(targetChildPath);
     let targetElParent = componentState.getIn(targetParentPath);
-    // console.log(sourceEl, targetEl, targetElChild, targetElParent);
+
     /*
      For each pair, consider addition to top (t), right (r), bottom (b), left (l), inside (i) of target
      */
@@ -142,6 +162,29 @@ class BuilderLayout extends React.Component {
     // delete
     const deleteCurrent = () =>
         componentState = componentState.deleteIn(sourcePath);
+    const smartDeleteCurrent = () => {
+      // If source container is before target, delete current as normal. However
+      // if source is after target, there is a +1 offset where the old source
+      // must be deleted. This phenomena only happens when moving around
+      // that are in the same level.
+      let pathToErase = sourcePath.slice();
+      if (sourcePath.length === targetPath.length &&
+          sourcePath[sourcePath.length - 1] >
+          targetPath[sourcePath.length - 1]) {
+        pathToErase[sourcePath.length - 1] += 1;
+      }
+
+      componentState = componentState.deleteIn(pathToErase);
+    };
+
+    // update
+    const update = (newState) => {
+      this.state.history.traverse();
+      if (JSON.stringify(this.state.history.getCurrent()) ===
+          JSON.stringify(newState)) return;
+      this.state.history.add(newState);
+      this.setState({builderState: newState});
+    };
 
     /* GENERIC to GENERIC */
     // t: insert before target
@@ -158,26 +201,26 @@ class BuilderLayout extends React.Component {
         case BorderHighlight.Top:
         case BorderHighlight.Left:
           Log.info('G->G.Top/Left');
-          deleteCurrent();
           componentState = componentState.updateIn(targetParentPath,
               targetElParent => targetElParent.splice(
                   targetPath[targetPath.length - 1], 0,
                   sourceEl));
+          smartDeleteCurrent();
           break;
         case BorderHighlight.Right:
         case BorderHighlight.Bottom:
           Log.info('G->G.Right/Bottom');
-          deleteCurrent();
           componentState = componentState.updateIn(targetParentPath,
               targetElParent => targetElParent.splice(
                   targetPath[targetPath.length - 1] + 1, 0,
                   sourceEl));
+          smartDeleteCurrent();
           break;
         case BorderHighlight.Center:
           Log.info('G->G.Center');
           break;
       }
-      this.setState({builderState: componentState.toJS()});
+      update(componentState.toJS());
     }
 
     /* GENERIC to CONTAINER-ITEM */
@@ -224,7 +267,7 @@ class BuilderLayout extends React.Component {
                       newContainerItemMap)); // insert new container-item after target
           break;
       }
-      this.setState({builderState: componentState.toJS()});
+      update(componentState.toJS());
     }
 
     /* GENERIC to CONTAINER */
@@ -278,7 +321,7 @@ class BuilderLayout extends React.Component {
                   targetElChild.unshift(newContainerItemMap)); // insert new container-item at beginning
           break;
       }
-      this.setState({builderState: componentState.toJS()});
+      update(componentState.toJS());
     }
 
     /* CONTAINER to GENERIC */ // Undefined Behavior
@@ -324,7 +367,7 @@ class BuilderLayout extends React.Component {
           deleteCurrent(); // important to delete after combining containers
           break;
       }
-      this.setState({builderState: componentState.toJS()});
+      update(componentState.toJS());
     }
 
     /* CONTAINER to CONTAINER */
@@ -338,16 +381,6 @@ class BuilderLayout extends React.Component {
       // current: container
       // child: childComponents (container's childComponents)
 
-      // If source container is before target, delete current as normal. However
-      // if source is after target, there is a +1 offset where the old source
-      // must be deleted.
-      let pathToErase = sourcePath.slice();
-      if (sourcePath.length === targetPath.length &&
-          sourcePath[sourcePath.length - 1] >
-          targetPath[sourcePath.length - 1]) {
-        pathToErase[sourcePath.length - 1] += 1;
-      }
-
       switch (targetSide) {
         case BorderHighlight.Top:
         case BorderHighlight.Left:
@@ -356,7 +389,7 @@ class BuilderLayout extends React.Component {
               targetElParent => targetElParent.splice(
                   targetPath[targetPath.length - 1], 0,
                   sourceEl));
-          componentState = componentState.deleteIn(pathToErase); // important to delete after combining containers
+          smartDeleteCurrent(); // important to delete after combining containers
           break;
         case BorderHighlight.Bottom:
         case BorderHighlight.Right:
@@ -365,17 +398,16 @@ class BuilderLayout extends React.Component {
               targetElParent => targetElParent.splice(
                   targetPath[targetPath.length - 1] + 1, 0,
                   sourceEl));
-          componentState = componentState.deleteIn(pathToErase); // important to delete after combining containers
+          smartDeleteCurrent(); // important to delete after combining containers
           break;
         case BorderHighlight.Center:
           Log.info('C->C.Center');
           break;
       }
-      this.setState({builderState: componentState.toJS()});
+      update(componentState.toJS());
     }
 
     /* CONTAINER-ITEM to Anything */ // Cannot drag Container-item
-
   };
 
 }

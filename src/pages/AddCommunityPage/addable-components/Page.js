@@ -55,7 +55,6 @@ class PageComponent extends React.Component {
   render() {
     const {childComponents, type, ...otherProps} = this.props.page;
     const {connectDropTarget, updateState} = this.props;
-    console.log(this.props.updateState);
 
     return (
         <PageWrapper {...otherProps}

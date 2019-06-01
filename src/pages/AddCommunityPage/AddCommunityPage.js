@@ -39,7 +39,6 @@ class AddCommunityPage extends React.Component {
 
     return (
         <FullWrapper>
-          <h1>Create a Community</h1>
           <BuilderLayout/>
 
           {/*<FloatingWidget/>*/}

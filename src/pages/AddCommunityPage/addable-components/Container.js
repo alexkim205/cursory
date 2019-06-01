@@ -14,7 +14,7 @@ import {
   Widths, widthStyle,
 } from '../constants/style-enums';
 import {Droppable} from 'react-beautiful-dnd';
-import {DroppableArea} from './ContentBuildComponent';
+import {DroppableArea} from '../components/ContentBuildComponent';
 import {StyledClass} from './StyledClass';
 import PropTypes from 'prop-types';
 import {DragSource, DropTarget} from 'react-dnd';

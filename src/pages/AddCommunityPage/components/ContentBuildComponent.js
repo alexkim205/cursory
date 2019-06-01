@@ -2,25 +2,18 @@ import {
   BackgroundClass,
   BackgroundComponent,
   BackgroundInterface,
-} from './Background';
+} from '../addable-components/Background';
 import React from 'react';
 import styled from 'styled-components';
 import {withDroppable} from '../draggable-droppable/index';
 
 export const ContentBuildComponent = React.memo(({builderState, move, updateState}) => {
-      console.log(builderState);
 
       return (
           <BackgroundComponent background={builderState} move={move} updateState={updateState}/>
       );
     },
 );
-
-export const stateToClass = (state) => {
-
-  const root = BackgroundClass();
-
-};
 
 export const DroppableCanvasArea = styled.div`
   min-height: 100vh;
