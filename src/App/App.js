@@ -34,7 +34,7 @@ loadFonts();
 const App = () => (
     <Router history={history}>
       <RootWrapper>
-        <Navigation/>
+        {history.location.pathname !== ROUTES.CREATE_COMMUNITY && <Navigation/>}
         <BodyWrapper>
           <Route exact path={ROUTES.HOME} component={HomePage}/>
           <Route exact path={ROUTES.CREATE_COMMUNITY}

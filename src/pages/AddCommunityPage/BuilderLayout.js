@@ -4,7 +4,7 @@ import {
   BackgroundClass,
   ContainerClass,
   ContainerItemClass,
-  GenericClass,
+  GenericClass, PageClass,
 } from './addable-components';
 import {ContentBuildComponent, History} from './components';
 import {componentTypes} from './constants/component-types';
@@ -28,7 +28,7 @@ import {isKeyHotkey} from 'is-hotkey';
 
  */
 
-const initialState = new BackgroundClass();
+const initialState = new BackgroundClass({page: new PageClass({width: 80})});
 initialState.page.addChild(new ContainerClass({id: 'bg_page_0'}));
 initialState.page.addChild(new ContainerClass({id: 'bg_page_1'}));
 initialState.page.addChild(new ContainerClass({id: 'bg_page_2'}));
@@ -303,6 +303,9 @@ class BuilderLayout extends React.Component {
         case BorderHighlight.Right:
         case BorderHighlight.Center:
           Log.info('G->C.Right/Center');
+          // if trying to drop into same container, behavior is undefined
+          if (sourcePath[targetPath.length - 1] ===
+              targetPath[targetPath.length - 1]) return;
           componentState = componentState.updateIn(targetChildPath,
               targetElChild =>
                   targetElChild.push(newContainerItemMap)); // insert new container-item at end
@@ -316,6 +319,8 @@ class BuilderLayout extends React.Component {
           break;
         case BorderHighlight.Left:
           Log.info('G->C.Left');
+          if (sourcePath[targetPath.length - 1] ===
+              targetPath[targetPath.length - 1]) return;
           componentState = componentState.updateIn(targetChildPath,
               targetElChild =>
                   targetElChild.unshift(newContainerItemMap)); // insert new container-item at beginning

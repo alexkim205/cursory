@@ -53,9 +53,12 @@ const ContainerWrapper = styled.div`
   display: flex;
   box-sizing: border-box;
   // background-color: red;
-  height: 100%;
+  position: relative;
   border: 2px dotted gray;
+  height: 100%;
   // min-height: 200px;
+  
+  transition: 0.2s box-shadow linear;
   
   // Alignment
   ${props => alignmentStyle(props.alignment)}
@@ -116,6 +119,13 @@ class ContainerComponent extends React.Component {
     });
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.borderHighlight !== nextState.borderHighlight ||
+        this.props.isOver !== nextProps.isOver ||
+        this.props.container !== nextProps.container ||
+        this.props.isDragging !== nextProps.isDragging;
+  }
+
   render() {
     const {id, index, childComponents, name, type, ...otherProps} = this.props.container;
     const {
@@ -150,7 +160,9 @@ class ContainerComponent extends React.Component {
                 Object.create(Object.getPrototypeOf(e)), e);
             newComponent.id = `${id}_${key}`;
             newComponent.index = key;
-            newComponent.width = 100 / numberOfColumns;
+            // if direction is columns, divide columns to fit full width, otherwise keep at 100
+            newComponent.width = this.props.container.direction ===
+            Directions.Columns ? 100 / numberOfColumns : 100;
 
             return (
                 <ContainerItemComponent containerItem={newComponent}

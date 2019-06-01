@@ -1,6 +1,7 @@
 export enum Directions {
   Columns,
   Rows,
+  Grid,
   Default,
 }
 
@@ -38,6 +39,23 @@ export const alignmentStyle = (alignment: Alignments) => {
   }
 };
 
+export enum Positions {
+  Center,
+  Left,
+  Right,
+}
+
+export const positionStyle = (position: Positions) => {
+  switch (position) {
+    case Positions.Center:
+      return 'justify-content: center;';
+    case Positions.Left:
+      return 'justify-content: flex-start;';
+    case Positions.Right:
+      return 'justify-content: flex-end;';
+  }
+};
+
 export enum BorderHighlight {
   Top,
   Right,
@@ -47,32 +65,69 @@ export enum BorderHighlight {
   None,
 }
 
+// export const borderHighlightStyle = (
+//     position: BorderHighlight, isOver: boolean) => {
+//
+//   const borderWidth = 5;
+//   const base = `
+//     // transition: 0.1s box-shadow;
+//     border: 2px dotted gray;
+//
+//     .overlay-border {
+//       opacity: 0;
+//       position: absolute;
+//       background-color: orange;
+//       // transition: 0.2s opacity;
+//       // z-index: 10;
+//     }
+//
+//   `;
+//   if (!isOver) {return base;}
+//   const pseudoBorder = (css: string) => `
+//     .overlay-border {
+//       ${css}
+//       opacity: 1;
+//     }
+//   `;
+//   switch (position) {
+//     case BorderHighlight.Top:
+//       return base + pseudoBorder(`width:100%;height:${borderWidth}px;top:0;left:0;`);
+//     case BorderHighlight.Right:
+//       return base + pseudoBorder(`height:100%;width:${borderWidth}px;top:0;right:0;`);
+//     case BorderHighlight.Bottom:
+//       return base + pseudoBorder(`width:100%;height:${borderWidth}px;bottom:0;left:0;`);
+//     case BorderHighlight.Left:
+//       return base + pseudoBorder(`height:100%;width:${borderWidth}px;top:0;left:0;`);
+//     case BorderHighlight.Center:
+//       return base + pseudoBorder(``)
+//     case BorderHighlight.None:
+//       return base;
+//   }
+// };
+
 export const borderHighlightStyle = (
     position: BorderHighlight, isOver: boolean) => {
 
-  const borderWidth = 10;
-  const base = `border: 2px dotted gray;`;
+  const bw = 8;
+  const base = `
+    transition: 0.2s box-shadow linear;
+    border: 2px dotted gray;
+  `;
   if (!isOver) {return base;}
-  const pseudoBorder = (dir: string) => `
-    box-shadow: inset ${dir} 0 -5px orange; // 4th parameter is spread(perspective)
+  const pseudoBorder = (css: string) => `
+    box-shadow: inset ${css} lightblue;
   `;
   switch (position) {
     case BorderHighlight.Top:
-      return base + pseudoBorder(`0 ${borderWidth}px`);
+      return base + pseudoBorder(`0 ${bw}px 0 0`);
     case BorderHighlight.Right:
-      return base + pseudoBorder(`-${borderWidth}px 0`);
+      return base + pseudoBorder(`-${bw}px 0 0 0`);
     case BorderHighlight.Bottom:
-      return base + pseudoBorder(`0 -${borderWidth}px`);
+      return base + pseudoBorder(`0 -${bw}px 0 0`);
     case BorderHighlight.Left:
-      return base + pseudoBorder(`${borderWidth}px 0`);
+      return base + pseudoBorder(`${bw}px 0 0 0`);
     case BorderHighlight.Center:
-      return base + `
-        box-shadow: 
-          inset  ${borderWidth}px 0 0 -5px orange,
-          inset -${borderWidth}px 0 0 -5px orange,
-          inset 0  ${borderWidth}px 0 -5px orange,
-          inset 0 -${borderWidth}px 0 -5px orange;
-      `;
+      return base + pseudoBorder(`0 0 0 ${bw}px`)
     case BorderHighlight.None:
       return base;
   }

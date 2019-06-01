@@ -44,12 +44,11 @@ export class GenericClass extends StyledClass {
 }
 
 const GenericWrapper = styled.div`
-    display: flex;
+  display: flex;
   box-sizing: border-box;
-  
-  background-color: ${props => props.backgroundColor};
-  // background-color: green;
+  position: relative;
   border: 2px dotted gray;
+  background-color: ${props => props.backgroundColor};
   min-height: 100px;  
   
   display: flex;
@@ -114,6 +113,13 @@ class GenericComponent extends React.Component {
           canDrop),
     });
   };
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.borderHighlight !== nextState.borderHighlight ||
+        this.props.isOver !== nextProps.isOver ||
+        this.props.genericComponent !== nextProps.genericComponent ||
+        this.props.isDragging !== nextProps.isDragging;
+  }
 
   render() {
     const {id, index, childComponents, type, name, ...otherProps} = this.props.genericComponent;

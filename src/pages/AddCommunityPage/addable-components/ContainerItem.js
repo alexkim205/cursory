@@ -59,7 +59,7 @@ const ContainerItemWrapper = styled.div`
 
   display: flex;
   box-sizing: border-box;
-  
+  position: relative;
   background-color: ${props => props.backgroundColor};
   // background-color: green;
   border: 2px dotted gray;
@@ -123,6 +123,12 @@ class ContainerItemComponent extends React.Component {
           canDrop),
     });
   };
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.borderHighlight !== nextState.borderHighlight ||
+        this.props.isOver !== nextProps.isOver ||
+        this.props.containerItem !== nextProps.containerItem
+  }
 
   render() {
     const {id, index, childComponents, name, type, ...otherProps} = this.props.containerItem;

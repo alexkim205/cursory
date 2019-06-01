@@ -7,7 +7,7 @@ import {
   Alignments, alignmentStyle,
   Directions, directionStyle,
   Margins, marginStyle,
-  Paddings, paddingStyle,
+  Paddings, paddingStyle, Positions, positionStyle,
   Widths, widthStyle,
 } from '../constants/style-enums';
 import PropTypes from 'prop-types';
@@ -25,6 +25,7 @@ export class PageClass extends StyledClass {
     super(options);
     Object.assign(this, {
       type: componentTypes.PAGE,
+      position: Positions.Center,
       childComponents: [],
       paddingHorizontal: 30,
     }, options);
@@ -50,11 +51,13 @@ class PageComponent extends React.Component {
     connectDropTarget: PropTypes.func.isRequired,
     move: PropTypes.func,
     updateState: PropTypes.func,
+    updateBgStyle: PropTypes.func,
   };
 
   render() {
-    const {childComponents, type, ...otherProps} = this.props.page;
-    const {connectDropTarget, updateState} = this.props;
+    const {childComponents, type, position, ...otherProps} = this.props.page;
+    const {connectDropTarget, updateState, updateBgStyle} = this.props;
+    updateBgStyle({position: position});
 
     return (
         <PageWrapper {...otherProps}

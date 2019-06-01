@@ -74,11 +74,11 @@ export const targetSpec = {
     if (draggedId === overId || draggedId === props.parent) return;
     if (!monitor.isOver({shallow: true})) return;
 
-    const targetOffset = component.node.current.getBoundingClientRect();
+    // const targetOffset = component.node.current.getBoundingClientRect();
     const clientOffset = monitor.getClientOffset();
 
-    const draggingOffsetX = clientOffset.x,
-        draggingOffsetY = clientOffset.y;
+    // const draggingOffsetX = clientOffset.x,
+    //     draggingOffsetY = clientOffset.y;
 
     // console.log('HoverXY:', hoverMiddleX, hoverMiddleY);
     // console.log('MouseXY: ', hoverClientX, hoverClientY);
