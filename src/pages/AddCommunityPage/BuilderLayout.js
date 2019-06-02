@@ -7,13 +7,17 @@ import {
   GenericClass, PageClass,
 } from './addable-components';
 import {ContentBuildComponent, History} from './components';
-import {componentTypes} from './constants/component-types';
+import {
+  componentFields,
+  componentTypes,
+} from './constants/component-types';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import {DragDropContext} from 'react-dnd';
 import {BorderHighlight} from './constants/style-enums';
 import {Log} from '../../_helpers';
 import {isKeyHotkey} from 'is-hotkey';
+import {Sidebar} from './components/Sidebar/Sidebar';
 
 /*
  * Every state will have a `background {page { ... } }`
@@ -28,24 +32,37 @@ import {isKeyHotkey} from 'is-hotkey';
 
  */
 
+const idToPath = (id) => {
+  if (id === 'bg') return [];
+
+  let path = ['page'];
+  const indices = id.split('_');
+  indices.splice(0, 2);
+  indices.forEach((index) => {
+    path.push('childComponents');
+    path.push(parseInt(index));
+  });
+  return path;
+};
+
 const initialState = new BackgroundClass({page: new PageClass({width: 80})});
 initialState.page.addChild(new ContainerClass({id: 'bg_page_0'}));
 initialState.page.addChild(new ContainerClass({id: 'bg_page_1'}));
 initialState.page.addChild(new ContainerClass({id: 'bg_page_2'}));
 initialState.page.addChild(new ContainerClass({id: 'bg_page_3'}));
-initialState.page.childComponents[1].addChild(
+initialState.page.childComponents[0].addChild(
     new ContainerItemClass({id: 'bg_page_0_0'}));
-initialState.page.childComponents[1].addChild(
+initialState.page.childComponents[0].addChild(
     new ContainerItemClass({id: 'bg_page_0_1'}));
-initialState.page.childComponents[1].addChild(
+initialState.page.childComponents[0].addChild(
     new ContainerItemClass({id: 'bg_page_0_2'}));
-initialState.page.childComponents[1].childComponents[0].addChild(
+initialState.page.childComponents[0].childComponents[0].addChild(
     new GenericClass({id: 'bg_page_0_0_0', backgroundColor: 'blue'}));
-initialState.page.childComponents[1].childComponents[0].addChild(
+initialState.page.childComponents[0].childComponents[0].addChild(
     new GenericClass({id: 'bg_page_0_0_1', backgroundColor: 'red'}));
-initialState.page.childComponents[1].childComponents[1].addChild(
+initialState.page.childComponents[0].childComponents[1].addChild(
     new GenericClass({id: 'bg_page_0_1_0', backgroundColor: 'green'}));
-initialState.page.childComponents[1].childComponents[2].addChild(
+initialState.page.childComponents[0].childComponents[2].addChild(
     new GenericClass({id: 'bg_page_0_2_0', backgroundColor: 'yellow'}));
 
 class BuilderLayout extends React.Component {
@@ -63,6 +80,8 @@ class BuilderLayout extends React.Component {
   state = {
     builderState: initialState,
     history: new History(15, initialState),
+    activeComponent: null,
+    activeFields: {},
   };
 
   componentDidMount() {
@@ -74,34 +93,64 @@ class BuilderLayout extends React.Component {
   }
 
   render() {
-    const {builderState} = this.state;
+    const {builderState, activeComponent, activeFields} = this.state;
 
     return (
         <React.Fragment>
-          <ContentBuildComponent builderState={builderState} move={this.move}
-                                 updateState={this.updateState}/>
-          {/*<pre>*/}
-          {/*{JSON.stringify(builderState, null, 2)}*/}
-          {/*</pre>*/}
+          <ContentBuildComponent builderState={builderState}
+                                 move={this.move}
+                                 getKey={this.getKey}
+                                 updateActive={this.updateActive}/>
+          <Sidebar activeComponent={activeComponent} fields={activeFields}/>
         </React.Fragment>
     );
   }
 
-  updateState = (newId) => {
-    let componentState = fromJS(
-        JSON.parse(JSON.stringify(this.state.builderState)));
-    let path = ['page'];
-    let indices = newId.split('_');
-    indices.splice(0, 2);
-    indices.forEach((index) => {
-      path.push('childComponents');
-      path.push(parseInt(index));
-    });
+  // Set active component
+  updateActive = (e, activeId) => {
+    e.stopPropagation();
 
-    // update id of current element
-    // console.log(path.concat(['id']), newId);
-    const newComponentState = componentState.setIn(path.concat(['id']), newId);
-    // this.setState({builderState: newComponentState.toJS()});
+    let componentState = fromJS(
+        JSON.parse(JSON.stringify(this.state.history.getCurrent())));
+
+    // find active one and disable
+    const traverseState = (
+        o, conditionCheckCallback, actionCallback, oPath = []) => {
+
+      if (conditionCheckCallback(o)) {
+        actionCallback(o, oPath);
+        return;
+      }
+
+      // if background base case
+      if (oPath.length === 0) {
+        return traverseState(o['page'], conditionCheckCallback, actionCallback,
+            ['page']);
+      }
+
+      o['childComponents'].forEach((child, i) => {
+        return traverseState(child, conditionCheckCallback, actionCallback,
+            oPath.concat(['childComponents', i]));
+      });
+    };
+    // print traversal
+    traverseState(
+        this.state.history.getCurrent(),
+        (o) => o.active === true,
+        (o, oPath) => {
+          componentState = componentState.setIn(oPath.concat('active'),
+              false);
+        });
+    componentState = componentState.setIn(idToPath(activeId).concat('active'),
+        true);
+    const activeComponent = componentState.getIn(idToPath(activeId)).toJS();
+
+    // set new active
+    this.setState({
+      activeComponent: activeComponent,
+      activeFields: componentFields[activeComponent.type],
+      builderState: componentState.toJS(),
+    });
   };
 
   handleKeyDown = (event) => {
@@ -120,21 +169,9 @@ class BuilderLayout extends React.Component {
     // page -> 0 -> 0 -> 1 -> ...
     let componentState = fromJS(
         JSON.parse(JSON.stringify(this.state.builderState)));
-    let sourcePath = ['page'];
-    let targetPath = ['page'];
-    const sourceIndices = oldId.split('_');
-    const targetIndices = newId.split('_');
-    sourceIndices.splice(0, 2);
-    targetIndices.splice(0, 2);
-    sourceIndices.forEach((index) => {
-      sourcePath.push('childComponents');
-      sourcePath.push(parseInt(index));
-    });
-    targetIndices.forEach((index) => {
-      targetPath.push('childComponents');
-      targetPath.push(parseInt(index));
-    });
-    // console.log(sourcePath, targetPath);
+
+    let sourcePath = idToPath(oldId);
+    let targetPath = idToPath(newId);
 
     // Current, child, parent paths
     const sourceChildPath = sourcePath.concat(['childComponents']);
@@ -380,11 +417,16 @@ class BuilderLayout extends React.Component {
     // r: insert after target
     // b: insert after target
     // l: insert before target
-    // i: undefined
+    // i: get all children, then insert children after target's children
     if (oldisContainer && newisContainer) {
       // parent: wrapper (page's childComponents)
       // current: container
       // child: childComponents (container's childComponents)
+
+      // if container is empty, don't do anything
+      if (sourceElChild.size === 0) return;
+      // if source === target container, don't do anything
+      if (JSON.stringify(sourcePath) === JSON.stringify(targetPath)) return;
 
       switch (targetSide) {
         case BorderHighlight.Top:
@@ -407,6 +449,9 @@ class BuilderLayout extends React.Component {
           break;
         case BorderHighlight.Center:
           Log.info('C->C.Center');
+          componentState = componentState.setIn(targetChildPath,
+              targetElChild.concat(sourceElChild));
+          deleteCurrent(); // important to delete after combining containers
           break;
       }
       update(componentState.toJS());

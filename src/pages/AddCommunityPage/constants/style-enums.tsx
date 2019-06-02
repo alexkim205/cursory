@@ -65,6 +65,7 @@ export enum BorderHighlight {
   None,
 }
 
+// using overlays instead of box shadows; although box shadows kind of look dope
 // export const borderHighlightStyle = (
 //     position: BorderHighlight, isOver: boolean) => {
 //
@@ -110,8 +111,7 @@ export const borderHighlightStyle = (
 
   const bw = 8;
   const base = `
-    transition: 0.2s box-shadow linear;
-    border: 2px dotted gray;
+    border: 2px solid transparent;
   `;
   if (!isOver) {return base;}
   const pseudoBorder = (css: string) => `
@@ -127,17 +127,22 @@ export const borderHighlightStyle = (
     case BorderHighlight.Left:
       return base + pseudoBorder(`${bw}px 0 0 0`);
     case BorderHighlight.Center:
-      return base + pseudoBorder(`0 0 0 ${bw}px`)
+      return base + pseudoBorder(`0 0 0 ${bw}px`);
     case BorderHighlight.None:
       return base;
   }
 };
 
+export const transitionStyle = () =>
+    `
+    transition-property: box-shadow, background-color, border;
+    transition-duration: .2s;
+    `;
+
 export const draggingDisableStyle = (isDragging: boolean) => {
   if (isDragging) {
     return `
     background-color: gray;
-    border: 2px dotted gray;
     & * {
       background-color: gray;
       visibility: hidden;
@@ -146,8 +151,22 @@ export const draggingDisableStyle = (isDragging: boolean) => {
   }
 };
 
+export const hoverSelectStyle = (active: boolean) => {
+  return `
+  &:hover {
+    cursor: pointer;
+    border: 2px ${active ? `solid #000080` : `dotted lightgray`};
+  }
+  ${active ? `border: 2px solid #000080 !important;` : ``}
+ `;
+};
+
 export const widthStyle = (width: number) => {
   return `width: ${width}%;`;
+};
+
+export const heightStyle = (height: number) => {
+  return `height: ${height}px;`;
 };
 
 export const paddingStyle = (

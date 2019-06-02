@@ -8,13 +8,14 @@ import {DragSource, DropTarget} from 'react-dnd';
 
 import {
   Alignments, alignmentStyle, borderHighlightStyle,
-  Directions, directionStyle, draggingDisableStyle,
+  Directions, directionStyle,
   Margins, marginStyle,
   Paddings, paddingStyle,
   Widths, widthStyle,
+  transitionStyle, draggingDisableStyle, hoverSelectStyle,
 } from '../constants/style-enums';
 
-import {StyledClass} from './StyledClass';
+import {StyledClass} from '../components/StyledClass';
 import PropTypes from 'prop-types';
 import {
   connectAsTarget,
@@ -27,6 +28,7 @@ export class GenericClass extends StyledClass {
     super(options);
     Object.assign(this, {
       id: 'bg_page_0',
+      key: 0,
       index: 0,
       name: '',
       type: componentTypes.GENERIC,
@@ -47,12 +49,15 @@ const GenericWrapper = styled.div`
   display: flex;
   box-sizing: border-box;
   position: relative;
-  border: 2px dotted gray;
   background-color: ${props => props.backgroundColor};
   min-height: 100px;  
+  border: 2px solid transparent;
   
-  display: flex;
-  box-sizing: border-box;
+  // Transitions
+  ${transitionStyle()}
+ 
+  // Hover
+  ${props => hoverSelectStyle(props.active)}
 
   // Alignment
   ${props => alignmentStyle(props.alignment)}
@@ -83,10 +88,6 @@ class GenericComponent extends React.Component {
     this.node = React.createRef();
   }
 
-  componentDidMount() {
-    this.props.updateState(this.props.genericComponent.id);
-  }
-
   state = {borderHighlight: null};
 
   static propTypes = {
@@ -103,7 +104,8 @@ class GenericComponent extends React.Component {
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
     move: PropTypes.func,
-    updateState: PropTypes.func,
+    updateActive: PropTypes.func,
+    getKey: PropTypes.func,
   };
 
   changeBorder = (clientOffset) => {
@@ -117,7 +119,8 @@ class GenericComponent extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.borderHighlight !== nextState.borderHighlight ||
         this.props.isOver !== nextProps.isOver ||
-        this.props.genericComponent !== nextProps.genericComponent ||
+        JSON.stringify(this.props.genericComponent) !==
+        JSON.stringify(nextProps.genericComponent) ||
         this.props.isDragging !== nextProps.isDragging;
   }
 
@@ -132,14 +135,16 @@ class GenericComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
-      updateState,
+      updateActive,
+      getKey,
     } = this.props;
     const {borderHighlight} = this.state;
 
     if (type === componentTypes.CONTAINER) {
       return (
           <ContainerComponent container={this.props.genericComponent}
-                              move={move} updateState={updateState}
+                              move={move} updateActive={updateActive}
+                              getKey={getKey}
           />
       );
     }
@@ -151,6 +156,7 @@ class GenericComponent extends React.Component {
                         borderHighlight={borderHighlight}
                         isOver={isOver}
                         isDragging={isDragging}
+                        onClick={(e) => updateActive(e, id)}
                         ref={instance => {
                           this.node.current = instance;
                           return connectDropTarget(

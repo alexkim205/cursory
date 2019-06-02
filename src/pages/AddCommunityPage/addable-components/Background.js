@@ -4,7 +4,14 @@ import styled from 'styled-components';
 
 import {componentTypes} from '../constants/component-types';
 import {PageClass, PageComponent, PageInterface} from './Page';
-import {Positions, positionStyle} from '../constants/style-enums';
+import {
+  Alignments,
+  Directions,
+  hoverSelectStyle,
+  Positions,
+  positionStyle,
+  transitionStyle,
+} from '../constants/style-enums';
 
 export const BackgroundWrapper = styled.div`
   background-color: ${props => props.backgroundColor};
@@ -14,6 +21,13 @@ export const BackgroundWrapper = styled.div`
   align-items: flex-start;
   width:100%;
   height: 100%;
+  border: 2px solid transparent;
+  
+  // Transitions
+  ${transitionStyle()}
+  
+  // Hover & Active
+  ${props => hoverSelectStyle(props.active)}
   
   // Position of Page
   ${props => positionStyle(props.position)}
@@ -22,8 +36,10 @@ export const BackgroundWrapper = styled.div`
 export class BackgroundClass {
   constructor(options = {}) {
     Object.assign(this, {
+      active: false,
       backgroundColor: '#FFFFFF',
       type: componentTypes.BACKGROUND,
+      id: 'bg',
       page: new PageClass(),
     }, options);
   }
@@ -39,7 +55,7 @@ export class BackgroundComponent extends React.Component {
         PropTypes.object,
     ),
     move: PropTypes.func,
-    updateState: PropTypes.func,
+    updateActive: PropTypes.func,
   };
 
   changeBackgroundStyle = (style) => {
@@ -47,12 +63,14 @@ export class BackgroundComponent extends React.Component {
   };
 
   render() {
-    const {page, type, ...backgroundProps} = this.props.background;
+    const {id, page, type, ...backgroundProps} = this.props.background;
 
     return (
-        <BackgroundWrapper {...backgroundProps} {...this.state.style}>
+        <BackgroundWrapper {...backgroundProps}
+                           {...this.state.style}
+                           onClick={(e) => this.props.updateActive(e, id)}>
           <PageComponent page={page} move={this.props.move}
-                         updateState={this.props.updateState}
+                         updateActive={this.props.updateActive}
                          updateBgStyle={this.changeBackgroundStyle}
           />
         </BackgroundWrapper>

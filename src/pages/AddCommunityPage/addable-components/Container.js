@@ -8,14 +8,15 @@ import {componentTypes} from '../constants/component-types';
 import {
   Alignments, alignmentStyle,
   BorderHighlight, borderHighlightStyle,
-  Directions, directionStyle, draggingDisableStyle,
+  Directions, directionStyle,
   Margins, marginStyle,
   Paddings, paddingStyle,
   Widths, widthStyle,
+  transitionStyle, draggingDisableStyle, hoverSelectStyle,
 } from '../constants/style-enums';
 import {Droppable} from 'react-beautiful-dnd';
 import {DroppableArea} from '../components/ContentBuildComponent';
-import {StyledClass} from './StyledClass';
+import {StyledClass} from '../components/StyledClass';
 import PropTypes from 'prop-types';
 import {DragSource, DropTarget} from 'react-dnd';
 import {connectAsTargetAndSource} from '../draggable-droppable';
@@ -52,13 +53,15 @@ const ContainerWrapper = styled.div`
   
   display: flex;
   box-sizing: border-box;
-  // background-color: red;
   position: relative;
-  border: 2px dotted gray;
   height: 100%;
-  // min-height: 200px;
+  border: 2px solid transparent;
   
-  transition: 0.2s box-shadow linear;
+  // Transitions
+  ${transitionStyle()}
+  
+  // Hover & Active
+  ${props => hoverSelectStyle(props.active)}
   
   // Alignment
   ${props => alignmentStyle(props.alignment)}
@@ -89,10 +92,6 @@ class ContainerComponent extends React.Component {
     this.node = React.createRef();
   }
 
-  componentDidMount() {
-    this.props.updateState(this.props.container.id);
-  }
-
   state = {borderHighlight: null};
 
   static propTypes = {
@@ -108,7 +107,7 @@ class ContainerComponent extends React.Component {
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
     move: PropTypes.func,
-    updateState: PropTypes.func,
+    updateActive: PropTypes.func,
   };
 
   changeBorder = (clientOffset) => {
@@ -122,7 +121,8 @@ class ContainerComponent extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.borderHighlight !== nextState.borderHighlight ||
         this.props.isOver !== nextProps.isOver ||
-        this.props.container !== nextProps.container ||
+        JSON.stringify(this.props.container) !==
+        JSON.stringify(nextProps.container) ||
         this.props.isDragging !== nextProps.isDragging;
   }
 
@@ -137,7 +137,7 @@ class ContainerComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
-      updateState,
+      updateActive,
     } = this.props;
     const {borderHighlight} = this.state;
     const numberOfColumns = childComponents.length;
@@ -145,8 +145,10 @@ class ContainerComponent extends React.Component {
     return (
         <ContainerWrapper {...otherProps}
                           borderHighlight={borderHighlight}
+                          // active={active}
                           isOver={isOver}
                           isDragging={isDragging}
+                          onClick={(e)=>updateActive(e, id)}
                           ref={instance => {
                             this.node.current = instance;
                             return connectDropTarget(
@@ -168,7 +170,7 @@ class ContainerComponent extends React.Component {
                 <ContainerItemComponent containerItem={newComponent}
                                         key={key}
                                         move={move}
-                                        updateState={updateState}
+                                        updateActive={updateActive}
                 />
             );
           })}

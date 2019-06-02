@@ -7,13 +7,13 @@ import {componentTypes} from '../constants/component-types';
 import {
   Alignments, alignmentStyle,
   BorderHighlight, borderHighlightStyle,
-  Directions, directionStyle, draggingDisableStyle,
+  Directions, directionStyle,
   Margins, marginStyle,
   Paddings, paddingStyle,
   Widths, widthStyle,
+  transitionStyle, draggingDisableStyle, hoverSelectStyle,
 } from '../constants/style-enums';
-import {Draggable} from 'react-beautiful-dnd';
-import {StyledClass} from './StyledClass';
+import {StyledClass} from '../components/StyledClass';
 import {ContainerClass} from './Container';
 import {
   connectAsTargetContainerItem,
@@ -61,12 +61,14 @@ const ContainerItemWrapper = styled.div`
   box-sizing: border-box;
   position: relative;
   background-color: ${props => props.backgroundColor};
-  // background-color: green;
-  border: 2px dotted gray;
   min-height: 150px;
+  border: 2px solid transparent;
   
-  display: flex;
-  box-sizing: border-box;
+  // Transitions
+  ${transitionStyle()}
+  
+  // Hover & Active
+  ${props => hoverSelectStyle(props.active)}
 
   // Alignment
   ${props => alignmentStyle(props.alignment)}
@@ -97,10 +99,6 @@ class ContainerItemComponent extends React.Component {
     this.node = React.createRef();
   }
 
-  componentDidMount() {
-    this.props.updateState(this.props.containerItem.id);
-  }
-
   state = {borderHighlight: null};
 
   static propTypes = {
@@ -113,7 +111,7 @@ class ContainerItemComponent extends React.Component {
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
     move: PropTypes.func,
-    updateState: PropTypes.func,
+    updateActive: PropTypes.func,
   };
 
   changeBorder = (clientOffset) => {
@@ -127,7 +125,7 @@ class ContainerItemComponent extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.borderHighlight !== nextState.borderHighlight ||
         this.props.isOver !== nextProps.isOver ||
-        this.props.containerItem !== nextProps.containerItem
+        JSON.stringify(this.props.containerItem) !== JSON.stringify(nextProps.containerItem);
   }
 
   render() {
@@ -141,7 +139,7 @@ class ContainerItemComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
-      updateState,
+      updateActive,
     } = this.props;
     const {borderHighlight} = this.state;
 
@@ -150,6 +148,7 @@ class ContainerItemComponent extends React.Component {
                               borderHighlight={borderHighlight}
                               isOver={isOver}
             // isDragging={isDragging}
+                              onClick={(e)=>updateActive(e, id)}
                               ref={instance => {
                                 this.node.current = instance;
                                 return connectDropTarget(instance);
@@ -165,7 +164,7 @@ class ContainerItemComponent extends React.Component {
             return (
                 <GenericComponent genericComponent={newComponent} key={key}
                                   move={move}
-                                  updateState={updateState}
+                                  updateActive={updateActive}
                 />
             );
           })}

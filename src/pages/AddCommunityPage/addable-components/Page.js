@@ -7,13 +7,14 @@ import {
   Alignments, alignmentStyle,
   Directions, directionStyle,
   Margins, marginStyle,
-  Paddings, paddingStyle, Positions, positionStyle,
+  Paddings, paddingStyle,
+  Positions, positionStyle,
   Widths, widthStyle,
+  transitionStyle, draggingDisableStyle, hoverSelectStyle,
 } from '../constants/style-enums';
 import PropTypes from 'prop-types';
-import {StyledClass} from './StyledClass';
+import {StyledClass} from '../components/StyledClass';
 
-import {DropTarget} from 'react-dnd';
 import {
   connectAsTarget,
   connectAsTargetAndSource,
@@ -24,6 +25,7 @@ export class PageClass extends StyledClass {
   constructor(options = {}) {
     super(options);
     Object.assign(this, {
+      id: 'bg_page',
       type: componentTypes.PAGE,
       position: Positions.Center,
       childComponents: [],
@@ -43,6 +45,10 @@ class PageComponent extends React.Component {
     this.node = React.createRef();
   }
 
+  componentDidMount() {
+    this.props.updateBgStyle({position: this.props.page.position});
+  }
+
   static propTypes = {
     page: PropTypes.oneOfType(
         PropTypes.instanceOf(PageClass),
@@ -50,17 +56,17 @@ class PageComponent extends React.Component {
     ),
     connectDropTarget: PropTypes.func.isRequired,
     move: PropTypes.func,
-    updateState: PropTypes.func,
+    updateActive: PropTypes.func,
     updateBgStyle: PropTypes.func,
   };
 
   render() {
-    const {childComponents, type, position, ...otherProps} = this.props.page;
-    const {connectDropTarget, updateState, updateBgStyle} = this.props;
-    updateBgStyle({position: position});
+    const {childComponents, id, type, position, ...otherProps} = this.props.page;
+    const {connectDropTarget, updateActive, updateBgStyle} = this.props;
 
     return (
         <PageWrapper {...otherProps}
+                     onClick={(e) => updateActive(e, id)}
                      ref={instance => {
                        this.node.current = instance;
                        return connectDropTarget(instance);
@@ -74,7 +80,7 @@ class PageComponent extends React.Component {
             return (
                 <GenericComponent key={key} genericComponent={newComponent}
                                   move={this.props.move}
-                                  updateState={updateState}/>
+                                  updateActive={updateActive}/>
             );
           })}
         </PageWrapper>
@@ -91,8 +97,15 @@ const PageWrapper = styled.div`
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
+  border: 2px solid transparent;
   
   // TODO: Implement style later
+  
+  // Transitions
+  ${transitionStyle()}
+ 
+  // Hover & Active
+  ${props => hoverSelectStyle(props.active)}
   
   // Alignment
   ${props => alignmentStyle(props.alignment)}
