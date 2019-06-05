@@ -33,7 +33,6 @@ export class History {
   traverse = () => {
     let node = this.head;
     while (node) {
-      console.log(node.state, '->');
       node = node.next;
     }
   };

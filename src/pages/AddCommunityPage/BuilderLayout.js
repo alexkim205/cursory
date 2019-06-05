@@ -80,6 +80,9 @@ class BuilderLayout extends React.Component {
   state = {
     builderState: initialState,
     history: new History(15, initialState),
+
+    // sidebar
+    sidebarIsOpen: false,
     activeComponent: null,
     activeFields: {},
   };
@@ -93,7 +96,7 @@ class BuilderLayout extends React.Component {
   }
 
   render() {
-    const {builderState, activeComponent, activeFields} = this.state;
+    const {builderState, activeComponent, activeFields, sidebarIsOpen} = this.state;
 
     return (
         <React.Fragment>
@@ -101,7 +104,9 @@ class BuilderLayout extends React.Component {
                                  move={this.move}
                                  getKey={this.getKey}
                                  updateActive={this.updateActive}/>
-          <Sidebar activeComponent={activeComponent} fields={activeFields}/>
+          <Sidebar sidebarIsOpen={sidebarIsOpen}
+                   activeComponent={activeComponent}
+                   fields={activeFields}/>
         </React.Fragment>
     );
   }
@@ -111,7 +116,9 @@ class BuilderLayout extends React.Component {
     e.stopPropagation();
 
     let componentState = fromJS(
-        JSON.parse(JSON.stringify(this.state.history.getCurrent())));
+        JSON.parse(JSON.stringify(this.state.builderState)));
+    const activePath = idToPath(activeId);
+    let oldPath = null;
 
     // find active one and disable
     const traverseState = (
@@ -133,24 +140,36 @@ class BuilderLayout extends React.Component {
             oPath.concat(['childComponents', i]));
       });
     };
-    // print traversal
+    // traverse to find active element and return its path
     traverseState(
-        this.state.history.getCurrent(),
+        this.state.builderState,
         (o) => o.active === true,
         (o, oPath) => {
-          componentState = componentState.setIn(oPath.concat('active'),
-              false);
+          componentState = componentState.setIn(oPath.concat('active'), false);
+          // return old Path
+          oldPath = oPath;
         });
-    componentState = componentState.setIn(idToPath(activeId).concat('active'),
-        true);
-    const activeComponent = componentState.getIn(idToPath(activeId)).toJS();
 
-    // set new active
-    this.setState({
-      activeComponent: activeComponent,
-      activeFields: componentFields[activeComponent.type],
-      builderState: componentState.toJS(),
-    });
+    if (!oldPath || JSON.stringify(oldPath) !== JSON.stringify(activePath)) {
+      // if currently active isn't the same as selected, activate new one
+      componentState = componentState.setIn(activePath.concat('active'), true);
+      const activeComponent = componentState.getIn(activePath).toJS();
+
+      // set new active
+      this.setState({
+        sidebarIsOpen: true,
+        activeComponent: activeComponent,
+        activeFields: componentFields[activeComponent.type],
+        builderState: componentState.toJS(),
+      });
+    } else {
+      // close sidebar
+      this.setState({
+        sidebarIsOpen: false,
+        builderState: componentState.toJS(),
+      });
+    }
+
   };
 
   handleKeyDown = (event) => {

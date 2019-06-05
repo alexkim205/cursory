@@ -1,5 +1,12 @@
 import {Alignments, Directions} from '../constants/style-enums';
 
+export const FieldTypes = {
+  SLIDER: 'SLIDER',
+  SELECT: 'SELECT',
+  TEXT: 'TEXT',
+  COLOR: 'COLOR',
+};
+
 export class SliderDescription {
   constructor(options = {}) {
     Object.assign(this, {
@@ -41,32 +48,26 @@ export class ColorDescription {
   }
 }
 
-export const mutableFields = {
-  dimensions: {
-    width: new SliderDescription(
+const
+    backgroundColorDescriptor = new ColorDescription({key: 'backgroundColor'}),
+    widthDescriptor = new SliderDescription(
         {key: 'width', bounds: [15, 100, 1], realBounds: [5, 100], units: '%'}),
-    height: new SliderDescription(
+    heightDescriptor = new SliderDescription(
         {key: 'height', bounds: [15, 100, 1], realBounds: [30, 500]}),
-    padding: {
-      vertical: new SliderDescription(
-          {key: 'paddingVertical', bounds: [0, 12, 1], realBounds: [0, 250]}),
-      horizontal: new SliderDescription(
-          {key: 'paddingHorizontal', bounds: [0, 6, 1], realBounds: [0, 125]}),
-    },
-    margins: {
-      top: new SliderDescription(
-          {key: 'marginTop', bounds: [0, 12, 1], realBounds: [0, 250]}),
-      bottom: new SliderDescription(
-          {key: 'marginBottom', bounds: [0, 12, 1], realBounds: [0, 250]}),
-    },
-  },
-  contents: {
-    orientation: new SelectDescription({
+    paddingVerticalDescriptor = new SliderDescription(
+        {key: 'paddingVertical', bounds: [0, 12, 1], realBounds: [0, 250]}),
+    paddingHorizontalDescriptor = new SliderDescription(
+        {key: 'paddingHorizontal', bounds: [0, 6, 1], realBounds: [0, 125]}),
+    marginTopDescriptor = new SliderDescription(
+        {key: 'marginTop', bounds: [0, 12, 1], realBounds: [0, 250]}),
+    marginBottomDescriptor = new SliderDescription(
+        {key: 'marginBottom', bounds: [0, 12, 1], realBounds: [0, 250]}),
+    orientationDescriptor = new SelectDescription({
       key: 'direction',
       options: ['Column', 'Row', 'Grid'],
       enums: [Directions.Columns, Directions.Rows, Directions.Grid],
     }),
-    alignment: new SelectDescription({
+    alignmentDescriptor = new SelectDescription({
       key: 'alignment',
       options: ['Left', 'Center', 'Right', 'Spaced'],
       enums: [
@@ -74,12 +75,72 @@ export const mutableFields = {
         Alignments.Center,
         Alignments.Right,
         Alignments.SpaceBetween],
-    }),
-  },
-};
+    });
 
-export const bgMutableFields = {
-  style: {
-    backgroundColor: new ColorDescription({key: 'backgroundColor'}),
+export const bgMutableFields = [
+  {
+    name: 'Style', // section
+    subsections: [
+      { // subsection
+        name: 'Background Color',
+        descriptor: backgroundColorDescriptor,
+      },
+    ],
   },
-};
+];
+
+export const mutableFields = [
+  ...bgMutableFields,
+  {
+    name: 'Dimensions',
+    subsections: [
+      {
+        name: 'Width',
+        descriptor: widthDescriptor,
+      },
+      {
+        name: 'Height',
+        descriptor: heightDescriptor,
+      },
+      {
+        name: 'Padding',
+        subsubsections: [
+          {
+            name: 'Vertical',
+            descriptor: paddingVerticalDescriptor,
+          },
+          {
+            name: 'Horizontal',
+            descriptor: paddingHorizontalDescriptor,
+          },
+        ],
+      },
+      {
+        name: 'Margin',
+        subsubsections: [
+          {
+            name: 'Top',
+            descriptor: marginTopDescriptor,
+          },
+          {
+            name: 'Bottom',
+            descriptor: marginBottomDescriptor,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Contents',
+    subsections: [
+      {
+        name: 'Orientation',
+        descriptor: orientationDescriptor,
+      },
+      {
+        name: 'Alignment',
+        descriptor: alignmentDescriptor,
+      },
+    ],
+  },
+];

@@ -4,11 +4,14 @@ import {fromJS} from 'immutable';
 
 import {FormField} from '../../../../components/Forms';
 import {SidebarWrapper} from './Sidebar.style';
+import {componentNames, componentTypes} from '../../constants/component-types';
 import {ROUTES} from '../../../../_constants';
+import {FieldTypes} from '../FieldClasses';
 
 class Sidebar extends React.Component {
 
   static propTypes = {
+    sidebarIsOpen: PropTypes.bool.isRequired,
     activeComponent: PropTypes.object,
     fields: PropTypes.object,
   };
@@ -26,46 +29,91 @@ class Sidebar extends React.Component {
 
   onSubmit = event => {
     const {fields} = this.props;
-    console.log(fields);
 
     event.preventDefault();
   };
 
+  renderAllFields = (component, fields) => {
+    fields && fields.map((section, i) =>
+        // Start of Section
+        <div className={'section'} key={i}>
+          <h3>{section.name}</h3>
+          {section.subsections &&
+          section.subsections.map((subsection, j) =>
+              // Start of SubSection
+              <div className={'subsection'} key={j}>
+                <h4>{subsection.name}</h4>
+                {/* Can add Form Fields here */}
+                {subsection.descriptor &&
+                this.renderFormField(component, subsection)}
+                {subsection.subsubsections &&
+                subsection.subsubsections.map((sssection, k) =>
+                    <div className={'subsubsection'} key={k}>
+                      <h5>{sssection.name}</h5>
+                      {/* Can add Form Fields here too */}
+                      {sssection.descriptor &&
+                      this.renderFormField(component, sssection)}
+                    </div>,
+                )}
+              </div>,
+          )}
+        </div>,
+    );
+  };
+
+  renderFormField = (component, sectionInfo) => {
+    const {descriptor, name} = sectionInfo
+
+    switch (descriptor.type) {
+      case FieldTypes.COLOR:
+        break;
+      case FieldTypes.SELECT:
+        break;
+      case FieldTypes.SLIDER:
+        break;
+      case FieldTypes.TEXT:
+        return (
+            <FormField
+                label={name}
+                name={subSectionName}
+                value={component[field.key]}
+                onChange={(e) => this.onChange(e,
+                    [sectionName, subSectionName])}
+                type="text"
+                // placeholder="Full Name"
+            />
+        );
+      default:
+        break;
+    }
+  };
+
   render() {
-    const {activeComponent, fields} = this.props;
+    const {sidebarIsOpen, activeComponent, fields} = this.props;
     console.log(activeComponent, fields);
 
     return (
-        <SidebarWrapper pose={activeComponent ? 'open' : 'closed'}>
-          <form onSubmit={this.onSubmit}>
-            {fields && Object.keys(fields).map((sectionName, i) => {
+        <SidebarWrapper pose={sidebarIsOpen ? 'open' : 'closed'}>
+          {sidebarIsOpen && // TODO: add blurred default to show when closing sidebar
+          <React.Fragment>
+            <form onSubmit={this.onSubmit} className={'form-wrapper'}>
+              <div className={'tabs'}>
 
-              return (
-                  <div key={i}>
-                    <h2>{sectionName}</h2>
-                    {fields[sectionName] && Object.keys(fields[sectionName]).
-                        map((subSectionName, j) => {
-                          return (
-                              <FormField
-                                  key={j}
-                                  label={subSectionName}
-                                  name={subSectionName}
-                                  value={activeComponent[fields[sectionName][subSectionName].key]}
-                                  onChange={(e) => this.onChange(e,
-                                      [sectionName, subSectionName])}
-                                  type="text"
-                                  // placeholder="Full Name"
-                              />
-                          );
-                        })}
-                  </div>
-              );
-            })}
-            <button type="submit">
-              {/* disabled={isInvalid}*/}
-              Confirm
-            </button>
-          </form>
+              </div>
+              <div className={'main'}>
+                <div className={'type'}>
+                  <h2>{activeComponent.type}</h2>
+                </div>
+                {this.renderAllFields(activeComponent, fields)}
+              </div>
+              <div className={'submit'}>
+                <button type="submit">
+                  {/* disabled={isInvalid}*/}
+                  Confirm
+                </button>
+              </div>
+            </form>
+          </React.Fragment>}
         </SidebarWrapper>
     );
   }
