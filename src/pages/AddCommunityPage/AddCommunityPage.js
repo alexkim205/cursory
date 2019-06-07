@@ -9,14 +9,6 @@ import {withFirebase} from '../../components/Firebase';
 import {ROUTES} from '../../_constants';
 import {FullWrapper} from '../../components';
 
-import {
-  LiveProvider,
-  LiveEditor,
-  LiveError,
-  LivePreview,
-} from 'react-live';
-import {DragDropContext} from 'react-beautiful-dnd';
-import {FloatingWidget} from './FloatingWidget';
 import {BuilderLayout} from './BuilderLayout';
 
 const INITIAL_STATE = {
@@ -49,7 +41,7 @@ class AddCommunityPage extends React.Component {
 }
 
 const connectedPage = compose(
-    withAuthorization(isUser),
+    // withAuthorization(isUser),
     withRouter,
     withFirebase,
 )(AddCommunityPage);

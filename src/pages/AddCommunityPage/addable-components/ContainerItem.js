@@ -2,19 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import {GenericComponent} from './Generic';
-import {componentTypes} from '../constants/component-types';
-import {
-  Alignments, alignmentStyle,
-  BorderHighlight, borderHighlightStyle,
-  Directions, directionStyle,
-  Margins, marginStyle,
-  Paddings, paddingStyle,
-  Widths, widthStyle,
-  transitionStyle, draggingDisableStyle, hoverSelectStyle,
-} from '../constants/style-enums';
-import {StyledClass} from '../components/StyledClass';
-import {ContainerClass} from './Container';
+import { GenericComponent } from './Generic';
+import { componentTypes } from '../constants/component-types';
+import { Directions } from '../constants/style-enums';
+import { StyledClass } from '../components/StyledClass';
+import { ContainerClass } from './Container';
 import {
   connectAsTargetContainerItem,
 } from '../draggable-droppable';
@@ -22,6 +14,8 @@ import {
   calcWhichBorder,
   renderOverlay,
 } from '../draggable-droppable/withBorderHighlights';
+import { ContainerItemWrapper } from './styles'
+
 
 /*
  * Container column where elements can be dropped into.
@@ -55,43 +49,6 @@ export class ContainerItemClass extends StyledClass {
   };
 }
 
-const ContainerItemWrapper = styled.div`
-
-  display: flex;
-  box-sizing: border-box;
-  position: relative;
-  background-color: ${props => props.backgroundColor};
-  min-height: 150px;
-  border: 2px solid transparent;
-  
-  // Transitions
-  ${transitionStyle()}
-  
-  // Hover & Active
-  ${props => hoverSelectStyle(props.active)}
-
-  // Alignment
-  ${props => alignmentStyle(props.alignment)}
-  
-  // Direction
-  ${props => directionStyle(props.direction)}
-  
-  // Width
-  ${props => widthStyle(props.width)}
-  
-  // Padding
-  ${props => paddingStyle(props.paddingVertical, props.paddingHorizontal)}
-    
-  // Margin
-  ${props => marginStyle(props.marginTop, props.marginBottom)}
-  
-  // Border Highlight
-  ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
-  
-  // If Dragging disable
-  // ${props => draggingDisableStyle(props.isDragging)}
-`;
-
 class ContainerItemComponent extends React.Component {
 
   constructor(props) {
@@ -99,12 +56,12 @@ class ContainerItemComponent extends React.Component {
     this.node = React.createRef();
   }
 
-  state = {borderHighlight: null};
+  state = { borderHighlight: null };
 
   static propTypes = {
     containerItem: PropTypes.oneOfType(
-        PropTypes.instanceOf(ContainerItemClass),
-        PropTypes.object,
+      PropTypes.instanceOf(ContainerItemClass),
+      PropTypes.object,
     ),
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired,
@@ -115,21 +72,21 @@ class ContainerItemComponent extends React.Component {
   };
 
   changeBorder = (clientOffset) => {
-    const {isOver, canDrop} = this.props;
+    const { isOver, canDrop } = this.props;
     this.setState({
       borderHighlight: calcWhichBorder(clientOffset, this.node, isOver,
-          canDrop),
+        canDrop),
     });
   };
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.borderHighlight !== nextState.borderHighlight ||
-        this.props.isOver !== nextProps.isOver ||
-        JSON.stringify(this.props.containerItem) !== JSON.stringify(nextProps.containerItem);
+      this.props.isOver !== nextProps.isOver ||
+      JSON.stringify(this.props.containerItem) !== JSON.stringify(nextProps.containerItem);
   }
 
   render() {
-    const {id, index, childComponents, name, type, ...otherProps} = this.props.containerItem;
+    const { id, index, childComponents, name, type, ...otherProps } = this.props.containerItem;
     const {
       connectDropTarget,
       // connectDragSource,
@@ -141,38 +98,38 @@ class ContainerItemComponent extends React.Component {
       move,
       updateActive,
     } = this.props;
-    const {borderHighlight} = this.state;
+    const { borderHighlight } = this.state;
 
     return (
-        <ContainerItemWrapper {...otherProps}
-                              borderHighlight={borderHighlight}
-                              isOver={isOver}
-            // isDragging={isDragging}
-                              onClick={(e)=>updateActive(e, id)}
-                              ref={instance => {
-                                this.node.current = instance;
-                                return connectDropTarget(instance);
-                              }}>
-          {id}
-          {childComponents &&
+      <ContainerItemWrapper {...otherProps}
+        borderHighlight={borderHighlight}
+        isOver={isOver}
+        // isDragging={isDragging}
+        onClick={(e) => updateActive(e, id)}
+        ref={instance => {
+          this.node.current = instance;
+          return connectDropTarget(instance);
+        }}>
+        {id}
+        {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(
-                Object.create(Object.getPrototypeOf(e)), e);
+              Object.create(Object.getPrototypeOf(e)), e);
             newComponent.id = `${id}_${key}`;
             newComponent.index = key;
 
             return (
-                <GenericComponent genericComponent={newComponent} key={key}
-                                  move={move}
-                                  updateActive={updateActive}
-                />
+              <GenericComponent genericComponent={newComponent} key={key}
+                move={move}
+                updateActive={updateActive}
+              />
             );
           })}
-        </ContainerItemWrapper>
+      </ContainerItemWrapper>
     );
   }
 
 }
 
 const connectedComponent = connectAsTargetContainerItem(ContainerItemComponent);
-export {connectedComponent as ContainerItemComponent};
+export { connectedComponent as ContainerItemComponent };

@@ -3,15 +3,7 @@ import styled from 'styled-components';
 
 import {componentTypes} from '../constants/component-types';
 import {GenericComponent} from './Generic';
-import {
-  Alignments, alignmentStyle,
-  Directions, directionStyle,
-  Margins, marginStyle,
-  Paddings, paddingStyle,
-  Positions, positionStyle,
-  Widths, widthStyle,
-  transitionStyle, draggingDisableStyle, hoverSelectStyle,
-} from '../constants/style-enums';
+import {Positions} from '../constants/style-enums';
 import PropTypes from 'prop-types';
 import {StyledClass} from '../components/StyledClass';
 
@@ -20,6 +12,7 @@ import {
   connectAsTargetAndSource,
 } from '../draggable-droppable';
 import {BackgroundClass} from './Background';
+import {PageWrapper} from './styles'
 
 export class PageClass extends StyledClass {
   constructor(options = {}) {
@@ -91,31 +84,4 @@ class PageComponent extends React.Component {
 const connectedComponent = connectAsTarget(PageComponent);
 export {connectedComponent as PageComponent};
 
-const PageWrapper = styled.div`
-  background-color: ${props => props.backgroundColor};
-  
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: column;
-  border: 2px solid transparent;
-  
-  // TODO: Implement style later
-  
-  // Transitions
-  ${transitionStyle()}
- 
-  // Hover & Active
-  ${props => hoverSelectStyle(props.active)}
-  
-  // Alignment
-  ${props => alignmentStyle(props.alignment)}
-  
-  // Width
-  ${props => widthStyle(props.width)}
-  
-  // Padding
-  ${props => paddingStyle(props.paddingVertical, props.paddingHorizontal)}
-    
-  // Margin
-  ${props => marginStyle(props.marginTop, props.marginBottom)}
-`;
+

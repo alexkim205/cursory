@@ -1,87 +1,122 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {fromJS} from 'immutable';
+import React from "react";
+import PropTypes from "prop-types";
+import { fromJS } from "immutable";
 
-import {FormField} from '../../../../components/Forms';
-import {SidebarWrapper} from './Sidebar.style';
-import {componentNames, componentTypes} from '../../constants/component-types';
-import {ROUTES} from '../../../../_constants';
-import {FieldTypes} from '../FieldClasses';
+import { FormField } from "../../../../components/Forms";
+import { SidebarWrapper } from "./Sidebar.style";
+import {
+  componentNames,
+  componentTypes
+} from "../../constants/component-types";
+import { ROUTES } from "../../../../_constants";
+import { FieldTypes } from "../FieldClasses";
 
 class Sidebar extends React.Component {
-
   static propTypes = {
     sidebarIsOpen: PropTypes.bool.isRequired,
     activeComponent: PropTypes.object,
-    fields: PropTypes.object,
+    fields: PropTypes.array,
+    updateAttributes: PropTypes.func
   };
 
-  onChange = (event, path) => {
-    this.setState((prevState) => {
-      let newFields = fromJS(prevState.fields);
-      newFields.setIn(path, event.target.value);
+  componentDidUpdate() {
+    console.log('update sidebar', this.props)
+  }
 
-      return ({
-        fields: newFields.toJS(),
-      });
-    });
+  onChange = event => {
+    const { activeComponent } = this.props;
+
+    // update sidebar's state
+    this.setState({ [event.target.name]: event.target.value });
+
+    // update builderlayout
+    this.props.updateAttributes(
+      event,
+      activeComponent.id,
+      event.target.name,
+      event.target.value
+    );
   };
 
   onSubmit = event => {
-    const {fields} = this.props;
+    const { fields } = this.props;
 
     event.preventDefault();
   };
 
   renderAllFields = (component, fields) => {
-    fields && fields.map((section, i) =>
-        // Start of Section
-        <div className={'section'} key={i}>
-          <h3>{section.name}</h3>
-          {section.subsections &&
-          section.subsections.map((subsection, j) =>
-              // Start of SubSection
-              <div className={'subsection'} key={j}>
-                <h4>{subsection.name}</h4>
-                {/* Can add Form Fields here */}
-                {subsection.descriptor &&
-                this.renderFormField(component, subsection)}
-                {subsection.subsubsections &&
-                subsection.subsubsections.map((sssection, k) =>
-                    <div className={'subsubsection'} key={k}>
-                      <h5>{sssection.name}</h5>
-                      {/* Can add Form Fields here too */}
-                      {sssection.descriptor &&
-                      this.renderFormField(component, sssection)}
-                    </div>,
-                )}
-              </div>,
-          )}
-        </div>,
+    return (
+      <React.Fragment>
+        {fields &&
+          fields.map((section, i) => (
+            // Start of Section
+            <div className={"section"} key={i}>
+              <h4>{section.name}</h4>
+              {section.subsections &&
+                section.subsections.map((subsection, j) => (
+                  // Start of SubSection
+                  <div className={"subsection"} key={j}>
+                    <h5>{subsection.name}</h5>
+                    {/* Can add Form Fields here */}
+                    {subsection.descriptor &&
+                      this.renderFormField(component, subsection)}
+                    {subsection.subsubsections &&
+                      subsection.subsubsections.map((sssection, k) => (
+                        <div className={"subsubsection"} key={k}>
+                          <h6>{sssection.name}</h6>
+                          {/* Can add Form Fields here too */}
+                          {sssection.descriptor &&
+                            this.renderFormField(component, sssection)}
+                        </div>
+                      ))}
+                  </div>
+                ))}
+            </div>
+          ))}
+      </React.Fragment>
     );
   };
 
   renderFormField = (component, sectionInfo) => {
-    const {descriptor, name} = sectionInfo
+    const { descriptor, name } = sectionInfo;
+    // If descriptor key is not in component don't display it
+    if (!(descriptor.key in component)) return;
+
+    // If descriptor key is not yet in state, use the components
+    // value. If it is, we use the dynamic state's value. Key will
+    // be added to state once input value is changed.
+    const stateOrComponentValue =
+      this.state && descriptor.key in this.state
+        ? this.state[descriptor.key]
+        : component[descriptor.key];
 
     switch (descriptor.type) {
-      case FieldTypes.COLOR:
-        break;
-      case FieldTypes.SELECT:
-        break;
       case FieldTypes.SLIDER:
-        break;
+        return (
+          <FormField
+            label={name}
+            name={descriptor.key}
+            value={stateOrComponentValue}
+            onChange={this.onChange}
+            min={descriptor.bounds[0]}
+            max={descriptor.bounds[1]}
+            step={descriptor.bounds[2]}
+            type="range"
+            // placeholder="Full Name"
+          />
+        );
+      case FieldTypes.COLOR:
+      case FieldTypes.SELECT:
       case FieldTypes.TEXT:
         return (
-            <FormField
-                label={name}
-                name={subSectionName}
-                value={component[field.key]}
-                onChange={(e) => this.onChange(e,
-                    [sectionName, subSectionName])}
-                type="text"
-                // placeholder="Full Name"
-            />
+          <FormField
+            label={name}
+            name={descriptor.key}
+            value={stateOrComponentValue}
+            onChange={this.onChange}
+            type="text"
+            // placeholder="Full Name"
+          />
         );
       default:
         break;
@@ -89,34 +124,32 @@ class Sidebar extends React.Component {
   };
 
   render() {
-    const {sidebarIsOpen, activeComponent, fields} = this.props;
-    console.log(activeComponent, fields);
+    const { sidebarIsOpen, activeComponent, fields } = this.props;
 
     return (
-        <SidebarWrapper pose={sidebarIsOpen ? 'open' : 'closed'}>
-          {sidebarIsOpen && // TODO: add blurred default to show when closing sidebar
+      <SidebarWrapper pose={sidebarIsOpen ? "open" : "closed"}>
+        {sidebarIsOpen && ( // TODO: add blurred default to show when closing sidebar
           <React.Fragment>
-            <form onSubmit={this.onSubmit} className={'form-wrapper'}>
-              <div className={'tabs'}>
-
-              </div>
-              <div className={'main'}>
-                <div className={'type'}>
-                  <h2>{activeComponent.type}</h2>
+            <form onSubmit={this.onSubmit} className={"form-wrapper"}>
+              <div className={"tabs"} />
+              <div className={"main"}>
+                <div className={"type"}>
+                  <h3>{activeComponent.type}</h3>
                 </div>
                 {this.renderAllFields(activeComponent, fields)}
               </div>
-              <div className={'submit'}>
+              <div className={"submit"}>
                 <button type="submit">
                   {/* disabled={isInvalid}*/}
                   Confirm
                 </button>
               </div>
             </form>
-          </React.Fragment>}
-        </SidebarWrapper>
+          </React.Fragment>
+        )}
+      </SidebarWrapper>
     );
   }
 }
 
-export {Sidebar};
+export { Sidebar };

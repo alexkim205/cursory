@@ -115,9 +115,13 @@ export class FormField extends React.Component {
     placeholder: '',
   };
 
-  render() {
-    const {label, name, value, onChange, type, placeholder} = this.props;
+  componentDidMount() {
+    console.log('return form field')
+  }
 
+  render() {
+    const {label, name, value, onChange, type, placeholder, ...otherProps} = this.props;
+    
     return (
         <FormFieldWrapper>
           <label htmlFor={value}>{label}</label>
@@ -126,10 +130,11 @@ export class FormField extends React.Component {
               value={value}
               onChange={onChange}
               type={type}
-              // placeholder={placeholder}
+              placeholder={placeholder}
+              {...otherProps}
           />
         </FormFieldWrapper>
     );
   }
-
 }
+

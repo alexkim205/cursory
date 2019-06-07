@@ -4,34 +4,8 @@ import styled from 'styled-components';
 
 import {componentTypes} from '../constants/component-types';
 import {PageClass, PageComponent, PageInterface} from './Page';
-import {
-  Alignments,
-  Directions,
-  hoverSelectStyle,
-  Positions,
-  positionStyle,
-  transitionStyle,
-} from '../constants/style-enums';
-
-export const BackgroundWrapper = styled.div`
-  background-color: ${props => props.backgroundColor};
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width:100%;
-  height: 100%;
-  border: 2px solid transparent;
-  
-  // Transitions
-  ${transitionStyle()}
-  
-  // Hover & Active
-  ${props => hoverSelectStyle(props.active)}
-  
-  // Position of Page
-  ${props => positionStyle(props.position)}
-`;
+import {Positions} from '../constants/style-enums';
+import {BackgroundWrapper} from './styles'
 
 export class BackgroundClass {
   constructor(options = {}) {
