@@ -9,6 +9,7 @@ import {
   transitionStyle, 
   draggingDisableStyle, 
   hoverSelectStyle,
+  heightStyle,
 } from '../../constants/style-enums';
 
 export const GenericWrapper = styled.div`
@@ -33,6 +34,9 @@ export const GenericWrapper = styled.div`
   
   // Width
   ${props => widthStyle(props.width)}
+
+  // Height
+  ${props => heightStyle(props.height)}
   
   // Padding
   ${props => paddingStyle(props.paddingVertical, props.paddingHorizontal)}

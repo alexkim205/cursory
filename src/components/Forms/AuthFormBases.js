@@ -10,7 +10,7 @@ import {withRouter} from 'react-router-dom';
 import {ROUTES} from '../../_constants/index';
 
 // Styles
-import {Form, FormField, SocialButton} from './Form.style';
+import {Form, FormFieldText, SocialButton} from './Form.style';
 import {PasswordForgetLink} from '../../pages/PasswordForgetPage';
 
 /* Sign In Form Base */
@@ -59,7 +59,7 @@ class SignInFormBase extends React.Component {
     const isInvalid = this.checkRules();
     return (
         <form onSubmit={this.onSubmit}>
-          <FormField
+          <FormFieldText
               label={'Email'}
               name="email"
               value={email}
@@ -67,7 +67,7 @@ class SignInFormBase extends React.Component {
               type="text"
               placeholder="Email Address"
           />
-          <FormField
+          <FormFieldText
               label={'Password'}
               name="password"
               value={password}
@@ -151,7 +151,7 @@ class SignUpFormBase extends React.Component {
     return (
         <React.Fragment>
           <form onSubmit={this.onSubmit}>
-            <FormField
+            <FormFieldText
                 label={'Full Name'}
                 name="username"
                 value={username}
@@ -159,7 +159,7 @@ class SignUpFormBase extends React.Component {
                 type="text"
                 placeholder="Full Name"
             />
-            <FormField
+            <FormFieldText
                 label={'Email Address'}
                 name="email"
                 value={email}
@@ -167,7 +167,7 @@ class SignUpFormBase extends React.Component {
                 type="text"
                 placeholder="Email Address"
             />
-            <FormField
+            <FormFieldText
                 label={'Password'}
                 name="passwordOne"
                 value={passwordOne}
@@ -175,7 +175,7 @@ class SignUpFormBase extends React.Component {
                 type="password"
                 placeholder="Password"
             />
-            <FormField
+            <FormFieldText
                 label={'Confirm Password'}
                 name="passwordTwo"
                 value={passwordTwo}
@@ -249,7 +249,7 @@ class PasswordForgetBase extends React.Component {
               </React.Fragment>
           ) : (
               <form onSubmit={this.onSubmit}>
-                <FormField
+                <FormFieldText
                     label={'Email Address'}
                     name="email"
                     value={email}

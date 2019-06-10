@@ -6,6 +6,7 @@ import {
   marginStyle,
   paddingStyle,
   widthStyle,
+  heightStyle,
   transitionStyle, 
   draggingDisableStyle, 
   hoverSelectStyle,
@@ -33,6 +34,9 @@ export const ContainerItemWrapper = styled.div`
 
     // Width
     ${props => widthStyle(props.width)}
+
+    // Height
+    ${props => heightStyle(props.height)}
 
     // Padding
     ${props => paddingStyle(props.paddingVertical, props.paddingHorizontal)}

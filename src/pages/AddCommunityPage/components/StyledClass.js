@@ -1,6 +1,6 @@
 import {componentTypes} from '../constants/component-types';
 import {Alignments, Directions} from '../constants/style-enums';
-import {SelectDescription, SliderDescription} from './FieldClasses';
+import {SelectDescription, SliderDescription} from './Fields';
 
 export class StyledClass {
 

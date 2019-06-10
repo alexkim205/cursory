@@ -1,15 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { fromJS } from "immutable";
+import _ from "lodash";
 
-import { FormField } from "../../../../components/Forms";
+import {
+  FormFieldText,
+  FormFieldSlider,
+  FormFieldSelect
+} from "../../../../components/Forms";
 import { SidebarWrapper } from "./Sidebar.style";
 import {
   componentNames,
   componentTypes
 } from "../../constants/component-types";
 import { ROUTES } from "../../../../_constants";
-import { FieldTypes } from "../FieldClasses";
+import { FieldTypes } from "../Fields";
 
 class Sidebar extends React.Component {
   static propTypes = {
@@ -19,8 +24,19 @@ class Sidebar extends React.Component {
     updateAttributes: PropTypes.func
   };
 
-  componentDidUpdate() {
-    console.log('update sidebar', this.props)
+  componentWillReceiveProps(nextProps) {
+    if (
+      JSON.stringify(nextProps.activeComponent) !==
+      JSON.stringify(this.props.activeComponent)
+    ) {
+      const newFields = _.pickBy(
+        nextProps.activeComponent,
+        (value, key, object) => {
+          return this.state && key in this.state;
+        }
+      );
+      this.setState(newFields);
+    }
   }
 
   onChange = event => {
@@ -93,7 +109,7 @@ class Sidebar extends React.Component {
     switch (descriptor.type) {
       case FieldTypes.SLIDER:
         return (
-          <FormField
+          <FormFieldSlider
             label={name}
             name={descriptor.key}
             value={stateOrComponentValue}
@@ -105,11 +121,22 @@ class Sidebar extends React.Component {
             // placeholder="Full Name"
           />
         );
-      case FieldTypes.COLOR:
       case FieldTypes.SELECT:
+        return (
+          <FormFieldSelect
+            label={name}
+            name={descriptor.key}
+            value={stateOrComponentValue}
+            onChange={this.onChange}
+            options={descriptor.options}
+            enums={descriptor.enums}
+            // placeholder="Full Name"
+          />
+        );
+      case FieldTypes.COLOR:
       case FieldTypes.TEXT:
         return (
-          <FormField
+          <FormFieldText
             label={name}
             name={descriptor.key}
             value={stateOrComponentValue}

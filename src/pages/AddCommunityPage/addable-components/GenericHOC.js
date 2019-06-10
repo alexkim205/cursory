@@ -26,10 +26,11 @@ export class GenericClass extends StyledClass {
         name: "",
         type: componentTypes.GENERIC,
         childComponents: [],
-        width: 30,
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-        marginBottom: 20
+        height: 10,
+        width: 10,
+        paddingVertical: 1,
+        paddingHorizontal: 1,
+        marginBottom: 1
       },
       options
     );

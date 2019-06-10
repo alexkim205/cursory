@@ -9,10 +9,12 @@ import {
   transitionStyle, 
   draggingDisableStyle, 
   hoverSelectStyle,
+  heightStyle,
 } from '../../constants/style-enums';
 
 export const PageWrapper = styled.div`
     background-color: ${props => props.backgroundColor};
+    background-color: pink;
 
     display: flex;
     box-sizing: border-box;

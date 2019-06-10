@@ -32,11 +32,12 @@ export class ContainerItemClass extends StyledClass {
       type: componentTypes.CONTAINER_ITEM,
       childComponents: [],
       direction: Directions.Rows,
-      width: 30,
-      paddingVertical: 10,
-      paddingHorizontal: 10,
-      marginTop: 20,
-      marginBottom: 20,
+      width: 10,
+      height: 10,
+      paddingVertical: 1,
+      paddingHorizontal: 1,
+      marginTop: 1,
+      marginBottom: 1,
     }, options);
   }
 

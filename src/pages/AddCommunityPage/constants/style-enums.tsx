@@ -1,3 +1,16 @@
+import {
+  backgroundColorDescriptor,
+  widthDescriptor,
+  heightDescriptor,
+  paddingHorizontalDescriptor,
+  paddingVerticalDescriptor,
+  marginBottomDescriptor,
+  marginTopDescriptor,
+  orientationDescriptor,
+  alignmentDescriptor
+} from '../components'
+import { returnScaled } from '../helpers'
+
 export enum Directions {
   Columns,
   Rows,
@@ -5,14 +18,20 @@ export enum Directions {
   Default,
 }
 
-export const directionStyle = (direction: Directions) => {
-  switch (direction) {
+export const directionStyle = (direction: any) => {
+  const dirnumber: number = typeof (direction) === 'number' ? direction : parseInt(direction)
+  switch (dirnumber) {
     case Directions.Columns:
+      console.log("COLUMNS")
       return 'flex-direction: row;';
     case Directions.Rows:
+      console.log("ROWS")
       return 'flex-direction: column;';
     case Directions.Default:
+      console.log("DEFAULT")
       return 'flex-direction: auto;';
+    default:
+      console.log("catch")
   }
 };
 
@@ -25,7 +44,8 @@ export enum Alignments {
 }
 
 export const alignmentStyle = (alignment: Alignments) => {
-  switch (alignment) {
+  const alnumber: number = typeof (alignment) === 'number' ? alignment : parseInt(alignment)
+  switch (alnumber) {
     case Alignments.Center:
       return 'align-items: center; justify-content: center;';
     case Alignments.Left:
@@ -46,7 +66,8 @@ export enum Positions {
 }
 
 export const positionStyle = (position: Positions) => {
-  switch (position) {
+  const posnumber: number = typeof (position) === 'number' ? position : parseInt(position)
+  switch (posnumber) {
     case Positions.Center:
       return 'justify-content: center;';
     case Positions.Left:
@@ -107,13 +128,13 @@ export enum BorderHighlight {
 // };
 
 export const borderHighlightStyle = (
-    position: BorderHighlight, isOver: boolean) => {
+  position: BorderHighlight, isOver: boolean) => {
 
   const bw = 8;
   const base = `
     border: 2px solid transparent;
   `;
-  if (!isOver) {return base;}
+  if (!isOver) { return base; }
   const pseudoBorder = (css: string) => `
     box-shadow: inset ${css} lightblue;
   `;
@@ -134,7 +155,7 @@ export const borderHighlightStyle = (
 };
 
 export const transitionStyle = () =>
-    `
+  `
     transition-property: box-shadow, background-color, border;
     transition-duration: .2s;
     `;
@@ -162,18 +183,18 @@ export const hoverSelectStyle = (active: boolean) => {
 };
 
 export const widthStyle = (width: number) => {
-  return `width: ${width}%;`;
+  return `width: ${returnScaled(widthDescriptor, width)};`;
 };
 
 export const heightStyle = (height: number) => {
-  return `height: ${height}px;`;
+  return `height: ${returnScaled(heightDescriptor, height)};`;
 };
 
 export const paddingStyle = (
-    paddingVertical: number, paddingHorizontal: number) => {
-  return `padding: ${paddingVertical}px ${paddingHorizontal}px;`;
+  paddingVertical: number, paddingHorizontal: number) => {
+  return `padding: ${returnScaled(paddingVerticalDescriptor, paddingVertical)} ${returnScaled(paddingHorizontalDescriptor, paddingHorizontal)};`;
 };
 
 export const marginStyle = (marginTop: number, marginBottom: number) => {
-  return `margin: ${marginTop}px 0 ${marginBottom}px 0;`;
+  return `margin: ${returnScaled(marginTopDescriptor, marginTop)} 0 ${returnScaled(marginBottomDescriptor, marginBottom)} 0;`;
 };

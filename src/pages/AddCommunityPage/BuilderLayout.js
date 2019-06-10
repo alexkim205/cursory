@@ -115,7 +115,6 @@ class BuilderLayout extends React.Component {
 
   // Update component attributes
   updateAttributes = (e, componentId, attrName, attrValue) => {
-    console.log(componentId);
     e.stopPropagation();
 
     let componentState = fromJS(
