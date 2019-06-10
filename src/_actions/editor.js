@@ -12,7 +12,7 @@ export function discard(entry_id, payload) {
   return function(dispatch) {
     dispatch(request());
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       // console.log(`Trying to discard Entry #${entry_id}`);
       setTimeout(() => {
         // writingRef.child(entry_id).remove() // firebase
@@ -26,7 +26,7 @@ export function discard(entry_id, payload) {
       error => {
         dispatch(failure());
         toast.error(`Entry couldn't be discarded: ${error}`);
-      }
+      },
     );
   };
 
@@ -59,7 +59,7 @@ export function save(entry_id, payload) {
       error => {
         dispatch(failure());
         toast.error(`Entry couldn't be saved: ${error}`);
-      }
+      },
     );
   };
 
@@ -85,13 +85,13 @@ export function fetch(entry_id) {
         resolve();
       }, 1000);
     }).then(
-        () => {
-          toast.success("Entry successfully saved");
-        },
-        error => {
-          dispatch(failure());
-          toast.error(`Entry couldn't be saved: ${error}`);
-        }
+      () => {
+        toast.success("Entry successfully saved");
+      },
+      error => {
+        dispatch(failure());
+        toast.error(`Entry couldn't be saved: ${error}`);
+      },
     );
   };
 

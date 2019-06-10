@@ -1,4 +1,4 @@
-import colors from './_colors.scss';
+import colors from "./_colors.scss";
 
 export const theme = {
   colors: {
@@ -13,7 +13,7 @@ export const theme = {
     light_dark: colors.colorLightDark,
   },
   shadows: {
-    intense: '0px 0px 59px -14px rgba(0,0,0,0.21)',
-    light: '1px 0 30px rgba(114,182,234,.2);'
-  }
+    intense: "0px 0px 59px -14px rgba(0,0,0,0.21)",
+    light: "1px 0 30px rgba(114,182,234,.2);",
+  },
 };

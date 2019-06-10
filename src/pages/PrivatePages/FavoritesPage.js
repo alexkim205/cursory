@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {compose} from 'redux';
+import React from "react";
+import PropTypes from "prop-types";
+import { compose } from "redux";
 
 class FavoritesPage extends React.Component {
   static propTypes = {
@@ -10,14 +10,13 @@ class FavoritesPage extends React.Component {
 
   render() {
     return (
-        <React.Fragment>
-          <h1>Favorites</h1>
-        </React.Fragment>
+      <React.Fragment>
+        <h1>Favorites</h1>
+      </React.Fragment>
     );
   }
 }
 
-const connectedComponent = compose(
-)(FavoritesPage);
+const connectedComponent = compose()(FavoritesPage);
 
-export {connectedComponent as FavoritesPage};
+export { connectedComponent as FavoritesPage };

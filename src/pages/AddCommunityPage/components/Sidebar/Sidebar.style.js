@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import posed from 'react-pose';
-import {theme} from '../../../../_styles';
+import styled from "styled-components";
+import posed from "react-pose";
+import { theme } from "../../../../_styles";
 
 export const SidebarWrapper = posed(styled.div`
   display: flex;
@@ -12,19 +12,24 @@ export const SidebarWrapper = posed(styled.div`
   width: 340px;
   height: 100%;
   overflow: scroll;
-  
+
   color: white;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 1em 0 1.2em 0;
   }
-  
+
   .form-wrapper {
     height: 100%;
     display: inherit;
     flex-direction: inherit;
     justify-content: space-between;
-  
+
     .tabs {
       display: flex;
       flex-direction: row;
@@ -38,32 +43,32 @@ export const SidebarWrapper = posed(styled.div`
       flex-direction: column;
       padding: 0 2.1em;
       flex: 1;
-      
-      .type {}
+
+      .type {
+      }
       .section {
         .subsection {
-          .subsubsection {}
+          .subsubsection {
+          }
         }
       }
     }
     .submit {
       height: 50px;
     }
-  
   }
-  
 `)({
   open: {
     delay: 100,
-    x: '0%',
+    x: "0%",
     transition: {
-      default: { duration: 300,  ease: 'easeOut'},
-    }
+      default: { duration: 300, ease: "easeOut" },
+    },
   },
   closed: {
-    x: '100%',
+    x: "100%",
     transition: {
-      default: { duration: 300, ease: 'easeOut' },
-    }
+      default: { duration: 300, ease: "easeOut" },
+    },
   },
 });

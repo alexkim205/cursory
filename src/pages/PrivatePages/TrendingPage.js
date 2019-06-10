@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {compose} from 'redux';
+import React from "react";
+import PropTypes from "prop-types";
+import { compose } from "redux";
 
 class TrendingPage extends React.Component {
   static propTypes = {
@@ -10,14 +10,13 @@ class TrendingPage extends React.Component {
 
   render() {
     return (
-        <React.Fragment>
-          <h1>Trending</h1>
-        </React.Fragment>
+      <React.Fragment>
+        <h1>Trending</h1>
+      </React.Fragment>
     );
   }
 }
 
-const connectedComponent = compose(
-)(TrendingPage);
+const connectedComponent = compose()(TrendingPage);
 
-export {connectedComponent as TrendingPage};
+export { connectedComponent as TrendingPage };

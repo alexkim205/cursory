@@ -6,12 +6,12 @@ import _ from "lodash";
 import {
   FormFieldText,
   FormFieldSlider,
-  FormFieldSelect
+  FormFieldSelect,
 } from "../../../../components/Forms";
 import { SidebarWrapper } from "./Sidebar.style";
 import {
   componentNames,
-  componentTypes
+  componentTypes,
 } from "../../constants/component-types";
 import { ROUTES } from "../../../../_constants";
 import { FieldTypes } from "../Fields";
@@ -21,7 +21,7 @@ class Sidebar extends React.Component {
     sidebarIsOpen: PropTypes.bool.isRequired,
     activeComponent: PropTypes.object,
     fields: PropTypes.array,
-    updateAttributes: PropTypes.func
+    updateAttributes: PropTypes.func,
   };
 
   componentWillReceiveProps(nextProps) {
@@ -33,7 +33,7 @@ class Sidebar extends React.Component {
         nextProps.activeComponent,
         (value, key, object) => {
           return this.state && key in this.state;
-        }
+        },
       );
       this.setState(newFields);
     }
@@ -50,7 +50,7 @@ class Sidebar extends React.Component {
       event,
       activeComponent.id,
       event.target.name,
-      event.target.value
+      event.target.value,
     );
   };
 

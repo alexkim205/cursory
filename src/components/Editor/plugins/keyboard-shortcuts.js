@@ -1,12 +1,12 @@
-import {isKeyHotkey} from 'is-hotkey';
+import { isKeyHotkey } from "is-hotkey";
 import {
   toggleBlock,
   toggleMark,
   increaseItemDepth,
   decreaseItemDepth,
   handleMultipleBlocks,
-} from './helper-functions';
-import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
+} from "./helper-functions";
+import { isMarkorBlockorNeither, isList, hasBlock, hasMark } from "../utils";
 
 /*
  H1              meta+1         node
@@ -33,33 +33,31 @@ import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
  * Define hot key bindings
  *
  */
-const
-    isH1Hotkey = isKeyHotkey('mod+1'),
-    isH2Hotkey = isKeyHotkey('mod+2'),
-    isH3Hotkey = isKeyHotkey('mod+3'),
-    isH4Hotkey = isKeyHotkey('mod+4'),
-    isH5Hotkey = isKeyHotkey('mod+5'),
-    isH6Hotkey = isKeyHotkey('mod+6'),
-    isLineSeparatorHotkey = isKeyHotkey('mod+h'),
-    isBoldHotkey = isKeyHotkey('mod+b'),
-    isItalicHotkey = isKeyHotkey('mod+i'),
-    isUnderlineHotkey = isKeyHotkey('mod+u'),
-    isStrikethroughHotkey = isKeyHotkey('mod+shift+s'),
-    isLinkHotkey = isKeyHotkey('mod+k'),
-    isUnorderedListHotkey = isKeyHotkey('mod+l'),
-    isOrderedListHotkey = isKeyHotkey('mod+shift+l'),
-    isQuoteHotkey = isKeyHotkey('mod+shift+u'),
-    isTodoHotkey = isKeyHotkey('mod+alt+shift+l'),
-    isCodeHotkey = isKeyHotkey('mod+shift+c'),
-    isCodeBlockHotkey = isKeyHotkey('mod+shift+d'),
-    isMarkHotkey = isKeyHotkey('mod+m'),
-    isFileHotkey = isKeyHotkey('mod+shift+f'),
-    isSaveHotkey = isKeyHotkey('mod+s'),
-
-    isSoftWrapHotkey = isKeyHotkey('shift+enter'),
-    isWrapHotkey = isKeyHotkey('enter'),
-    isIncreaseTabHotkey = isKeyHotkey('tab'),
-    isDecreaseTabHotkey = isKeyHotkey('shift+tab');
+const isH1Hotkey = isKeyHotkey("mod+1"),
+  isH2Hotkey = isKeyHotkey("mod+2"),
+  isH3Hotkey = isKeyHotkey("mod+3"),
+  isH4Hotkey = isKeyHotkey("mod+4"),
+  isH5Hotkey = isKeyHotkey("mod+5"),
+  isH6Hotkey = isKeyHotkey("mod+6"),
+  isLineSeparatorHotkey = isKeyHotkey("mod+h"),
+  isBoldHotkey = isKeyHotkey("mod+b"),
+  isItalicHotkey = isKeyHotkey("mod+i"),
+  isUnderlineHotkey = isKeyHotkey("mod+u"),
+  isStrikethroughHotkey = isKeyHotkey("mod+shift+s"),
+  isLinkHotkey = isKeyHotkey("mod+k"),
+  isUnorderedListHotkey = isKeyHotkey("mod+l"),
+  isOrderedListHotkey = isKeyHotkey("mod+shift+l"),
+  isQuoteHotkey = isKeyHotkey("mod+shift+u"),
+  isTodoHotkey = isKeyHotkey("mod+alt+shift+l"),
+  isCodeHotkey = isKeyHotkey("mod+shift+c"),
+  isCodeBlockHotkey = isKeyHotkey("mod+shift+d"),
+  isMarkHotkey = isKeyHotkey("mod+m"),
+  isFileHotkey = isKeyHotkey("mod+shift+f"),
+  isSaveHotkey = isKeyHotkey("mod+s"),
+  isSoftWrapHotkey = isKeyHotkey("shift+enter"),
+  isWrapHotkey = isKeyHotkey("enter"),
+  isIncreaseTabHotkey = isKeyHotkey("tab"),
+  isDecreaseTabHotkey = isKeyHotkey("shift+tab");
 
 /**
  * On backspace, if at the start of a non-paragraph, convert it back into a
@@ -71,16 +69,15 @@ const
  */
 
 function onBackspace(event, editor, next) {
-  const {value} = editor;
-  const {selection} = value;
+  const { value } = editor;
+  const { selection } = value;
   if (selection.isExpanded) return next();
   if (selection.start.offset !== 0) return next();
 
-  const {startBlock} = value;
+  const { startBlock } = value;
   if (isList(startBlock.type)) {
     return decreaseItemDepth(event, editor);
-  }
-  else {
+  } else {
     return next();
   }
 
@@ -98,11 +95,11 @@ function onBackspace(event, editor, next) {
  */
 
 function onEnter(event, editor, next) {
-  const {value} = editor;
-  const {selection} = value;
-  const {start, end, isExpanded} = selection;
+  const { value } = editor;
+  const { selection } = value;
+  const { start, end, isExpanded } = selection;
   if (isExpanded) return next();
-  const {startBlock} = value;
+  const { startBlock } = value;
 
   if (start.offset === 0 && startBlock.text.length === 0) {
     // decrease indent if in list
@@ -119,7 +116,7 @@ function onEnter(event, editor, next) {
 
   // if middle of text, treat as enter
   if (end.offset !== startBlock.text.length) {
-    if (startBlock.type === 'block-quote' || startBlock.type === 'block-code') {
+    if (startBlock.type === "block-quote" || startBlock.type === "block-code") {
       // console.log('middle+block');
       return onShiftEnter(event, editor, next);
     }
@@ -132,7 +129,7 @@ function onEnter(event, editor, next) {
     else {
       event.preventDefault();
       editor.withoutNormalizing(() => {
-        editor.splitBlock().setBlocks('paragraph');
+        editor.splitBlock().setBlocks("paragraph");
       });
     }
   }
@@ -149,26 +146,25 @@ function onEnter(event, editor, next) {
       // console.log('end+notlist');
       event.preventDefault();
       editor.withoutNormalizing(() => {
-        editor.splitBlock().setBlocks('paragraph');
+        editor.splitBlock().setBlocks("paragraph");
       });
-
     }
   }
 }
 
 function onShiftEnter(event, editor, next) {
-  const {value} = editor;
-  const {selection} = value;
-  const {start, end, isExpanded} = selection;
+  const { value } = editor;
+  const { selection } = value;
+  const { start, end, isExpanded } = selection;
   if (isExpanded) return next();
-  const {startBlock} = value;
+  const { startBlock } = value;
 
-  if (startBlock.type !== 'block-quote' && startBlock.type !== 'block-code') {
+  if (startBlock.type !== "block-quote" && startBlock.type !== "block-code") {
     // if list or header, just treat like normal enter
     return onEnter(event, editor, next);
   } else {
     // soft wrap if not list
-    return editor.insertText('\n');
+    return editor.insertText("\n");
   }
 }
 
@@ -183,63 +179,60 @@ function onShiftTab(event, editor) {
 function KeyboardPlugin(options) {
   return {
     onKeyDown(event, editor, next) {
-
       // Marks are toggled
       if (isBoldHotkey(event)) {
-        toggleMark(event, editor, 'bold');
+        toggleMark(event, editor, "bold");
       } else if (isItalicHotkey(event)) {
-        toggleMark(event, editor, 'italic');
+        toggleMark(event, editor, "italic");
       } else if (isUnderlineHotkey(event)) {
-        toggleMark(event, editor, 'underlined');
+        toggleMark(event, editor, "underlined");
       } else if (isStrikethroughHotkey(event)) {
-        toggleMark(event, editor, 'strikethrough');
+        toggleMark(event, editor, "strikethrough");
       } else if (isLinkHotkey(event)) {
-        toggleMark(event, editor, 'link');
+        toggleMark(event, editor, "link");
       } else if (isCodeHotkey(event)) {
-        toggleMark(event, editor, 'code');
+        toggleMark(event, editor, "code");
       } else if (isMarkHotkey(event)) {
-        toggleMark(event, editor, 'mark');
+        toggleMark(event, editor, "mark");
       }
       // Blocks are toggled
       else if (isH1Hotkey(event)) {
-        toggleBlock(event, editor, 'heading-one');
+        toggleBlock(event, editor, "heading-one");
       } else if (isH2Hotkey(event)) {
-        toggleBlock(event, editor, 'heading-two');
+        toggleBlock(event, editor, "heading-two");
       } else if (isH3Hotkey(event)) {
-        toggleBlock(event, editor, 'heading-three');
+        toggleBlock(event, editor, "heading-three");
       } else if (isH4Hotkey(event)) {
-        toggleBlock(event, editor, 'heading-four');
+        toggleBlock(event, editor, "heading-four");
       } else if (isH5Hotkey(event)) {
-        toggleBlock(event, editor, 'heading-five');
+        toggleBlock(event, editor, "heading-five");
       } else if (isH6Hotkey(event)) {
-        toggleBlock(event, editor, 'heading-six');
+        toggleBlock(event, editor, "heading-six");
       } else if (isUnorderedListHotkey(event)) {
-        toggleBlock(event, editor, 'unordered-list');
+        toggleBlock(event, editor, "unordered-list");
       } else if (isOrderedListHotkey(event)) {
-        toggleBlock(event, editor, 'ordered-list');
+        toggleBlock(event, editor, "ordered-list");
       } else if (isTodoHotkey(event)) {
-        toggleBlock(event, editor, 'todo-list');
+        toggleBlock(event, editor, "todo-list");
       } else if (isQuoteHotkey(event)) {
-        toggleBlock(event, editor, 'block-quote');
+        toggleBlock(event, editor, "block-quote");
       } else if (isCodeBlockHotkey(event)) {
-        toggleBlock(event, editor, 'block-code');
+        toggleBlock(event, editor, "block-code");
       }
       // Miscellaneous
       else if (isSoftWrapHotkey(event)) {
         return onShiftEnter(event, editor, next);
       } else if (isWrapHotkey(event)) {
         return onEnter(event, editor, next);
-      } else if (event.key === 'Backspace') {
+      } else if (event.key === "Backspace") {
         return onBackspace(event, editor, next);
       } else if (isIncreaseTabHotkey(event)) {
         onTab(event, editor);
       } else if (isDecreaseTabHotkey(event)) {
         onShiftTab(event, editor);
-      }
-      else {
+      } else {
         return next();
       }
-
     },
     // onClick(event, editor, next) {
     //   if (editor.value.selection.isBlurred) {
@@ -251,4 +244,4 @@ function KeyboardPlugin(options) {
   };
 }
 
-export {KeyboardPlugin};
+export { KeyboardPlugin };

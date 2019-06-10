@@ -10,5 +10,5 @@ export {
   withAuthorization,
   withEmailVerification,
   isAdmin,
-  isUser
+  isUser,
 };

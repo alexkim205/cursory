@@ -15,8 +15,7 @@ export class History {
 
   getCurrent = () => this.current.state;
 
-  add = (state) => {
-
+  add = state => {
     let node = new Node(state, this.current, null);
 
     this.current.next = node;
@@ -38,13 +37,13 @@ export class History {
   };
 
   undo = () => {
-    if (this.current === this.head) throw 'Undo limit reached!';
+    if (this.current === this.head) throw "Undo limit reached!";
     this.current = this.current.previous;
     return this.current.state;
   };
 
   redo = () => {
-    if (this.current === this.tail) throw 'Redo limit reached!';
+    if (this.current === this.tail) throw "Redo limit reached!";
     this.current = this.current.next;
     return this.current.state;
   };
@@ -52,5 +51,4 @@ export class History {
   size = () => {
     return this.size;
   };
-
 }

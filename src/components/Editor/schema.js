@@ -1,17 +1,21 @@
-import {Block} from 'slate';
-import {isList} from './plugins';
+import { Block } from "slate";
+import { isList } from "./plugins";
 
 const normalizeList = (editor, error) => {
-  const {document} = editor.value;
+  const { document } = editor.value;
   const firstListChild = error.child;
   const secondListChild = document.getNextSibling(firstListChild.key);
   const index = error.index;
 
   switch (error.code) {
-    case 'next_sibling_type_invalid':
+    case "next_sibling_type_invalid":
       // insert all first list's children into second list
       editor.removeNodeByKey(secondListChild.key);
-      editor.insertNodeByKey(firstListChild.key, firstListChild.nodes.size, secondListChild);
+      editor.insertNodeByKey(
+        firstListChild.key,
+        firstListChild.nodes.size,
+        secondListChild,
+      );
 
       for (let i = 0; i < secondListChild.nodes.size; i++) {
         let listItemChildKey = secondListChild.nodes.get(i).key;
@@ -36,26 +40,26 @@ export const schema = {
       // // },
       {
         match: [
-          {type: 'paragraph'},
-          {type: 'bold'},
-          {type: 'italic'},
-          {type: 'underlined'},
-          {type: 'strikethrough'},
-          {type: 'link'},
-          {type: 'code'},
-          {type: 'mark'},
-          {type: 'heading-one'},
-          {type: 'heading-two'},
-          {type: 'heading-three'},
-          {type: 'heading-four'},
-          {type: 'heading-five'},
-          {type: 'heading-six'},
-          {type: 'unordered-list'},
-          {type: 'ordered-list'},
-          {type: 'list-item'},
-          {type: 'todo-list'},
-          {type: 'block-quote'},
-          {type: 'block-code'},
+          { type: "paragraph" },
+          { type: "bold" },
+          { type: "italic" },
+          { type: "underlined" },
+          { type: "strikethrough" },
+          { type: "link" },
+          { type: "code" },
+          { type: "mark" },
+          { type: "heading-one" },
+          { type: "heading-two" },
+          { type: "heading-three" },
+          { type: "heading-four" },
+          { type: "heading-five" },
+          { type: "heading-six" },
+          { type: "unordered-list" },
+          { type: "ordered-list" },
+          { type: "list-item" },
+          { type: "todo-list" },
+          { type: "block-quote" },
+          { type: "block-code" },
         ],
       },
     ],
@@ -104,75 +108,74 @@ export const schema = {
     // },
   },
   blocks: {
-    'ordered-list': {
+    "ordered-list": {
       nodes: [
         {
-          match: [{type: 'ordered-list'}, {type: 'list-item'}],
+          match: [{ type: "ordered-list" }, { type: "list-item" }],
         },
       ],
       next: [
-        {type: 'paragraph'},
-        {type: 'heading-one'},
-        {type: 'heading-two'},
-        {type: 'heading-three'},
-        {type: 'heading-four'},
-        {type: 'heading-five'},
-        {type: 'heading-six'},
-        {type: 'unordered-list'},
+        { type: "paragraph" },
+        { type: "heading-one" },
+        { type: "heading-two" },
+        { type: "heading-three" },
+        { type: "heading-four" },
+        { type: "heading-five" },
+        { type: "heading-six" },
+        { type: "unordered-list" },
         // {type: 'ordered-list'},
-        {type: 'list-item'},
-        {type: 'todo-list'},
-        {type: 'block-quote'},
-        {type: 'block-code'},
+        { type: "list-item" },
+        { type: "todo-list" },
+        { type: "block-quote" },
+        { type: "block-code" },
       ],
       normalize: normalizeList,
     },
-    'unordered-list': {
+    "unordered-list": {
       nodes: [
         {
-          match: [{type: 'unordered-list'}, {type: 'list-item'}],
+          match: [{ type: "unordered-list" }, { type: "list-item" }],
         },
       ],
       next: [
-        {type: 'paragraph'},
-        {type: 'heading-one'},
-        {type: 'heading-two'},
-        {type: 'heading-three'},
-        {type: 'heading-four'},
-        {type: 'heading-five'},
-        {type: 'heading-six'},
+        { type: "paragraph" },
+        { type: "heading-one" },
+        { type: "heading-two" },
+        { type: "heading-three" },
+        { type: "heading-four" },
+        { type: "heading-five" },
+        { type: "heading-six" },
         // {type: 'unordered-list'},
-        {type: 'ordered-list'},
-        {type: 'list-item'},
-        {type: 'todo-list'},
-        {type: 'block-quote'},
-        {type: 'block-code'},
+        { type: "ordered-list" },
+        { type: "list-item" },
+        { type: "todo-list" },
+        { type: "block-quote" },
+        { type: "block-code" },
       ],
       normalize: normalizeList,
     },
-    'todo-list': {
+    "todo-list": {
       nodes: [
         {
-          match: [{type: 'todo-list'}, {type: 'list-item'}],
+          match: [{ type: "todo-list" }, { type: "list-item" }],
         },
       ],
       next: [
-        {type: 'paragraph'},
-        {type: 'heading-one'},
-        {type: 'heading-two'},
-        {type: 'heading-three'},
-        {type: 'heading-four'},
-        {type: 'heading-five'},
-        {type: 'heading-six'},
-        {type: 'unordered-list'},
-        {type: 'ordered-list'},
-        {type: 'list-item'},
+        { type: "paragraph" },
+        { type: "heading-one" },
+        { type: "heading-two" },
+        { type: "heading-three" },
+        { type: "heading-four" },
+        { type: "heading-five" },
+        { type: "heading-six" },
+        { type: "unordered-list" },
+        { type: "ordered-list" },
+        { type: "list-item" },
         // {type: 'todo-list'},
-        {type: 'block-quote'},
-        {type: 'block-code'},
+        { type: "block-quote" },
+        { type: "block-code" },
       ],
       normalize: normalizeList,
     },
   },
 };
-

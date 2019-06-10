@@ -1,24 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import { compose } from "redux";
 
-
 class RecentPage extends React.Component {
-    static propTypes = {
-        // aProp: PropTypes.object.isRequired,
-    }
-    state = {}
-    render() {
-        return (
-            <React.Fragment>
-              <h1>Recent</h1>
-            </React.Fragment>
-        )
-    }
+  static propTypes = {
+    // aProp: PropTypes.object.isRequired,
+  };
+  state = {};
+  render() {
+    return (
+      <React.Fragment>
+        <h1>Recent</h1>
+      </React.Fragment>
+    );
+  }
 }
 
-const connectedComponent = compose(
-
-)(RecentPage);
+const connectedComponent = compose()(RecentPage);
 
 export { connectedComponent as RecentPage };

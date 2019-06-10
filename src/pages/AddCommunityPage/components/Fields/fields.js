@@ -7,7 +7,7 @@ import {
   orientationDescriptor,
   paddingHorizontalDescriptor,
   paddingVerticalDescriptor,
-  widthDescriptor
+  widthDescriptor,
 } from "./descriptors";
 import { fromJS } from "immutable";
 
@@ -15,7 +15,7 @@ export {
   bgMutableFields,
   genericMutableFields,
   containerWidthMutableFields,
-  pageMutableFields
+  pageMutableFields,
 };
 
 const baseMutableFields = fromJS([
@@ -25,62 +25,62 @@ const baseMutableFields = fromJS([
       {
         // subsection
         name: "Background Color",
-        descriptor: backgroundColorDescriptor
-      }
-    ]
+        descriptor: backgroundColorDescriptor,
+      },
+    ],
   },
   {
     name: "Dimensions",
     subsections: [
       {
         name: "Width",
-        descriptor: widthDescriptor
+        descriptor: widthDescriptor,
       },
       {
         name: "Height",
-        descriptor: heightDescriptor
+        descriptor: heightDescriptor,
       },
       {
         name: "Padding",
         subsubsections: [
           {
             name: "Vertical",
-            descriptor: paddingVerticalDescriptor
+            descriptor: paddingVerticalDescriptor,
           },
           {
             name: "Horizontal",
-            descriptor: paddingHorizontalDescriptor
-          }
-        ]
+            descriptor: paddingHorizontalDescriptor,
+          },
+        ],
       },
       {
         name: "Margin",
         subsubsections: [
           {
             name: "Top",
-            descriptor: marginTopDescriptor
+            descriptor: marginTopDescriptor,
           },
           {
             name: "Bottom",
-            descriptor: marginBottomDescriptor
-          }
-        ]
-      }
-    ]
+            descriptor: marginBottomDescriptor,
+          },
+        ],
+      },
+    ],
   },
   {
     name: "Contents",
     subsections: [
       {
         name: "Orientation",
-        descriptor: orientationDescriptor
+        descriptor: orientationDescriptor,
       },
       {
         name: "Alignment",
-        descriptor: alignmentDescriptor
-      }
-    ]
-  }
+        descriptor: alignmentDescriptor,
+      },
+    ],
+  },
 ]);
 
 const bgMutableFields = baseMutableFields.slice(0, 1).toJS();

@@ -1,47 +1,47 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import { GenericComponent } from './Generic';
-import { componentTypes } from '../constants/component-types';
-import { Directions } from '../constants/style-enums';
-import { StyledClass } from '../components/StyledClass';
-import { ContainerClass } from './Container';
-import {
-  connectAsTargetContainerItem,
-} from '../draggable-droppable';
+import { GenericComponent } from "./Generic";
+import { componentTypes } from "../constants/component-types";
+import { Directions } from "../constants/style-enums";
+import { StyledClass } from "../components/StyledClass";
+import { ContainerClass } from "./Container";
+import { connectAsTargetContainerItem } from "../draggable-droppable";
 import {
   calcWhichBorder,
   renderOverlay,
-} from '../draggable-droppable/withBorderHighlights';
-import { ContainerItemWrapper } from './styles'
-
+} from "../draggable-droppable/withBorderHighlights";
+import { ContainerItemWrapper } from "./styles";
 
 /*
  * Container column where elements can be dropped into.
  */
 
 export class ContainerItemClass extends StyledClass {
-
   constructor(options = {}) {
     super(options);
-    Object.assign(this, {
-      id: 'bg_page_0',
-      index: 0,
-      name: '',
-      type: componentTypes.CONTAINER_ITEM,
-      childComponents: [],
-      direction: Directions.Rows,
-      width: 10,
-      height: 10,
-      paddingVertical: 1,
-      paddingHorizontal: 1,
-      marginTop: 1,
-      marginBottom: 1,
-    }, options);
+    Object.assign(
+      this,
+      {
+        id: "bg_page_0",
+        index: 0,
+        name: "",
+        type: componentTypes.CONTAINER_ITEM,
+        childComponents: [],
+        direction: Directions.Rows,
+        width: 10,
+        height: 10,
+        paddingVertical: 1,
+        paddingHorizontal: 1,
+        marginTop: 1,
+        marginBottom: 1,
+      },
+      options,
+    );
   }
 
-  addChild = (e) => {
+  addChild = e => {
     this.childComponents.push(e);
   };
 
@@ -51,7 +51,6 @@ export class ContainerItemClass extends StyledClass {
 }
 
 class ContainerItemComponent extends React.Component {
-
   constructor(props) {
     super(props);
     this.node = React.createRef();
@@ -72,22 +71,36 @@ class ContainerItemComponent extends React.Component {
     updateActive: PropTypes.func,
   };
 
-  changeBorder = (clientOffset) => {
+  changeBorder = clientOffset => {
     const { isOver, canDrop } = this.props;
     this.setState({
-      borderHighlight: calcWhichBorder(clientOffset, this.node, isOver,
-        canDrop),
+      borderHighlight: calcWhichBorder(
+        clientOffset,
+        this.node,
+        isOver,
+        canDrop,
+      ),
     });
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.borderHighlight !== nextState.borderHighlight ||
+    return (
+      this.state.borderHighlight !== nextState.borderHighlight ||
       this.props.isOver !== nextProps.isOver ||
-      JSON.stringify(this.props.containerItem) !== JSON.stringify(nextProps.containerItem);
+      JSON.stringify(this.props.containerItem) !==
+        JSON.stringify(nextProps.containerItem)
+    );
   }
 
   render() {
-    const { id, index, childComponents, name, type, ...otherProps } = this.props.containerItem;
+    const {
+      id,
+      index,
+      childComponents,
+      name,
+      type,
+      ...otherProps
+    } = this.props.containerItem;
     const {
       connectDropTarget,
       // connectDragSource,
@@ -102,25 +115,31 @@ class ContainerItemComponent extends React.Component {
     const { borderHighlight } = this.state;
 
     return (
-      <ContainerItemWrapper {...otherProps}
+      <ContainerItemWrapper
+        {...otherProps}
         borderHighlight={borderHighlight}
         isOver={isOver}
         // isDragging={isDragging}
-        onClick={(e) => updateActive(e, id)}
+        onClick={e => updateActive(e, id)}
         ref={instance => {
           this.node.current = instance;
           return connectDropTarget(instance);
-        }}>
+        }}
+      >
         {/* {id} */}
         {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(
-              Object.create(Object.getPrototypeOf(e)), e);
+              Object.create(Object.getPrototypeOf(e)),
+              e,
+            );
             newComponent.id = `${id}_${key}`;
             newComponent.index = key;
 
             return (
-              <GenericComponent genericComponent={newComponent} key={key}
+              <GenericComponent
+                genericComponent={newComponent}
+                key={key}
                 move={move}
                 updateActive={updateActive}
               />
@@ -129,7 +148,6 @@ class ContainerItemComponent extends React.Component {
       </ContainerItemWrapper>
     );
   }
-
 }
 
 const connectedComponent = connectAsTargetContainerItem(ContainerItemComponent);

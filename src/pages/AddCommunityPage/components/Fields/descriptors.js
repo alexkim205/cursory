@@ -4,7 +4,7 @@ export const FieldTypes = {
   SLIDER: "SLIDER",
   SELECT: "SELECT",
   TEXT: "TEXT",
-  COLOR: "COLOR"
+  COLOR: "COLOR",
 };
 
 export class SliderDescription {
@@ -16,9 +16,9 @@ export class SliderDescription {
         type: "SLIDER",
         bounds: [0, 100, 1], // [start, end, increment]
         realBounds: [0, 100],
-        units: "px"
+        units: "px",
       },
-      options
+      options,
     );
   }
 }
@@ -31,9 +31,9 @@ export class SelectDescription {
         key: "",
         type: "SELECT",
         options: [],
-        enums: []
+        enums: [],
       },
-      options
+      options,
     );
   }
 }
@@ -44,9 +44,9 @@ export class TextDescription {
       this,
       {
         key: "",
-        type: "TEXT"
+        type: "TEXT",
       },
-      options
+      options,
     );
   }
 }
@@ -57,51 +57,51 @@ export class ColorDescription {
       this,
       {
         key: "",
-        type: "COLOR"
+        type: "COLOR",
       },
-      options
+      options,
     );
   }
 }
 
 export const backgroundColorDescriptor = new ColorDescription({
-    key: "backgroundColor"
+    key: "backgroundColor",
   }),
   widthDescriptor = new SliderDescription({
     key: "width",
     bounds: [0, 30, 1],
     realBounds: [5, 100],
-    units: "%"
+    units: "%",
   }),
   heightDescriptor = new SliderDescription({
     key: "height",
     bounds: [0, 30, 1],
-    realBounds: [30, 500]
+    realBounds: [30, 500],
   }),
   paddingVerticalDescriptor = new SliderDescription({
     key: "paddingVertical",
     bounds: [0, 12, 1],
-    realBounds: [0, 250]
+    realBounds: [0, 250],
   }),
   paddingHorizontalDescriptor = new SliderDescription({
     key: "paddingHorizontal",
     bounds: [0, 12, 1],
-    realBounds: [0, 600]
+    realBounds: [0, 600],
   }),
   marginTopDescriptor = new SliderDescription({
     key: "marginTop",
     bounds: [0, 12, 1],
-    realBounds: [0, 100]
+    realBounds: [0, 100],
   }),
   marginBottomDescriptor = new SliderDescription({
     key: "marginBottom",
     bounds: [0, 12, 1],
-    realBounds: [0, 100]
+    realBounds: [0, 100],
   }),
   orientationDescriptor = new SelectDescription({
     key: "direction",
     options: ["Column", "Row", "Grid"],
-    enums: [Directions.Columns, Directions.Rows, Directions.Grid]
+    enums: [Directions.Columns, Directions.Rows, Directions.Grid],
   }),
   alignmentDescriptor = new SelectDescription({
     key: "alignment",
@@ -110,6 +110,6 @@ export const backgroundColorDescriptor = new ColorDescription({
       Alignments.Left,
       Alignments.Center,
       Alignments.Right,
-      Alignments.SpaceBetween
-    ]
+      Alignments.SpaceBetween,
+    ],
   });

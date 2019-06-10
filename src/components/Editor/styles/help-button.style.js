@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import {theme} from '../../../_styles';
+import React from "react";
+import styled from "styled-components";
+import { theme } from "../../../_styles";
 
 export const StyledHelpButton = styled.div`
   display: flex;
@@ -17,9 +17,10 @@ export const StyledHelpButton = styled.div`
   -webkit-transition: color 400ms ease; /* Safari */
   transition: color 400ms ease;
   transform: scale(1.5);
-  color: ${props => props.isOpen ? theme.colors.gray : theme.colors.light_gray};
+  color: ${props =>
+    props.isOpen ? theme.colors.gray : theme.colors.light_gray};
   cursor: default;
-  
+
   &:hover {
     color: ${theme.colors.gray};
     // transform: scale(1.5);

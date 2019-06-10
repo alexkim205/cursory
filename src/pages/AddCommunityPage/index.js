@@ -1,1 +1,1 @@
-export * from './AddCommunityPage';
+export * from "./AddCommunityPage";

@@ -11,7 +11,7 @@ import {
   KeyboardPlugin,
   RenderPlugin,
   ToolBarPlugin,
-  MarginPlugin
+  MarginPlugin,
 } from "./plugins";
 // import {renderBlockButton, renderMarkButton} from './plugins';
 
@@ -29,16 +29,16 @@ const plugins = [
   MarkdownShortcutPlugin(),
   KeyboardPlugin(),
   RenderPlugin(),
-  ToolBarPlugin()
+  ToolBarPlugin(),
 ];
 
 class CustomEditor extends React.Component {
   static propTypes = {
-    withToolbar: PropTypes.bool
+    withToolbar: PropTypes.bool,
   };
 
   static defaultProps = {
-    withToolbar: true
+    withToolbar: true,
   };
 
   /**
@@ -48,7 +48,7 @@ class CustomEditor extends React.Component {
    */
 
   state = {
-    value: initialValue
+    value: initialValue,
   };
 
   /**

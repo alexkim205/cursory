@@ -1,20 +1,23 @@
-import React from 'react';
-import styled from 'styled-components';
-import {theme} from '../../../_styles';
+import React from "react";
+import styled from "styled-components";
+import { theme } from "../../../_styles";
 
 export const Button = styled.span`
   cursor: pointer;
   margin: 0 10px;
-  color: ${props => props.active ? theme.colors.main : 'white'};
-  
+  color: ${props => (props.active ? theme.colors.main : "white")};
+
   // if button is disabled
-  ${props => props.isDisabled ? `
+  ${props =>
+    props.isDisabled
+      ? `
     color: #666;
     cursor: not-allowed;
-  ` : ''}
+  `
+      : ""}
 `;
 
-export const Icon = styled(({className, ...rest}) => {
+export const Icon = styled(({ className, ...rest }) => {
   return <span className={`material-icons ${className}`} {...rest} />;
 })`
   font-size: 18px;
@@ -33,11 +36,11 @@ export const Toolbar = styled.div`
   padding: 0 10px;
   transition: transform 80ms ease;
   transform: scale(0.95);
-  
+
   &.active {
     transform: scale(1) translate(0, -18px);
   }
-  
+
   &:after {
     content: "";
     position: absolute;
@@ -56,5 +59,4 @@ export const ShortcutsHelp = styled.div`
   bottom: 10px;
   right: 10px;
   border-radius: 50%;
-  
-`
+`;

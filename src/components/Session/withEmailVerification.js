@@ -6,7 +6,7 @@ import { compose } from "redux";
 import AuthUserContext from "./context";
 import { withFirebase } from "../Firebase";
 
-import {NarrowWrapper} from '../PageWrappers';
+import { NarrowWrapper } from "../PageWrappers";
 
 // Checks if user logged in with email, verified their email
 const needsEmailVerification = authUser =>
@@ -20,7 +20,7 @@ const withEmailVerification = Component => {
   class WithEmailVerification extends React.Component {
     static propTypes = {
       firebase: PropTypes.object.isRequired,
-      location: PropTypes.object.isRequired
+      location: PropTypes.object.isRequired,
     };
 
     state = { isSent: false };

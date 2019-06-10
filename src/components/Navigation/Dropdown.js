@@ -1,13 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import posed from 'react-pose';
-import {theme} from '../../_styles/index';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import posed from "react-pose";
+import { theme } from "../../_styles/index";
 
-export const DropdownMenuWrapper = props =>
-    <Perspective>
-      <DropdownMenu {...props}/>
-    </Perspective>;
+export const DropdownMenuWrapper = props => (
+  <Perspective>
+    <DropdownMenu {...props} />
+  </Perspective>
+);
 
 const Perspective = styled.div`
   perspective: 1000px;
@@ -18,7 +19,7 @@ const DropdownMenu = posed(styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  right:  0px;
+  right: 0px;
   top: 40px;
   align-items: center;
   width: 250px;
@@ -30,7 +31,7 @@ const DropdownMenu = posed(styled.div`
   // padding: 1em 0;
   height: 190px;
   z-index: 1000;
-  
+
   &:after {
     bottom: 100%;
     right: 20%;
@@ -41,26 +42,25 @@ const DropdownMenu = posed(styled.div`
     position: absolute;
     pointer-events: none;
     border-color: rgba(136, 183, 213, 0);
-    border-bottom-color: #242E49;
+    border-bottom-color: #242e49;
     border-width: 15px;
     margin-left: -15px;
   }
-
 `)({
   enter: {
     opacity: 1,
     rotateX: 0,
     transition: {
-      opacity: {duration: 100},
-      rotateX: {duration: 200},
+      opacity: { duration: 100 },
+      rotateX: { duration: 200 },
     },
   },
   exit: {
     opacity: 0,
     rotateX: -30,
     transition: {
-      opacity: {duration: 100},
-      rotateX: {duration: 200},
+      opacity: { duration: 100 },
+      rotateX: { duration: 200 },
     },
   },
 });
@@ -72,21 +72,20 @@ export const DropdownMenuItemWrapper = posed(styled.div`
   width: 100%;
   padding: 0.5em 2em;
   box-sizing: border-box;
-  
+
   a {
     cursor: pointer;
     color: white;
   }
- 
 `)({
   hoverable: true,
   init: {
     backgroundColor: theme.colors.dark,
-    transition: {duration: 100},
+    transition: { duration: 100 },
   },
   hover: {
     backgroundColor: theme.colors.light_dark,
-    transition: {duration: 100},
+    transition: { duration: 100 },
   },
   enter: {
     y: 0,

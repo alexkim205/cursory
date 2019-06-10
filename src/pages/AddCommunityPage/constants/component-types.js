@@ -2,7 +2,7 @@ import {
   bgMutableFields,
   containerWidthMutableFields,
   genericMutableFields,
-  pageMutableFields
+  pageMutableFields,
 } from "../components";
 
 export const componentTypes = {
@@ -10,7 +10,7 @@ export const componentTypes = {
   CONTAINER: "CONTAINER",
   CONTAINER_ITEM: "CONTAINER ITEM",
   BACKGROUND: "BACKGROUND",
-  PAGE: "PAGE"
+  PAGE: "PAGE",
 };
 // swaps keys and values of componentTypes
 const objectFlip = obj => {
@@ -27,5 +27,5 @@ export const componentFields = {
   [componentTypes.CONTAINER]: genericMutableFields,
   [componentTypes.CONTAINER_ITEM]: containerWidthMutableFields,
   [componentTypes.BACKGROUND]: bgMutableFields,
-  [componentTypes.PAGE]: pageMutableFields
+  [componentTypes.PAGE]: pageMutableFields,
 };

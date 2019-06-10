@@ -1,21 +1,21 @@
-import React from 'react';
-import {Route, Switch} from 'react-router-dom';
-import styled from 'styled-components';
-import posed, {PoseGroup} from 'react-pose';
-import {Navigation} from '../../components/Navigation/Navigation';
-import {theme} from '../../_styles';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import styled from "styled-components";
+import posed, { PoseGroup } from "react-pose";
+import { Navigation } from "../../components/Navigation/Navigation";
+import { theme } from "../../_styles";
 
 const RootWrapper = styled.div`
-    display: flex;
-    // align-items: stretch;
-    flex-direction: column;
-    // align-content: stretch;
-    // background-color: azure;
-    flex: 1;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    position: fixed;
+  display: flex;
+  // align-items: stretch;
+  flex-direction: column;
+  // align-content: stretch;
+  // background-color: azure;
+  flex: 1;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: fixed;
 `;
 
 const BodyWrapperUnposed = posed(styled.div`
@@ -37,7 +37,7 @@ const BodyWrapperUnposed = posed(styled.div`
     // Children: true,
     // delay: 300,
     transition: {
-      default: {duration: 200},
+      default: { duration: 200 },
     },
   },
   exit: {
@@ -46,22 +46,21 @@ const BodyWrapperUnposed = posed(styled.div`
     // beforeChildren: true,
     // afterChildren: true,
     transition: {
-      default: {duration: 200},
+      default: { duration: 200 },
     },
   },
 });
 
-const BodyWrapper = ({children}) =>
-    <Route
-        render={({location}) => (
-            <PoseGroup>
-              <BodyWrapperUnposed key={location.pathname}>
-                <Switch location={location}>
-                  {children}
-                </Switch>
-              </BodyWrapperUnposed>
-            </PoseGroup>
-        )}
-    />;
+const BodyWrapper = ({ children }) => (
+  <Route
+    render={({ location }) => (
+      <PoseGroup>
+        <BodyWrapperUnposed key={location.pathname}>
+          <Switch location={location}>{children}</Switch>
+        </BodyWrapperUnposed>
+      </PoseGroup>
+    )}
+  />
+);
 
-export {BodyWrapper, RootWrapper};
+export { BodyWrapper, RootWrapper };

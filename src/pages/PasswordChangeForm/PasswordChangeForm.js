@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   passwordOne: "",
   passwordTwo: "",
   isChanged: false,
-  error: null
+  error: null,
 };
 
 // Checks if current user is NOT authenticated
@@ -27,7 +27,7 @@ const isNotSocialAccount = authUser =>
 
 class PasswordChangeForm extends React.Component {
   static propTypes = {
-    firebase: PropTypes.object.isRequired
+    firebase: PropTypes.object.isRequired,
   };
 
   state = { ...INITIAL_STATE };
@@ -67,7 +67,7 @@ class PasswordChangeForm extends React.Component {
       passwordOne,
       passwordTwo,
       error,
-      isChanged
+      isChanged,
     } = this.state;
 
     const isInvalid = this.checkRules();
@@ -123,8 +123,8 @@ const connectedComponent = compose(
   withFirebase,
   connect(
     null,
-    null
-  )
+    null,
+  ),
 )(PasswordChangeForm);
 
 export { connectedComponent as PasswordChangeForm };

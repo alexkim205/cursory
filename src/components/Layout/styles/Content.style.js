@@ -1,19 +1,18 @@
-import posed from 'react-pose';
-import styled from 'styled-components';
+import posed from "react-pose";
+import styled from "styled-components";
 
 export const ContentWrapper = posed(styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 50px;
-    // background-color: pink;
-`)({
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 50px;
+  // background-color: pink;
+`)({
   enter: {
     y: 0,
     opacity: 1,
@@ -21,7 +20,7 @@ export const ContentWrapper = posed(styled.div`
     // staggerChildren: 100,
     transition: {
       default: { duration: 100 },
-    }
+    },
   },
   exit: {
     opacity: 0,
@@ -29,6 +28,6 @@ export const ContentWrapper = posed(styled.div`
     y: -20,
     transition: {
       default: { duration: 80 },
-    }
-  }
+    },
+  },
 });

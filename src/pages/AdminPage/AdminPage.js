@@ -7,7 +7,7 @@ import { Log } from "../../_helpers";
 import {
   withAuthorization,
   withEmailVerification,
-  isAdmin
+  isAdmin,
 } from "../../components/Session";
 import { withFirebase } from "../../components/Firebase";
 
@@ -15,12 +15,12 @@ import { ROUTES, ROLES } from "../../_constants";
 
 class AdminPage extends React.Component {
   static propTypes = {
-    firebase: PropTypes.object.isRequired
+    firebase: PropTypes.object.isRequired,
   };
 
   state = {
     loading: false,
-    users: []
+    users: [],
   };
 
   componentDidMount() {
@@ -33,12 +33,12 @@ class AdminPage extends React.Component {
         Log.info(querySnapshot.docs, "AdminPage");
         const usersList = querySnapshot.docs.map((doc, i) => ({
           ...doc.data(),
-          uid: i
+          uid: i,
         }));
         Log.info(usersList, "AdminPage");
         this.setState({
           users: usersList,
-          loading: false
+          loading: false,
         });
       });
   }
@@ -80,7 +80,7 @@ const connectedPage = compose(
   withEmailVerification,
   withAuthorization(isAdmin),
   // withNavbar(),
-  withFirebase
+  withFirebase,
 )(AdminPage);
 
 export { connectedPage as AdminPage };

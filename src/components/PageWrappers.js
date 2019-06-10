@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import {theme} from '../_styles';
+import styled from "styled-components";
+import { theme } from "../_styles";
 
 export const NarrowWrapper = styled.div`
   width: 23em;
   text-align: center;
-  
+
   .form-links {
     display: flex;
     flex-direction: row;
@@ -17,14 +17,14 @@ export const NarrowWrapper = styled.div`
         color: black;
       }
     }
-  
+
     .divider {
       width: 1px;
       background-color: gray;
       margin: 0 2em 0;
     }
   }
-  
+
   button {
     border-radius: 5px;
     border: none;
@@ -41,12 +41,14 @@ export const NarrowWrapper = styled.div`
     &:disabled {
       cursor: not-allowed;
     }
-    
-    &:hover, &:focus, &:active {
+
+    &:hover,
+    &:focus,
+    &:active {
       background-color: ${theme.colors.main};
     }
   }
-`
+`;
 export const FullWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -57,4 +59,4 @@ export const FullWrapper = styled.div`
   overflow: scroll;
   display: flex;
   flex-direction: column;
-`
+`;

@@ -3,7 +3,7 @@ import { compose } from "redux";
 
 import {
   ContainerItemInterface,
-  ContainerItemComponent
+  ContainerItemComponent,
 } from "./ContainerItem";
 import { GenericComponentInterface } from "./Generic";
 import { componentTypes } from "../constants/component-types";
@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 import { connectAsTargetAndSource } from "../draggable-droppable";
 import {
   calcWhichBorder,
-  renderOverlay
+  renderOverlay,
 } from "../draggable-droppable/withBorderHighlights";
 import { widthDescriptor, heightDescriptor } from "../components/";
 import { ContainerWrapper } from "./styles";
@@ -36,9 +36,9 @@ export class ContainerClass extends StyledClass {
         paddingVertical: 1,
         paddingHorizontal: 1,
         marginTop: 1,
-        marginBottom: 1
+        marginBottom: 1,
       },
-      options
+      options,
     );
   }
 
@@ -58,7 +58,7 @@ class ContainerComponent extends React.Component {
   static propTypes = {
     container: PropTypes.oneOfType(
       PropTypes.instanceOf(ContainerClass),
-      PropTypes.object
+      PropTypes.object,
     ),
     connectDropTarget: PropTypes.func.isRequired,
     connectDragSource: PropTypes.func.isRequired,
@@ -68,13 +68,18 @@ class ContainerComponent extends React.Component {
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
     move: PropTypes.func,
-    updateActive: PropTypes.func
+    updateActive: PropTypes.func,
   };
 
   changeBorder = clientOffset => {
     const { isOver, canDrop } = this.props;
     this.setState({
-      borderHighlight: calcWhichBorder(clientOffset, this.node, isOver, canDrop)
+      borderHighlight: calcWhichBorder(
+        clientOffset,
+        this.node,
+        isOver,
+        canDrop,
+      ),
     });
   };
 
@@ -106,7 +111,7 @@ class ContainerComponent extends React.Component {
       canDrop,
       clientOffset,
       move,
-      updateActive
+      updateActive,
     } = this.props;
     const { borderHighlight } = this.state;
     const numberOfColumns = childComponents.length;
@@ -122,7 +127,7 @@ class ContainerComponent extends React.Component {
         ref={instance => {
           this.node.current = instance;
           return connectDropTarget(
-            connectDragPreview(connectDragSource(instance))
+            connectDragPreview(connectDragSource(instance)),
           );
         }}
       >
@@ -131,7 +136,7 @@ class ContainerComponent extends React.Component {
           childComponents.map((e, key) => {
             const newComponent = Object.assign(
               Object.create(Object.getPrototypeOf(e)),
-              e
+              e,
             );
             newComponent.id = `${id}_${key}`;
             newComponent.index = key;

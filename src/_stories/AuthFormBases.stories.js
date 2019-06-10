@@ -10,7 +10,7 @@ import {
   SignInFacebook,
   SignInTwitter,
   SignInGithub,
-  SignInMicrosoft
+  SignInMicrosoft,
 } from "../components";
 
 storiesOf("Components|Authentication Forms", module)

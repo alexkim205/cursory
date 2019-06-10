@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {compose} from 'redux';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React from "react";
+import PropTypes from "prop-types";
+import { compose } from "redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   ToolbarWrapper,
   ToolbarItemWrapper,
   ToolbarItemSelector,
-} from './styles';
+} from "./styles";
 
 const toolbarIcons = [
-  {icon: 'star'}, // Starred
-  {icon: 'tags'}, // Tags
-  {icon: 'hourglass-start'}, // Recent
-  {icon: 'fire'}, // Popular
-  {icon: 'user-friends'}, // People
+  { icon: "star" }, // Starred
+  { icon: "tags" }, // Tags
+  { icon: "hourglass-start" }, // Recent
+  { icon: "fire" }, // Popular
+  { icon: "user-friends" }, // People
 ];
 
 class Toolbar extends React.Component {
@@ -32,28 +32,29 @@ class Toolbar extends React.Component {
   // };
 
   render() {
-
     // Nested Tabs for sidebar
     return (
-        <ToolbarWrapper
-            // pose={this.state.isOpen ? 'open' : 'closed'}
-        >
-          <div className={'selector-container'}>
-            <ToolbarItemSelector i={this.props.whichActive}
-                                 pose={'visible'}
-                                 poseKey={this.props.whichActive}/>
-          </div>
-          <div className={'icons-container'}>
-            {toolbarIcons.map((e, i) => (
-                <ToolbarItem
-                    key={i}
-                    icon={e.icon}
-                    active={this.props.whichActive === i}
-                    handleClick={(e) => this.props.handleClick(e, i)}
-                />
-            ))}
-          </div>
-        </ToolbarWrapper>
+      <ToolbarWrapper
+      // pose={this.state.isOpen ? 'open' : 'closed'}
+      >
+        <div className={"selector-container"}>
+          <ToolbarItemSelector
+            i={this.props.whichActive}
+            pose={"visible"}
+            poseKey={this.props.whichActive}
+          />
+        </div>
+        <div className={"icons-container"}>
+          {toolbarIcons.map((e, i) => (
+            <ToolbarItem
+              key={i}
+              icon={e.icon}
+              active={this.props.whichActive === i}
+              handleClick={e => this.props.handleClick(e, i)}
+            />
+          ))}
+        </div>
+      </ToolbarWrapper>
     );
   }
 }
@@ -71,19 +72,17 @@ class ToolbarItem extends React.Component {
 
   render() {
     return (
-        <ToolbarItemWrapper
-            onClick={this.props.handleClick}
-            pose={this.props.active ? 'active' : 'inactive'}
-            i={this.props.key}
-        >
-          <FontAwesomeIcon icon={['fas', this.props.icon]}
-                           transform={'grow-4'}/>
-        </ToolbarItemWrapper>
+      <ToolbarItemWrapper
+        onClick={this.props.handleClick}
+        pose={this.props.active ? "active" : "inactive"}
+        i={this.props.key}
+      >
+        <FontAwesomeIcon icon={["fas", this.props.icon]} transform={"grow-4"} />
+      </ToolbarItemWrapper>
     );
   }
 }
 
-const connectedComponent = compose(
-)(Toolbar);
+const connectedComponent = compose()(Toolbar);
 
-export {connectedComponent as Toolbar};
+export { connectedComponent as Toolbar };

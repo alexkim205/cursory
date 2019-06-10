@@ -1,5 +1,5 @@
-import {toggleMark, toggleBlock} from './helper-functions';
-import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
+import { toggleMark, toggleBlock } from "./helper-functions";
+import { isMarkorBlockorNeither, isList, hasBlock, hasMark } from "../utils";
 
 /**
  * Get the block type for a series of auto-markdown shortcut `chars`.
@@ -10,29 +10,29 @@ import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
 
 function getType(chars) {
   switch (chars) {
-    case '*':
-    case '-':
-      return 'unordered-list';
-    case '1.':
-      return 'ordered-list';
-    case '+':
-      return 'todo-list';
-    case '>':
-      return 'block-quote';
-    case '```':
-      return 'block-code';
-    case '#':
-      return 'heading-one';
-    case '##':
-      return 'heading-two';
-    case '###':
-      return 'heading-three';
-    case '####':
-      return 'heading-four';
-    case '#####':
-      return 'heading-five';
-    case '######':
-      return 'heading-six';
+    case "*":
+    case "-":
+      return "unordered-list";
+    case "1.":
+      return "ordered-list";
+    case "+":
+      return "todo-list";
+    case ">":
+      return "block-quote";
+    case "```":
+      return "block-code";
+    case "#":
+      return "heading-one";
+    case "##":
+      return "heading-two";
+    case "###":
+      return "heading-three";
+    case "####":
+      return "heading-four";
+    case "#####":
+      return "heading-five";
+    case "######":
+      return "heading-six";
     default:
       return null;
   }
@@ -48,25 +48,27 @@ function getType(chars) {
  */
 
 function onSpace(event, editor, next) {
-  const {value} = editor;
-  const {selection} = value;
+  const { value } = editor;
+  const { selection } = value;
   if (selection.isExpanded) return next();
 
-  const {startBlock} = value;
-  const {start} = selection;
-  const chars = startBlock.text.slice(0, start.offset).replace(/\s*/g, '');
+  const { startBlock } = value;
+  const { start } = selection;
+  const chars = startBlock.text.slice(0, start.offset).replace(/\s*/g, "");
   const type = getType(chars);
   if (!type) return next();
 
   // Don't activate markdown shortcuts in blocks
-  if (isMarkorBlockorNeither(type) === 'block' &&
-      isMarkorBlockorNeither(startBlock.type) === 'block') {
+  if (
+    isMarkorBlockorNeither(type) === "block" &&
+    isMarkorBlockorNeither(startBlock.type) === "block"
+  ) {
     return next();
   }
 
-  if (isMarkorBlockorNeither(type) === 'mark') {
+  if (isMarkorBlockorNeither(type) === "mark") {
     toggleMark(event, editor, type);
-  } else if (isMarkorBlockorNeither(type) === 'block') {
+  } else if (isMarkorBlockorNeither(type) === "block") {
     toggleBlock(event, editor, type);
   } else {
     return next();
@@ -86,12 +88,11 @@ function MarkdownShortcutPlugin(options) {
   return {
     onKeyDown(event, editor, next) {
       switch (event.key) {
-        case ' ':
+        case " ":
           return onSpace(event, editor, next);
         default:
           return next();
       }
-
     },
     // onClick(event, editor, next) {
     //   if (editor.value.selection.isBlurred) {
@@ -103,4 +104,4 @@ function MarkdownShortcutPlugin(options) {
   };
 }
 
-export {MarkdownShortcutPlugin};
+export { MarkdownShortcutPlugin };

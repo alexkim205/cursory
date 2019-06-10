@@ -6,29 +6,29 @@
  */
 export function isMarkorBlockorNeither(type) {
   switch (type) {
-    case 'bold':
-    case 'italic':
-    case 'underlined':
-    case 'strikethrough':
-    case 'link':
-    case 'code':
-    case 'mark':
-      return 'mark';
-    case 'heading-one':
-    case 'heading-two':
-    case 'heading-three':
-    case 'heading-four':
-    case 'heading-five':
-    case 'heading-six':
-    case 'unordered-list':
-    case 'ordered-list':
-    case 'list-item':
-    case 'todo-list':
-    case 'block-quote':
-    case 'block-code':
-      return 'block';
+    case "bold":
+    case "italic":
+    case "underlined":
+    case "strikethrough":
+    case "link":
+    case "code":
+    case "mark":
+      return "mark";
+    case "heading-one":
+    case "heading-two":
+    case "heading-three":
+    case "heading-four":
+    case "heading-five":
+    case "heading-six":
+    case "unordered-list":
+    case "ordered-list":
+    case "list-item":
+    case "todo-list":
+    case "block-quote":
+    case "block-code":
+      return "block";
     default:
-      return 'system';
+      return "system";
   }
 }
 
@@ -41,10 +41,10 @@ export function isMarkorBlockorNeither(type) {
 export function isList(type) {
   if (!type) return false;
   switch (type) {
-    case 'unordered-list':
-    case 'ordered-list':
-    case 'list-item':
-    case 'todo-list':
+    case "unordered-list":
+    case "ordered-list":
+    case "list-item":
+    case "todo-list":
       return true;
     default:
       return false;

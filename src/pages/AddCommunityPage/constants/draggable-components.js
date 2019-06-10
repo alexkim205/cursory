@@ -1,13 +1,13 @@
-import {GenericComponentInterface} from '../addable-components/Generic';
-import {componentTypes} from './component-types';
+import { GenericComponentInterface } from "../addable-components/Generic";
+import { componentTypes } from "./component-types";
 
 export const DraggableComponents = [
   {
-    name: 'Generic',
+    name: "Generic",
     type: componentTypes.GENERIC,
   },
   {
-    name: 'Container',
+    name: "Container",
     type: componentTypes.CONTAINER,
   },
 ];

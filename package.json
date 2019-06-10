@@ -52,7 +52,10 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "storybook": "start-storybook"
+        "storybook": "start-storybook",
+        "format:check": "prettier --config ./.prettierrc --list-different **/src/**/*{.ts,.js,.css,.scss,.html}",
+        "format:fix-all": "prettier --config ./.prettierrc --write **/src/**/*{.ts,.js,.css,.scss,.html}",
+        "format:fix": "pretty-quick --pattern **/src/**/*{.ts,.js,.css,.scss,.html}"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -81,6 +84,7 @@
         "babel-loader": "^8.0.6",
         "eslint": "^5.16.0",
         "eslint-config-google": "^0.13.0",
+        "prettier": "^1.18.2",
         "redux-devtools": "^3.5.0"
     }
 }

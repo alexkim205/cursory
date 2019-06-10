@@ -1,2 +1,2 @@
-export * from './range';
-export * from './is-has'
+export * from "./range";
+export * from "./is-has";

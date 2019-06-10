@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const MarginWrapper = styled.div`
   //height: 100%;
@@ -15,7 +15,6 @@ const MarginWrapper = styled.div`
   //overflow: scroll;
   background-color: white;
   cursor: text;
-
 `;
 
 export function MarginPlugin(options) {
@@ -25,11 +24,9 @@ export function MarginPlugin(options) {
       const children = next();
 
       return (
-          <React.Fragment>
-            <MarginWrapper>
-              {children}
-            </MarginWrapper>
-          </React.Fragment>
+        <React.Fragment>
+          <MarginWrapper>{children}</MarginWrapper>
+        </React.Fragment>
       );
     },
     // onClick(event, editor, next) {

@@ -18,7 +18,7 @@ const SignOutButton = ({ firebase, history }) => (
 
 const connectedComponent = compose(
   withRouter,
-  withFirebase
+  withFirebase,
 )(SignOutButton);
 
 export { connectedComponent as SignOutButton };

@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 import {
-    hoverSelectStyle,
-    positionStyle,
-    transitionStyle,
-} from '../../constants/style-enums';
+  hoverSelectStyle,
+  positionStyle,
+  transitionStyle,
+} from "../../constants/style-enums";
 
 export const BackgroundWrapper = styled.div`
   background-color: ${props => props.backgroundColor};

@@ -228,7 +228,7 @@ const FormFieldHOC = Component =>
       value: PropTypes.string,
       onChange: PropTypes.func.isRequired,
       type: PropTypes.string,
-      placeholder: PropTypes.string
+      placeholder: PropTypes.string,
     };
 
     static defaultProps = {
@@ -236,7 +236,7 @@ const FormFieldHOC = Component =>
       name: "",
       value: "",
       type: "text",
-      placeholder: ""
+      placeholder: "",
     };
 
     render() {

@@ -8,4 +8,4 @@ const editorConstants = {
   DISCARD_FAILURE: "EDITOR_DISCARD_FAILURE",
 };
 
-export {editorConstants}
+export { editorConstants };

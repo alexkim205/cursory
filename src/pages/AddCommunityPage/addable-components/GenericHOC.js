@@ -8,7 +8,7 @@ import { StyledClass } from "../components/StyledClass";
 import PropTypes from "prop-types";
 import {
   connectAsTarget,
-  connectAsTargetAndSource
+  connectAsTargetAndSource,
 } from "../draggable-droppable";
 import { calcWhichBorder } from "../draggable-droppable/withBorderHighlights";
 
@@ -30,9 +30,9 @@ export class GenericClass extends StyledClass {
         width: 10,
         paddingVertical: 1,
         paddingHorizontal: 1,
-        marginBottom: 1
+        marginBottom: 1,
       },
-      options
+      options,
     );
   }
   addChild = e => {
@@ -53,7 +53,7 @@ export const GenericHOC = Component => {
       genericComponent: PropTypes.oneOfType([
         PropTypes.instanceOf(GenericClass),
         PropTypes.instanceOf(ContainerClass),
-        PropTypes.object
+        PropTypes.object,
       ]),
       connectDropTarget: PropTypes.func.isRequired,
       connectDragSource: PropTypes.func.isRequired,
@@ -64,7 +64,7 @@ export const GenericHOC = Component => {
       clientOffset: PropTypes.object,
       move: PropTypes.func,
       updateActive: PropTypes.func,
-      getKey: PropTypes.func
+      getKey: PropTypes.func,
     };
 
     changeBorder = clientOffset => {
@@ -74,8 +74,8 @@ export const GenericHOC = Component => {
           clientOffset,
           this.node,
           isOver,
-          canDrop
-        )
+          canDrop,
+        ),
       });
     };
 
@@ -136,7 +136,7 @@ export const GenericHOC = Component => {
           ref={instance => {
             this.node.current = instance;
             return connectDropTarget(
-              connectDragPreview(connectDragSource(instance))
+              connectDragPreview(connectDragSource(instance)),
             );
           }}
         >

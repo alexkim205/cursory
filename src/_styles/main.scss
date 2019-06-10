@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900');
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700,900");
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   //overscroll-behavior: none;
@@ -8,7 +9,7 @@ html, body {
 }
 
 body {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
 }
 
@@ -22,10 +23,10 @@ a {
   padding: 2px 1px 0;
 
   &:link {
-    color: black
+    color: black;
   }
   &:visited {
-    color: black
+    color: black;
   }
   &:focus {
     //border-bottom: 1px solid;

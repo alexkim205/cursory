@@ -1,3 +1,3 @@
-import withDashboard from './withDashboard';
+import withDashboard from "./withDashboard";
 
-export {withDashboard};
+export { withDashboard };

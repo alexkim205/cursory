@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   alignmentStyle,
   borderHighlightStyle,
@@ -7,10 +7,10 @@ import {
   paddingStyle,
   widthStyle,
   heightStyle,
-  transitionStyle, 
-  draggingDisableStyle, 
+  transitionStyle,
+  draggingDisableStyle,
   hoverSelectStyle,
-} from '../../constants/style-enums';
+} from "../../constants/style-enums";
 
 export const ContainerItemWrapper = styled.div`
     display: flex;

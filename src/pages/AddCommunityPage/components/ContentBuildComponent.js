@@ -2,17 +2,21 @@ import {
   BackgroundClass,
   BackgroundComponent,
   BackgroundInterface,
-} from '../addable-components/Background';
-import React from 'react';
-import styled from 'styled-components';
-import {withDroppable} from '../draggable-droppable/index';
+} from "../addable-components/Background";
+import React from "react";
+import styled from "styled-components";
+import { withDroppable } from "../draggable-droppable/index";
 
-export const ContentBuildComponent = React.memo(({builderState, move, updateActive}) => {
-
-      return (
-          <BackgroundComponent background={builderState} move={move} updateActive={updateActive}/>
-      );
-    },
+export const ContentBuildComponent = React.memo(
+  ({ builderState, move, updateActive }) => {
+    return (
+      <BackgroundComponent
+        background={builderState}
+        move={move}
+        updateActive={updateActive}
+      />
+    );
+  },
 );
 
 export const DroppableCanvasArea = styled.div`

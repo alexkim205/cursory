@@ -9,17 +9,17 @@ import { CustomEditor } from "../../components/Editor/index";
 import {
   isUser,
   withAuthorization,
-  withEmailVerification
+  withEmailVerification,
 } from "../../components/Session";
 
 class EditorPage extends React.Component {
   static propTypes = {
     save: PropTypes.func.isRequired,
-    discard: PropTypes.func.isRequired
+    discard: PropTypes.func.isRequired,
   };
 
   state = {
-    text: ""
+    text: "",
   };
 
   handleChange = text => {
@@ -39,7 +39,7 @@ class EditorPage extends React.Component {
 
 const mapDispatchToProps = {
   save: entry_id => editorActions.save(entry_id),
-  discard: entry_id => editorActions.discard(entry_id)
+  discard: entry_id => editorActions.discard(entry_id),
 };
 
 const connectedPage = compose(
@@ -47,8 +47,8 @@ const connectedPage = compose(
   withAuthorization(isUser),
   connect(
     null,
-    mapDispatchToProps
-  )
+    mapDispatchToProps,
+  ),
 )(EditorPage);
 
 export { connectedPage as EditorPage };

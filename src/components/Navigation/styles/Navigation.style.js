@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import {NavLink} from 'react-router-dom';
-import posed from 'react-pose';
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+import posed from "react-pose";
 
-import {theme} from '../../../_styles';
+import { theme } from "../../../_styles";
 
 export const Navbar = styled.nav`
   display: flex;
@@ -13,18 +13,18 @@ export const Navbar = styled.nav`
   align-items: center;
   padding: 0 8px;
   background-color: white;
-  border-bottom: 1px solid #F3F4F8;
-  
+  border-bottom: 1px solid #f3f4f8;
+
   .flex-grow {
     flex: 1;
   }
-`
+`;
 
 export const NavbarItem = styled(NavLink)`
   margin: 0 10px;
   transition: 0.1s all;
   opacity: 0.7;
-  
+
   &:hover {
     opacity: 1;
   }
@@ -37,8 +37,8 @@ export const OutlinedNavbarItem = styled(NavbarItem)`
   padding: 3px 8px;
   height: 30px;
   transition: 0.2s all;
-  
-  .icon{
+
+  .icon {
     width: 20px;
     height: 20px;
     margin-right: 0.5em;
@@ -48,11 +48,13 @@ export const OutlinedNavbarItem = styled(NavbarItem)`
       height: 100%;
     }
   }
-  .main{
+  .main {
     // margin: auto 1em auto 0.5em;
   }
-  
-  ${props => props.solid ? `
+
+  ${props =>
+    props.solid
+      ? `
     color: white !important;
     background-color: ${theme.colors.light_main};
     border: 2px solid ${theme.colors.light_main};
@@ -61,7 +63,8 @@ export const OutlinedNavbarItem = styled(NavbarItem)`
       border: 2px solid ${theme.colors.main};
     }
     
-  ` : `
+  `
+      : `
     background-color: white;
     border: 2px solid ${theme.colors.light_gray};
     &:hover {

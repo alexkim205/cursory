@@ -1,10 +1,10 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { TC, Privacy } from "./language";
 
 const LegalWrapper = styled.div`
-    margin: 1em;
-`
+  margin: 1em;
+`;
 
 export class LegalPage extends React.Component {
   render() {

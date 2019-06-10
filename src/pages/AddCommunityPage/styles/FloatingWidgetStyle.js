@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import posed from 'react-pose';
-import {theme} from '../../../_styles';
+import styled from "styled-components";
+import posed from "react-pose";
+import { theme } from "../../../_styles";
 
 export const FloatingWidgetWrapper = posed(styled.div`
   background-color: red;
@@ -11,10 +11,7 @@ export const FloatingWidgetWrapper = posed(styled.div`
   top: 100px;
   padding: 0 1em;
   border-radius: 5px;
-`)({
-
-})
-
+`)({});
 
 export const FloatingWidgetItemWrapper = posed(styled.div`
   // background-color: blue;
@@ -23,9 +20,7 @@ export const FloatingWidgetItemWrapper = posed(styled.div`
   align-items: center;
   width: 50px;
   height: 50px;
-`)({
-
-})
+`)({});
 
 export const FloatingWidgetDropdownWrapper = posed(styled.div`
   background-color: green;
@@ -34,7 +29,7 @@ export const FloatingWidgetDropdownWrapper = posed(styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  right:  0px;
+  right: 0px;
   top: 40px;
   align-items: center;
   width: 250px;
@@ -46,7 +41,7 @@ export const FloatingWidgetDropdownWrapper = posed(styled.div`
   // padding: 1em 0;
   // height: 190px;
   z-index: 1000;
-  
+
   &:after {
     bottom: 100%;
     right: 20%;
@@ -57,27 +52,26 @@ export const FloatingWidgetDropdownWrapper = posed(styled.div`
     position: absolute;
     pointer-events: none;
     border-color: rgba(136, 183, 213, 0);
-    border-bottom-color: #242E49;
+    border-bottom-color: #242e49;
     border-width: 15px;
     margin-left: -15px;
   }
-
 `)({
   enter: {
     opacity: 1,
     rotateX: 0,
     transition: {
-      opacity: {duration: 100},
-      rotateX: {duration: 200}
-    }
+      opacity: { duration: 100 },
+      rotateX: { duration: 200 },
+    },
   },
   exit: {
     opacity: 0,
     rotateX: -30,
     transition: {
-      opacity: {duration: 100},
-      rotateX: {duration: 200}
-    }
+      opacity: { duration: 100 },
+      rotateX: { duration: 200 },
+    },
   },
 });
 
@@ -88,12 +82,11 @@ export const FloatingWidgetDropdownItemWrapper = posed(styled.div`
   width: 100%;
   padding: 0.5em 2em;
   box-sizing: border-box;
-  
+
   a {
     cursor: pointer;
     color: white;
   }
- 
 `)({
   enter: {
     // x: 0,

@@ -5,7 +5,7 @@ import {
   ContainerClass,
   ContainerItemClass,
   GenericClass,
-  PageClass
+  PageClass,
 } from "./addable-components";
 import { ContentBuildComponent, History } from "./components";
 import { componentFields, componentTypes } from "./constants/component-types";
@@ -32,32 +32,32 @@ import { Sidebar } from "./components/Sidebar/Sidebar";
  */
 
 const initialState = new BackgroundClass({
-  page: new PageClass({ width: 80 })
+  page: new PageClass({ width: 80 }),
 });
 initialState.page.addChild(new ContainerClass({ id: "bg_page_0" }));
 initialState.page.addChild(new ContainerClass({ id: "bg_page_1" }));
 initialState.page.addChild(new ContainerClass({ id: "bg_page_2" }));
 initialState.page.addChild(new ContainerClass({ id: "bg_page_3" }));
 initialState.page.childComponents[0].addChild(
-  new ContainerItemClass({ id: "bg_page_0_0" })
+  new ContainerItemClass({ id: "bg_page_0_0" }),
 );
 initialState.page.childComponents[0].addChild(
-  new ContainerItemClass({ id: "bg_page_0_1" })
+  new ContainerItemClass({ id: "bg_page_0_1" }),
 );
 initialState.page.childComponents[0].addChild(
-  new ContainerItemClass({ id: "bg_page_0_2" })
+  new ContainerItemClass({ id: "bg_page_0_2" }),
 );
 initialState.page.childComponents[0].childComponents[0].addChild(
-  new GenericClass({ id: "bg_page_0_0_0", backgroundColor: "blue" })
+  new GenericClass({ id: "bg_page_0_0_0", backgroundColor: "blue" }),
 );
 initialState.page.childComponents[0].childComponents[0].addChild(
-  new GenericClass({ id: "bg_page_0_0_1", backgroundColor: "red" })
+  new GenericClass({ id: "bg_page_0_0_1", backgroundColor: "red" }),
 );
 initialState.page.childComponents[0].childComponents[1].addChild(
-  new GenericClass({ id: "bg_page_0_1_0", backgroundColor: "green" })
+  new GenericClass({ id: "bg_page_0_1_0", backgroundColor: "green" }),
 );
 initialState.page.childComponents[0].childComponents[2].addChild(
-  new GenericClass({ id: "bg_page_0_2_0", backgroundColor: "yellow" })
+  new GenericClass({ id: "bg_page_0_2_0", backgroundColor: "yellow" }),
 );
 
 class BuilderLayout extends React.Component {
@@ -76,7 +76,7 @@ class BuilderLayout extends React.Component {
     // sidebar
     sidebarIsOpen: false,
     activeComponent: null,
-    activeFields: []
+    activeFields: [],
   };
 
   componentDidMount() {
@@ -92,7 +92,7 @@ class BuilderLayout extends React.Component {
       builderState,
       activeComponent,
       activeFields,
-      sidebarIsOpen
+      sidebarIsOpen,
     } = this.state;
 
     return (
@@ -118,7 +118,7 @@ class BuilderLayout extends React.Component {
     e.stopPropagation();
 
     let componentState = fromJS(
-      JSON.parse(JSON.stringify(this.state.builderState))
+      JSON.parse(JSON.stringify(this.state.builderState)),
     );
     const path = idToPath(componentId);
 
@@ -131,7 +131,7 @@ class BuilderLayout extends React.Component {
     e.stopPropagation();
 
     let componentState = fromJS(
-      JSON.parse(JSON.stringify(this.state.builderState))
+      JSON.parse(JSON.stringify(this.state.builderState)),
     );
     const activePath = idToPath(activeId);
     let oldPath = null;
@@ -141,7 +141,7 @@ class BuilderLayout extends React.Component {
       o,
       conditionCheckCallback,
       actionCallback,
-      oPath = []
+      oPath = [],
     ) => {
       if (conditionCheckCallback(o)) {
         actionCallback(o, oPath);
@@ -153,7 +153,7 @@ class BuilderLayout extends React.Component {
           o["page"],
           conditionCheckCallback,
           actionCallback,
-          ["page"]
+          ["page"],
         );
       }
 
@@ -162,7 +162,7 @@ class BuilderLayout extends React.Component {
           child,
           conditionCheckCallback,
           actionCallback,
-          oPath.concat(["childComponents", i])
+          oPath.concat(["childComponents", i]),
         );
       });
     };
@@ -175,7 +175,7 @@ class BuilderLayout extends React.Component {
         // return old Path
         oldPath = oPath;
         return;
-      }
+      },
     );
 
     if (!oldPath || JSON.stringify(oldPath) !== JSON.stringify(activePath)) {
@@ -183,7 +183,7 @@ class BuilderLayout extends React.Component {
       componentState = componentState.setIn(activePath.concat("active"), true);
       componentState = componentState.setIn(
         activePath.concat("id"),
-        pathToId(activePath)
+        pathToId(activePath),
       );
       const activeComponent = componentState.getIn(activePath).toJS();
 
@@ -192,13 +192,13 @@ class BuilderLayout extends React.Component {
         sidebarIsOpen: true,
         activeComponent: activeComponent,
         activeFields: componentFields[activeComponent.type],
-        builderState: componentState.toJS()
+        builderState: componentState.toJS(),
       });
     } else {
       // close sidebar
       this.setState({
         sidebarIsOpen: false,
-        builderState: componentState.toJS()
+        builderState: componentState.toJS(),
       });
     }
   };
@@ -218,7 +218,7 @@ class BuilderLayout extends React.Component {
     // Find index arrays to get to source
     // page -> 0 -> 0 -> 1 -> ...
     let componentState = fromJS(
-      JSON.parse(JSON.stringify(this.state.builderState))
+      JSON.parse(JSON.stringify(this.state.builderState)),
     );
 
     let sourcePath = idToPath(oldId);
@@ -299,8 +299,8 @@ class BuilderLayout extends React.Component {
               targetElParent.splice(
                 targetPath[targetPath.length - 1],
                 0,
-                sourceEl
-              )
+                sourceEl,
+              ),
           );
           smartDeleteCurrent();
           break;
@@ -313,8 +313,8 @@ class BuilderLayout extends React.Component {
               targetElParent.splice(
                 targetPath[targetPath.length - 1] + 1,
                 0,
-                sourceEl
-              )
+                sourceEl,
+              ),
           );
           smartDeleteCurrent();
           break;
@@ -337,7 +337,7 @@ class BuilderLayout extends React.Component {
       // child: childComponents (container-Item's childComponents)
 
       const newContainerItemMap = fromJS(
-        JSON.parse(JSON.stringify(new ContainerItemClass()))
+        JSON.parse(JSON.stringify(new ContainerItemClass())),
       ).updateIn(["childComponents"], list => list.push(sourceEl));
 
       deleteCurrent();
@@ -347,7 +347,7 @@ class BuilderLayout extends React.Component {
           Log.info("G->CI.Top");
           componentState = componentState.updateIn(
             targetChildPath,
-            targetElChild => targetElChild.unshift(sourceEl)
+            targetElChild => targetElChild.unshift(sourceEl),
           );
           break;
         case BorderHighlight.Right:
@@ -358,8 +358,8 @@ class BuilderLayout extends React.Component {
               targetElParent.splice(
                 targetPath[targetPath.length - 1] + 1,
                 0,
-                newContainerItemMap
-              )
+                newContainerItemMap,
+              ),
           ); // insert new container-item after target
           break;
         case BorderHighlight.Bottom:
@@ -367,7 +367,7 @@ class BuilderLayout extends React.Component {
           Log.info("G->CI.Bottom/Center");
           componentState = componentState.updateIn(
             targetChildPath,
-            targetElChild => targetElChild.push(sourceEl)
+            targetElChild => targetElChild.push(sourceEl),
           );
           break;
         case BorderHighlight.Left:
@@ -378,8 +378,8 @@ class BuilderLayout extends React.Component {
               targetElParent.splice(
                 targetPath[targetPath.length - 1],
                 0,
-                newContainerItemMap
-              )
+                newContainerItemMap,
+              ),
           ); // insert new container-item after target
           break;
       }
@@ -399,11 +399,11 @@ class BuilderLayout extends React.Component {
 
       // create new container-item
       const newContainerItemMap = fromJS(
-        JSON.parse(JSON.stringify(new ContainerItemClass()))
+        JSON.parse(JSON.stringify(new ContainerItemClass())),
       ).updateIn(["childComponents"], list => list.push(sourceEl));
       // create new container from container-item
       const newContainerMap = fromJS(
-        JSON.parse(JSON.stringify(new ContainerClass()))
+        JSON.parse(JSON.stringify(new ContainerClass())),
       ).updateIn(["childComponents"], list => list.push(newContainerItemMap));
 
       deleteCurrent();
@@ -417,8 +417,8 @@ class BuilderLayout extends React.Component {
               targetElParent.splice(
                 targetPath[targetPath.length - 1],
                 0,
-                newContainerMap
-              )
+                newContainerMap,
+              ),
           ); // insert new container before target
           break;
         case BorderHighlight.Right:
@@ -432,7 +432,7 @@ class BuilderLayout extends React.Component {
             return;
           componentState = componentState.updateIn(
             targetChildPath,
-            targetElChild => targetElChild.push(newContainerItemMap)
+            targetElChild => targetElChild.push(newContainerItemMap),
           ); // insert new container-item at end
           break;
         case BorderHighlight.Bottom:
@@ -443,8 +443,8 @@ class BuilderLayout extends React.Component {
               targetElParent.splice(
                 targetPath[targetPath.length - 1] + 1,
                 0,
-                newContainerMap
-              )
+                newContainerMap,
+              ),
           ); // insert new container after target
           break;
         case BorderHighlight.Left:
@@ -456,18 +456,14 @@ class BuilderLayout extends React.Component {
             return;
           componentState = componentState.updateIn(
             targetChildPath,
-            targetElChild => targetElChild.unshift(newContainerItemMap)
+            targetElChild => targetElChild.unshift(newContainerItemMap),
           ); // insert new container-item at beginning
           break;
       }
       update(componentState.toJS());
-    } /* CONTAINER to CONTAINER-ITEM */ // Undefined Behavior // t: get all children, then insert children before target
+    } /* CONTAINER to CONTAINER-ITEM */ // Undefined Behavior // t: get all children, then insert children before target // r: get all children, then insert children after target // b: get all children, then insert children after target // l: get all children, then insert children before target // i: insert entire container to end of target's children
 
-    /* CONTAINER to GENERIC */ // r: get all children, then insert children after target
-    // b: get all children, then insert children after target
-    // l: get all children, then insert children before target
-    // i: insert entire container to end of target's children
-    if (oldisContainer && newisContainerI) {
+    /* CONTAINER to GENERIC */ if (oldisContainer && newisContainerI) {
       // parent: wrapper (container's childComponents)
       // current: container-item
       // child: childComponents (container-Item's childComponents)
@@ -485,7 +481,7 @@ class BuilderLayout extends React.Component {
             targetElParent
               .slice(0, targetPath[targetPath.length - 1])
               .concat(sourceElChild)
-              .concat(targetElParent.slice(targetPath[targetPath.length - 1]))
+              .concat(targetElParent.slice(targetPath[targetPath.length - 1])),
           );
           deleteCurrent(); // important to delete after combining containers
           break;
@@ -500,8 +496,8 @@ class BuilderLayout extends React.Component {
               .slice(0, targetPath[targetPath.length - 1] + 1)
               .concat(sourceElChild)
               .concat(
-                targetElParent.slice(targetPath[targetPath.length - 1] + 1)
-              )
+                targetElParent.slice(targetPath[targetPath.length - 1] + 1),
+              ),
           );
           deleteCurrent(); // important to delete after combining containers
           break;
@@ -535,8 +531,8 @@ class BuilderLayout extends React.Component {
               targetElParent.splice(
                 targetPath[targetPath.length - 1],
                 0,
-                sourceEl
-              )
+                sourceEl,
+              ),
           );
           smartDeleteCurrent(); // important to delete after combining containers
           break;
@@ -549,8 +545,8 @@ class BuilderLayout extends React.Component {
               targetElParent.splice(
                 targetPath[targetPath.length - 1] + 1,
                 0,
-                sourceEl
-              )
+                sourceEl,
+              ),
           );
           smartDeleteCurrent(); // important to delete after combining containers
           break;
@@ -558,7 +554,7 @@ class BuilderLayout extends React.Component {
           Log.info("C->C.Center");
           componentState = componentState.setIn(
             targetChildPath,
-            targetElChild.concat(sourceElChild)
+            targetElChild.concat(sourceElChild),
           );
           deleteCurrent(); // important to delete after combining containers
           break;

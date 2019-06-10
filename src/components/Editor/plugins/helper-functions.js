@@ -19,10 +19,10 @@
  Save            meta+S         -
  */
 
-import {Block} from 'slate';
-import {findDOMRange} from 'slate-react';
+import { Block } from "slate";
+import { findDOMRange } from "slate-react";
 
-import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
+import { isMarkorBlockorNeither, isList, hasBlock, hasMark } from "../utils";
 
 /**
  * Prevent event before toggling mark
@@ -35,8 +35,8 @@ import {isMarkorBlockorNeither, isList, hasBlock, hasMark} from '../utils';
 export function toggleMark(event, editor, mark) {
   event.preventDefault();
 
-  const {value} = editor;
-  const {selection, blocks} = value;
+  const { value } = editor;
+  const { selection, blocks } = value;
 
   // if last block is empty, move end focus to start of second to last block
   if (blocks.size > 1 && selection.end.offset === 0) {
@@ -53,10 +53,11 @@ export function toggleMark(event, editor, mark) {
  * @param {Editor} editor
  */
 export function unwrapLists(event, editor) {
-  editor.setBlocks('paragraph').
-      unwrapBlock('unordered-list').
-      unwrapBlock('ordered-list').
-      unwrapBlock('todo-list');
+  editor
+    .setBlocks("paragraph")
+    .unwrapBlock("unordered-list")
+    .unwrapBlock("ordered-list")
+    .unwrapBlock("todo-list");
 }
 
 /**
@@ -67,19 +68,22 @@ export function unwrapLists(event, editor) {
  * @param {function} callbackSingle
  * @param {function} callbackMultiple - defines rules to follow if selected are different blocks
  */
-export function handleMultipleBlocks(event, editor, callbackSingle, callbackMultiple = (blocks) => {
-
-  // default loop through each element and toggle (works for lists)
-  blocks.forEach((node, i) => {
-        editor.moveToEndOfNode(node);
-        callbackSingle();
-      },
-  );
-}) {
+export function handleMultipleBlocks(
+  event,
+  editor,
+  callbackSingle,
+  callbackMultiple = blocks => {
+    // default loop through each element and toggle (works for lists)
+    blocks.forEach((node, i) => {
+      editor.moveToEndOfNode(node);
+      callbackSingle();
+    });
+  },
+) {
   event.preventDefault();
 
-  const {value} = editor;
-  const {document, fragment, selection, blocks} = value;
+  const { value } = editor;
+  const { document, fragment, selection, blocks } = value;
   const n = blocks.size;
   // console.log('value blocks', value.blocks);
   const startNode = document.getParent(selection.start.key);
@@ -88,7 +92,12 @@ export function handleMultipleBlocks(event, editor, callbackSingle, callbackMult
   // if last block is empty, move end focus to start of second to last block
   if (blocks.size > 1 && selection.end.offset === 0) {
     editor.moveEndBackward(1);
-    return handleMultipleBlocks(event, editor, callbackSingle, callbackMultiple); // try again
+    return handleMultipleBlocks(
+      event,
+      editor,
+      callbackSingle,
+      callbackMultiple,
+    ); // try again
   }
 
   // single block selected
@@ -101,9 +110,9 @@ export function handleMultipleBlocks(event, editor, callbackSingle, callbackMult
     // console.log('multiple blocks selected', blocks);
 
     const currentStartTextNode = value.startText,
-        currentEndTextNode = value.endText,
-        currentStartTextOffset = selection.start.offset,
-        currentEndTextOffset = selection.end.offset;
+      currentEndTextNode = value.endText,
+      currentStartTextOffset = selection.start.offset,
+      currentEndTextOffset = selection.end.offset;
     // console.log('start', currentStartTextNode, currentStartTextOffset);
     // console.log('end', currentEndTextNode, currentEndTextOffset);
     callbackMultiple(blocks);
@@ -111,7 +120,6 @@ export function handleMultipleBlocks(event, editor, callbackSingle, callbackMult
     editor.moveStartTo(currentStartTextNode.key, currentStartTextOffset);
     editor.moveEndTo(currentEndTextNode.key, currentEndTextOffset);
   }
-
 }
 
 /**
@@ -123,32 +131,34 @@ export function handleMultipleBlocks(event, editor, callbackSingle, callbackMult
  * @returns {null}
  */
 export function toggleBlock(event, editor, block) {
+  handleMultipleBlocks(
+    event,
+    editor,
+    () => toggleSingleBlock(event, editor, block),
+    blocks => {
+      // if some are active, toggle nonactive ones
+      const someAreActive = blocks.some(node => node.type === block);
+      const allAreActive = blocks.every(node => node.type === block);
 
-  handleMultipleBlocks(event, editor,
-      () => toggleSingleBlock(event, editor, block),
-      (blocks) => {
-        // if some are active, toggle nonactive ones
-        const someAreActive = blocks.some((node) => node.type === block);
-        const allAreActive = blocks.every((node) => node.type === block);
-
-        if (someAreActive && !allAreActive) {
-          // console.log('some active');
-          blocks.forEach((node, i) => {
-            editor.moveToEndOfNode(node);
-            if (node.type !== block) {
-              toggleSingleBlock(event, editor, block);
-            }
-          });
-        }
-        // if all are active or all are not active, toggle all
-        else {
-          // console.log('all active or none active');
-          blocks.forEach((node, i) => {
-            editor.moveToEndOfNode(node);
+      if (someAreActive && !allAreActive) {
+        // console.log('some active');
+        blocks.forEach((node, i) => {
+          editor.moveToEndOfNode(node);
+          if (node.type !== block) {
             toggleSingleBlock(event, editor, block);
-          });
-        }
-      });
+          }
+        });
+      }
+      // if all are active or all are not active, toggle all
+      else {
+        // console.log('all active or none active');
+        blocks.forEach((node, i) => {
+          editor.moveToEndOfNode(node);
+          toggleSingleBlock(event, editor, block);
+        });
+      }
+    },
+  );
 }
 
 /**
@@ -162,14 +172,16 @@ export function toggleBlock(event, editor, block) {
 export function toggleSingleBlock(event, editor, block) {
   event.preventDefault();
 
-  const {value} = editor;
-  const {document, startBlock} = value;
+  const { value } = editor;
+  const { document, startBlock } = value;
 
   const listItem = document.getNode(startBlock.key);
   const list = document.getParent(listItem.key);
 
   const previousListItem = document.getPreviousSibling(listItem.key);
-  const indexOfPrevious = previousListItem ? list.nodes.indexOf(previousListItem) : 0;
+  const indexOfPrevious = previousListItem
+    ? list.nodes.indexOf(previousListItem)
+    : 0;
 
   const parentListItem = document.getPreviousSibling(list.key); // list item to move after
   const parentList = document.getParent(list.key); // list to move to
@@ -177,14 +189,14 @@ export function toggleSingleBlock(event, editor, block) {
   const otherItems = list.nodes.skipUntil(item => item === listItem).rest();
 
   const newList = Block.create({
-    object: 'block',
+    object: "block",
     type: block,
   });
 
   // Handle everything but converting to and from lists.
   if (!isList(listItem.type) && !isList(block)) {
     const isActive = hasBlock(value, block);
-    editor.setBlocks(isActive ? 'paragraph' : block);
+    editor.setBlocks(isActive ? "paragraph" : block);
   }
   // Handle normal -> lists
   else if (!isList(listItem.type) && isList(block)) {
@@ -201,14 +213,9 @@ export function toggleSingleBlock(event, editor, block) {
       // console.log('different type');
       editor.withoutNormalizing(() => {
         // editor.setBlocks('list-item');
-        editor.setNodeByKey(listItem.key, 'list-item');
-        editor.insertNodeByKey(
-            list.key,
-            indexOfPrevious + 1,
-            newList,
-        );
+        editor.setNodeByKey(listItem.key, "list-item");
+        editor.insertNodeByKey(list.key, indexOfPrevious + 1, newList);
         editor.moveNodeByKey(listItem.key, newList.key, 0);
-
       });
     }
   }
@@ -220,9 +227,8 @@ export function toggleSingleBlock(event, editor, block) {
     // revert to normal if toggle same block
     if (list.type === block) {
       editor.withoutNormalizing(() => {
-
         // decreaseIndent until block is paragraph
-        while (editor.value.startBlock.type !== 'paragraph') {
+        while (editor.value.startBlock.type !== "paragraph") {
           decreaseItemDepth(event, editor);
         }
       });
@@ -241,7 +247,7 @@ export function toggleSingleBlock(event, editor, block) {
 export function increaseItemDepth(event, editor) {
   event.preventDefault();
 
-  const {document, startBlock} = editor.value;
+  const { document, startBlock } = editor.value;
   const listItem = document.getNode(startBlock.key);
   const previousListItem = document.getPreviousSibling(listItem.key);
   const list = document.getParent(listItem.key);
@@ -253,26 +259,24 @@ export function increaseItemDepth(event, editor) {
   const existingList = previousListItem;
 
   // if previous element is already a list, add to end of it
-  if (isList(existingList.type) && existingList.type !== 'list-item') {
-
+  if (isList(existingList.type) && existingList.type !== "list-item") {
     // if previous list item is a list and list item to indent is a paragraph,
     // make it a list that will be normalized.
-    if (listItem.type === 'paragraph') {
+    if (listItem.type === "paragraph") {
       const newListItem = Block.create({
-        object: 'block',
-        type: 'list-item',
+        object: "block",
+        type: "list-item",
       });
 
       editor.withoutNormalizing(() => {
         editor.insertNodeByKey(
-            previousListItem.key,
-            previousListItem.nodes.size,
-            newListItem,
+          previousListItem.key,
+          previousListItem.nodes.size,
+          newListItem,
         );
         // editor.setBlocks(previousListItem.type)
         editor.moveNodeByKey(listItem.key, newListItem.key, 0);
         editor.unwrapNodeByKey(listItem.nodes.get(0).key);
-
       });
 
       return;
@@ -280,32 +284,27 @@ export function increaseItemDepth(event, editor) {
 
     editor.withoutNormalizing(() => {
       editor.moveNodeByKey(
-          listItem.key,
-          existingList.key,
-          existingList.nodes.size,
+        listItem.key,
+        existingList.key,
+        existingList.nodes.size,
       );
     });
   } else {
-
     // if previous list item is NOT a list and list item to indent is a paragraph,
     // indent as a paragraph
     if (!isList(listItem.type)) {
-      editor.insertText('\t');
+      editor.insertText("\t");
       return;
     }
 
     const newList = Block.create({
-      object: 'block',
+      object: "block",
       type: list.type,
     });
     const indexOfPrevious = list.nodes.indexOf(previousListItem);
 
     editor.withoutNormalizing(() => {
-      editor.insertNodeByKey(
-          list.key,
-          indexOfPrevious + 1,
-          newList,
-      );
+      editor.insertNodeByKey(list.key, indexOfPrevious + 1, newList);
       editor.moveNodeByKey(listItem.key, newList.key, 0);
     });
   }
@@ -314,7 +313,7 @@ export function increaseItemDepth(event, editor) {
 export function decreaseItemDepth(event, editor) {
   event.preventDefault();
 
-  const {document, startBlock} = editor.value;
+  const { document, startBlock } = editor.value;
 
   const listItem = document.getNode(startBlock.key); // item to move
 
@@ -322,9 +321,12 @@ export function decreaseItemDepth(event, editor) {
   if (!isList(listItem.type)) {
     const range = findDOMRange(editor.value.selection);
     // if theres \t at beginning
-    if (range.startOffset !== 0 && listItem.text.charAt(range.startOffset - 1) === '\t') {
+    if (
+      range.startOffset !== 0 &&
+      listItem.text.charAt(range.startOffset - 1) === "\t"
+    ) {
       editor.moveStartBackward(1);
-      editor.insertText('');
+      editor.insertText("");
       // editor.removeTextByKey(listItem.key, range.startOffset-1, 1)
     }
     return;
@@ -340,11 +342,11 @@ export function decreaseItemDepth(event, editor) {
   // if parent to move to is not a list, drop to paragraph and split block
   if (!isList(parentList.type)) {
     const newParagraphBlock = Block.create({
-      object: 'block',
-      type: 'paragraph',
+      object: "block",
+      type: "paragraph",
     });
     const newListBlock = Block.create({
-      object: 'block',
+      object: "block",
       type: list.type,
     });
 
@@ -354,12 +356,16 @@ export function decreaseItemDepth(event, editor) {
 
       // move rest of items to new list
       otherItems.forEach((item, index) =>
-          editor.moveNodeByKey(item.key, newListBlock.key, newListBlock.nodes.size + index),
+        editor.moveNodeByKey(
+          item.key,
+          newListBlock.key,
+          newListBlock.nodes.size + index,
+        ),
       );
 
       // editor.unwrapBlock('list-item');
       unwrapLists(event, editor);
-      editor.setBlocks('paragraph');
+      editor.setBlocks("paragraph");
     });
 
     return;
@@ -367,7 +373,7 @@ export function decreaseItemDepth(event, editor) {
 
   if (!otherItems.isEmpty()) {
     const newList = Block.create({
-      object: 'block',
+      object: "block",
       type: list.type,
     });
 
@@ -380,7 +386,7 @@ export function decreaseItemDepth(event, editor) {
 
       // move rest of items to new list
       otherItems.forEach((item, index) =>
-          editor.moveNodeByKey(item.key, newList.key, newList.nodes.size + index),
+        editor.moveNodeByKey(item.key, newList.key, newList.nodes.size + index),
       );
     });
   } else {

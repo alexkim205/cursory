@@ -1,22 +1,22 @@
 //@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400');
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400");
 //@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i');
 
 @font-face {
-  font-family: 'Avenir Next';
-  src: url('../_assets/fonts/AvenirNextLTPro-Regular.otf') format('otf');
+  font-family: "Avenir Next";
+  src: url("../_assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Avenir Next';
-  src: url('../_assets/fonts/AvenirNextLTPro-Bold.otf') format('otf');
+  font-family: "Avenir Next";
+  src: url("../_assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Avenir Next';
-  src: url('../_assets/fonts/AvenirNextLTPro-UltLt.otf') format('otf');
+  font-family: "Avenir Next";
+  src: url("../_assets/fonts/AvenirNextLTPro-UltLt.otf") format("otf");
   font-weight: lighter;
   font-style: normal;
 }
@@ -29,13 +29,20 @@ html {
 
   body {
     background-color: white;
-    font-family: 'Avenir Next', sans-serif;
+    font-family: "Avenir Next", sans-serif;
     font-weight: normal;
     line-height: 1.45;
     color: #333;
   }
 
-  h1, h2, h3, h4, h5, p, pre, mark {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  pre,
+  mark {
     //margin: 0;
   }
 
@@ -50,7 +57,8 @@ html {
     p {
       @include rfs(15);
     }
-    input, select {
+    input,
+    select {
       @include rfs(14);
     }
   }
@@ -63,9 +71,13 @@ html {
     text-align: justify;
   }
 
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     //margin: 2.75rem 0 1rem;
-    font-family: 'Avenir Next', sans-serif;
+    font-family: "Avenir Next", sans-serif;
     font-weight: bold;
     line-height: 1.15;
   }
@@ -94,7 +106,8 @@ html {
     @include rfs(16);
   }
 
-  small, .text_small {
+  small,
+  .text_small {
     @include rfs(15);
   }
 
@@ -102,8 +115,9 @@ html {
     background-color: $color-mark;
   }
 
-  code, pre {
-    font-family: 'Source Code Pro', monospace;
+  code,
+  pre {
+    font-family: "Source Code Pro", monospace;
     @include rfs(14);
   }
 
@@ -140,7 +154,6 @@ html {
     font-style: italic;
     color: #555;
   }
-
 }
 
 // Navbar
@@ -154,14 +167,19 @@ nav {
   @extend html;
 
   body {
-    font-family: 'Crimson Text', serif;
+    font-family: "Crimson Text", serif;
   }
 
-  h1, h2, h3, h4, h5 {
-    font-family: 'Crimson Text', serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Crimson Text", serif;
   }
 
-  code, pre {
-    font-family: 'Source Code Pro', monospace;
+  code,
+  pre {
+    font-family: "Source Code Pro", monospace;
   }
 }

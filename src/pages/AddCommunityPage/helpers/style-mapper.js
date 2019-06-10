@@ -17,4 +17,4 @@ const getBoundedValue = (bounds, value) => {
   return value;
 };
 
-const getMinConstraint = (value) => {}
+const getMinConstraint = value => {};

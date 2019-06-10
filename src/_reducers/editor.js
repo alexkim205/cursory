@@ -4,27 +4,27 @@ function editor(state = {}, action) {
   switch (action.type) {
     case editorConstants.DISCARD_REQUEST:
       return {
-        discarding: true
+        discarding: true,
       };
     case editorConstants.DISCARD_SUCCESS:
       return {
-        discarded: true
+        discarded: true,
       };
     case editorConstants.DISCARD_FAILURE:
       return {
-        discarded: false
+        discarded: false,
       };
     case editorConstants.SAVE_REQUEST:
       return {
-        saving: true
+        saving: true,
       };
     case editorConstants.SAVE_SUCCESS:
       return {
-        saved: true
+        saved: true,
       };
     case editorConstants.SAVE_FAILURE:
       return {
-        saved: false
+        saved: false,
       };
 
     default:
@@ -32,4 +32,4 @@ function editor(state = {}, action) {
   }
 }
 
-export {editor}
+export { editor };

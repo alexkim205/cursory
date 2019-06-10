@@ -1,2 +1,2 @@
-export * from './descriptors'
-export * from './fields'
+export * from "./descriptors";
+export * from "./fields";
