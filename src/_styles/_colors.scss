@@ -5,6 +5,7 @@ $color-light-main: #1e90ff;
 
 $color-background: #f6fbfd;
 
+$color-darker-dark: #131b2d;
 $color-dark: #242e49;
 $color-light-dark: #9196a4;
 
@@ -25,4 +26,5 @@ $color-light-gray: #f3f4f8;
   colorLightGray: $color-light-gray;
   colorDark: $color-dark;
   colorLightDark: $color-light-dark;
+  colorDarkDark: $color-darker-dark;
 }

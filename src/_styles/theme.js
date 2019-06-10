@@ -11,6 +11,7 @@ export const theme = {
     light_gray: colors.colorLightGray,
     dark: colors.colorDark,
     light_dark: colors.colorLightDark,
+    dark_dark: colors.colorDarkDark
   },
   shadows: {
     intense: "0px 0px 59px -14px rgba(0,0,0,0.21)",

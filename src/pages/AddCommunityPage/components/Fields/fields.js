@@ -8,6 +8,7 @@ import {
   paddingHorizontalDescriptor,
   paddingVerticalDescriptor,
   widthDescriptor,
+  columnsDescriptor,
 } from "./descriptors";
 import { fromJS } from "immutable";
 
@@ -16,6 +17,7 @@ export {
   genericMutableFields,
   containerWidthMutableFields,
   pageMutableFields,
+  containerMutableFields
 };
 
 const baseMutableFields = fromJS([
@@ -95,3 +97,16 @@ const containerWidthMutableFields = baseMutableFields
 const pageMutableFields = baseMutableFields
   .updateIn([1, "subsections"], subsection => subsection.splice(1, 1))
   .toJS();
+
+// add collapsible container items
+const containerMutableFields = baseMutableFields.update(fields =>
+  fields.unshift({
+    name: "Layout",
+    subsections: [
+      {
+        name: "Columns",
+        descriptor: columnsDescriptor,
+      }
+    ]
+  }),
+).toJS();

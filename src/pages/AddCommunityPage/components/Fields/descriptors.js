@@ -5,6 +5,7 @@ export const FieldTypes = {
   SELECT: "SELECT",
   TEXT: "TEXT",
   COLOR: "COLOR",
+  COLLAPSIBLE: "COLLAPSIBLE"
 };
 
 export class SliderDescription {
@@ -64,6 +65,19 @@ export class ColorDescription {
   }
 }
 
+export class CollapsibleDescription {
+  constructor(options = {}) {
+    Object.assign(
+      this,
+      {
+        key: "",
+        type: "COLLAPSIBLE",
+      },
+      options,
+    );
+  }
+}
+
 export const backgroundColorDescriptor = new ColorDescription({
     key: "backgroundColor",
   }),
@@ -112,4 +126,8 @@ export const backgroundColorDescriptor = new ColorDescription({
       Alignments.Right,
       Alignments.SpaceBetween,
     ],
+  }),
+  columnsDescriptor = new CollapsibleDescription({
+    key: "childComponents",
+    component: null, // container component
   });

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import posed from "react-pose";
 import { theme } from "../../_styles";
 
 export const FormWrapper = styled.div`
@@ -132,6 +133,48 @@ const FormFieldSelectInput = styled.select`
   padding: 1em 1em;
   // Dropdown icon
 `;
+
+const FormFieldCollapsibleInput = styled.div`
+  display: flex
+  flex-direction: column;
+
+  .entry-container {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    .entry-header{
+      background-color: blue;
+      cursor: pointer;
+      width: 100%;
+      padding: 1em 1em;
+      box-sizing: border-box;
+    }
+    .entry-content{
+      width: 100%;
+      padding: 1em 1em;
+      background-color: red;
+      box-sizing: border-box;
+    }
+    .entry-wrapper {
+      width: 100%;
+    }
+  }
+`;
+
+const CollapsibleEntry = posed.div({
+  inactive: {
+    height: 0,
+  },
+  active: {
+    height: "auto",
+  },
+});
 
 // http://danielstern.ca/range.css/#/
 const FormFieldSliderInput = styled(FormFieldInputBase)`
@@ -291,3 +334,46 @@ export const FormFieldSelect = FormFieldHOC(props => {
     </FormFieldSelectWrapper>
   );
 });
+
+export class FormFieldCollapsible extends React.Component {
+  static propTypes = {
+    childComponents: PropTypes.array.isRequired,
+  };
+  state = {
+    active: false,
+  };
+
+  render() {
+    const { childComponents } = this.props;
+    const { active } = this.state;
+    console.log(childComponents, active);
+
+    return (
+      <FormFieldWrapper>
+        <FormFieldCollapsibleInput>
+          {childComponents &&
+            childComponents.map((entry, i) => {
+              console.log(i === active);
+              return (
+                <div className={"entry-container"} key={i}>
+                  <div
+                    className={"entry-header"}
+                    onClick={() =>
+                      this.setState({ active: active === i ? false : i })
+                    }
+                  >{`Column ${i}`}</div>
+
+                  <CollapsibleEntry
+                    pose={i === active ? "active" : "inactive"}
+                    className={"entry-wrapper"}
+                  >
+                    <div className={"entry-content"}>Filler</div>
+                  </CollapsibleEntry>
+                </div>
+              );
+            })}
+        </FormFieldCollapsibleInput>
+      </FormFieldWrapper>
+    );
+  }
+}
