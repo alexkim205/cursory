@@ -2,7 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import posed from "react-pose";
+import { fromJS } from "immutable";
 import { theme } from "../../_styles";
+import { ContainerItemClass } from "../../pages/AddCommunityPage/addable-components";
+import { widthDescriptor } from "../../pages/AddCommunityPage/components";
 
 export const FormWrapper = styled.div`
   display: flex;
@@ -338,21 +341,45 @@ export const FormFieldSelect = FormFieldHOC(props => {
 export class FormFieldCollapsible extends React.Component {
   static propTypes = {
     childComponents: PropTypes.array.isRequired,
+    onChildrenChange: PropTypes.func.isRequired,
   };
   state = {
     active: false,
   };
+  onEditChild = (e, i) => {
+    const { childComponents } = this.props;
+    let entries = fromJS(childComponents);
+    entries = entries.setIn([i, e.target.name], e.target.value);
+    this.setState({ stateChildComponents: entries.toJS() });
+    this.props.onChildrenChange(e, entries.toJS());
+  };
+  onRemoveChild = (e, i) => {
+    const { childComponents } = this.props;
+    let entries = fromJS(childComponents);
+    entries = entries.delete(i);
+    this.setState({ stateChildComponents: entries.toJS() });
+    this.props.onChildrenChange(e, entries.toJS());
+  };
+  onAddChild = e => {
+    const { childComponents } = this.props;
+    let entries = [...childComponents, new ContainerItemClass()];
+    this.setState({ stateChildComponents: entries});
+    this.props.onChildrenChange(e, entries);
+  };
 
   render() {
-    const { childComponents } = this.props;
+    const { childComponents, onChildrenChange } = this.props;
     const { active } = this.state;
-    console.log(childComponents, active);
+    const stateOrComponentChildComponentsValue =
+      this.state && "stateChildComponents" in this.state
+        ? this.state.stateChildComponents
+        : childComponents;
 
     return (
       <FormFieldWrapper>
         <FormFieldCollapsibleInput>
-          {childComponents &&
-            childComponents.map((entry, i) => {
+          {stateOrComponentChildComponentsValue &&
+            stateOrComponentChildComponentsValue.map((entry, i) => {
               console.log(i === active);
               return (
                 <div className={"entry-container"} key={i}>
@@ -367,11 +394,22 @@ export class FormFieldCollapsible extends React.Component {
                     pose={i === active ? "active" : "inactive"}
                     className={"entry-wrapper"}
                   >
-                    <div className={"entry-content"}>Filler</div>
+                    <FormFieldSlider
+                      className={"entry-content"}
+                      label={"Width"}
+                      name={"width"}
+                      value={entry.width}
+                      onChange={e => this.onEditChild(e, i)}
+                      min={widthDescriptor.bounds[0]}
+                      max={widthDescriptor.bounds[1]}
+                      step={widthDescriptor.bounds[2]}
+                      type="range"
+                    />
                   </CollapsibleEntry>
                 </div>
               );
             })}
+          <button onClick={this.onAddChild}>Add</button>
         </FormFieldCollapsibleInput>
       </FormFieldWrapper>
     );

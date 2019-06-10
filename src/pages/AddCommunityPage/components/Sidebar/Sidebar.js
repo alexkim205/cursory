@@ -55,6 +55,19 @@ class Sidebar extends React.Component {
     );
   };
 
+  // if children components are changed in a collapsible field for containers
+  // for now handle separately, but think of way to use above onChange hook for this too
+  onChildrenChange = (event, children) => {
+    const { activeComponent } = this.props;
+    this.setState({ childComponents: children });
+    this.props.updateAttributes(
+      event,
+      activeComponent.id,
+      "childComponents",
+      children,
+    );
+  };
+
   onSubmit = event => {
     const { fields } = this.props;
 
@@ -110,8 +123,11 @@ class Sidebar extends React.Component {
     switch (descriptor.type) {
       case FieldTypes.COLLAPSIBLE:
         return (
-          <FormFieldCollapsible childComponents={component.childComponents}/>
-        )
+          <FormFieldCollapsible
+            childComponents={component.childComponents}
+            onChildrenChange={this.onChildrenChange}
+          />
+        );
       case FieldTypes.SLIDER:
         return (
           <FormFieldSlider
