@@ -140,7 +140,7 @@ export const GenericHOC = Component => {
             );
           }}
         >
-          {id}
+          {/* {id} */}
           <Component {...otherProps} />
         </GenericWrapper>
       );

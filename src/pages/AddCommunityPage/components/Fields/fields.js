@@ -91,7 +91,7 @@ const containerWidthMutableFields = baseMutableFields
   .updateIn([1, "subsections"], subsection => subsection.shift())
   .toJS();
 
-// remove width and height
+// remove height
 const pageMutableFields = baseMutableFields
-  .updateIn([1, "subsections"], subsection => subsection.splice(0, 2))
+  .updateIn([1, "subsections"], subsection => subsection.splice(1, 1))
   .toJS();

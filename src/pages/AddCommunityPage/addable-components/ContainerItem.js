@@ -111,7 +111,7 @@ class ContainerItemComponent extends React.Component {
           this.node.current = instance;
           return connectDropTarget(instance);
         }}>
-        {id}
+        {/* {id} */}
         {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(

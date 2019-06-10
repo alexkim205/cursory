@@ -90,7 +90,7 @@ const FormFieldInputBase = styled.input`
 `;
 
 const FormFieldTextInput = styled(FormFieldInputBase)`
-  padding: 1.2em 1.2em;
+  padding: 1em 1em;
   border: 2px solid ${theme.colors.light_gray};
   &:hover,
   &:focus,
@@ -99,94 +99,118 @@ const FormFieldTextInput = styled(FormFieldInputBase)`
   }
 `;
 
+const FormFieldSelectWrapper = styled.div`
+  position: relative;
+  &:after {
+    content: "▼";
+    padding: 14px 8px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    pointer-events: none;
+    color: ${theme.colors.dark};
+    font-size: 0.7em;
+  }
+`;
+
 const FormFieldSelectInput = styled.select`
+  // Remove default styles
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &::-ms-expand {
+    display: none;
+  }
+
   border-radius: 5px;
   text-decoration: none;
   box-sizing: border-box;
   width: 100%;
   transition: 0.3s border;
-  padding: 1.2em 1.2em;
+  padding: 1em 1em;
+  // Dropdown icon
 `;
 
+// http://danielstern.ca/range.css/#/
 const FormFieldSliderInput = styled(FormFieldInputBase)`
   padding: 0;
 
   -webkit-appearance: none;
   width: 100%;
-  margin: 10px 0;
+  margin: 5.5px 0;
   &:focus {
     outline: none;
   }
   &::-webkit-slider-runnable-track {
     width: 100%;
-    height: 8px;
+    height: 4px;
     cursor: pointer;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
     background: #ffffff;
-    border-radius: 14.6px;
-    border: 0px solid #ffffff;
+    border-radius: 25px;
+    border: 0px solid rgba(0, 0, 0, 0);
   }
   &::-webkit-slider-thumb {
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-    border: 0px solid rgba(0, 0, 0, 0);
-    height: 28px;
-    width: 8px;
-    border-radius: 5px;
+    box-shadow: 0.1px 0.1px 1.5px rgba(0, 0, 0, 0.77),
+      0px 0px 0.1px rgba(13, 13, 13, 0.77);
+    border: 0px solid #000000;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
     background: #ffffff;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: -10px;
+    margin-top: -5.5px;
   }
   &:focus::-webkit-slider-runnable-track {
     background: #ffffff;
   }
   &::-moz-range-track {
     width: 100%;
-    height: 8px;
+    height: 4px;
     cursor: pointer;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
     background: #ffffff;
-    border-radius: 14.6px;
-    border: 0px solid #ffffff;
+    border-radius: 25px;
+    border: 0px solid rgba(0, 0, 0, 0);
   }
   &::-moz-range-thumb {
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-    border: 0px solid rgba(0, 0, 0, 0);
-    height: 28px;
-    width: 8px;
-    border-radius: 5px;
+    box-shadow: 0.1px 0.1px 1.5px rgba(0, 0, 0, 0.77),
+      0px 0px 0.1px rgba(13, 13, 13, 0.77);
+    border: 0px solid #000000;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
     background: #ffffff;
     cursor: pointer;
   }
   &::-ms-track {
     width: 100%;
-    height: 8px;
+    height: 4px;
     cursor: pointer;
     background: transparent;
     border-color: transparent;
     color: transparent;
   }
-  &::-ms-fill-lower {
-    background: #f2f2f2;
-    border: 0px solid #ffffff;
-    border-radius: 29.2px;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-  }
+  &::-ms-fill-lower,
   &::-ms-fill-upper {
     background: #ffffff;
-    border: 0px solid #ffffff;
-    border-radius: 29.2px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: 50px;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
   }
   &::-ms-thumb {
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
-    border: 0px solid rgba(0, 0, 0, 0);
-    height: 28px;
-    width: 8px;
-    border-radius: 5px;
+    box-shadow: 0.1px 0.1px 1.5px rgba(0, 0, 0, 0.77),
+      0px 0px 0.1px rgba(13, 13, 13, 0.77);
+    border: 0px solid #000000;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
     background: #ffffff;
     cursor: pointer;
-    height: 8px;
+    height: 4px;
   }
   &:focus {
     &::-ms-fill-lower,
@@ -254,7 +278,7 @@ export const FormFieldSlider = FormFieldHOC(props => (
 export const FormFieldSelect = FormFieldHOC(props => {
   const { options, enums } = props;
   return (
-    <React.Fragment>
+    <FormFieldSelectWrapper>
       <FormFieldSelectInput {...props}>
         {options &&
           enums &&
@@ -264,6 +288,6 @@ export const FormFieldSelect = FormFieldHOC(props => {
             </option>
           ))}
       </FormFieldSelectInput>
-    </React.Fragment>
+    </FormFieldSelectWrapper>
   );
 });

@@ -85,8 +85,8 @@ export const backgroundColorDescriptor = new ColorDescription({
   }),
   paddingHorizontalDescriptor = new SliderDescription({
     key: "paddingHorizontal",
-    bounds: [0, 6, 1],
-    realBounds: [0, 125]
+    bounds: [0, 12, 1],
+    realBounds: [0, 600]
   }),
   marginTopDescriptor = new SliderDescription({
     key: "marginTop",

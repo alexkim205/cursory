@@ -126,7 +126,7 @@ class ContainerComponent extends React.Component {
           );
         }}
       >
-        {id}
+        {/* {id} */}
         {childComponents &&
           childComponents.map((e, key) => {
             const newComponent = Object.assign(

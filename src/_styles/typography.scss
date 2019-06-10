@@ -50,7 +50,7 @@ html {
     p {
       @include rfs(15);
     }
-    input {
+    input, select {
       @include rfs(14);
     }
   }
