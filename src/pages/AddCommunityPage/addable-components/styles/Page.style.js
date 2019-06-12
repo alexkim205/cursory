@@ -14,7 +14,7 @@ import {
 
 export const PageWrapper = styled.div`
     background-color: ${props => props.backgroundColor};
-    background-color: pink;
+    // background-color: whi;
 
     display: flex;
     box-sizing: border-box;

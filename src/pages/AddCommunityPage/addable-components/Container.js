@@ -141,10 +141,10 @@ class ContainerComponent extends React.Component {
             newComponent.id = `${id}_${key}`;
             newComponent.index = key;
             // if direction is columns, divide columns to fit full width, otherwise keep at 100
-            newComponent.width =
-              this.props.container.direction === Directions.Columns
-                ? widthDescriptor.bounds[1] / numberOfColumns
-                : widthDescriptor.bounds[1];
+            // newComponent.width =
+            //   this.props.container.direction === Directions.Columns
+            //     ? widthDescriptor.bounds[1] / numberOfColumns
+            //     : widthDescriptor.bounds[1];
 
             return (
               <ContainerItemComponent
@@ -152,6 +152,7 @@ class ContainerComponent extends React.Component {
                 key={key}
                 move={move}
                 updateActive={updateActive}
+                parentIsOver={isOver}
               />
             );
           })}

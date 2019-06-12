@@ -80,6 +80,7 @@ export const GenericHOC = Component => {
     };
 
     shouldComponentUpdate(nextProps, nextState) {
+      
       return (
         this.state.borderHighlight !== nextState.borderHighlight ||
         this.props.isOver !== nextProps.isOver ||
@@ -114,6 +115,8 @@ export const GenericHOC = Component => {
       const { borderHighlight } = this.state;
 
       if (type === componentTypes.CONTAINER) {
+        console.log(this.props.genericComponent)
+
         return (
           <ContainerComponent
             container={this.props.genericComponent}

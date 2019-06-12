@@ -94,6 +94,7 @@ class BuilderLayout extends React.Component {
       activeFields,
       sidebarIsOpen,
     } = this.state;
+    console.log("RELOADED STATE")
 
     return (
       <React.Fragment>

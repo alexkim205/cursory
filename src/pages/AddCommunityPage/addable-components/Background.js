@@ -41,6 +41,7 @@ export class BackgroundComponent extends React.Component {
 
   render() {
     const { id, page, type, ...backgroundProps } = this.props.background;
+    console.log(page)
 
     return (
       <BackgroundWrapper

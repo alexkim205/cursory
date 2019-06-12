@@ -69,6 +69,7 @@ class ContainerItemComponent extends React.Component {
     clientOffset: PropTypes.object,
     move: PropTypes.func,
     updateActive: PropTypes.func,
+    parentIsOver: PropTypes.bool,
   };
 
   changeBorder = clientOffset => {
@@ -84,6 +85,12 @@ class ContainerItemComponent extends React.Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
+    console.log(
+      "widths:",
+      nextProps.containerItem.width,
+      this.props.containerItem.width,
+    );
+
     return (
       this.state.borderHighlight !== nextState.borderHighlight ||
       this.props.isOver !== nextProps.isOver ||
@@ -107,18 +114,20 @@ class ContainerItemComponent extends React.Component {
       // connectDragPreview,
       // isDragging,
       isOver,
+      parentIsOver,
       canDrop,
       clientOffset,
       move,
       updateActive,
     } = this.props;
     const { borderHighlight } = this.state;
+    console.log(this.props)
 
     return (
       <ContainerItemWrapper
         {...otherProps}
         borderHighlight={borderHighlight}
-        isOver={isOver}
+        isOver={isOver || parentIsOver}
         // isDragging={isDragging}
         onClick={e => updateActive(e, id)}
         ref={instance => {

@@ -7,7 +7,7 @@ import {
   FormFieldText,
   FormFieldSlider,
   FormFieldSelect,
-  FormFieldCollapsible,
+  FormFieldCollapsibleWidth,
 } from "../../../../components/Forms";
 import { SidebarWrapper } from "./Sidebar.style";
 import {
@@ -123,8 +123,8 @@ class Sidebar extends React.Component {
     switch (descriptor.type) {
       case FieldTypes.COLLAPSIBLE:
         return (
-          <FormFieldCollapsible
-            childComponents={component.childComponents}
+          <FormFieldCollapsibleWidth
+            childComponents={stateOrComponentValue}
             onChildrenChange={this.onChildrenChange}
           />
         );

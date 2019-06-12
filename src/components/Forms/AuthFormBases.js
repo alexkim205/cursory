@@ -10,7 +10,8 @@ import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../_constants/index";
 
 // Styles
-import { Form, FormFieldText, SocialButton } from "./Form.style";
+import { Form, FormFieldText } from "./Form";
+import { SocialButton } from "./Form.style";
 import { PasswordForgetLink } from "../../pages/PasswordForgetPage";
 
 /* Sign In Form Base */
