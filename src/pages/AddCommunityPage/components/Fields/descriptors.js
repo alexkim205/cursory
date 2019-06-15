@@ -1,25 +1,25 @@
-import { Alignments, Directions } from "../../constants/style-enums";
+import {Alignments, Directions} from '../../constants/style-enums';
 
 export const FieldTypes = {
-  SLIDER: "SLIDER",
-  SELECT: "SELECT",
-  TEXT: "TEXT",
-  COLOR: "COLOR",
-  COLLAPSIBLE: "COLLAPSIBLE"
+  SLIDER: 'SLIDER',
+  SELECT: 'SELECT',
+  TEXT: 'TEXT',
+  COLOR: 'COLOR',
+  COLLAPSIBLE: 'COLLAPSIBLE',
 };
 
 export class SliderDescription {
   constructor(options = {}) {
     Object.assign(
-      this,
-      {
-        key: "",
-        type: "SLIDER",
-        bounds: [0, 100, 1], // [start, end, increment]
-        realBounds: [0, 100],
-        units: "px",
-      },
-      options,
+        this,
+        {
+          key: '',
+          type: 'SLIDER',
+          bounds: [0, 100, 1], // [start, end, increment]
+          realBounds: [0, 100],
+          units: 'px',
+        },
+        options,
     );
   }
 }
@@ -27,14 +27,14 @@ export class SliderDescription {
 export class SelectDescription {
   constructor(options = {}) {
     Object.assign(
-      this,
-      {
-        key: "",
-        type: "SELECT",
-        options: [],
-        enums: [],
-      },
-      options,
+        this,
+        {
+          key: '',
+          type: 'SELECT',
+          options: [],
+          enums: [],
+        },
+        options,
     );
   }
 }
@@ -42,12 +42,12 @@ export class SelectDescription {
 export class TextDescription {
   constructor(options = {}) {
     Object.assign(
-      this,
-      {
-        key: "",
-        type: "TEXT",
-      },
-      options,
+        this,
+        {
+          key: '',
+          type: 'TEXT',
+        },
+        options,
     );
   }
 }
@@ -55,12 +55,12 @@ export class TextDescription {
 export class ColorDescription {
   constructor(options = {}) {
     Object.assign(
-      this,
-      {
-        key: "",
-        type: "COLOR",
-      },
-      options,
+        this,
+        {
+          key: '',
+          type: 'COLOR',
+        },
+        options,
     );
   }
 }
@@ -68,66 +68,72 @@ export class ColorDescription {
 export class CollapsibleDescription {
   constructor(options = {}) {
     Object.assign(
-      this,
-      {
-        key: "",
-        type: "COLLAPSIBLE",
-      },
-      options,
+        this,
+        {
+          key: '',
+          type: 'COLLAPSIBLE',
+        },
+        options,
     );
   }
 }
 
 export const backgroundColorDescriptor = new ColorDescription({
-    key: "backgroundColor",
-  }),
-  widthDescriptor = new SliderDescription({
-    key: "width",
-    bounds: [0, 30, 1],
-    realBounds: [5, 100],
-    units: "%",
-  }),
-  heightDescriptor = new SliderDescription({
-    key: "height",
-    bounds: [0, 30, 1],
-    realBounds: [30, 500],
-  }),
-  paddingVerticalDescriptor = new SliderDescription({
-    key: "paddingVertical",
-    bounds: [0, 12, 1],
-    realBounds: [0, 250],
-  }),
-  paddingHorizontalDescriptor = new SliderDescription({
-    key: "paddingHorizontal",
-    bounds: [0, 12, 1],
-    realBounds: [0, 600],
-  }),
-  marginTopDescriptor = new SliderDescription({
-    key: "marginTop",
-    bounds: [0, 12, 1],
-    realBounds: [0, 100],
-  }),
-  marginBottomDescriptor = new SliderDescription({
-    key: "marginBottom",
-    bounds: [0, 12, 1],
-    realBounds: [0, 100],
-  }),
-  orientationDescriptor = new SelectDescription({
-    key: "direction",
-    options: ["Column", "Row", "Grid"],
-    enums: [Directions.Columns, Directions.Rows, Directions.Grid],
-  }),
-  alignmentDescriptor = new SelectDescription({
-    key: "alignment",
-    options: ["Left", "Center", "Right", "Spaced"],
-    enums: [
-      Alignments.Left,
-      Alignments.Center,
-      Alignments.Right,
-      Alignments.SpaceBetween,
-    ],
-  }),
-  columnsDescriptor = new CollapsibleDescription({
-    key: "childComponents",
-    component: null, // container component
-  });
+      key: 'backgroundColor',
+    }),
+    widthDescriptor = new SliderDescription({
+      key: 'width',
+      bounds: [0, 30, 1],
+      realBounds: [5, 100],
+      units: '%',
+    }),
+    columnWidthDescriptor = new SliderDescription({
+      key: 'width',
+      bounds: [0, 30, 1],
+      realBounds: [25, 100],
+      units: '%',
+    }),
+    heightDescriptor = new SliderDescription({
+      key: 'height',
+      bounds: [0, 30, 1],
+      realBounds: [30, 500],
+    }),
+    paddingVerticalDescriptor = new SliderDescription({
+      key: 'paddingVertical',
+      bounds: [0, 12, 1],
+      realBounds: [0, 250],
+    }),
+    paddingHorizontalDescriptor = new SliderDescription({
+      key: 'paddingHorizontal',
+      bounds: [0, 12, 1],
+      realBounds: [0, 600],
+    }),
+    marginTopDescriptor = new SliderDescription({
+      key: 'marginTop',
+      bounds: [0, 12, 1],
+      realBounds: [0, 100],
+    }),
+    marginBottomDescriptor = new SliderDescription({
+      key: 'marginBottom',
+      bounds: [0, 12, 1],
+      realBounds: [0, 100],
+    }),
+    orientationDescriptor = new SelectDescription({
+      key: 'direction',
+      options: ['Column', 'Row', 'Grid'],
+      enums: [Directions.Columns, Directions.Rows, Directions.Grid],
+    }),
+    alignmentDescriptor = new SelectDescription({
+      key: 'alignment',
+      options: ['Left', 'Center', 'Right', 'Spaced'],
+      enums: [
+        Alignments.Left,
+        Alignments.Center,
+        Alignments.Right,
+        Alignments.SpaceBetween,
+      ],
+    }),
+    columnsDescriptor = new CollapsibleDescription({
+      key: 'childComponents',
+      component: null, // container component
+    });

@@ -85,12 +85,6 @@ class ContainerItemComponent extends React.Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log(
-      "widths:",
-      nextProps.containerItem.width,
-      this.props.containerItem.width,
-    );
-
     return (
       this.state.borderHighlight !== nextState.borderHighlight ||
       this.props.isOver !== nextProps.isOver ||
@@ -127,7 +121,7 @@ class ContainerItemComponent extends React.Component {
       <ContainerItemWrapper
         {...otherProps}
         borderHighlight={borderHighlight}
-        isOver={isOver || parentIsOver}
+        isOver={isOver}
         // isDragging={isDragging}
         onClick={e => updateActive(e, id)}
         ref={instance => {
