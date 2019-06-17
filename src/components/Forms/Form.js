@@ -132,9 +132,23 @@ export class FormFieldCollapsibleWidth extends React.Component {
   onAddChild = e => {
     const { childComponents } = this.props;
     let entries = fromJS(childComponents);
+    // make child component that you add have width of maxWidth / # of current columns + 1
+    const maxWidth = widthDescriptor.bounds[1];
+    const newColumnWidth = maxWidth / (entries.size + 1);
+    const otherTotalWidths = maxWidth - newColumnWidth;
+    for (let j = 0; j < entries.size; j++) {
+      let entryWidth = entries.getIn([j, e.target.name]);
+      entries = entries.setIn(
+        [j, e.target.name],
+        Math.floor((parseInt(entryWidth) * otherTotalWidths) / maxWidth),
+      );
+    }
     entries = entries.concat(
-      JSON.parse(JSON.stringify(new ContainerItemClass())),
+      JSON.parse(
+        JSON.stringify(new ContainerItemClass({ width: newColumnWidth })),
+      ),
     );
+
     this.setState({ stateChildComponents: entries.toJS() });
     this.props.onChildrenChange(e, entries.toJS());
   };
