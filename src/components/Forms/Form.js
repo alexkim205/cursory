@@ -14,7 +14,10 @@ import {
   FormFieldSliderInput,
 } from './Form.style';
 import {ContainerItemClass} from '../../pages/AddCommunityPage/addable-components';
-import {widthDescriptor} from '../../pages/AddCommunityPage/components';
+import {
+  columnsDescriptor,
+  widthDescriptor,
+} from '../../pages/AddCommunityPage/components';
 import _ from 'lodash';
 
 const FormFieldHOC = Component =>
@@ -72,6 +75,12 @@ export const FormFieldSlider = FormFieldHOC(props => (
       {props.value}
     </React.Fragment>
 ));
+export const FormFieldWidthSlider = FormFieldHOC(props => (
+    <React.Fragment>
+      <FormFieldSliderInput {...props} />
+      {props.value}
+    </React.Fragment>
+));
 export const FormFieldSelect = FormFieldHOC(props => {
   const {options, enums} = props;
   return (
@@ -118,7 +127,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
     // total widths must add up to 100 (or widthDescriptor bounds equivalent to max width)
     // assuming previous width is already at max
     // assuming e.target.name is width
-    const maxWidth = widthDescriptor.bounds[1];
+    const maxWidth = columnsDescriptor.bounds[1];
     const widthToChange = parseInt(e.target.value);
     const otherWidthsShouldBe = Math.floor(
         (maxWidth - widthToChange) / (entries.size - 1),
@@ -199,9 +208,9 @@ export class FormFieldCollapsibleWidth extends React.Component {
                           name={'width'}
                           value={entry.width}
                           onChange={e => this.onEditChild(e, i)}
-                          min={widthDescriptor.bounds[0]}
-                          max={widthDescriptor.bounds[1]}
-                          step={widthDescriptor.bounds[2]}
+                          min={columnsDescriptor.bounds[0]}
+                          max={columnsDescriptor.bounds[1]}
+                          step={columnsDescriptor.bounds[2]}
                           type="range"
                       />
                     </CollapsibleEntry>

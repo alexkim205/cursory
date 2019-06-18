@@ -136,4 +136,7 @@ export const backgroundColorDescriptor = new ColorDescription({
     columnsDescriptor = new CollapsibleDescription({
       key: 'childComponents',
       component: null, // container component
+      bounds: [25, 100, 1],
+      realBounds: [25, 100],
+      units: '%',
     });
