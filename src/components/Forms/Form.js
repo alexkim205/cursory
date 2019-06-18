@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { fromJS } from "immutable";
+import { SketchPicker } from "react-color";
 import {
   FormWrapper,
   SocialButton,
@@ -87,6 +88,22 @@ export const FormFieldSelect = FormFieldHOC(props => {
     </FormFieldSelectWrapper>
   );
 });
+export const FormFieldColor = FormFieldHOC(props => {
+  const { onChange, value, name, ...otherProps } = props;
+
+  return (
+    <SketchPicker
+      {...otherProps}
+      color={value}
+      onChangeComplete={(color, event) => {
+        console.log(color)
+        event.target.name = name;
+        event.target.value = color.hex;
+        onChange(event);
+      }}
+    />
+  );
+});
 
 // TODO: Generalize class into properties other than width
 export class FormFieldCollapsibleWidth extends React.Component {
@@ -138,6 +155,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
     const otherTotalWidths = maxWidth - newColumnWidth;
     for (let j = 0; j < entries.size; j++) {
       let entryWidth = entries.getIn([j, e.target.name]);
+      console.log("entryWidth", entryWidth);
       entries = entries.setIn(
         [j, e.target.name],
         Math.floor((parseInt(entryWidth) * otherTotalWidths) / maxWidth),

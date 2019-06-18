@@ -8,6 +8,7 @@ import {
   FormFieldSlider,
   FormFieldSelect,
   FormFieldCollapsibleWidth,
+  FormFieldColor,
 } from "../../../../components/Forms";
 import { SidebarWrapper } from "./Sidebar.style";
 import {
@@ -155,6 +156,14 @@ class Sidebar extends React.Component {
           />
         );
       case FieldTypes.COLOR:
+        return (
+          <FormFieldColor 
+            label={name}
+            name={descriptor.key}
+            value={stateOrComponentValue}
+            onChange={this.onChange}
+          />
+        )
       case FieldTypes.TEXT:
         return (
           <FormFieldText
