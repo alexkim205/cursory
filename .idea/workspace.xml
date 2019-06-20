@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,7 +35,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="58378" />
+          <entry key="js" value="58674" />
           <entry key="json" value="37" />
           <entry key="scss" value="381" />
           <entry key="ts" value="444" />
@@ -46,7 +46,7 @@
         <counts>
           <entry key="HTML" value="7" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="58371" />
+          <entry key="JavaScript" value="58667" />
           <entry key="SCSS" value="381" />
           <entry key="TypeScript" value="444" />
           <entry key="TypeScript JSX" value="16916" />
@@ -78,11 +78,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="195" column="8" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="8" />
+            <state relative-caret-position="-607">
+              <caret line="184" column="35" selection-start-line="184" selection-start-column="35" selection-end-line="184" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -93,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="137" column="27" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="27" />
+            <state relative-caret-position="-829">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -102,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2850">
-              <caret line="210" column="58" selection-start-line="210" selection-start-column="31" selection-end-line="210" selection-end-column="58" />
+            <state relative-caret-position="570">
+              <caret line="242" column="45" selection-start-line="242" selection-start-column="45" selection-end-line="242" selection-end-column="45" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -117,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2070">
-              <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
+            <state relative-caret-position="106">
+              <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -195,8 +195,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>alignment</find>
-      <find>id?: stri</find>
       <find>padding:</find>
       <find>border:</find>
       <find>withdroppable</find>
@@ -225,6 +223,8 @@
       <find>activeId</find>
       <find>changeborder</find>
       <find>CHANGE</find>
+      <find>widthDescriptor</find>
+      <find>collapsible</find>
     </findStrings>
     <replaceStrings>
       <replace>blockIsList</replace>
@@ -301,10 +301,10 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.style.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js" />
-        <option value="$PROJECT_DIR$/src/components/Forms/Form.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" />
+        <option value="$PROJECT_DIR$/src/components/Forms/Form.js" />
       </list>
     </option>
   </component>
@@ -596,12 +596,12 @@
       <workItem from="1559273631899" duration="5017000" />
       <workItem from="1559336968178" duration="72626000" />
       <workItem from="1560565101087" duration="5730000" />
-      <workItem from="1560997595695" duration="604000" />
+      <workItem from="1560997595695" duration="2086000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="446652000" />
+    <option name="totallyTimeSpent" value="448134000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -895,23 +895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2850">
-          <caret line="210" column="58" selection-start-line="210" selection-start-column="31" selection-end-line="210" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="138" column="25" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -960,20 +943,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="137" column="27" selection-start-line="137" selection-start-column="27" selection-end-line="137" selection-end-column="27" />
+        <state relative-caret-position="-607">
+          <caret line="184" column="35" selection-start-line="184" selection-start-column="35" selection-end-line="184" selection-end-column="35" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="195" column="8" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="8" />
+        <state relative-caret-position="106">
+          <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-829">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="242" column="45" selection-start-line="242" selection-start-column="45" selection-end-line="242" selection-end-column="45" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

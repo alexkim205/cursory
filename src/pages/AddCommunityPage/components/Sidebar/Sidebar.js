@@ -8,6 +8,7 @@ import {
   FormFieldSlider,
   FormFieldSelect,
   FormFieldCollapsibleWidth,
+  FormFieldColor,
 } from "../../../../components/Forms";
 import { SidebarWrapper } from "./Sidebar.style";
 import {
@@ -25,7 +26,7 @@ class Sidebar extends React.Component {
     updateAttributes: PropTypes.func,
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     console.log('refresh, sidebar', nextProps.activeComponent,
         this.props.activeComponent);
     if (
