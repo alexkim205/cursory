@@ -1,22 +1,22 @@
-import React from "react";
-import { fromJS } from "immutable";
+import React from 'react';
+import {fromJS} from 'immutable';
 import {
   BackgroundClass,
   ContainerClass,
   ContainerItemClass,
   GenericClass,
   PageClass,
-} from "./addable-components";
-import { ContentBuildComponent, History } from "./components";
-import { componentFields, componentTypes } from "./constants/component-types";
-import HTML5Backend from "react-dnd-html5-backend";
+} from './addable-components';
+import {ContentBuildComponent, History} from './components';
+import {componentFields, componentTypes} from './constants/component-types';
+import HTML5Backend from 'react-dnd-html5-backend';
 
-import { DragDropContext } from "react-dnd";
-import { BorderHighlight } from "./constants/style-enums";
-import { Log } from "../../_helpers";
-import { idToPath, pathToId } from "./helpers";
-import { isKeyHotkey } from "is-hotkey";
-import { Sidebar } from "./components/Sidebar/Sidebar";
+import {DragDropContext} from 'react-dnd';
+import {BorderHighlight} from './constants/style-enums';
+import {Log} from '../../_helpers';
+import {idToPath, pathToId} from './helpers';
+import {isKeyHotkey} from 'is-hotkey';
+import {Sidebar} from './components/Sidebar/Sidebar';
 
 /*
  * Every state will have a `background {page { ... } }`
@@ -32,39 +32,39 @@ import { Sidebar } from "./components/Sidebar/Sidebar";
  */
 
 const initialState = new BackgroundClass({
-  page: new PageClass({ width: 80 }),
+  page: new PageClass({width: 80}),
 });
-initialState.page.addChild(new ContainerClass({ id: "bg_page_0" }));
-initialState.page.addChild(new ContainerClass({ id: "bg_page_1" }));
-initialState.page.addChild(new ContainerClass({ id: "bg_page_2" }));
-initialState.page.addChild(new ContainerClass({ id: "bg_page_3" }));
+initialState.page.addChild(new ContainerClass({id: 'bg_page_0'}));
+initialState.page.addChild(new ContainerClass({id: 'bg_page_1'}));
+initialState.page.addChild(new ContainerClass({id: 'bg_page_2'}));
+initialState.page.addChild(new ContainerClass({id: 'bg_page_3'}));
 initialState.page.childComponents[0].addChild(
-  new ContainerItemClass({ id: "bg_page_0_0" }),
+    new ContainerItemClass({id: 'bg_page_0_0'}),
 );
 initialState.page.childComponents[0].addChild(
-  new ContainerItemClass({ id: "bg_page_0_1" }),
+    new ContainerItemClass({id: 'bg_page_0_1'}),
 );
 initialState.page.childComponents[0].addChild(
-  new ContainerItemClass({ id: "bg_page_0_2" }),
+    new ContainerItemClass({id: 'bg_page_0_2'}),
 );
 initialState.page.childComponents[0].childComponents[0].addChild(
-  new GenericClass({ id: "bg_page_0_0_0", backgroundColor: "blue" }),
+    new GenericClass({id: 'bg_page_0_0_0', backgroundColor: 'blue'}),
 );
 initialState.page.childComponents[0].childComponents[0].addChild(
-  new GenericClass({ id: "bg_page_0_0_1", backgroundColor: "red" }),
+    new GenericClass({id: 'bg_page_0_0_1', backgroundColor: 'red'}),
 );
 initialState.page.childComponents[0].childComponents[1].addChild(
-  new GenericClass({ id: "bg_page_0_1_0", backgroundColor: "green" }),
+    new GenericClass({id: 'bg_page_0_1_0', backgroundColor: 'green'}),
 );
 initialState.page.childComponents[0].childComponents[2].addChild(
-  new GenericClass({ id: "bg_page_0_2_0", backgroundColor: "yellow" }),
+    new GenericClass({id: 'bg_page_0_2_0', backgroundColor: 'yellow'}),
 );
 
 class BuilderLayout extends React.Component {
   constructor(props) {
     super(props);
-    this.isUndoKey = isKeyHotkey("mod+z");
-    this.isRedoKey = isKeyHotkey("mod+shift+z");
+    this.isUndoKey = isKeyHotkey('mod+z');
+    this.isRedoKey = isKeyHotkey('mod+shift+z');
   }
 
   initSession = () => {};
@@ -80,11 +80,11 @@ class BuilderLayout extends React.Component {
   };
 
   componentDidMount() {
-    document.addEventListener("keydown", this.handleKeyDown, false);
+    document.addEventListener('keydown', this.handleKeyDown, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleKeyDown, false);
+    document.removeEventListener('keydown', this.handleKeyDown, false);
   }
 
   render() {
@@ -94,23 +94,23 @@ class BuilderLayout extends React.Component {
       activeFields,
       sidebarIsOpen,
     } = this.state;
-    console.log("RELOADED STATE")
+    console.log('RELOADED STATE');
 
     return (
-      <React.Fragment>
-        <ContentBuildComponent
-          builderState={builderState}
-          move={this.move}
-          getKey={this.getKey}
-          updateActive={this.updateActive}
-        />
-        <Sidebar
-          sidebarIsOpen={sidebarIsOpen}
-          activeComponent={activeComponent}
-          fields={activeFields}
-          updateAttributes={this.updateAttributes}
-        />
-      </React.Fragment>
+        <React.Fragment>
+          <ContentBuildComponent
+              builderState={builderState}
+              move={this.move}
+              getKey={this.getKey}
+              updateActive={this.updateActive}
+          />
+          <Sidebar
+              sidebarIsOpen={sidebarIsOpen}
+              activeComponent={activeComponent}
+              fields={activeFields}
+              updateAttributes={this.updateAttributes}
+          />
+        </React.Fragment>
     );
   }
 
@@ -119,12 +119,12 @@ class BuilderLayout extends React.Component {
     e.stopPropagation();
 
     let componentState = fromJS(
-      JSON.parse(JSON.stringify(this.state.builderState)),
+        JSON.parse(JSON.stringify(this.state.builderState)),
     );
     const path = idToPath(componentId);
 
     componentState = componentState.setIn(path.concat(attrName), attrValue);
-    this.setState({ builderState: componentState.toJS() });
+    this.setState({builderState: componentState.toJS()});
   };
 
   // Set active component
@@ -132,17 +132,17 @@ class BuilderLayout extends React.Component {
     e.stopPropagation();
 
     let componentState = fromJS(
-      JSON.parse(JSON.stringify(this.state.builderState)),
+        JSON.parse(JSON.stringify(this.state.builderState)),
     );
     const activePath = idToPath(activeId);
     let oldPath = null;
 
     // find active one and disable
     const traverseState = (
-      o,
-      conditionCheckCallback,
-      actionCallback,
-      oPath = [],
+        o,
+        conditionCheckCallback,
+        actionCallback,
+        oPath = [],
     ) => {
       if (conditionCheckCallback(o)) {
         actionCallback(o, oPath);
@@ -151,40 +151,40 @@ class BuilderLayout extends React.Component {
       // if background base case
       if (oPath.length === 0) {
         return traverseState(
-          o["page"],
-          conditionCheckCallback,
-          actionCallback,
-          ["page"],
+            o['page'],
+            conditionCheckCallback,
+            actionCallback,
+            ['page'],
         );
       }
 
-      o["childComponents"].forEach((child, i) => {
+      o['childComponents'].forEach((child, i) => {
         return traverseState(
-          child,
-          conditionCheckCallback,
-          actionCallback,
-          oPath.concat(["childComponents", i]),
+            child,
+            conditionCheckCallback,
+            actionCallback,
+            oPath.concat(['childComponents', i]),
         );
       });
     };
     // traverse to find active element and return its path
     traverseState(
-      this.state.builderState,
-      o => o.active === true,
-      (o, oPath) => {
-        componentState = componentState.setIn(oPath.concat("active"), false);
-        // return old Path
-        oldPath = oPath;
-        return;
-      },
+        this.state.builderState,
+        o => o.active === true,
+        (o, oPath) => {
+          componentState = componentState.setIn(oPath.concat('active'), false);
+          // return old Path
+          oldPath = oPath;
+          return;
+        },
     );
 
     if (!oldPath || JSON.stringify(oldPath) !== JSON.stringify(activePath)) {
       // if currently active isn't the same as selected, activate new one
-      componentState = componentState.setIn(activePath.concat("active"), true);
+      componentState = componentState.setIn(activePath.concat('active'), true);
       componentState = componentState.setIn(
-        activePath.concat("id"),
-        pathToId(activePath),
+          activePath.concat('id'),
+          pathToId(activePath),
       );
       const activeComponent = componentState.getIn(activePath).toJS();
 
@@ -192,7 +192,7 @@ class BuilderLayout extends React.Component {
       this.setState({
         sidebarIsOpen: true,
         activeComponent: activeComponent,
-        activeFields: rww                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           componentFields[activeComponent.type],
+        activeFields: componentFields[activeComponent.type],
         builderState: componentState.toJS(),
       });
     } else {
@@ -207,9 +207,9 @@ class BuilderLayout extends React.Component {
   handleKeyDown = event => {
     // this.state.history.traverse()
     if (this.isUndoKey(event)) {
-      this.setState({ builderState: this.state.history.undo() });
+      this.setState({builderState: this.state.history.undo()});
     } else if (this.isRedoKey(event)) {
-      this.setState({ builderState: this.state.history.redo() });
+      this.setState({builderState: this.state.history.redo()});
     }
   };
 
@@ -219,16 +219,16 @@ class BuilderLayout extends React.Component {
     // Find index arrays to get to source
     // page -> 0 -> 0 -> 1 -> ...
     let componentState = fromJS(
-      JSON.parse(JSON.stringify(this.state.builderState)),
+        JSON.parse(JSON.stringify(this.state.builderState)),
     );
 
     let sourcePath = idToPath(oldId);
     let targetPath = idToPath(newId);
 
     // Current, child, parent paths
-    const sourceChildPath = sourcePath.concat(["childComponents"]);
+    const sourceChildPath = sourcePath.concat(['childComponents']);
     const sourceParentPath = sourcePath.slice(0, sourcePath.length - 1);
-    const targetChildPath = targetPath.concat(["childComponents"]);
+    const targetChildPath = targetPath.concat(['childComponents']);
     const targetParentPath = targetPath.slice(0, targetPath.length - 1);
 
     let sourceEl = componentState.getIn(sourcePath);
@@ -250,7 +250,7 @@ class BuilderLayout extends React.Component {
 
     // delete
     const deleteCurrent = () =>
-      (componentState = componentState.deleteIn(sourcePath));
+        (componentState = componentState.deleteIn(sourcePath));
     const smartDeleteCurrent = () => {
       // If source container is before target, delete current as normal. However
       // if source is after target, there is a +1 offset where the old source
@@ -258,8 +258,8 @@ class BuilderLayout extends React.Component {
       // that are in the same level.
       let pathToErase = sourcePath.slice();
       if (
-        sourcePath.length === targetPath.length &&
-        sourcePath[sourcePath.length - 1] > targetPath[sourcePath.length - 1]
+          sourcePath.length === targetPath.length &&
+          sourcePath[sourcePath.length - 1] > targetPath[sourcePath.length - 1]
       ) {
         pathToErase[sourcePath.length - 1] += 1;
       }
@@ -271,12 +271,12 @@ class BuilderLayout extends React.Component {
     const update = newState => {
       this.state.history.traverse();
       if (
-        JSON.stringify(this.state.history.getCurrent()) ===
-        JSON.stringify(newState)
+          JSON.stringify(this.state.history.getCurrent()) ===
+          JSON.stringify(newState)
       )
         return;
       this.state.history.add(newState);
-      this.setState({ builderState: newState });
+      this.setState({builderState: newState});
     };
 
     /* GENERIC to GENERIC */
@@ -293,34 +293,34 @@ class BuilderLayout extends React.Component {
       switch (targetSide) {
         case BorderHighlight.Top:
         case BorderHighlight.Left:
-          Log.info("G->G.Top/Left");
+          Log.info('G->G.Top/Left');
           componentState = componentState.updateIn(
-            targetParentPath,
-            targetElParent =>
-              targetElParent.splice(
-                targetPath[targetPath.length - 1],
-                0,
-                sourceEl,
-              ),
+              targetParentPath,
+              targetElParent =>
+                  targetElParent.splice(
+                      targetPath[targetPath.length - 1],
+                      0,
+                      sourceEl,
+                  ),
           );
           smartDeleteCurrent();
           break;
         case BorderHighlight.Right:
         case BorderHighlight.Bottom:
-          Log.info("G->G.Right/Bottom");
+          Log.info('G->G.Right/Bottom');
           componentState = componentState.updateIn(
-            targetParentPath,
-            targetElParent =>
-              targetElParent.splice(
-                targetPath[targetPath.length - 1] + 1,
-                0,
-                sourceEl,
-              ),
+              targetParentPath,
+              targetElParent =>
+                  targetElParent.splice(
+                      targetPath[targetPath.length - 1] + 1,
+                      0,
+                      sourceEl,
+                  ),
           );
           smartDeleteCurrent();
           break;
         case BorderHighlight.Center:
-          Log.info("G->G.Center");
+          Log.info('G->G.Center');
           break;
       }
       update(componentState.toJS());
@@ -338,49 +338,49 @@ class BuilderLayout extends React.Component {
       // child: childComponents (container-Item's childComponents)
 
       const newContainerItemMap = fromJS(
-        JSON.parse(JSON.stringify(new ContainerItemClass())),
-      ).updateIn(["childComponents"], list => list.push(sourceEl));
+          JSON.parse(JSON.stringify(new ContainerItemClass())),
+      ).updateIn(['childComponents'], list => list.push(sourceEl));
 
       deleteCurrent();
 
       switch (targetSide) {
         case BorderHighlight.Top:
-          Log.info("G->CI.Top");
+          Log.info('G->CI.Top');
           componentState = componentState.updateIn(
-            targetChildPath,
-            targetElChild => targetElChild.unshift(sourceEl),
+              targetChildPath,
+              targetElChild => targetElChild.unshift(sourceEl),
           );
           break;
         case BorderHighlight.Right:
-          Log.info("G->CI.Right");
+          Log.info('G->CI.Right');
           componentState = componentState.updateIn(
-            targetParentPath,
-            targetElParent =>
-              targetElParent.splice(
-                targetPath[targetPath.length - 1] + 1,
-                0,
-                newContainerItemMap,
-              ),
+              targetParentPath,
+              targetElParent =>
+                  targetElParent.splice(
+                      targetPath[targetPath.length - 1] + 1,
+                      0,
+                      newContainerItemMap,
+                  ),
           ); // insert new container-item after target
           break;
         case BorderHighlight.Bottom:
         case BorderHighlight.Center:
-          Log.info("G->CI.Bottom/Center");
+          Log.info('G->CI.Bottom/Center');
           componentState = componentState.updateIn(
-            targetChildPath,
-            targetElChild => targetElChild.push(sourceEl),
+              targetChildPath,
+              targetElChild => targetElChild.push(sourceEl),
           );
           break;
         case BorderHighlight.Left:
-          Log.info("G->CI.Left");
+          Log.info('G->CI.Left');
           componentState = componentState.updateIn(
-            targetParentPath,
-            targetElParent =>
-              targetElParent.splice(
-                targetPath[targetPath.length - 1],
-                0,
-                newContainerItemMap,
-              ),
+              targetParentPath,
+              targetElParent =>
+                  targetElParent.splice(
+                      targetPath[targetPath.length - 1],
+                      0,
+                      newContainerItemMap,
+                  ),
           ); // insert new container-item after target
           break;
       }
@@ -400,71 +400,73 @@ class BuilderLayout extends React.Component {
 
       // create new container-item
       const newContainerItemMap = fromJS(
-        JSON.parse(JSON.stringify(new ContainerItemClass())),
-      ).updateIn(["childComponents"], list => list.push(sourceEl));
+          JSON.parse(JSON.stringify(new ContainerItemClass())),
+      ).updateIn(['childComponents'], list => list.push(sourceEl));
       // create new container from container-item
       const newContainerMap = fromJS(
-        JSON.parse(JSON.stringify(new ContainerClass())),
-      ).updateIn(["childComponents"], list => list.push(newContainerItemMap));
+          JSON.parse(JSON.stringify(new ContainerClass())),
+      ).updateIn(['childComponents'], list => list.push(newContainerItemMap));
 
       deleteCurrent();
 
       switch (targetSide) {
         case BorderHighlight.Top:
-          Log.info("G->C.Top");
+          Log.info('G->C.Top');
           componentState = componentState.updateIn(
-            targetParentPath,
-            targetElParent =>
-              targetElParent.splice(
-                targetPath[targetPath.length - 1],
-                0,
-                newContainerMap,
-              ),
+              targetParentPath,
+              targetElParent =>
+                  targetElParent.splice(
+                      targetPath[targetPath.length - 1],
+                      0,
+                      newContainerMap,
+                  ),
           ); // insert new container before target
           break;
         case BorderHighlight.Right:
         case BorderHighlight.Center:
-          Log.info("G->C.Right/Center");
+          Log.info('G->C.Right/Center');
           // if trying to drop into same container, behavior is undefined
           if (
-            sourcePath[targetPath.length - 1] ===
-            targetPath[targetPath.length - 1]
+              sourcePath[targetPath.length - 1] ===
+              targetPath[targetPath.length - 1]
           )
             return;
           componentState = componentState.updateIn(
-            targetChildPath,
-            targetElChild => targetElChild.push(newContainerItemMap),
+              targetChildPath,
+              targetElChild => targetElChild.push(newContainerItemMap),
           ); // insert new container-item at end
           break;
         case BorderHighlight.Bottom:
-          Log.info("G->C.Bottom");
+          Log.info('G->C.Bottom');
           componentState = componentState.updateIn(
-            targetParentPath,
-            targetElParent =>
-              targetElParent.splice(
-                targetPath[targetPath.length - 1] + 1,
-                0,
-                newContainerMap,
-              ),
+              targetParentPath,
+              targetElParent =>
+                  targetElParent.splice(
+                      targetPath[targetPath.length - 1] + 1,
+                      0,
+                      newContainerMap,
+                  ),
           ); // insert new container after target
           break;
         case BorderHighlight.Left:
-          Log.info("G->C.Left");
+          Log.info('G->C.Left');
           if (
-            sourcePath[targetPath.length - 1] ===
-            targetPath[targetPath.length - 1]
+              sourcePath[targetPath.length - 1] ===
+              targetPath[targetPath.length - 1]
           )
             return;
           componentState = componentState.updateIn(
-            targetChildPath,
-            targetElChild => targetElChild.unshift(newContainerItemMap),
+              targetChildPath,
+              targetElChild => targetElChild.unshift(newContainerItemMap),
           ); // insert new container-item at beginning
           break;
       }
       update(componentState.toJS());
-    } /* CONTAINER to CONTAINER-ITEM */ // Undefined Behavior // t: get all children, then insert children before target // r: get all children, then insert children after target // b: get all children, then insert children after target // l: get all children, then insert children before target // i: insert entire container to end of target's children
+    }
+    /* CONTAINER to CONTAINER-ITEM */ // Undefined Behavior // t: get all children, then insert children before target // r: get all children, then insert children after target // b: get all children, then insert children after target // l: get all children, then insert children before target // i: insert entire container to end of target's children
 
-    /* CONTAINER to GENERIC */ if (oldisContainer && newisContainerI) {
+    /* CONTAINER to GENERIC */
+    if (oldisContainer && newisContainerI) {
       // parent: wrapper (container's childComponents)
       // current: container-item
       // child: childComponents (container-Item's childComponents)
@@ -475,30 +477,30 @@ class BuilderLayout extends React.Component {
       switch (targetSide) {
         case BorderHighlight.Top:
         case BorderHighlight.Left:
-          Log.info("C->CI.Top/Left");
+          Log.info('C->CI.Top/Left');
           // basically merges lists before specific index
           componentState = componentState.setIn(
-            targetParentPath,
-            targetElParent
-              .slice(0, targetPath[targetPath.length - 1])
-              .concat(sourceElChild)
-              .concat(targetElParent.slice(targetPath[targetPath.length - 1])),
+              targetParentPath,
+              targetElParent.slice(0, targetPath[targetPath.length - 1]).
+                  concat(sourceElChild).
+                  concat(
+                      targetElParent.slice(targetPath[targetPath.length - 1])),
           );
           deleteCurrent(); // important to delete after combining containers
           break;
         case BorderHighlight.Bottom:
         case BorderHighlight.Right:
         case BorderHighlight.Center:
-          Log.info("C->CI.Bottom/Right/Center");
+          Log.info('C->CI.Bottom/Right/Center');
           // basically merges lists after specific index
           componentState = componentState.setIn(
-            targetParentPath,
-            targetElParent
-              .slice(0, targetPath[targetPath.length - 1] + 1)
-              .concat(sourceElChild)
-              .concat(
-                targetElParent.slice(targetPath[targetPath.length - 1] + 1),
-              ),
+              targetParentPath,
+              targetElParent.slice(0, targetPath[targetPath.length - 1] + 1).
+                  concat(sourceElChild).
+                  concat(
+                      targetElParent.slice(
+                          targetPath[targetPath.length - 1] + 1),
+                  ),
           );
           deleteCurrent(); // important to delete after combining containers
           break;
@@ -525,37 +527,37 @@ class BuilderLayout extends React.Component {
       switch (targetSide) {
         case BorderHighlight.Top:
         case BorderHighlight.Left:
-          Log.info("C->C.Top/Left");
+          Log.info('C->C.Top/Left');
           componentState = componentState.updateIn(
-            targetParentPath,
-            targetElParent =>
-              targetElParent.splice(
-                targetPath[targetPath.length - 1],
-                0,
-                sourceEl,
-              ),
+              targetParentPath,
+              targetElParent =>
+                  targetElParent.splice(
+                      targetPath[targetPath.length - 1],
+                      0,
+                      sourceEl,
+                  ),
           );
           smartDeleteCurrent(); // important to delete after combining containers
           break;
         case BorderHighlight.Bottom:
         case BorderHighlight.Right:
-          Log.info("C->C.Bottom/Right");
+          Log.info('C->C.Bottom/Right');
           componentState = componentState.updateIn(
-            targetParentPath,
-            targetElParent =>
-              targetElParent.splice(
-                targetPath[targetPath.length - 1] + 1,
-                0,
-                sourceEl,
-              ),
+              targetParentPath,
+              targetElParent =>
+                  targetElParent.splice(
+                      targetPath[targetPath.length - 1] + 1,
+                      0,
+                      sourceEl,
+                  ),
           );
           smartDeleteCurrent(); // important to delete after combining containers
           break;
         case BorderHighlight.Center:
-          Log.info("C->C.Center");
+          Log.info('C->C.Center');
           componentState = componentState.setIn(
-            targetChildPath,
-            targetElChild.concat(sourceElChild),
+              targetChildPath,
+              targetElChild.concat(sourceElChild),
           );
           deleteCurrent(); // important to delete after combining containers
           break;
@@ -568,4 +570,4 @@ class BuilderLayout extends React.Component {
 }
 
 const connectedComponent = DragDropContext(HTML5Backend)(BuilderLayout);
-export { connectedComponent as BuilderLayout };
+export {connectedComponent as BuilderLayout};
