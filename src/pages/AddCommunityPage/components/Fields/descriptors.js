@@ -89,7 +89,7 @@ export const backgroundColorDescriptor = new ColorDescription({
     }),
     columnWidthDescriptor = new SliderDescription({
       key: 'width',
-      bounds: [0, 30, 1],
+      bounds: [25, 100, 1],
       realBounds: [25, 100],
       units: '%',
     }),

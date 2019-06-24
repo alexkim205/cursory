@@ -122,6 +122,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
   };
   state = {
     active: false,
+    width: 25,
   };
 
   componentWillReceiveProps(nextProps) {
@@ -143,7 +144,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
     // total widths must add up to 100 (or widthDescriptor bounds equivalent to max width)
     // assuming previous width is already at max
     // assuming e.target.name is width
-    const maxWidth = widthDescriptor.bounds[1];
+    const maxWidth = columnWidthDescriptor.bounds[1];
     const widthToChange = parseInt(e.target.value);
     const otherWidthsShouldBe = Math.floor(
         (maxWidth - widthToChange) / (entries.size - 1),
@@ -155,6 +156,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
     entries = entries.setIn([i, e.target.name], widthToChange);
 
     // update state and components
+    console.log(entries.toJS())
     this.setState({stateChildComponents: entries.toJS()});
     this.props.onChildrenChange(e, entries.toJS());
   };
@@ -169,7 +171,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
     const {childComponents} = this.props;
     let entries = fromJS(childComponents);
     // make child component that you add have width of maxWidth / # of current columns + 1
-    const maxWidth = widthDescriptor.bounds[1];
+    const maxWidth = columnWidthDescriptor.bounds[1];
     const newColumnWidth = maxWidth / (entries.size + 1);
     const otherTotalWidths = maxWidth - newColumnWidth;
     for (let j = 0; j < entries.size; j++) {
@@ -200,6 +202,9 @@ export class FormFieldCollapsibleWidth extends React.Component {
   //     JSON.stringify(this.props.childComponents)
   //   );
   // }
+  onChange = (e) => {
+    this.setState({'width': e.target.value})
+  };
 
   render() {
     const {childComponents, onChildrenChange} = this.props;
@@ -208,7 +213,6 @@ export class FormFieldCollapsibleWidth extends React.Component {
         this.state && 'stateChildComponents' in this.state
             ? this.state.stateChildComponents
             : childComponents;
-    console.log(childComponents);
 
     return (
         <FormFieldWrapper>
@@ -216,11 +220,14 @@ export class FormFieldCollapsibleWidth extends React.Component {
             {stateOrComponentChildComponentsValue &&
             stateOrComponentChildComponentsValue.map((entry, i) => {
               console.log(i === active);
+
+              // restricting to min and max widths
               const boundedValue = entry.width
                   ? Math.min(
                       Math.max(entry.width, columnWidthDescriptor.bounds[0]),
                       columnWidthDescriptor.bounds[1])
                   : columnWidthDescriptor.bounds[0];
+
               return (
                   <div className={'entry-container'} key={i}>
                     <div
@@ -236,18 +243,22 @@ export class FormFieldCollapsibleWidth extends React.Component {
                         pose={i === active ? 'active' : 'inactive'}
                         className={'entry-wrapper'}
                     >
-                      <FormFieldText
-                          className={'entry-content'}
-                          label={'Width'}
-                          name={'width'}
-                          value={boundedValue}
-                          onChange={e => this.onEditChild(e, i)}
-                          type="text"
-                          // min={columnWidthDescriptor.bounds[0]}
-                          // max={columnWidthDescriptor.bounds[1]}
-                          // step={columnWidthDescriptor.bounds[2]}
-                          // type="range"
-                      />
+                      <div>
+                        <FormFieldText
+                            className={'entry-content'}
+                            label={'Width'}
+                            name={'width'}
+                            value={this.state.width}
+                            onChange={e => this.onChange(e)}
+                            type="text"
+                            // min={columnWidthDescriptor.bounds[0]}
+                            // max={columnWidthDescriptor.bounds[1]}
+                            // step={columnWidthDescriptor.bounds[2]}
+                            // type="range"
+                        />
+                        <button onClick={e => this.onEditChild('width',boundedValue, i)}></button>
+                      </div>
+
                     </CollapsibleEntry>
                   </div>
               );
