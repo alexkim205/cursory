@@ -134,7 +134,86 @@ export class FormFieldCollapsibleWidth extends React.Component {
     }
   }
 
-  onEditChild = (e, i) => {
+  boundWidthValue = (width) => Math.max(Math.min(width, columnWidthDescriptor.bounds[1]), columnWidthDescriptor.bounds[0])
+
+  updateColumnStates = (event, entries) => {
+    // update state and components
+    this.setState({stateChildComponents: entries.toJS()});
+    this.props.onChildrenChange(event, entries.toJS());
+  }
+
+  balanceWidths = (entries, indexOfImmutableColumn=null) => {
+    const size = entries.size
+    if (size > 4) throw "Too many columns!";
+
+    const maxWidth = columnWidthDescriptor.bounds[1];
+    const smallestWidth = Math.floor(maxWidth/4);
+    let widthSoFar = 0;
+    let widths = [];
+
+    // Is there a better way to do this in Immutable without two passes?
+    // add up all widths first
+    for (let j = 0; j < size; j++) {
+      const entryWidthJ = entries.getIn([j, 'width'])
+      widths.push(entryWidthJ)
+      widthSoFar += entryWidthJ
+    }
+    console.log("old widths", widths)
+    
+    if (indexOfImmutableColumn) {
+      // when adding column, editing column
+      if ((size - 1) * smallestWidth + widths[indexOfImmutableColumn] > maxWidth) {
+        // if all other columns are 25, can the specified width still exist?
+        // i.e. [25, 40, 80], index = 2; should be set to [25, 25, 50]
+        widths = widths.map((v, i) => i === indexOfImmutableColumn ? maxWidth - smallestWidth * (size-1) : smallestWidth)
+      } else {
+        if (widths[indexOfImmutableColumn] > smallestWidth) {
+          // i.e. [25, 30, 40], index = 2; should be set to [25*60/55, 40*60/55, 40]
+          const newOtherTotalWidths = maxWidth - widths[indexOfImmutableColumn]
+          const oldOtherTotalWidths = widthSoFar - widths[indexOfImmutableColumn]
+          widths = widths.map((v, i) => i === indexOfImmutableColumn ? v : Math.floor(v*newOtherTotalWidths/oldOtherTotalWidths))
+        } else {
+          if (size === 1) {
+            widths = [100]
+          } else if (size === 2) {
+            // i.e. [25, 15], index = 1; should be set to [75, 25]
+            widths = widths.map((v, i) => i === indexOfImmutableColumn ? smallestWidth : maxWidth - smallestWidth);
+          } else if (size === 3) {
+            const newOtherTotalWidths = maxWidth - smallestWidth
+            const oldOtherTotalWidths = widthSoFar - widths[indexOfImmutableColumn]
+            // i.e. [25, 30, 15], index = 2; should be set to []
+            if (oldOtherTotalWidths > newOtherTotalWidths) {
+              // i.e. [42, 43, 15], index = 2; should be set to []
+              // i.e. [25, 60, 15], index = 2; should be set to []
+              widths = widths.map((v, i) => i === indexOfImmutableColumn ? smallestWidth : this.boundWidthValue(v*newOtherTotalWidths/oldOtherTotalWidths))
+              if (widths.reduce((a,b) => a + b, 0) > maxWidth) {
+                widths = widths.map((v, i) => v !== smallestWidth ? smallestWidth * 2 : v)
+              }
+            } else {
+              // i.e. [25, 30, 15], index = 2; should be set to [25*75/55, 30*75/55, 25]
+              widths = widths.map((v, i) => i === indexOfImmutableColumn ? v : Math.floor(v*newOtherTotalWidths/oldOtherTotalWidths))
+            }
+          } else if (size === 4) {
+            widths = [25, 25, 25, 25]
+          }
+        }
+      }
+    } else {
+      console.log("TOO")
+      // when removing column
+      widths = widths.map((v) => Math.floor(v*maxWidth/widthSoFar))
+    }
+
+    console.log("new widths", widths)
+    // set new widths with balanced widths list
+    for (let k = 0; k < size; k++) {
+      entries = entries.setIn([k, 'width'], widths[k])
+    }
+
+    return entries;
+  }
+
+  onEditChild = (e, newWidth, i) => {
     // i: entry number
     // e.target.name: property
     // e.target.value: property value
@@ -144,64 +223,36 @@ export class FormFieldCollapsibleWidth extends React.Component {
     // total widths must add up to 100 (or widthDescriptor bounds equivalent to max width)
     // assuming previous width is already at max
     // assuming e.target.name is width
-    const maxWidth = columnWidthDescriptor.bounds[1];
-    const widthToChange = parseInt(e.target.value);
-    const otherWidthsShouldBe = Math.floor(
-        (maxWidth - widthToChange) / (entries.size - 1),
-    );
-    // set new widths
-    for (let j = 0; j < entries.size; j++) {
-      entries = entries.setIn([j, e.target.name], otherWidthsShouldBe);
-    }
-    entries = entries.setIn([i, e.target.name], widthToChange);
+    const widthToChange = this.boundWidthValue(parseInt(newWidth));
+    entries = entries.setIn([i, 'width'], widthToChange)
+    entries = this.balanceWidths(entries, i)
 
-    // update state and components
-    console.log(entries.toJS())
-    this.setState({stateChildComponents: entries.toJS()});
-    this.props.onChildrenChange(e, entries.toJS());
+    // set new value to show in text input
+    this.setState({'width': entries.getIn([i, 'width'])})
+    this.updateColumnStates(e, entries)
   };
   onRemoveChild = (e, i) => {
     const {childComponents} = this.props;
     let entries = fromJS(childComponents);
     entries = entries.delete(i);
-    this.setState({stateChildComponents: entries.toJS()});
-    this.props.onChildrenChange(e, entries.toJS());
+    entries = this.balanceWidths(entries)
+
+    this.setState({'active': Math.max(0, i-1), 'width': entries.getIn([Math.max(0, i-1), 'width'])})
+    this.updateColumnStates(e, entries)
   };
   onAddChild = e => {
     const {childComponents} = this.props;
     let entries = fromJS(childComponents);
     // make child component that you add have width of maxWidth / # of current columns + 1
-    const maxWidth = columnWidthDescriptor.bounds[1];
-    const newColumnWidth = maxWidth / (entries.size + 1);
-    const otherTotalWidths = maxWidth - newColumnWidth;
-    for (let j = 0; j < entries.size; j++) {
-      let entryWidth = entries.getIn([j, e.target.name]);
-      console.log('entryWidth', entryWidth);
-      entries = entries.setIn(
-          [j, e.target.name],
-          Math.floor((parseInt(entryWidth) * otherTotalWidths) / maxWidth),
-      );
-    }
-    entries = entries.concat(
-        JSON.parse(
-            JSON.stringify(new ContainerItemClass({width: newColumnWidth})),
-        ),
-    );
+    const newColumnWidth = columnWidthDescriptor.bounds[1] / 4;
+    // add new column
+    entries = entries.concat(JSON.parse(JSON.stringify(new ContainerItemClass({width: newColumnWidth}))));
+    entries = this.balanceWidths(entries, entries.size-1)
 
-    this.setState({stateChildComponents: entries.toJS()});
-    this.props.onChildrenChange(e, entries.toJS());
+    this.setState({'active': entries.size-1, 'width': entries.getIn([entries.size-1, 'width'])})
+    this.updateColumnStates(e, entries)
   };
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log(
-  //     "should form update",
-  //     nextProps.childComponents,
-  //     this.props.childComponents,
-  //   );
-  //   return (
-  //     JSON.stringify(nextProps.childComponents) !==
-  //     JSON.stringify(this.props.childComponents)
-  //   );
-  // }
+
   onChange = (e) => {
     this.setState({'width': e.target.value})
   };
@@ -219,14 +270,11 @@ export class FormFieldCollapsibleWidth extends React.Component {
           <FormFieldCollapsibleInput>
             {stateOrComponentChildComponentsValue &&
             stateOrComponentChildComponentsValue.map((entry, i) => {
-              console.log(i === active);
 
               // restricting to min and max widths
-              const boundedValue = entry.width
-                  ? Math.min(
-                      Math.max(entry.width, columnWidthDescriptor.bounds[0]),
-                      columnWidthDescriptor.bounds[1])
-                  : columnWidthDescriptor.bounds[0];
+              // const boundedValue = entry.width
+              //     ? entry.width
+              //     : columnWidthDescriptor.bounds[0];
 
               return (
                   <div className={'entry-container'} key={i}>
@@ -236,7 +284,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
                             this.setState({active: active === i ? false : i})
                         }
                     >
-                      {`Column ${i}: ${boundedValue}`}
+                      {`Column ${i}: ${entry.width}`}
                     </div>
 
                     <CollapsibleEntry
@@ -251,12 +299,9 @@ export class FormFieldCollapsibleWidth extends React.Component {
                             value={this.state.width}
                             onChange={e => this.onChange(e)}
                             type="text"
-                            // min={columnWidthDescriptor.bounds[0]}
-                            // max={columnWidthDescriptor.bounds[1]}
-                            // step={columnWidthDescriptor.bounds[2]}
-                            // type="range"
                         />
-                        <button onClick={e => this.onEditChild('width',boundedValue, i)}></button>
+                        <button onClick={e => this.onEditChild(e, this.state.width, i)}>Change</button>
+                        <button onClick={e => this.onRemoveChild(e, i)}>Remove</button>
                       </div>
 
                     </CollapsibleEntry>
