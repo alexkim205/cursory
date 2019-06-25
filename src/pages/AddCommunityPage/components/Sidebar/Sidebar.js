@@ -28,7 +28,7 @@ class Sidebar extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     // console.log('refresh, sidebar', nextProps.activeComponent,
-        this.props.activeComponent);
+        // this.props.activeComponent);
     if (
       JSON.stringify(nextProps.activeComponent) !==
       JSON.stringify(this.props.activeComponent)

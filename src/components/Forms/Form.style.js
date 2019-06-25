@@ -135,19 +135,22 @@ export const FormFieldSelectInput = styled.select`
 export const FormFieldCollapsibleInput = styled.div`
   display: flex
   flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid darkgray;
 
   .entry-container {
     width: 100%;
     height: auto;
     vertical-align: middle;
-    border: 1px solid white;
+    border-bottom: 1px solid darkgray;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     overflow: hidden;
     .entry-header{
-      background-color: blue;
+      // background-color: blue;
       cursor: pointer;
       width: 100%;
       padding: 1em 1em;
@@ -156,11 +159,28 @@ export const FormFieldCollapsibleInput = styled.div`
     .entry-content{
       width: 100%;
       padding: 1em 1em;
-      background-color: red;
+      // background-color: red;
       box-sizing: border-box;
     }
     .entry-wrapper {
       width: 100%;
+      .row {
+        display: flex;
+        flex-direction: row;
+        .width {
+          width: 50px;
+          input {
+            border-radius: 0;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+          }
+        }
+        .buttons {
+          display: flex;
+          padding: 1em 0 0.2em 0;
+          margin-bottom: 0.4em;
+        }
+      }
     }
   }
 `;
