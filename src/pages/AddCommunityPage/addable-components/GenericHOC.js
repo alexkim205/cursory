@@ -115,7 +115,7 @@ export const GenericHOC = Component => {
       const { borderHighlight } = this.state;
 
       if (type === componentTypes.CONTAINER) {
-        console.log(this.props.genericComponent)
+        // console.log(this.props.genericComponent)
 
         return (
           <ContainerComponent

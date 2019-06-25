@@ -27,7 +27,7 @@ const withEmailVerification = Component => {
 
     onSendEmailVerification = () => {
       const currentRoute = this.props.location.pathname;
-      console.log("currentroute", currentRoute);
+      // console.log("currentroute", currentRoute);
 
       this.props.firebase
         .doSendEmailVerification(currentRoute)

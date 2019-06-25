@@ -22,16 +22,16 @@ export const directionStyle = (direction: any) => {
   const dirnumber: number = typeof (direction) === 'number' ? direction : parseInt(direction)
   switch (dirnumber) {
     case Directions.Columns:
-      console.log("COLUMNS")
+      // console.log("COLUMNS")
       return 'flex-direction: row;';
     case Directions.Rows:
-      console.log("ROWS")
+      // console.log("ROWS")
       return 'flex-direction: column;';
     case Directions.Default:
-      console.log("DEFAULT")
+      // console.log("DEFAULT")
       return 'flex-direction: auto;';
     default:
-      console.log("catch")
+      // console.log("catch")
   }
 };
 

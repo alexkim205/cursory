@@ -27,7 +27,7 @@ class Sidebar extends React.Component {
   };
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log('refresh, sidebar', nextProps.activeComponent,
+    // console.log('refresh, sidebar', nextProps.activeComponent,
         this.props.activeComponent);
     if (
       JSON.stringify(nextProps.activeComponent) !==
@@ -39,7 +39,7 @@ class Sidebar extends React.Component {
           return this.state && key in this.state;
         },
       );
-      console.log('new state', newFields);
+      // console.log('new state', newFields);
       this.setState(newFields);
     }
   }

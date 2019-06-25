@@ -9,7 +9,7 @@ export const connectAsTargetAndSource = Component =>
     componentTypes.GENERIC,
     {
       beginDrag(props) {
-        console.log("begin drag", props[Object.keys(props)[0]].id);
+        // console.log("begin drag", props[Object.keys(props)[0]].id);
         return {
           id: props[Object.keys(props)[0]].id,
         };

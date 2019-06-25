@@ -16,7 +16,7 @@ export const connectAsTargetAndSource = Component =>
       componentTypes.GENERIC,
       {
         beginDrag(props) {
-          console.log("begin drag", props);
+          // console.log("begin drag", props);
           return {
             id: props[Object.keys(props)[0]].id,
             type: props[Object.keys(props)[0]].type,

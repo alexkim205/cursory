@@ -145,7 +145,7 @@ class Firebase {
     this.communityUsers(this.auth.currentUser.uid);
 
   doAddCommunity = payload => {
-    console.log(this.doGetUserCommunities());
+    // console.log(this.doGetUserCommunities());
 
     return this.doGetUserCommunities()
       .add({

@@ -459,7 +459,7 @@ class SignInMicrosoftBase extends React.Component {
     this.props.firebase
       .doSignInWithMicrosoft()
       .then(socialAuthUser => {
-        console.log(socialAuthUser);
+        // console.log(socialAuthUser);
         // Create a user in your Firebase Realtime Database too
         return this.props.firebase.user(socialAuthUser.user.uid).set({
           username: socialAuthUser.additionalUserInfo.profile.name,

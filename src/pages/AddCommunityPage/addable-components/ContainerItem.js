@@ -115,7 +115,7 @@ class ContainerItemComponent extends React.Component {
       updateActive,
     } = this.props;
     const { borderHighlight } = this.state;
-    console.log(this.props)
+    // console.log(this.props)
 
     return (
       <ContainerItemWrapper

@@ -32,7 +32,7 @@ connectedItemWrapper.handleClickOutside = () => {
 class FloatingWidget extends React.Component {
   state = { dropdownIsActive: false };
   toggleDropdown = e => {
-    console.log("toggle!");
+    // console.log("toggle!");
     this.setState(prevState => ({
       dropdownIsActive: !prevState.dropdownIsActive,
     }));
