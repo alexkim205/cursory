@@ -105,7 +105,6 @@ export const FormFieldColor = FormFieldHOC(props => {
           {...otherProps}
           color={value}
           onChangeComplete={(color, event) => {
-            console.log(color);
             event.target.name = name;
             event.target.value = color.hex;
             onChange(event);
@@ -158,7 +157,6 @@ export class FormFieldCollapsibleWidth extends React.Component {
       widths.push(entryWidthJ)
       widthSoFar += entryWidthJ
     }
-    console.log("old widths", widths)
     
     if (indexOfImmutableColumn) {
       // when adding column, editing column
@@ -199,12 +197,10 @@ export class FormFieldCollapsibleWidth extends React.Component {
         }
       }
     } else {
-      console.log("TOO")
       // when removing column
       widths = widths.map((v) => Math.floor(v*maxWidth/widthSoFar))
     }
 
-    console.log("new widths", widths)
     // set new widths with balanced widths list
     for (let k = 0; k < size; k++) {
       entries = entries.setIn([k, 'width'], widths[k])
