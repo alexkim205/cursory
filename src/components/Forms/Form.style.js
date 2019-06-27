@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import posed from "react-pose";
-import { theme } from "../../_styles";
+import {theme} from "../../_styles";
 
 export const FormWrapper = styled.div`
   display: flex;
@@ -68,7 +68,6 @@ export const SocialButton = styled.button`
 `;
 
 export const FormFieldWrapper = styled.div`
-  // background-color: ;
   display: flex;
   flex-direction: column;
   padding: 1em 0 0.2em 0;
@@ -77,6 +76,64 @@ export const FormFieldWrapper = styled.div`
   label {
     margin-bottom: 0.4em;
     // color: white;
+  }
+  .field {
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    overflow: hidden;
+    
+    .buttons {
+      margin-bottom: 0 !important;
+      padding: 0 !important;
+      button {
+        border: none;
+        text-decoration: none;
+      }
+    }
+  }
+`;
+
+export const FormFieldColumnItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0 0.2em 0;
+  margin-bottom: 0.4em;
+  border:none;
+  border-top: 1px solid rgba(145, 150, 164, 0.6);
+
+  label {
+    margin-bottom: 0.4em;
+    // color: white;
+  }
+  .field {
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    overflow: hidden;
+    
+    input {
+      border:none;
+      background-color: ${theme.colors.gray};
+    }
+    
+    .buttons {
+      margin-bottom: 0 !important;
+      padding: 0 !important;
+      button {
+        background-color: ${theme.colors.gray};
+        border: none;
+        text-decoration: none;
+        margin-left: 2px;
+        width: 43px;
+        transition: background-color 0.2s;
+        cursor: pointer;
+        
+        &:hover {
+          background-color: ${theme.colors.light_dark};
+        }
+      }
+    }
   }
 `;
 
@@ -91,11 +148,11 @@ export const FormFieldInputBase = styled.input`
 export const FormFieldTextInput = styled(FormFieldInputBase)`
   padding: 1em 1em;
   border: 2px solid ${theme.colors.light_gray};
-  &:hover,
-  &:focus,
-  &:active {
-    border: 2px solid ${theme.colors.light_dark};
-  }
+
+  // &:focus,
+  // &:active {
+  //   border: 2px solid ${theme.colors.light_dark};
+  // }
 `;
 
 export const FormFieldSelectWrapper = styled.div`
@@ -136,13 +193,13 @@ export const FormFieldCollapsibleInput = styled.div`
   display: flex
   flex-direction: column;
   border-radius: 5px;
-  border: 1px solid darkgray;
+  border: 1px solid ${theme.colors.light_dark};
 
   .entry-container {
     width: 100%;
     height: auto;
     vertical-align: middle;
-    border-bottom: 1px solid darkgray;
+    border-bottom: 1px solid ${theme.colors.light_dark};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -155,6 +212,21 @@ export const FormFieldCollapsibleInput = styled.div`
       width: 100%;
       padding: 1em 1em;
       box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      button {
+        border: none;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+        cursor: pointer;
+        background-color: transparent;
+        color: ${theme.colors.light_gray};
+        
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
     .entry-content{
       width: 100%;
@@ -168,11 +240,13 @@ export const FormFieldCollapsibleInput = styled.div`
         display: flex;
         flex-direction: row;
         .width {
-          width: 50px;
+          padding: 0 1em 0.5em 1em;
+          width: 100%;
+          // width: 50px;
           input {
             border-radius: 0;
-            border-bottom-left-radius: 5px;
-            border-top-left-radius: 5px;
+            // border-bottom-left-radius: 5px;
+            // border-top-left-radius: 5px;
           }
         }
         .buttons {

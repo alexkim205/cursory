@@ -5,7 +5,7 @@ import {
   FormFieldTextInput,
   FormFieldSelectWrapper,
   FormFieldSelectInput,
-  FormFieldSliderInput,
+  FormFieldSliderInput, FormFieldColumnItemWrapper,
 } from './Form.style';
 import {SketchPicker} from 'react-color';
 
@@ -18,6 +18,7 @@ const FormFieldHOC = Component =>
         onChange: PropTypes.func.isRequired,
         type: PropTypes.string,
         placeholder: PropTypes.string,
+        buttons: PropTypes.element
       };
 
       static defaultProps = {
@@ -26,6 +27,7 @@ const FormFieldHOC = Component =>
         value: '',
         type: 'text',
         placeholder: '',
+        buttons: null,
       };
 
       render() {
@@ -36,35 +38,92 @@ const FormFieldHOC = Component =>
           onChange,
           type,
           placeholder,
+          buttons,
           ...otherProps
         } = this.props;
 
         return (
             <FormFieldWrapper>
               <label htmlFor={value}>{label}</label>
-              <Component
+              <div className={'field'}>
+                <Component
                   name={name}
                   value={value}
                   onChange={onChange}
                   type={type}
                   placeholder={placeholder}
                   {...otherProps}
-              />
+                />
+                <div className={'buttons'}>
+                  {buttons}
+                </div>
+              </div>
             </FormFieldWrapper>
         );
       }
     };
 
+const FormFieldColumnItemHOC = Component =>
+  class FormField extends React.Component {
+    static propTypes = {
+      label: PropTypes.string,
+      name: PropTypes.string,
+      value: PropTypes.string,
+      onChange: PropTypes.func.isRequired,
+      type: PropTypes.string,
+      placeholder: PropTypes.string,
+      buttons: PropTypes.element
+    };
+
+    static defaultProps = {
+      label: '',
+      name: '',
+      value: '',
+      type: 'text',
+      placeholder: '',
+      buttons: null,
+    };
+
+    render() {
+      const {
+        label,
+        value,
+        name,
+        onChange,
+        type,
+        placeholder,
+        buttons,
+        ...otherProps
+      } = this.props;
+
+      return (
+        <FormFieldColumnItemWrapper>
+          <label htmlFor={value}>{label}</label>
+          <div className={'field'}>
+            <Component
+              name={name}
+              value={value}
+              onChange={onChange}
+              type={type}
+              placeholder={placeholder}
+              {...otherProps}
+            />
+            <div className={'buttons'}>
+              {buttons}
+            </div>
+          </div>
+        </FormFieldColumnItemWrapper>
+      );
+    }
+  };
+
 export const FormFieldText = FormFieldHOC(props => (
-    <FormFieldTextInput {...props} />
+  <FormFieldTextInput {...props} />
+));
+export const FormFieldWidthText = FormFieldColumnItemHOC(props => (
+  <FormFieldTextInput {...props} />
 ));
 export const FormFieldSlider = FormFieldHOC(props => (
-    <React.Fragment>
-      <FormFieldSliderInput {...props} />
-      {props.value}
-    </React.Fragment>
-));
-export const FormFieldWidthSlider = FormFieldHOC(props => (
     <React.Fragment>
       <FormFieldSliderInput {...props} />
       {props.value}

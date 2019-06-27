@@ -1,4 +1,4 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
+import {library} from '@fortawesome/fontawesome-svg-core';
 
 import {
   faGithub,
@@ -6,7 +6,7 @@ import {
   faFacebookF,
   faTwitter,
   faMicrosoft,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons';
 
 import {
   faStar,
@@ -14,7 +14,8 @@ import {
   faHourglassStart,
   faFire,
   faUserFriends,
-} from "@fortawesome/pro-solid-svg-icons";
+  faCaretDown,
+} from '@fortawesome/pro-solid-svg-icons';
 
 import {
   faH1,
@@ -34,8 +35,11 @@ import {
   faBracketsCurly,
   faPenNib,
   faPenFancy,
+  faCheck,
+  faTrash,
+  faPlus as farPlus,
   // faQuestionCircle,
-} from "@fortawesome/pro-regular-svg-icons";
+} from '@fortawesome/pro-regular-svg-icons';
 
 import {
   // faPenNib,
@@ -62,65 +66,69 @@ import {
   faCode as falCode, //Embed
   faSearch, // Search Bar
   faGripLines, // Divider
-} from "@fortawesome/pro-light-svg-icons";
+} from '@fortawesome/pro-light-svg-icons';
 
 export const loadFonts = () => {
   library.add(
-    // Regular
-    faH1,
-    faH2,
-    faBold,
-    faItalic,
-    faUnderline,
-    faStrikethrough,
-    faLink,
-    faCode,
-    faHighlighter,
-    faHeading,
-    faQuoteLeft,
-    faAngleDoubleRight,
-    faListOl,
-    faListUl,
-    faBracketsCurly,
-    faPenNib,
-    faPenFancy,
-    // Light
-    faQuestionCircle,
-    faPlusHexagon,
-    faPlusCircle,
-    faPlus,
-    // Solid
-    faStar,
-    faTags,
-    faHourglassStart,
-    faFire,
-    faUserFriends,
-    // Brands
-    faGithub,
-    faGoogle,
-    faFacebookF,
-    faTwitter,
-    faMicrosoft,
+      // Regular
+      faH1,
+      faH2,
+      faBold,
+      faItalic,
+      faUnderline,
+      faStrikethrough,
+      faLink,
+      faCode,
+      faHighlighter,
+      faHeading,
+      faQuoteLeft,
+      faAngleDoubleRight,
+      faListOl,
+      faListUl,
+      faBracketsCurly,
+      faPenNib,
+      faPenFancy,
+      faCheck,
+      faTrash,
+      farPlus,
+      // Light
+      faQuestionCircle,
+      faPlusHexagon,
+      faPlusCircle,
+      faPlus,
+      // Solid
+      faStar,
+      faTags,
+      faHourglassStart,
+      faFire,
+      faUserFriends,
+      faCaretDown,
+      // Brands
+      faGithub,
+      faGoogle,
+      faFacebookF,
+      faTwitter,
+      faMicrosoft,
 
-    // For Floating Widget
-    faPlus, // add new element
-    faFileAlt, // document/page
-    faBars, // settings
-    faRss, // feed
-    faNewspaper, // statistics
-    faRulerHorizontal, // rules/guidelines
-    faFont, // Text
-    faPencilAlt, // Form
-    faClock, // Timer
-    falLink, // Link
-    faAppleAlt, // Icons
-    faTh, // Container
-    faImage, //Image
-    faVideo, // Video
-    faCameraRetro, // Gallery
-    faPepperHot, // Widget
-    falCode, //Embed
-    faSearch, // Search Bar
-    faGripLines, // Divider
+      // For Floating Widget
+      faPlus, // add new element
+      faFileAlt, // document/page
+      faBars, // settings
+      faRss, // feed
+      faNewspaper, // statistics
+      faRulerHorizontal, // rules/guidelines
+      faFont, // Text
+      faPencilAlt, // Form
+      faClock, // Timer
+      falLink, // Link
+      faAppleAlt, // Icons
+      faTh, // Container
+      faImage, //Image
+      faVideo, // Video
+      faCameraRetro, // Gallery
+      faPepperHot, // Widget
+      falCode, //Embed
+      faSearch, // Search Bar
+      faGripLines, // Divider
   );
 };
