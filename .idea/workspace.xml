@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/alexkim.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_helpers/load-fonts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_helpers/load-fonts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_styles/_colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/_styles/_colors.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/Form.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/Form.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/Form.style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/WidthField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/WidthField.js" afterDir="false" />
     </list>
@@ -48,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="216" selection-start-line="216" selection-end-line="228" selection-end-column="7" />
+            <state relative-caret-position="577">
+              <caret line="236" column="10" selection-start-line="236" selection-start-column="5" selection-end-line="236" selection-end-column="10" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -60,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+            <state relative-caret-position="430">
+              <caret line="256" column="28" selection-start-line="256" selection-start-column="28" selection-end-line="256" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -129,8 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hoverSelectStyle</find>
-      <find>posed</find>
       <find>transition</find>
       <find>console.error</find>
       <find>updateState</find>
@@ -159,6 +152,8 @@
       <find>border-top</find>
       <find>color</find>
       <find>button</find>
+      <find>entry-he</find>
+      <find>entry</find>
     </findStrings>
     <replaceStrings>
       <replace>blockIsList</replace>
@@ -236,9 +231,9 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" />
         <option value="$PROJECT_DIR$/src/_styles/_colors.scss" />
-        <option value="$PROJECT_DIR$/src/components/Forms/Form.style.js" />
         <option value="$PROJECT_DIR$/src/components/Forms/Form.js" />
         <option value="$PROJECT_DIR$/src/_helpers/load-fonts.js" />
+        <option value="$PROJECT_DIR$/src/components/Forms/Form.style.js" />
         <option value="$PROJECT_DIR$/src/components/Forms/WidthField.js" />
       </list>
     </option>
@@ -507,12 +502,12 @@
       <workItem from="1560997595695" duration="2212000" />
       <workItem from="1561267802190" duration="1710000" />
       <workItem from="1561590008124" duration="1364000" />
-      <workItem from="1561594462233" duration="6941000" />
+      <workItem from="1561594462233" duration="7707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="458275000" />
+    <option name="totallyTimeSpent" value="459041000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -527,7 +522,7 @@
     <frame x="348" y="23" width="1332" height="957" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20671244" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20671244" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -541,7 +536,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.31194472" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.2682081" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.2682081" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3299539" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -888,8 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="216" selection-start-line="216" selection-end-line="228" selection-end-column="7" />
+        <state relative-caret-position="577">
+          <caret line="236" column="10" selection-start-line="236" selection-start-column="5" selection-end-line="236" selection-end-column="10" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -898,8 +893,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        <state relative-caret-position="430">
+          <caret line="256" column="28" selection-start-line="256" selection-start-column="28" selection-end-line="256" selection-end-column="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

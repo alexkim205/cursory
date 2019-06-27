@@ -34,6 +34,8 @@ const AddButtonWrapper = styled.div`
   }
 `;
 
+const sizeDescriptions = ["1st","2nd","3rd","4th"]
+
 // TODO: Generalize class into properties other than width
 export class FormFieldCollapsibleWidth extends React.Component {
   static propTypes = {
@@ -247,7 +249,12 @@ export class FormFieldCollapsibleWidth extends React.Component {
                             this.setState({active: active === i ? false : i})
                         }
                     >
-                      {`${wasTakenFromProps ? entry.width : this.state.width}%`}
+                      <div className={'description'}>
+                        <strong>{sizeDescriptions[i]}</strong>
+                      </div>
+                      <div className={'description'}>
+                        {`${wasTakenFromProps ? entry.width : this.state.width}%`}
+                      </div>
                       <button onClick={e => this.onRemoveChild(e, i)}>
                         <FontAwesomeIcon icon={['far', 'trash']}/>
                       </button>

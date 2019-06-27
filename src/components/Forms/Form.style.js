@@ -199,21 +199,27 @@ export const FormFieldCollapsibleInput = styled.div`
     width: 100%;
     height: auto;
     vertical-align: middle;
-    border-bottom: 1px solid ${theme.colors.light_dark};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid ${theme.colors.light_dark};
+    }
 
     overflow: hidden;
     .entry-header{
-      // background-color: blue;
-      cursor: pointer;
       width: 100%;
       padding: 1em 1em;
       box-sizing: border-box;
       display: flex;
       justify-content: space-between;
+      
+      .description {
+        cursor: pointer;
+      }
+      
       button {
         border: none;
         text-decoration: none;
