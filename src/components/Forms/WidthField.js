@@ -246,7 +246,10 @@ export class FormFieldCollapsibleWidth extends React.Component {
                     <div
                         className={'entry-header'}
                         onClick={() =>
-                            this.setState({active: active === i ? false : i})
+                            this.setState({
+                              active: active === i ? false : i,
+                              width: wasTakenFromProps ? entry.width : this.state.width,
+                            })
                         }
                     >
                       <div className={'description'}>

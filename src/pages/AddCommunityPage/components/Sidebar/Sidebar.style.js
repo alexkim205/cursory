@@ -21,7 +21,7 @@ export const SidebarWrapper = posed(styled.div`
   h4,
   h5,
   h6 {
-    margin: 1em 0 1.2em 0;
+    margin: 0;
   }
 
   .form-wrapper {
@@ -45,10 +45,24 @@ export const SidebarWrapper = posed(styled.div`
       flex: 1;
 
       .type {
+        .type-label {
+          font-size: 2em;
+          margin: 1.5em 0 1em 0;  
+        }
       }
       .section {
         .subsection {
+          margin: 1em 0 2em 0;
+          
+          .subsection-label {
+            font-size: 0.9em;
+            // font-weight: bold;
+          }
           .subsubsection {
+            .subsubsection-label {
+              font-size: 1em;
+              // font-weight: bold;
+            }
           }
         }
       }

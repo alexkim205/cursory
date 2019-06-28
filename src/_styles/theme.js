@@ -10,6 +10,8 @@ export const theme = {
     gray: colors.colorGray,
     light_gray: colors.colorLightGray,
     dark: colors.colorDark,
+    field: colors.colorField,
+    field_active: colors.colorFieldActive,
     light_dark: colors.colorLightDark,
     dark_dark: colors.colorDarkDark
   },

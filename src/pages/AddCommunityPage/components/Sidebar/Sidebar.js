@@ -93,19 +93,23 @@ class Sidebar extends React.Component {
           fields.map((section, i) => (
             // Start of Section
             <div className={"section"} key={i}>
-              <h4>{section.name}</h4>
+              {/*/!*<h4>{section.name}</h4>*!/ Don't show section name for now*/}
               {section.subsections &&
                 section.subsections.map((subsection, j) => (
                   // Start of SubSection
                   <div className={"subsection"} key={j}>
-                    <h5>{subsection.name}</h5>
+                    <div className={"subsection-label"}>
+                      {subsection.name}
+                    </div>
                     {/* Can add Form Fields here */}
                     {subsection.descriptor &&
                       this.renderFormField(component, subsection)}
                     {subsection.subsubsections &&
                       subsection.subsubsections.map((sssection, k) => (
                         <div className={"subsubsection"} key={k}>
-                          <h6>{sssection.name}</h6>
+                          <div className={"subsubsection-label"}>
+                            {sssection.name}
+                          </div>
                           {/* Can add Form Fields here too */}
                           {sssection.descriptor &&
                             this.renderFormField(component, sssection)}
@@ -202,7 +206,9 @@ class Sidebar extends React.Component {
               <div className={"tabs"} />
               <div className={"main"}>
                 <div className={"type"}>
-                  <h3>{activeComponent.type}</h3>
+                  <div className={"type-label"}>
+                    {activeComponent.type}
+                  </div>
                 </div>
                 {this.renderAllFields(activeComponent, fields)}
               </div>

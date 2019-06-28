@@ -15,6 +15,9 @@ $color-error: #ff4c4c;
 $color-gray: #f6fbfd;
 $color-light-gray: #f3f4f8;
 
+$color-field: #35446b;
+$color-field-active: #2d395a;
+
 // Export
 :export {
   colorMain: $color-main;
@@ -25,6 +28,8 @@ $color-light-gray: #f3f4f8;
   colorGray: $color-gray;
   colorLightGray: $color-light-gray;
   colorDark: $color-dark;
+  colorField: $color-field;
+  colorFieldActive: $color-field-active;
   colorLightDark: $color-light-dark;
   colorDarkDark: $color-darker-dark;
 }

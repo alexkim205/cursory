@@ -100,7 +100,7 @@ export const FormFieldColumnItemWrapper = styled.div`
   padding: 1em 0 0.2em 0;
   margin-bottom: 0.4em;
   border:none;
-  border-top: 1px solid rgba(145, 150, 164, 0.6);
+  border-top: 1px solid ${theme.colors.field};
 
   label {
     margin-bottom: 0.4em;
@@ -114,14 +114,15 @@ export const FormFieldColumnItemWrapper = styled.div`
     
     input {
       border:none;
-      background-color: ${theme.colors.gray};
+      // background-color: ${theme.colors.gray};
     }
     
     .buttons {
       margin-bottom: 0 !important;
       padding: 0 !important;
       button {
-        background-color: ${theme.colors.gray};
+        background-color: ${theme.colors.field};
+        color: white;
         border: none;
         text-decoration: none;
         margin-left: 2px;
@@ -130,7 +131,7 @@ export const FormFieldColumnItemWrapper = styled.div`
         cursor: pointer;
         
         &:hover {
-          background-color: ${theme.colors.light_dark};
+          background-color: ${theme.colors.field_active};
         }
       }
     }
@@ -147,7 +148,9 @@ export const FormFieldInputBase = styled.input`
 
 export const FormFieldTextInput = styled(FormFieldInputBase)`
   padding: 1em 1em;
-  border: 2px solid ${theme.colors.light_gray};
+  background-color: ${theme.colors.field};
+  color: white;
+  // border: 2px solid ${theme.colors.light_gray};
 
   // &:focus,
   // &:active {

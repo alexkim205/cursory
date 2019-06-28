@@ -44,7 +44,7 @@ const FormFieldHOC = Component =>
 
         return (
             <FormFieldWrapper>
-              <label htmlFor={value}>{label}</label>
+              {/*<label htmlFor={value}>{label}</label>*/}
               <div className={'field'}>
                 <Component
                   name={name}
@@ -98,7 +98,7 @@ const FormFieldColumnItemHOC = Component =>
 
       return (
         <FormFieldColumnItemWrapper>
-          <label htmlFor={value}>{label}</label>
+          {/*<label htmlFor={value}>{label}</label>*/}
           <div className={'field'}>
             <Component
               name={name}
