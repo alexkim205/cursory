@@ -39,7 +39,6 @@ export const Spacer = styled.div`
   position: absolute;
   // display: block;
   top: -30px;
-  background-color: red;
-  width: 250px;
+  width: 430px;
   height: 40px;
 `;

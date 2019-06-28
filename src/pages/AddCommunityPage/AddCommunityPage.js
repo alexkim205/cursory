@@ -10,6 +10,7 @@ import { ROUTES } from "../../_constants";
 import { FullWrapper } from "../../components";
 
 import { BuilderLayout } from "./BuilderLayout";
+import {FloatingWidget} from './components/FloatingWidget';
 
 const INITIAL_STATE = {
   name: "",
@@ -32,8 +33,7 @@ class AddCommunityPage extends React.Component {
     return (
       <FullWrapper>
         <BuilderLayout />
-
-        {/*<FloatingWidget/>*/}
+        <FloatingWidget/>
       </FullWrapper>
     );
   }

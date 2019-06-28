@@ -8,14 +8,9 @@ import {
   FloatingWidgetDropdownWrapper,
   FloatingWidgetDropdownItemWrapper,
   FloatingWidgetItemWrapper,
-} from "./styles/FloatingWidgetStyle";
-import { elements } from "./addable-elements";
-import { Spacer } from "../../components/Navigation/styles/ProfileBar.style";
-import {
-  DropdownMenuWrapper,
-  DropdownMenuItemWrapper,
-} from "../../components/Navigation/Dropdown";
-
+} from "./FloatingWidget.style";
+import { elements } from "../../addable-elements";
+import { Spacer } from "../../../../components/Navigation/styles/ProfileBar.style";
 /*
  * Add
  * Background/Page
@@ -43,17 +38,21 @@ class FloatingWidget extends React.Component {
 
     return (
       <FloatingWidgetWrapper>
-        <connectedItemWrapper onClick={this.toggleDropdown}>
+        <FloatingWidgetItemWrapper onClick={this.toggleDropdown}>
           <FontAwesomeIcon icon={["fal", "plus"]} />
-        </connectedItemWrapper>
+        </FloatingWidgetItemWrapper>
         <PoseGroup>
           {dropdownIsActive && (
             <FloatingWidgetDropdownWrapper key={"dropdown"}>
-              <Spacer />
+              {/*<Spacer />*/}
               {elements.map((item, key) => (
                 <FloatingWidgetDropdownItemWrapper key={key}>
-                  {item.type}
-                  <FontAwesomeIcon icon={["fal", item.icon]} />
+                  <div className={'text'}>
+                    {item.type}
+                  </div>
+                  <div className={'icon'}>
+                    <FontAwesomeIcon icon={["fal", item.icon]} />
+                  </div>
                 </FloatingWidgetDropdownItemWrapper>
               ))}
             </FloatingWidgetDropdownWrapper>
