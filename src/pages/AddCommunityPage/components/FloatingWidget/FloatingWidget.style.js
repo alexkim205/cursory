@@ -35,36 +35,18 @@ export const FloatingWidgetDropdownWrapper = posed(styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: left;
-  top: 55px;
+  top: 53px;
   padding: 2em 1em;
-  left: 0;
   align-items: center;
-  width: 430px;
   background-color: ${theme.colors.dark};
   transform-origin: center top;
   transform-style: preserve-3d;
   border-radius: 5px;
   box-shadow: ${theme.shadows.intense};
-  // padding: 1em 0;
-  // height: 190px;
+  padding: 1em 0;
   z-index: 1000;
-
-  // &:after {
-  //   bottom: 100%;
-  //   left: 10%;
-  //   border: solid transparent;
-  //   content: " ";
-  //   height: 0;
-  //   width: 0;
-  //   position: absolute;
-  //   pointer-events: none;
-  //   border-color: rgba(136, 183, 213, 0);
-  //   border-bottom-color: #242e49;
-  //   border-width: 15px;
-  //   margin-left: -15px;
-  // }
 `)({
-  enter: {
+  open: {
     opacity: 1,
     rotateX: 0,
     delayChildren: 10,
@@ -74,17 +56,27 @@ export const FloatingWidgetDropdownWrapper = posed(styled.div`
       rotateX: { duration: 200 },
     },
   },
-  exit: {
+  closed: {
     opacity: 0,
     rotateX: -30,
     delayChildren: 50,
     staggerChildren: 10,
     transition: {
-      opacity: { duration: 100 },
+      opacity: { duration: 200 },
       rotateX: { duration: 200 },
     },
   },
 });
+
+export const AddableDropdownWrapper = styled(FloatingWidgetDropdownWrapper)`
+    width: 430px;
+    left: 0;
+`;
+
+export const SettingsDropdownWrapper = styled(FloatingWidgetDropdownWrapper)`
+    width: 100%;
+    left: 0;
+`;
 
 export const FloatingWidgetDropdownItemWrapper = posed(styled.div`
   display: flex;
@@ -95,15 +87,15 @@ export const FloatingWidgetDropdownItemWrapper = posed(styled.div`
   color: white;
   justify-content: space-between;
   width: 50%;
+  cursor: pointer;
   
   .text {}
   .icon {}
 
-  a {
-    cursor: pointer;
-    color: white;
-  }
 `)({
+  hoverable: true,
+  init: { scale: 1 },
+  hover: { scale: 1.1 },
   enter: {
     x: 0,
     opacity: 1,
@@ -113,3 +105,12 @@ export const FloatingWidgetDropdownItemWrapper = posed(styled.div`
     opacity: 0,
   },
 });
+
+export const AddableDropdownItemWrapper = styled(FloatingWidgetDropdownItemWrapper)`
+  width: 50%;
+`
+
+
+export const SettingsDropdownItemWrapper = styled(FloatingWidgetDropdownItemWrapper)`
+  width: 100%;
+`
