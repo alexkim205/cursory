@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-elements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/addable-elements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/setting-elements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/setting-elements.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,13 +14,46 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1037560167">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="8" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2025">
-              <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
+            <state relative-caret-position="915">
+              <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="54" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -31,36 +62,39 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.style.js">
+        <entry file="file://$PROJECT_DIR$/src/components/Navigation/styles/ProfileBar.style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3555">
-              <caret line="239" column="10" selection-start-line="239" selection-start-column="5" selection-end-line="239" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="510">
+              <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/addable-elements.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="36" lean-forward="true" selection-end-line="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/setting-elements.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
+            <state relative-caret-position="228">
+              <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="109" column="11" selection-start-line="109" selection-start-column="11" selection-end-line="109" selection-end-column="11" />
+            <state relative-caret-position="1380">
+              <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -79,42 +113,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/addable-elements.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/index.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="92" column="13" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+            <state relative-caret-position="180">
+              <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_styles/theme.js">
+        <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.style.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_styles/_colors.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+            <state relative-caret-position="1650">
+              <caret line="112" column="12" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -191,7 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/draggable-components.tsx" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Background.tsx" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/GenericComponent.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.tsx" />
@@ -242,14 +261,29 @@
         <option value="$PROJECT_DIR$/src/components/Navigation/styles/ProfileBar.style.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.style.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/setting-elements.js" />
       </list>
     </option>
   </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="317" />
@@ -267,65 +301,71 @@
         <subPane>
           <expand>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_config" type="462c0819:PsiDirectoryNode" />
+              <item name="_styles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Forms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AccountPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
               <item name="addable-components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
@@ -333,13 +373,28 @@
               <item name="FloatingWidget" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Sidebar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+              <item name="draggable-droppable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="EditorPage" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -458,7 +513,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Development" type="js.build_tools.npm">
+    <configuration name="Development" type="js.build_tools.npm" factoryName="npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
       <node-interpreter value="project" />
@@ -513,7 +568,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="466463000" />
+    <option name="totallyTimeSpent" value="466569000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -525,10 +580,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="317" y="23" width="1363" height="958" extended-state="0" />
+    <frame x="716" y="23" width="1204" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28688523" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26204565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -542,7 +597,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.31194472" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.26789838" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.26820275" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3299539" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -556,14 +611,10 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Navigation/styles/Navigation.style.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -717,9 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2490">
           <caret line="184" column="35" selection-start-line="184" selection-start-column="35" selection-end-line="184" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,9 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1845">
           <caret line="127" column="13" selection-start-line="127" selection-start-column="13" selection-end-line="127" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -744,9 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
           <caret line="101" column="12" selection-start-line="101" selection-start-column="12" selection-end-line="101" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#278#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -775,9 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
           <caret line="307" column="68" lean-forward="true" selection-start-line="307" selection-start-column="12" selection-end-line="307" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -799,28 +838,28 @@
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="180">
           <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Navigation/styles/ProfileBar.style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="41" column="11" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+        <state relative-caret-position="510">
+          <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        <state relative-caret-position="915">
+          <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -828,9 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1365">
           <caret line="109" column="51" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -838,26 +874,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2025">
           <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Forms/Form.style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3555">
-          <caret line="239" column="10" selection-start-line="239" selection-start-column="5" selection-end-line="239" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="92" column="13" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+        <state relative-caret-position="1650">
+          <caret line="112" column="12" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -886,14 +909,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/addable-elements.js">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -904,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.style.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="109" column="11" selection-start-line="109" selection-start-column="11" selection-end-line="109" selection-end-column="11" />
+        <state relative-caret-position="1380">
+          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -914,11 +931,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
+        <state relative-caret-position="630">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/addable-elements.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="36" lean-forward="true" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/setting-elements.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
         </state>
       </provider>
     </entry>
