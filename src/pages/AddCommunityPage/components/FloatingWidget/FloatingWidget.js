@@ -15,7 +15,7 @@ import {
   SettingsDropdownItemWrapper,
 } from './FloatingWidget.style';
 import {elements} from '../../addable-components/addable-elements';
-import {handleItemAddClick} from '../../BuilderLayout/addElementMethod';
+import {handleItemAddClick} from '../../BuilderLayout/actions/addElementMethod';
 /*
  * Add
  * Background/Page

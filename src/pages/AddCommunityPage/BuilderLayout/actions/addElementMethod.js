@@ -15,15 +15,20 @@
  *
  */
 
-import {componentTypes} from '../constants/component-types';
+import {componentTypes} from '../../constants/component-types';
+import {fromJS} from 'immutable';
+import {idToPath} from '../../helpers/index';
 
 // https://stackoverflow.com/questions/45517254/react-binding-this-to-an-imported-function
 export function handleItemAddClick(e, clickedItem) {
-  const {activeComponent, sidebarIsOpen} = this.state;
-
+  e.stopPropagation();
+  const {activeComponent, sidebarIsOpen, builderState} = this.state;
   const selectedType = sidebarIsOpen ? activeComponent.type : null;
 
-  console.log("clicked item", clickedItem, "with selected component", selectedType);
+  let componentState = fromJS(JSON.parse(JSON.stringify(builderState)));
+
+  console.log('clicked item', clickedItem, 'with selected component',
+      selectedType);
 
   switch (selectedType) {
     case componentTypes.GENERIC:
@@ -33,6 +38,6 @@ export function handleItemAddClick(e, clickedItem) {
     case componentTypes.PAGE:
     case componentTypes.BACKGROUND:
     default: // null
-      console.log("Append to the last object in the page.")
+      console.log('Append to the last object in the page.');
   }
 }
