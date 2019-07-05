@@ -7,7 +7,7 @@ import {
   GenericClass,
   PageClass,
 } from './addable-components';
-import {ContentBuildComponent, History} from './components';
+import {ContentBuildComponent, History, FloatingWidget} from './components';
 import {componentFields, componentTypes} from './constants/component-types';
 import HTML5Backend from 'react-dnd-html5-backend';
 
@@ -67,8 +67,6 @@ class BuilderLayout extends React.Component {
     this.isRedoKey = isKeyHotkey('mod+shift+z');
   }
 
-  initSession = () => {};
-
   state = {
     builderState: initialState,
     history: new History(15, initialState),
@@ -94,10 +92,10 @@ class BuilderLayout extends React.Component {
       activeFields,
       sidebarIsOpen,
     } = this.state;
-    console.log('RELOADED STATE');
 
     return (
         <React.Fragment>
+          <FloatingWidget activeComponent={activeComponent}/>
           <ContentBuildComponent
               builderState={builderState}
               move={this.move}

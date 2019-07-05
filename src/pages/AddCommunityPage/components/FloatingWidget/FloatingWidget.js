@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {PoseGroup} from 'react-pose';
 import onClickOutside from 'react-onclickoutside';
@@ -14,7 +15,7 @@ import {
   SettingsDropdownItemWrapper,
 } from './FloatingWidget.style';
 import {elements} from '../../addable-components/addable-elements';
-import {Spacer} from '../../../../components/Navigation/styles/ProfileBar.style';
+import {handleItemAddClick} from './addElementMethod';
 /*
  * Add
  * Background/Page
@@ -29,6 +30,17 @@ connectedItemWrapper.handleClickOutside = () => {
 };
 
 class FloatingWidget extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleItemAddClick = handleItemAddClick.bind(this);
+  }
+
+  static propTypes = {
+    activeComponent: PropTypes.object,
+  };
+  static defaultProps = {
+    activeComponent: null,
+  };
   state = {
     addableDropdownIsActive: false,
     settingsDropdownIsActive: false,
@@ -61,14 +73,16 @@ class FloatingWidget extends React.Component {
           <FloatingWidgetItemWrapper onClick={this.toggleAddableDropdown}>
             <FontAwesomeIcon icon={['fal', 'plus']}/>
           </FloatingWidgetItemWrapper>
-          <AddableDropdownWrapper key={'dropdown'}
+          <AddableDropdownWrapper key={'dropdown-add'}
                                   pose={addableDropdownIsActive ?
                                       'open' :
                                       'closed'}>
             <PoseGroup>
               {/*<Spacer />*/}
               {elements.map((item, key) => (
-                  <AddableDropdownItemWrapper key={key}>
+                  <AddableDropdownItemWrapper
+                      key={key}
+                      onClick={(e) => this.handleItemAddClick(e, item)}>
                     <div className={'text'}>
                       {item.type}
                     </div>
@@ -85,7 +99,7 @@ class FloatingWidget extends React.Component {
           <FloatingWidgetItemWrapper onClick={this.toggleSettingsDropdown}>
             <FontAwesomeIcon icon={['fal', 'bars']}/>
           </FloatingWidgetItemWrapper>
-          <SettingsDropdownWrapper key={'dropdown'}
+          <SettingsDropdownWrapper key={'dropdown-settings'}
                                    pose={settingsDropdownIsActive ?
                                        'open' :
                                        'closed'}>
