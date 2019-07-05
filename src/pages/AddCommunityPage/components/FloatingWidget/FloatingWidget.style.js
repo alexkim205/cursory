@@ -31,7 +31,6 @@ export const FloatingWidgetItemWrapper = posed(styled.div`
 
 export const FloatingWidgetDropdownWrapper = posed(styled.div`
   position: absolute;
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: left;
@@ -47,6 +46,7 @@ export const FloatingWidgetDropdownWrapper = posed(styled.div`
   z-index: 1000;
 `)({
   open: {
+    applyAtStart: { display: 'flex' },
     opacity: 1,
     rotateX: 0,
     delayChildren: 10,
@@ -57,6 +57,7 @@ export const FloatingWidgetDropdownWrapper = posed(styled.div`
     },
   },
   closed: {
+    applyAtEnd: { display: 'none' },
     opacity: 0,
     rotateX: -30,
     delayChildren: 50,
