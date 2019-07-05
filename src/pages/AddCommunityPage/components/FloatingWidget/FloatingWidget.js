@@ -15,7 +15,7 @@ import {
   SettingsDropdownItemWrapper,
 } from './FloatingWidget.style';
 import {elements} from '../../addable-components/addable-elements';
-import {handleItemAddClick} from './addElementMethod';
+import {handleItemAddClick} from '../../BuilderLayout/addElementMethod';
 /*
  * Add
  * Background/Page
@@ -30,16 +30,9 @@ connectedItemWrapper.handleClickOutside = () => {
 };
 
 class FloatingWidget extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleItemAddClick = handleItemAddClick.bind(this);
-  }
 
   static propTypes = {
-    activeComponent: PropTypes.object,
-  };
-  static defaultProps = {
-    activeComponent: null,
+    handleItemAddClick: PropTypes.func.isRequired,
   };
   state = {
     addableDropdownIsActive: false,
@@ -67,6 +60,7 @@ class FloatingWidget extends React.Component {
 
   render() {
     const {addableDropdownIsActive, settingsDropdownIsActive} = this.state;
+    const {handleItemAddClick} = this.props;
 
     return (
         <FloatingWidgetWrapper>
@@ -82,7 +76,7 @@ class FloatingWidget extends React.Component {
               {elements.map((item, key) => (
                   <AddableDropdownItemWrapper
                       key={key}
-                      onClick={(e) => this.handleItemAddClick(e, item)}>
+                      onClick={(e) => handleItemAddClick(e, item)}>
                     <div className={'text'}>
                       {item.type}
                     </div>

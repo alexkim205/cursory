@@ -6,17 +6,18 @@ import {
   ContainerItemClass,
   GenericClass,
   PageClass,
-} from './addable-components';
-import {ContentBuildComponent, History, FloatingWidget} from './components';
-import {componentFields, componentTypes} from './constants/component-types';
+} from '../addable-components/index';
+import {ContentBuildComponent, History, FloatingWidget} from '../components/index';
+import {componentFields, componentTypes} from '../constants/component-types';
 import HTML5Backend from 'react-dnd-html5-backend';
 
 import {DragDropContext} from 'react-dnd';
-import {BorderHighlight} from './constants/style-enums';
-import {Log} from '../../_helpers';
-import {idToPath, pathToId} from './helpers';
+import {BorderHighlight} from '../constants/style-enums';
+import {Log} from '../../../_helpers/index';
+import {idToPath, pathToId} from '../helpers/index';
 import {isKeyHotkey} from 'is-hotkey';
-import {Sidebar} from './components/Sidebar/Sidebar';
+import {Sidebar} from '../components/Sidebar/Sidebar';
+import {handleItemAddClick} from './addElementMethod';
 
 /*
  * Every state will have a `background {page { ... } }`
@@ -65,6 +66,7 @@ class BuilderLayout extends React.Component {
     super(props);
     this.isUndoKey = isKeyHotkey('mod+z');
     this.isRedoKey = isKeyHotkey('mod+shift+z');
+    this.handleItemAddClick = handleItemAddClick.bind(this);
   }
 
   state = {
@@ -95,7 +97,9 @@ class BuilderLayout extends React.Component {
 
     return (
         <React.Fragment>
-          <FloatingWidget activeComponent={activeComponent}/>
+          <FloatingWidget
+              handleItemAddClick={this.handleItemAddClick}
+              activeComponent={sidebarIsOpen ? activeComponent : null}/>
           <ContentBuildComponent
               builderState={builderState}
               move={this.move}

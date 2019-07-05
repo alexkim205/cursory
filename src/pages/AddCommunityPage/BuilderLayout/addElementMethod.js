@@ -15,9 +15,24 @@
  *
  */
 
+import {componentTypes} from '../constants/component-types';
+
 // https://stackoverflow.com/questions/45517254/react-binding-this-to-an-imported-function
 export function handleItemAddClick(e, clickedItem) {
-  const {activeComponent} = this.props;
+  const {activeComponent, sidebarIsOpen} = this.state;
 
-  console.log("clicked item", clickedItem, "with selected component", activeComponent);
+  const selectedType = sidebarIsOpen ? activeComponent.type : null;
+
+  console.log("clicked item", clickedItem, "with selected component", selectedType);
+
+  switch (selectedType) {
+    case componentTypes.GENERIC:
+    case componentTypes.CONTAINER_ITEM:
+    case componentTypes.CONTAINER:
+
+    case componentTypes.PAGE:
+    case componentTypes.BACKGROUND:
+    default: // null
+      console.log("Append to the last object in the page.")
+  }
 }
