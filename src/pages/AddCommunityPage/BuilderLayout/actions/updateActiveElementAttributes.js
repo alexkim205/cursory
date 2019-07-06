@@ -2,7 +2,7 @@ import {idToPath} from '../../helpers';
 
 // Update component attributes
 
-export const updateAttributes = (e, componentId, attrName, attrValue) => {
+export function updateAttributes(e, componentId, attrName, attrValue) {
   e.stopPropagation();
   let {builderState} = this.state;
 

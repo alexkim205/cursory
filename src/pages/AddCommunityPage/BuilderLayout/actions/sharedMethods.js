@@ -1,5 +1,5 @@
 import {fromJS} from 'immutable';
 
-export const jsonifyState = (builderState) => {
+export function jsonify(builderState) {
   return fromJS(JSON.parse(JSON.stringify(builderState)));
 };

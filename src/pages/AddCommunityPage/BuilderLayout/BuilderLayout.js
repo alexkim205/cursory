@@ -12,13 +12,8 @@ import {
   History,
   FloatingWidget,
 } from '../components/index';
-import {componentFields, componentTypes} from '../constants/component-types';
 import HTML5Backend from 'react-dnd-html5-backend';
-
 import {DragDropContext} from 'react-dnd';
-import {BorderHighlight} from '../constants/style-enums';
-import {Log} from '../../../_helpers/index';
-import {idToPath, pathToId} from '../helpers/index';
 import {isKeyHotkey} from 'is-hotkey';
 import {Sidebar} from '../components/Sidebar/Sidebar';
 import {
