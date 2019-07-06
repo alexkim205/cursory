@@ -11,11 +11,6 @@ import {
   FormFieldColor,
 } from "../../../../components/Forms";
 import { SidebarWrapper } from "./Sidebar.style";
-import {
-  componentNames,
-  componentTypes,
-} from "../../constants/component-types";
-import { ROUTES } from "../../../../_constants";
 import { FieldTypes } from "../Fields";
 
 class Sidebar extends React.Component {

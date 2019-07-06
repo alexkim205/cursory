@@ -11,9 +11,6 @@ export function move (oldId, oldType, newId, newType, targetSide) {
 
   // Find index arrays to get to source
   // page -> 0 -> 0 -> 1 -> ...
-  // let componentState = fromJS(
-  //     JSON.parse(JSON.stringify(this.state.builderState)),
-  // );
 
   let sourcePath = idToPath(oldId);
   let targetPath = idToPath(newId);
@@ -47,7 +44,7 @@ export function move (oldId, oldType, newId, newType, targetSide) {
   const smartDeleteCurrent = () => {
     // If source container is before target, delete current as normal. However
     // if source is after target, there is a +1 offset where the old source
-    // must be deleted. This phenomena only happens when moving around
+    // must be deleted. This phenomena only happens when moving around elements
     // that are in the same level.
     let pathToErase = sourcePath.slice();
     if (

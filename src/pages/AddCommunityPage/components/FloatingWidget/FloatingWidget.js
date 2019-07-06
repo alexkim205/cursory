@@ -14,6 +14,7 @@ import {
   AddableDropdownItemWrapper,
   SettingsDropdownItemWrapper,
 } from './FloatingWidget.style';
+import {componentTypes} from '../../constants/component-types';
 import {addableElements} from './addable-elements';
 import {settingElements} from './setting-elements';
 
@@ -79,7 +80,7 @@ class FloatingWidget extends React.Component {
                       key={key}
                       onClick={(e) => handleItemAddClick(e, item)}>
                     <div className={'text'}>
-                      {item.type}
+                      {item.name}
                     </div>
                     <div className={'icon'}>
                       <FontAwesomeIcon icon={['fal', item.icon]}/>
