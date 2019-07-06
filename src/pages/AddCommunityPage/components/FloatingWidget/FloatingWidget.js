@@ -14,8 +14,9 @@ import {
   AddableDropdownItemWrapper,
   SettingsDropdownItemWrapper,
 } from './FloatingWidget.style';
-import {elements} from '../../addable-components/addable-elements';
-import {handleItemAddClick} from '../../BuilderLayout/actions/addElementMethod';
+import {addableElements} from './addable-elements';
+import {settingElements} from './setting-elements';
+
 /*
  * Add
  * Background/Page
@@ -73,7 +74,7 @@ class FloatingWidget extends React.Component {
                                       'closed'}>
             <PoseGroup>
               {/*<Spacer />*/}
-              {elements.map((item, key) => (
+              {addableElements.map((item, key) => (
                   <AddableDropdownItemWrapper
                       key={key}
                       onClick={(e) => handleItemAddClick(e, item)}>
@@ -99,7 +100,7 @@ class FloatingWidget extends React.Component {
                                        'closed'}>
             <PoseGroup>
               {/*<Spacer />*/}
-              {elements.map((item, key) => (
+              {settingElements.map((item, key) => (
                   <SettingsDropdownItemWrapper key={key}>
                     <div className={'text'}>
                       {item.type}

@@ -1,4 +1,4 @@
-export const elements = [
+export const addableElements = [
   { type: "feed", icon: "rss", description: "Show selected list of posts" },
   {
     type: "statistics",
