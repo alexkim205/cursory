@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {PoseGroup} from 'react-pose';
 import onClickOutside from 'react-onclickoutside';
@@ -13,8 +14,10 @@ import {
   AddableDropdownItemWrapper,
   SettingsDropdownItemWrapper,
 } from './FloatingWidget.style';
-import {elements} from '../../addable-components/addable-elements';
-import {Spacer} from '../../../../components/Navigation/styles/ProfileBar.style';
+import {componentTypes} from '../../constants/component-types';
+import {addableElements} from './addable-elements';
+import {settingElements} from './setting-elements';
+
 /*
  * Add
  * Background/Page
@@ -29,6 +32,10 @@ connectedItemWrapper.handleClickOutside = () => {
 };
 
 class FloatingWidget extends React.Component {
+
+  static propTypes = {
+    handleItemAddClick: PropTypes.func.isRequired,
+  };
   state = {
     addableDropdownIsActive: false,
     settingsDropdownIsActive: false,
@@ -55,22 +62,25 @@ class FloatingWidget extends React.Component {
 
   render() {
     const {addableDropdownIsActive, settingsDropdownIsActive} = this.state;
+    const {handleItemAddClick} = this.props;
 
     return (
         <FloatingWidgetWrapper>
           <FloatingWidgetItemWrapper onClick={this.toggleAddableDropdown}>
             <FontAwesomeIcon icon={['fal', 'plus']}/>
           </FloatingWidgetItemWrapper>
-          <AddableDropdownWrapper key={'dropdown'}
+          <AddableDropdownWrapper key={'dropdown-add'}
                                   pose={addableDropdownIsActive ?
                                       'open' :
                                       'closed'}>
             <PoseGroup>
               {/*<Spacer />*/}
-              {elements.map((item, key) => (
-                  <AddableDropdownItemWrapper key={key}>
+              {addableElements.map((item, key) => (
+                  <AddableDropdownItemWrapper
+                      key={key}
+                      onClick={(e) => handleItemAddClick(e, item)}>
                     <div className={'text'}>
-                      {item.type}
+                      {item.name}
                     </div>
                     <div className={'icon'}>
                       <FontAwesomeIcon icon={['fal', item.icon]}/>
@@ -85,13 +95,13 @@ class FloatingWidget extends React.Component {
           <FloatingWidgetItemWrapper onClick={this.toggleSettingsDropdown}>
             <FontAwesomeIcon icon={['fal', 'bars']}/>
           </FloatingWidgetItemWrapper>
-          <SettingsDropdownWrapper key={'dropdown'}
+          <SettingsDropdownWrapper key={'dropdown-settings'}
                                    pose={settingsDropdownIsActive ?
                                        'open' :
                                        'closed'}>
             <PoseGroup>
               {/*<Spacer />*/}
-              {elements.map((item, key) => (
+              {settingElements.map((item, key) => (
                   <SettingsDropdownItemWrapper key={key}>
                     <div className={'text'}>
                       {item.type}

@@ -11,6 +11,7 @@ export const FloatingWidgetWrapper = posed(styled.div`
   top: 20px;
   padding: 0 1em;
   border-radius: 5px;
+  z-index: 100;
 `)({
 });
 

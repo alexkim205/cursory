@@ -14,11 +14,11 @@ const FormFieldHOC = Component =>
       static propTypes = {
         label: PropTypes.string,
         name: PropTypes.string,
-        value: PropTypes.string,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         onChange: PropTypes.func.isRequired,
         type: PropTypes.string,
         placeholder: PropTypes.string,
-        buttons: PropTypes.element
+        buttons: PropTypes.element,
       };
 
       static defaultProps = {
@@ -47,12 +47,12 @@ const FormFieldHOC = Component =>
               {/*<label htmlFor={value}>{label}</label>*/}
               <div className={'field'}>
                 <Component
-                  name={name}
-                  value={value}
-                  onChange={onChange}
-                  type={type}
-                  placeholder={placeholder}
-                  {...otherProps}
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    type={type}
+                    placeholder={placeholder}
+                    {...otherProps}
                 />
                 <div className={'buttons'}>
                   {buttons}
@@ -64,64 +64,64 @@ const FormFieldHOC = Component =>
     };
 
 const FormFieldColumnItemHOC = Component =>
-  class FormField extends React.Component {
-    static propTypes = {
-      label: PropTypes.string,
-      name: PropTypes.string,
-      value: PropTypes.string,
-      onChange: PropTypes.func.isRequired,
-      type: PropTypes.string,
-      placeholder: PropTypes.string,
-      buttons: PropTypes.element
+    class FormField extends React.Component {
+      static propTypes = {
+        label: PropTypes.string,
+        name: PropTypes.string,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        onChange: PropTypes.func.isRequired,
+        type: PropTypes.string,
+        placeholder: PropTypes.string,
+        buttons: PropTypes.element,
+      };
+
+      static defaultProps = {
+        label: '',
+        name: '',
+        value: '',
+        type: 'text',
+        placeholder: '',
+        buttons: null,
+      };
+
+      render() {
+        const {
+          label,
+          value,
+          name,
+          onChange,
+          type,
+          placeholder,
+          buttons,
+          ...otherProps
+        } = this.props;
+
+        return (
+            <FormFieldColumnItemWrapper>
+              <label htmlFor={value}>{label}</label>
+              <div className={'field'}>
+                <Component
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    type={type}
+                    placeholder={placeholder}
+                    {...otherProps}
+                />
+                <div className={'buttons'}>
+                  {buttons}
+                </div>
+              </div>
+            </FormFieldColumnItemWrapper>
+        );
+      }
     };
-
-    static defaultProps = {
-      label: '',
-      name: '',
-      value: '',
-      type: 'text',
-      placeholder: '',
-      buttons: null,
-    };
-
-    render() {
-      const {
-        label,
-        value,
-        name,
-        onChange,
-        type,
-        placeholder,
-        buttons,
-        ...otherProps
-      } = this.props;
-
-      return (
-        <FormFieldColumnItemWrapper>
-          <label htmlFor={value}>{label}</label>
-          <div className={'field'}>
-            <Component
-              name={name}
-              value={value}
-              onChange={onChange}
-              type={type}
-              placeholder={placeholder}
-              {...otherProps}
-            />
-            <div className={'buttons'}>
-              {buttons}
-            </div>
-          </div>
-        </FormFieldColumnItemWrapper>
-      );
-    }
-  };
 
 export const FormFieldText = FormFieldHOC(props => (
-  <FormFieldTextInput {...props} />
+    <FormFieldTextInput {...props} />
 ));
 export const FormFieldWidthText = FormFieldColumnItemHOC(props => (
-  <FormFieldTextInput {...props} />
+    <FormFieldTextInput {...props} />
 ));
 export const FormFieldSlider = FormFieldHOC(props => (
     <React.Fragment>

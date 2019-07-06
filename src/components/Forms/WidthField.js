@@ -34,7 +34,7 @@ const AddButtonWrapper = styled.div`
   }
 `;
 
-const sizeDescriptions = ["1st","2nd","3rd","4th"]
+const sizeDescriptions = ['1st', '2nd', '3rd', '4th'];
 
 // TODO: Generalize class into properties other than width
 export class FormFieldCollapsibleWidth extends React.Component {
@@ -248,7 +248,9 @@ export class FormFieldCollapsibleWidth extends React.Component {
                         onClick={() =>
                             this.setState({
                               active: active === i ? false : i,
-                              width: wasTakenFromProps ? entry.width : this.state.width,
+                              width: wasTakenFromProps
+                                  ? entry.width
+                                  : this.state.width,
                             })
                         }
                     >
@@ -256,7 +258,9 @@ export class FormFieldCollapsibleWidth extends React.Component {
                         <strong>{sizeDescriptions[i]}</strong>
                       </div>
                       <div className={'description'}>
-                        {`${wasTakenFromProps ? entry.width : this.state.width}%`}
+                        {`${wasTakenFromProps
+                            ? entry.width
+                            : this.state.width}%`}
                       </div>
                       <button onClick={e => this.onRemoveChild(e, i)}>
                         <FontAwesomeIcon icon={['far', 'trash']}/>
@@ -269,24 +273,22 @@ export class FormFieldCollapsibleWidth extends React.Component {
                     >
                       <div className={'row'}>
                         <div className={'width'}>
-                          <form onSubmit={e => this.onEditChild(e,
-                              this.state.width, i)}>
-                            <FormFieldWidthText
-                                className={'entry-content'}
-                                label={'Width'}
-                                name={'width'}
-                                value={this.state.width}
-                                onChange={e => this.onChange(e)}
-                                type="text"
-                                buttons={
-                                  <React.Fragment>
-                                    <button type="submit">
-                                      <FontAwesomeIcon icon={['far', 'check']}/>
-                                    </button>
-                                  </React.Fragment>
-                                }
-                            />
-                          </form>
+                          <FormFieldWidthText
+                              className={'entry-content'}
+                              label={'Width'}
+                              name={'width'}
+                              value={this.state.width}
+                              onChange={e => this.onChange(e)}
+                              type="text"
+                              buttons={
+                                <React.Fragment>
+                                  <button onClick={e => this.onEditChild(e,
+                                      this.state.width, i)}>
+                                    <FontAwesomeIcon icon={['far', 'check']}/>
+                                  </button>
+                                </React.Fragment>
+                              }
+                          />
                         </div>
                       </div>
                     </CollapsibleEntry>

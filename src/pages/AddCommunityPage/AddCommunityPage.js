@@ -33,7 +33,6 @@ class AddCommunityPage extends React.Component {
     return (
       <FullWrapper>
         <BuilderLayout />
-        <FloatingWidget/>
       </FullWrapper>
     );
   }
