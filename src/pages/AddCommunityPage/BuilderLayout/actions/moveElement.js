@@ -5,7 +5,7 @@ import {Log} from '../../../../_helpers';
 import {fromJS} from 'immutable';
 import {ContainerClass, ContainerItemClass} from '../../addable-components';
 
-export function move (oldId, oldType, newId, newType, targetSide) {
+export function move(oldId, oldType, newId, newType, targetSide) {
   // console.log(oldId, oldType, newId, newType, targetSide);
   let {builderState} = this.state;
 
@@ -254,6 +254,7 @@ export function move (oldId, oldType, newId, newType, targetSide) {
     update(builderState);
   }
   /* CONTAINER to CONTAINER-ITEM */ // Undefined Behavior // t: get all children, then insert children before target // r: get all children, then insert children after target // b: get all children, then insert children after target // l: get all children, then insert children before target // i: insert entire container to end of target's children
+
 
   /* CONTAINER to GENERIC */
   if (oldisContainer && newisContainerI) {
