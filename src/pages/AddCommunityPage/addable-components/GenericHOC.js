@@ -80,7 +80,7 @@ export const GenericHOC = Component => {
     };
 
     shouldComponentUpdate(nextProps, nextState) {
-      
+
       return (
         this.state.borderHighlight !== nextState.borderHighlight ||
         this.props.isOver !== nextProps.isOver ||
