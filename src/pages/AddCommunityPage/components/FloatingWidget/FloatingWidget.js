@@ -14,6 +14,7 @@ import {
   SettingsDropdownItemWrapper,
 } from './FloatingWidget.style';
 import {elements} from '../../addable-components/addable-elements';
+import {settings} from '../../addable-components/setting-elements';
 import {Spacer} from '../../../../components/Navigation/styles/ProfileBar.style';
 /*
  * Add
@@ -52,6 +53,9 @@ class FloatingWidget extends React.Component {
       settingsDropdownIsActive: false,
     }));
   };
+  addElement = e => {
+
+  }
 
   render() {
     const {addableDropdownIsActive, settingsDropdownIsActive} = this.state;
@@ -91,8 +95,8 @@ class FloatingWidget extends React.Component {
                                        'closed'}>
             <PoseGroup>
               {/*<Spacer />*/}
-              {elements.map((item, key) => (
-                  <SettingsDropdownItemWrapper key={key}>
+              {settings.map((item, key) => (
+                  <SettingsDropdownItemWrapper key={key} onClick={}>
                     <div className={'text'}>
                       {item.type}
                     </div>

@@ -44,6 +44,7 @@ import {
 import {
   // faPenNib,
   // faPalette,
+  // Addables Dropdown
   faQuestionCircle,
   faPlusHexagon,
   faPlusCircle,
@@ -66,6 +67,10 @@ import {
   faCode as falCode, //Embed
   faSearch, // Search Bar
   faGripLines, // Divider
+  // Settings Dropdown
+  faSave, // Save and Publish
+  faUndo, // Start Over
+  faArrowFromRight, // Exit to Dashboard
 } from '@fortawesome/pro-light-svg-icons';
 
 export const loadFonts = () => {
@@ -130,5 +135,8 @@ export const loadFonts = () => {
       falCode, //Embed
       faSearch, // Search Bar
       faGripLines, // Divider
+      faSave, // Save and Publish
+      faUndo, // Start Over
+      faArrowFromRight, // Exit to Dashboard
   );
 };

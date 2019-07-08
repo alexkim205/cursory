@@ -67,7 +67,8 @@ class BuilderLayout extends React.Component {
     this.isRedoKey = isKeyHotkey('mod+shift+z');
   }
 
-  initSession = () => {};
+  initSession = () => {
+  };
 
   state = {
     builderState: initialState,
