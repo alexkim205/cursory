@@ -39,7 +39,7 @@ const sizeDescriptions = ['1st', '2nd', '3rd', '4th'];
 // TODO: Generalize class into properties other than width
 export class FormFieldCollapsibleWidth extends React.Component {
   static propTypes = {
-    childComponents: PropTypes.array.isRequired,
+    childComponents: PropTypes.object.isRequired,
     onChildrenChange: PropTypes.func.isRequired,
   };
   state = {
@@ -47,7 +47,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
     width: 25,
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (
         JSON.stringify(nextProps.childComponents) !==
         JSON.stringify(this.props.childComponents)
@@ -73,97 +73,156 @@ export class FormFieldCollapsibleWidth extends React.Component {
     if (size > 4) throw 'Too many columns!';
 
     const maxWidth = columnWidthDescriptor.bounds[1];
-    const smallestWidth = Math.floor(maxWidth / 4);
-    let widthSoFar = 0;
-    let widths = [];
+    const smallestWidth = columnWidthDescriptor.bounds[0];
+    console.log('before entries', entries.toJS());
 
-    // Is there a better way to do this in Immutable without two passes?
-    // add up all widths first
-    for (let j = 0; j < size; j++) {
-      const entryWidthJ = entries.getIn([j, 'width']);
-      widths.push(entryWidthJ);
-      widthSoFar += entryWidthJ;
-    }
+    if (size === 1) {
+      entries = entries.setIn([0, 'width'], 100);
 
-    if (indexOfImmutableColumn) {
-      // when adding column, editing column
-      if (
-          (size - 1) * smallestWidth + widths[indexOfImmutableColumn] >
-          maxWidth
-      ) {
-        // if all other columns are 25, can the specified width still exist?
-        // i.e. [25, 40, 80], index = 2; should be set to [25, 25, 50]
-        widths = widths.map((v, i) =>
-            i === indexOfImmutableColumn
-                ? maxWidth - smallestWidth * (size - 1)
-                : smallestWidth,
-        );
+    } else if (size === 2) {
+      const firstWidth = entries.getIn([0, 'width']);
+      const secondWidth = entries.getIn([1, 'width']);
+
+      if (indexOfImmutableColumn === 0) {
+        entries = entries.setIn([1, 'width'], maxWidth - firstWidth);
+      } else if (indexOfImmutableColumn === 1) {
+        entries = entries.setIn([0, 'width'], maxWidth - secondWidth);
       } else {
-        if (widths[indexOfImmutableColumn] > smallestWidth) {
-          // i.e. [25, 30, 40], index = 2; should be set to [25*60/55, 40*60/55, 40]
-          const newOtherTotalWidths = maxWidth - widths[indexOfImmutableColumn];
-          const oldOtherTotalWidths =
-              widthSoFar - widths[indexOfImmutableColumn];
-          widths = widths.map((v, i) =>
-              i === indexOfImmutableColumn
-                  ? v
-                  : Math.floor((v * newOtherTotalWidths) / oldOtherTotalWidths),
-          );
-        } else {
-          if (size === 1) {
-            widths = [100];
-          } else if (size === 2) {
-            // i.e. [25, 15], index = 1; should be set to [75, 25]
-            widths = widths.map((v, i) =>
-                i === indexOfImmutableColumn
-                    ? smallestWidth
-                    : maxWidth - smallestWidth,
-            );
-          } else if (size === 3) {
-            const newOtherTotalWidths = maxWidth - smallestWidth;
-            const oldOtherTotalWidths =
-                widthSoFar - widths[indexOfImmutableColumn];
-            // i.e. [25, 30, 15], index = 2; should be set to []
-            if (oldOtherTotalWidths > newOtherTotalWidths) {
-              // i.e. [42, 43, 15], index = 2; should be set to []
-              // i.e. [25, 60, 15], index = 2; should be set to []
-              widths = widths.map((v, i) =>
-                  i === indexOfImmutableColumn
-                      ? smallestWidth
-                      : Math.floor(this.boundWidthValue(
-                      (v * newOtherTotalWidths) / oldOtherTotalWidths,
-                      )),
-              );
-              if (widths.reduce((a, b) => a + b, 0) > maxWidth) {
-                widths = widths.map((v, i) =>
-                    v !== smallestWidth ? smallestWidth * 2 : v,
-                );
-              }
-            } else {
-              // i.e. [25, 30, 15], index = 2; should be set to [25*75/55, 30*75/55, 25]
-              widths = widths.map((v, i) =>
-                  i === indexOfImmutableColumn ?
-                      v
-                      :
-                      Math.floor(
-                          (v * newOtherTotalWidths) / oldOtherTotalWidths));
-            }
-          } else if (size === 4) {
-            widths = [25, 25, 25, 25];
-          }
-        }
+        // remove column from 3 -> 2
+        entries = entries.setIn([0, 'width'], 50);
+        entries = entries.setIn([1, 'width'], 50);
       }
+
+    } else if (size === 3) {
+      const firstWidth = entries.getIn([0, 'width']);
+      const secondWidth = entries.getIn([1, 'width']);
+      const thirdWidth = entries.getIn([2, 'width']);
+
+      if (indexOfImmutableColumn === 0) {
+        const otherWidths = (maxWidth - firstWidth);//2
+        entries = entries.setIn([1, 'width'], otherWidths);
+        entries = entries.setIn([2, 'width'], otherWidths);
+      } else if (indexOfImmutableColumn === 1) {
+        const otherWidths = (maxWidth - secondWidth);//2
+        entries = entries.setIn([0, 'width'], otherWidths);
+        entries = entries.setIn([2, 'width'], otherWidths);
+      } else if (indexOfImmutableColumn === 2) {
+        const otherWidths = (maxWidth - thirdWidth);//2
+        entries = entries.setIn([1, 'width'], otherWidths);
+        entries = entries.setIn([2, 'width'], otherWidths);
+      } else {
+        // remove column from 4 -> 3
+        entries = entries.setIn([0, 'width'], 33);
+        entries = entries.setIn([1, 'width'], 33);
+        entries = entries.setIn([2, 'width'], 34);
+      }
+
+    } else if (size === 4) {
+      entries = entries.setIn([0, 'width'], smallestWidth);
+      entries = entries.setIn([1, 'width'], smallestWidth);
+      entries = entries.setIn([2, 'width'], smallestWidth);
+      entries = entries.setIn([3, 'width'], smallestWidth);
     } else {
-      // when removing column
-      widths = widths.map(v => Math.floor((v * maxWidth) / widthSoFar));
+      throw 'Undefined number of columns.';
     }
-
-    // set new widths with balanced widths list
-    for (let k = 0; k < size; k++) {
-      entries = entries.setIn([k, 'width'], widths[k]);
-    }
-
+    console.log('after entries', entries.toJS());
     return entries;
+
+    /*
+     * 1 column
+     * 2 columns
+     * 3 columns ->
+     * 4 columns -> all 4 columns are 25%
+     */
+
+    // let widthSoFar = 0;
+    // let widths = [];
+    //
+    // // Is there a better way to do this in Immutable without two passes?
+    // // add up all widths first
+    // for (let j = 0; j < size; j++) {
+    //   const entryWidthJ = entries.getIn([j, 'width']);
+    //   widths.push(entryWidthJ);
+    //   widthSoFar += entryWidthJ;
+    // }
+    //
+    // if (indexOfImmutableColumn) {
+    //   // when adding column, editing column
+    //   if (
+    //       (size - 1) * smallestWidth + widths[indexOfImmutableColumn] >
+    //       maxWidth
+    //   ) {
+    //     // if all other columns are 25, can the specified width still exist?
+    //     // i.e. [25, 40, 80], index = 2; should be set to [25, 25, 50]
+    //     widths = widths.map((v, i) =>
+    //         i === indexOfImmutableColumn
+    //             ? maxWidth - smallestWidth * (size - 1)
+    //             : smallestWidth,
+    //     );
+    //   } else {
+    //     if (widths[indexOfImmutableColumn] > smallestWidth) {
+    //       // i.e. [25, 30, 40], index = 2; should be set to [25*60/55, 40*60/55, 40]
+    //       const newOtherTotalWidths = maxWidth - widths[indexOfImmutableColumn];
+    //       const oldOtherTotalWidths =
+    //           widthSoFar - widths[indexOfImmutableColumn];
+    //       widths = widths.map((v, i) =>
+    //           i === indexOfImmutableColumn
+    //               ? v
+    //               : Math.floor((v * newOtherTotalWidths) / oldOtherTotalWidths),
+    //       );
+    //     } else {
+    //       if (size === 1) {
+    //         widths = [100];
+    //       } else if (size === 2) {
+    //         // i.e. [25, 15], index = 1; should be set to [75, 25]
+    //         widths = widths.map((v, i) =>
+    //             i === indexOfImmutableColumn
+    //                 ? smallestWidth
+    //                 : maxWidth - smallestWidth,
+    //         );
+    //       } else if (size === 3) {
+    //         const newOtherTotalWidths = maxWidth - smallestWidth;
+    //         const oldOtherTotalWidths =
+    //             widthSoFar - widths[indexOfImmutableColumn];
+    //         // i.e. [25, 30, 15], index = 2; should be set to []
+    //         if (oldOtherTotalWidths > newOtherTotalWidths) {
+    //           // i.e. [42, 43, 15], index = 2; should be set to []
+    //           // i.e. [25, 60, 15], index = 2; should be set to []
+    //           widths = widths.map((v, i) =>
+    //               i === indexOfImmutableColumn
+    //                   ? smallestWidth
+    //                   : Math.floor(this.boundWidthValue(
+    //                   (v * newOtherTotalWidths) / oldOtherTotalWidths,
+    //                   )),
+    //           );
+    //           if (widths.reduce((a, b) => a + b, 0) > maxWidth) {
+    //             widths = widths.map((v, i) =>
+    //                 v !== smallestWidth ? smallestWidth * 2 : v,
+    //             );
+    //           }
+    //         } else {
+    //           // i.e. [25, 30, 15], index = 2; should be set to [25*75/55, 30*75/55, 25]
+    //           widths = widths.map((v, i) =>
+    //               i === indexOfImmutableColumn ?
+    //                   v
+    //                   :
+    //                   Math.floor(
+    //                       (v * newOtherTotalWidths) / oldOtherTotalWidths));
+    //         }
+    //       } else if (size === 4) {
+    //         widths = [25, 25, 25, 25];
+    //       }
+    //     }
+    //   }
+    // } else {
+    //   // when removing column
+    //   widths = widths.map(v => Math.floor((v * maxWidth) / widthSoFar));
+    // }
+    //
+    // // set new widths with balanced widths list
+    // for (let k = 0; k < size; k++) {
+    //   entries = entries.setIn([k, 'width'], widths[k]);
+    // }
   };
 
   onEditChild = (e, newWidth, i) => {
@@ -204,13 +263,10 @@ export class FormFieldCollapsibleWidth extends React.Component {
     let entries = childComponents;
     // let entries = fromJS(childComponents);
     // make child component that you add have width of maxWidth / # of current columns + 1
-    const newColumnWidth = columnWidthDescriptor.bounds[1] / 4;
+    const newColumnWidth = columnWidthDescriptor.bounds[0];
     // add new column
-    entries = entries.concat(
-        JSON.parse(
-            JSON.stringify(new ContainerItemClass({width: newColumnWidth})),
-        ),
-    );
+    entries = entries.push(fromJS(JSON.parse(
+        JSON.stringify(new ContainerItemClass({width: newColumnWidth})))));
     entries = this.balanceWidths(entries, entries.size - 1);
 
     this.setState({
@@ -239,6 +295,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
           <FormFieldCollapsibleInput>
             {stateOrComponentChildComponentsValue &&
             stateOrComponentChildComponentsValue.map((entry, i) => {
+              const entryWidth = entry.get('width');
               // restricting to min and max widths
               // const boundedValue = entry.width
               //     ? entry.width
@@ -252,7 +309,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
                             this.setState({
                               active: active === i ? false : i,
                               width: wasTakenFromProps
-                                  ? entry.width
+                                  ? entryWidth
                                   : this.state.width,
                             })
                         }
@@ -262,7 +319,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
                       </div>
                       <div className={'description'}>
                         {`${wasTakenFromProps
-                            ? entry.width
+                            ? entryWidth
                             : this.state.width}%`}
                       </div>
                       <button onClick={e => this.onRemoveChild(e, i)}>
@@ -298,7 +355,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
                   </div>
               );
             })}
-            {childComponents && childComponents.length < 4 && (
+            {childComponents && childComponents.size < 4 && (
                 <AddButtonWrapper>
                   <button onClick={this.onAddChild}>
                     <FontAwesomeIcon icon={['far', 'plus']} size={'1x'}/>

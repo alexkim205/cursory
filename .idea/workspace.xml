@@ -4,13 +4,12 @@
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Forms/WidthField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/WidthField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withBorderHighlights.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withBorderHighlights.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,13 +20,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="writing" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+            <state relative-caret-position="-191">
+              <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -35,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="313">
+              <caret line="67" column="41" lean-forward="true" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -45,10 +47,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElement.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2160">
-              <caret line="161" column="45" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
+            <state relative-caret-position="483">
+              <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+              <folding>
+                <element signature="e#24#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElementAttributes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="354" column="24" lean-forward="true" selection-start-line="354" selection-start-column="24" selection-end-line="354" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -56,7 +88,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2115">
+            <state relative-caret-position="619">
               <caret line="154" column="48" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
             </state>
           </provider>
@@ -65,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="99" column="11" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
+            <state relative-caret-position="-7">
+              <caret line="116" column="34" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -77,56 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="-7">
               <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Background.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="51" column="15" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Page.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1845">
-              <caret line="127" column="13" selection-start-line="127" selection-start-column="13" selection-end-line="127" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="55" lean-forward="true" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -143,12 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>subsub</find>
-      <find>this.setstate({ac</find>
-      <find>label</find>
-      <find>border-t</find>
-      <find>ContentBuildComponent</find>
-      <find>border-top</find>
       <find>red</find>
       <find>340</find>
       <find>top: 55px</find>
@@ -173,6 +151,12 @@
       <find>changeBorder</find>
       <find>toJS()</find>
       <find>renderoverl</find>
+      <find>updateactiveelement</find>
+      <find>widthfield</find>
+      <find>update</find>
+      <find>FormFieldCollapsibleWidth</find>
+      <find>activecomponent</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>blockIsList</replace>
@@ -212,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FieldClasses.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js" />
         <option value="$PROJECT_DIR$/src/_helpers/load-fonts.js" />
         <option value="$PROJECT_DIR$/src/_styles/_colors.scss" />
         <option value="$PROJECT_DIR$/src/_styles/theme.js" />
@@ -232,10 +215,7 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/index.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/addElementMethod.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElementAttributes.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericConstructor.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" />
@@ -245,15 +225,19 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" />
-        <option value="$PROJECT_DIR$/src/components/Forms/WidthField.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElement.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withBorderHighlights.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElement.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElementAttributes.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" />
+        <option value="$PROJECT_DIR$/src/components/Forms/WidthField.js" />
       </list>
     </option>
   </component>
@@ -264,17 +248,73 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="512" />
-    <option name="y" value="51" />
-    <option name="width" value="1294" />
-    <option name="height" value="1122" />
+    <option name="x" value="545" />
+    <option name="y" value="23" />
+    <option name="width" value="1375" />
+    <option name="height" value="1177" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+              <item name="BuilderLayout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+              <item name="BuilderLayout" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -290,7 +330,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
@@ -330,6 +370,10 @@
       <envs />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
+    <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -379,11 +423,12 @@
       <workItem from="1562633213996" duration="147000" />
       <workItem from="1562633441665" duration="15000" />
       <workItem from="1562633625359" duration="70000" />
+      <workItem from="1562633787664" duration="6847000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="487636000" />
+    <option name="totallyTimeSpent" value="494483000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -395,24 +440,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="512" y="51" width="1294" height="1122" extended-state="0" />
+    <frame x="545" y="23" width="1375" height="1177" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" x="133" y="139" width="471" height="810" id="Project" order="0" side_tool="true" type="WINDOWED" weight="0.20190024" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info content_ui="combo" x="253" y="225" width="471" height="810" id="Project" order="0" side_tool="true" type="WINDOWED" visible="true" weight="0.20190024" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24980362" />
+      <window_info id="npm" order="2" side_tool="true" weight="0.3299293" />
+      <window_info id="Favorites" order="3" side_tool="true" weight="0.3299293" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32938856" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32971373" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3149062" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299539" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3291262" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.31194472" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.45728156" />
-      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3291262" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.3059908" />
+      <window_info anchor="bottom" id="TypeScript" order="11" show_stripe_button="false" weight="0.3291262" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -426,27 +472,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yarn.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="1142" column="112" selection-start-line="1142" selection-start-column="112" selection-end-line="1142" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/styles/ProfileBar.style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="24" column="3" lean-forward="true" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -539,13 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/helpers/id-path-conversion.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -600,13 +618,6 @@
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -738,31 +749,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="64" column="2" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElementAttributes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="55" column="4" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -773,23 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
@@ -797,33 +770,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2115">
-          <caret line="154" column="48" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="99" column="11" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Background.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
+        <state>
           <caret line="51" column="15" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -843,7 +792,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1845">
+        <state>
           <caret line="127" column="13" selection-start-line="127" selection-start-column="13" selection-end-line="127" selection-end-column="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -853,11 +802,107 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="55" lean-forward="true" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+        <state relative-caret-position="-7">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/helpers/style-mapper.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="116" column="34" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-191">
+          <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Forms/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="67" column="41" lean-forward="true" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+          <folding>
+            <element signature="e#24#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElementAttributes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/immutable/dist/immutable.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="547" column="4" selection-start-line="547" selection-start-column="4" selection-end-line="547" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="154" column="48" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="354" column="24" lean-forward="true" selection-start-line="354" selection-start-column="24" selection-end-line="354" selection-end-column="24" />
         </state>
       </provider>
     </entry>

@@ -7,7 +7,7 @@ const GenericBaseComponent = props => <div></div>;
 
 const GenericComponent = props => {
   const type = props.genericComponent.type;
-  console.log('RENDE', type);
+  // console.log('RENDE', type);
 
   if (type === componentTypes.GENERIC || type === componentTypes.CONTAINER) {
     const ConnectedComponent = GenericHOC(GenericBaseComponent);

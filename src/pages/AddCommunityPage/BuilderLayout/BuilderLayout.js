@@ -97,6 +97,8 @@ class BuilderLayout extends React.Component {
   }
 
   render() {
+    // console.log(this.state.builderState.toJS())
+
     const {
       builderState,
       activeComponent,

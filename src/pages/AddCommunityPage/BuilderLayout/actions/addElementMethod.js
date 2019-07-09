@@ -26,9 +26,10 @@ export function handleItemAddClick(e, clickedItem) {
   e.stopPropagation();
   const {activeComponent, sidebarIsOpen} = this.state;
   let builderState = this.state.builderState;
+  let jsActiveComponent = activeComponent.toJS()
 
-  const selectedType = sidebarIsOpen ? activeComponent.getIn(['type']) : null;
-  const selectedId = sidebarIsOpen ? activeComponent.getIn(['id']) : 'bg_path';
+  const selectedType = sidebarIsOpen ? jsActiveComponent.type : null;
+  const selectedId = sidebarIsOpen ? jsActiveComponent.id : 'bg_path';
 
   // Create new item to add
   const itemToAdd = fromJS(
@@ -37,8 +38,8 @@ export function handleItemAddClick(e, clickedItem) {
       JSON.parse(JSON.stringify(new ContainerItemClass())),
   ).updateIn(['childComponents'], list => list.push(itemToAdd));
 
-  console.log('clicked item', clickedItem, 'with selected component',
-      selectedType, selectedId);
+  // console.log('clicked item', clickedItem, 'with selected component',
+  //     selectedType, selectedId);
 
   /* Copied from moveElement.js */
   let targetPath = idToPath(selectedId);

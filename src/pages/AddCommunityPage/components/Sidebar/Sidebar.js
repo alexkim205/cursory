@@ -69,7 +69,7 @@ class Sidebar extends React.Component {
     this.setState({childComponents: children});
     this.props.updateAttributes(
         event,
-        activeComponent.id,
+        activeComponent.get('id'),
         'childComponents',
         children,
     );
@@ -82,7 +82,7 @@ class Sidebar extends React.Component {
   };
 
   renderAllFields = (component, fields) => {
-    console.log("render all fields", component, fields)
+    // console.log('render all fields', component, fields);
     return (
         <React.Fragment>
           {fields &&
@@ -196,7 +196,7 @@ class Sidebar extends React.Component {
 
   render() {
     const {sidebarIsOpen, activeComponent, fields} = this.props;
-    console.log('sidebar active component', activeComponent);
+    // console.log('sidebar active component', activeComponent);
     const jsActiveComponent = activeComponent ? activeComponent.toJS() : null;
 
     return (
