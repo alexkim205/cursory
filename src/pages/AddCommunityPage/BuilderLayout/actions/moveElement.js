@@ -265,6 +265,13 @@ export function move(oldId, oldType, newId, newType, targetSide) {
     // if container is empty, don't do anything
     if (sourceElChild.size === 0) return;
 
+    // if # of container columns + # of target container columns > 4, raise
+    // notification. Right now this just cancels the operation, but in the
+    // future we would want to give user option to merge columns (e.g., first
+    // container's columns merged into first two and second container's columns
+    // merged into last two?)
+
+
     switch (targetSide) {
       case BorderHighlight.Top:
       case BorderHighlight.Left:

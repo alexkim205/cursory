@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Image.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/notify.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/notify.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,70 +15,58 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1037560167">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="gitignore" value="1" />
-          <entry key="js" value="85" />
-          <entry key="tsx" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JavaScript" value="81" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="TypeScript JSX" value="2" />
-          <entry key="UML" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="gitignore" value="11" />
-          <entry key="js" value="4897" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JavaScript" value="4897" />
-          <entry key="PLAIN_TEXT" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.js.language.service.starts">
-        <counts>
-          <entry key="ESLintLanguageService" value="1" />
-          <entry key="TypeScriptServerServiceImpl" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+            <state relative-caret-position="2820">
+              <caret line="201" column="28" selection-start-line="201" selection-start-column="28" selection-end-line="201" selection-end-column="28" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#454#517#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+            <state relative-caret-position="180">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1365">
+              <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -99,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="176" column="25" lean-forward="true" selection-start-line="176" selection-start-column="4" selection-end-line="176" selection-end-column="25" />
+            <state relative-caret-position="4005">
+              <caret line="272" selection-start-line="272" selection-end-line="272" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -108,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/notify.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="180">
+              <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -121,13 +99,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js">
+        <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="885">
+              <caret line="59" column="28" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -204,7 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/HistoryClass.js" />
         <option value="$PROJECT_DIR$/src/App/App.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/StyledClass.js" />
@@ -249,40 +223,27 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Image.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/notify.js" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/package.json" />
-    </packageJsonPaths>
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="727" />
-    <option name="y" value="51" />
-    <option name="width" value="1172" />
-    <option name="height" value="1122" />
+    <option name="x" value="403" />
+    <option name="y" value="23" />
+    <option name="width" value="1277" />
+    <option name="height" value="958" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -314,6 +275,73 @@
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="Navigation" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="_helpers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="AddCommunityPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="AddCommunityPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="addable-components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="AddCommunityPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="AddCommunityPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="FloatingWidget" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cursory" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Misc./cursory" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="AddCommunityPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Sidebar" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -358,71 +386,70 @@
         <subPane>
           <expand>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_styles" type="462c0819:PsiDirectoryNode" />
+              <item name="_config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
+              <item name="_constants" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AccountPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
               <item name="addable-components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
               <item name="BuilderLayout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
@@ -430,38 +457,12 @@
               <item name="actions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Fields" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="FloatingWidget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="writing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="writing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -482,8 +483,9 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
@@ -516,7 +518,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Development" type="js.build_tools.npm" factoryName="npm">
+    <configuration name="Development" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
       <node-interpreter value="project" />
@@ -568,11 +570,13 @@
       <workItem from="1561831257865" duration="31000" />
       <workItem from="1562096685808" duration="2258000" />
       <workItem from="1562361830963" duration="12216000" />
+      <workItem from="1562612309724" duration="2986000" />
+      <workItem from="1562684798201" duration="113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="483443000" />
+    <option name="totallyTimeSpent" value="485644000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -584,16 +588,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="727" y="51" width="1172" height="1122" extended-state="0" />
-    <editor active="true" />
+    <frame x="403" y="23" width="1277" height="958" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25977412" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23009554" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32938856" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32971373" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290993" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3149062" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -601,7 +604,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005325" side_tool="true" weight="0.31194472" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.38932037" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" visible="true" weight="0.25635105" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3299539" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -615,18 +618,7 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/styles/FloatingWidgetStyle.js" />
-    <entry file="file://$PROJECT_DIR$/src/_styles/theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_styles/_colors.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -655,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -680,16 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="267" column="26" lean-forward="true" selection-start-line="267" selection-start-column="26" selection-end-line="267" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,26 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1950">
-          <caret line="148" column="26" selection-start-line="148" selection-start-column="26" selection-end-line="148" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -801,16 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="111" column="23" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -845,16 +790,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericConstructor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericConstructor.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -912,6 +848,7 @@
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
@@ -942,11 +879,12 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.9073783359497645" x="221.0" y="308.5" />
+          <settings layout="Hierarchic Group" zoom="0.9073783359497645" x="221.0" y="309.0" />
           <SelectedNodes />
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
@@ -962,11 +900,12 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="98.5" y="124.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="99.0" y="124.0" />
           <SelectedNodes />
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
@@ -988,6 +927,7 @@
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
@@ -1003,11 +943,12 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.1" x="136.5" y="195.99999999999997" />
+          <settings layout="Hierarchic Group" zoom="1.1" x="137.0" y="196.0" />
           <SelectedNodes />
           <Categories>
             <Category>All</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>Details</VISIBILITY>
         </state>
       </provider>
@@ -1042,26 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="176" column="25" lean-forward="true" selection-start-line="176" selection-start-column="4" selection-end-line="176" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
@@ -1077,6 +998,87 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
           <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/setting-elements.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2820">
+          <caret line="201" column="28" selection-start-line="201" selection-start-column="28" selection-end-line="201" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Forms/WidthField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4005">
+          <caret line="272" selection-start-line="272" selection-end-line="272" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_helpers/load-fonts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="59" column="28" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/notify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
