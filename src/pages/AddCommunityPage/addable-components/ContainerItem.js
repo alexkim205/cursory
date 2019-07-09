@@ -10,7 +10,6 @@ import { ContainerClass } from "./Container";
 import { connectAsTargetContainerItem } from "../draggable-droppable";
 import {
   calcWhichBorder,
-  renderOverlay,
 } from "../draggable-droppable/withBorderHighlights";
 import { ContainerItemWrapper } from "./styles";
 

@@ -9,7 +9,6 @@ export const connectAsTargetAndSource = Component =>
   DropTarget(componentTypes.GENERIC, targetSpec, (connect, monitor) => ({
     connectDropTarget: connect.dropTarget(),
     isOver: monitor.isOver(),
-    canDrop: monitor.canDrop(),
     clientOffset: monitor.getClientOffset(),
   }))(
     DragSource(

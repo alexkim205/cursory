@@ -49,20 +49,3 @@ export const calcWhichBorder = (clientOffset, ref, isOver, canDrop) => {
     return BorderHighlight.None; // none
   }
 };
-
-export const renderOverlay = ref => {
-  const elementToOverlay = ref.current.getBoundingClientRect();
-
-  const Overlay = styled.div`
-    position: absolute;
-    top: ${elementToOverlay.top}px;
-    left: ${elementToOverlay.left}px;
-    height: ${elementToOverlay.height}px;
-    width: ${elementToOverlay.width}px;
-    z-index: 1;
-    opacity: 1;
-    background-color: gray;
-  `;
-
-  return <Overlay />;
-};

@@ -13,7 +13,6 @@ import PropTypes from "prop-types";
 import { connectAsTargetAndSource } from "../draggable-droppable";
 import {
   calcWhichBorder,
-  renderOverlay,
 } from "../draggable-droppable/withBorderHighlights";
 import { widthDescriptor, heightDescriptor } from "../components/";
 import { ContainerWrapper } from "./styles";
@@ -108,7 +107,6 @@ class ContainerComponent extends React.Component {
       connectDragPreview,
       isDragging,
       isOver,
-      canDrop,
       clientOffset,
       move,
       updateActive,

@@ -64,8 +64,8 @@ export class FormFieldCollapsibleWidth extends React.Component {
 
   updateColumnStates = (event, entries) => {
     // update state and components
-    this.setState({stateChildComponents: entries.toJS()});
-    this.props.onChildrenChange(event, entries.toJS());
+    this.setState({stateChildComponents: entries});
+    this.props.onChildrenChange(event, entries);
   };
 
   balanceWidths = (entries, indexOfImmutableColumn = null) => {
@@ -172,7 +172,8 @@ export class FormFieldCollapsibleWidth extends React.Component {
     // e.target.name: property
     // e.target.value: property value
     const {childComponents} = this.props;
-    let entries = fromJS(childComponents);
+    let entries = childComponents;
+    // let entries = fromJS(childComponents);
 
     // total widths must add up to 100 (or widthDescriptor bounds equivalent to max width)
     // assuming previous width is already at max
@@ -187,7 +188,8 @@ export class FormFieldCollapsibleWidth extends React.Component {
   };
   onRemoveChild = (e, i) => {
     const {childComponents} = this.props;
-    let entries = fromJS(childComponents);
+    let entries = childComponents;
+    // let entries = fromJS(childComponents);
     entries = entries.delete(i);
     entries = this.balanceWidths(entries);
 
@@ -199,7 +201,8 @@ export class FormFieldCollapsibleWidth extends React.Component {
   };
   onAddChild = e => {
     const {childComponents} = this.props;
-    let entries = fromJS(childComponents);
+    let entries = childComponents;
+    // let entries = fromJS(childComponents);
     // make child component that you add have width of maxWidth / # of current columns + 1
     const newColumnWidth = columnWidthDescriptor.bounds[1] / 4;
     // add new column

@@ -10,6 +10,7 @@ export function updateActive(e, activeId) {
   //     JSON.parse(JSON.stringify(this.state.builderState)),
   // );
   const activePath = idToPath(activeId);
+  console.log(activePath);
   let oldPath = null;
 
   // find active one and disable
@@ -61,13 +62,13 @@ export function updateActive(e, activeId) {
         activePath.concat('id'),
         pathToId(activePath),
     );
-    const activeComponent = builderState.getIn(activePath).toJS();
+    const activeComponent = builderState.getIn(activePath);
 
     // set new active
     this.setState({
       sidebarIsOpen: true,
       activeComponent: activeComponent,
-      activeFields: componentFields[activeComponent.type],
+      activeFields: componentFields[activeComponent.getIn(['type'])],
       builderState: builderState,
     });
   } else {

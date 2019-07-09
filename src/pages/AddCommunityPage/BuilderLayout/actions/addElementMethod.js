@@ -27,8 +27,8 @@ export function handleItemAddClick(e, clickedItem) {
   const {activeComponent, sidebarIsOpen} = this.state;
   let builderState = this.state.builderState;
 
-  const selectedType = sidebarIsOpen ? activeComponent.type : null;
-  const selectedId = sidebarIsOpen ? activeComponent.id : 'bg_path';
+  const selectedType = sidebarIsOpen ? activeComponent.getIn(['type']) : null;
+  const selectedId = sidebarIsOpen ? activeComponent.getIn(['id']) : 'bg_path';
 
   // Create new item to add
   const itemToAdd = fromJS(
@@ -50,11 +50,6 @@ export function handleItemAddClick(e, clickedItem) {
   let targetEl = builderState.getIn(targetPath);
   let targetElChild = builderState.getIn(targetChildPath);
   let targetElParent = builderState.getIn(targetParentPath);
-
-  console.log('newItem', itemToAdd.toJS());
-  console.log('targetEl', targetEl.toJS());
-  console.log('targetElChild', targetElChild.toJS());
-  console.log('targetElParent', targetElParent.toJS());
 
   // update
   const update = newState => {
