@@ -21,30 +21,32 @@ class Sidebar extends React.Component {
     updateAttributes: PropTypes.func,
   };
 
+  requiresRefresh = (next) => {
+    return this.props.activeComponent && next.activeComponent &&
+        !next.activeComponent.equals(this.props.activeComponent);
+  };
+
   UNSAFE_componentWillReceiveProps(nextProps) {
-    // console.log('refresh, sidebar', nextProps.activeComponent,
+    // console.log('refresh, sidebar', nextProps.activeComponent.toJS());
     // this.props.activeComponent);
-    if (
-        JSON.stringify(nextProps.activeComponent) !==
-        JSON.stringify(this.props.activeComponent)
-    ) {
+    if (this.requiresRefresh(nextProps)) {
       const newFields = _.pickBy(
-          nextProps.activeComponent,
+          nextProps.activeComponent.toJS(),
           (value, key, object) => {
             return this.state && key in this.state;
           },
       );
-      // console.log('new state', newFields);
       this.setState(newFields);
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return (
-        this.state && this.state.childComponents !==
-        nextState.childComponents ||
-        this.props !== nextProps
-    );
+    // sidebar values should update whenever prop's activeComponent's values change
+    if (this.props.activeComponent && nextProps.activeComponent) {
+      console.log('current props', this.props.activeComponent.toJS());
+      console.log('next props', nextProps.activeComponent.toJS());
+    }
+    return this.requiresRefresh(nextProps);
   }
 
   onChange = event => {
@@ -56,7 +58,7 @@ class Sidebar extends React.Component {
     // update builderlayout
     this.props.updateAttributes(
         event,
-        activeComponent.id,
+        activeComponent.get('id'),
         event.target.name,
         event.target.value,
     );
@@ -82,7 +84,7 @@ class Sidebar extends React.Component {
   };
 
   renderAllFields = (component, fields) => {
-    // console.log('render all fields', component, fields);
+    console.log('render all fields', component, fields);
     return (
         <React.Fragment>
           {fields &&
@@ -121,25 +123,32 @@ class Sidebar extends React.Component {
 
   renderFormField = (component, sectionInfo) => {
     const {descriptor, name} = sectionInfo;
+    console.log('descriptor', descriptor, name, 'in component', component);
     // If descriptor key is not in component don't display it
-    if (!(descriptor.key in component)) return;
+    if (!component.has(descriptor.key)) return;
+    console.log('descriptor', descriptor, name, 'in component',
+        component.toJS());
 
     // If descriptor key is not yet in state, use the components
     // value. If it is, we use the dynamic state's value. Key will
     // be added to state once input value is changed.
-    const stateOrComponentValue =
-        this.state && descriptor.key in this.state
-            ? this.state[descriptor.key]
-            : component[descriptor.key];
-    const mapComponent = stateOrComponentValue
-        ? fromJS(stateOrComponentValue)
-        : null; // TODO: refactor
+    const tookFromStateNotProp = this.state && descriptor.key in this.state;
+
+    const value = tookFromStateNotProp
+        ? this.state[descriptor.key]
+        : component.get(descriptor.key);
+    console.log('value', value);
+
+    // const mapComponent = stateOrComponentValue
+    //     ? stateOrComponentValue.toJS()
+    //     : null; // TODO: refactor
+    // console.log("mapComponent", mapComponent);
 
     switch (descriptor.type) {
       case FieldTypes.COLLAPSIBLE:
         return (
             <FormFieldCollapsibleWidth
-                childComponents={mapComponent}
+                childComponents={value}
                 onChildrenChange={this.onChildrenChange}
             />
         );
@@ -148,7 +157,7 @@ class Sidebar extends React.Component {
             <FormFieldSlider
                 label={name}
                 name={descriptor.key}
-                value={mapComponent}
+                value={value}
                 onChange={this.onChange}
                 min={descriptor.bounds[0]}
                 max={descriptor.bounds[1]}
@@ -162,7 +171,7 @@ class Sidebar extends React.Component {
             <FormFieldSelect
                 label={name}
                 name={descriptor.key}
-                value={mapComponent}
+                value={value}
                 onChange={this.onChange}
                 options={descriptor.options}
                 enums={descriptor.enums}
@@ -174,7 +183,7 @@ class Sidebar extends React.Component {
             <FormFieldColor
                 label={name}
                 name={descriptor.key}
-                value={mapComponent}
+                value={value}
                 onChange={this.onChange}
             />
         );
@@ -183,7 +192,7 @@ class Sidebar extends React.Component {
             <FormFieldText
                 label={name}
                 name={descriptor.key}
-                value={mapComponent}
+                value={value}
                 onChange={this.onChange}
                 type="text"
                 // placeholder="Full Name"
@@ -197,7 +206,6 @@ class Sidebar extends React.Component {
   render() {
     const {sidebarIsOpen, activeComponent, fields} = this.props;
     // console.log('sidebar active component', activeComponent);
-    const jsActiveComponent = activeComponent ? activeComponent.toJS() : null;
 
     return (
         <SidebarWrapper pose={sidebarIsOpen ? 'open' : 'closed'}>
@@ -208,10 +216,10 @@ class Sidebar extends React.Component {
                   <div className={'main'}>
                     <div className={'type'}>
                       <div className={'type-label'}>
-                        {jsActiveComponent.type}
+                        {activeComponent.get('type')}
                       </div>
                     </div>
-                    {this.renderAllFields(jsActiveComponent, fields)}
+                    {this.renderAllFields(activeComponent, fields)}
                   </div>
                   <div className={'submit'}>
                     <button type="submit">

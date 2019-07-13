@@ -49,8 +49,7 @@ export class FormFieldCollapsibleWidth extends React.Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (
-        JSON.stringify(nextProps.childComponents) !==
-        JSON.stringify(this.props.childComponents)
+        !nextProps.childComponents.equals(this.props.childComponents)
     ) {
       this.setState({stateChildComponents: nextProps.childComponents});
     }

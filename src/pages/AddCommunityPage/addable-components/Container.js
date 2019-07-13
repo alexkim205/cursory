@@ -86,6 +86,7 @@ class ContainerComponent extends React.Component {
     return (
       this.state.borderHighlight !== nextState.borderHighlight ||
       this.props.isOver !== nextProps.isOver ||
+
       JSON.stringify(this.props.container) !==
         JSON.stringify(nextProps.container) ||
       this.props.isDragging !== nextProps.isDragging
