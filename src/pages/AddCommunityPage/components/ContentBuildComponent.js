@@ -6,7 +6,7 @@ import React from "react";
 import { withDroppable } from "../draggable-droppable/index";
 
 export const ContentBuildComponent = React.memo(
-  ({ builderState, move, updateActive }) => {
+  ({ builderState, move, handleSelectElement }) => {
     return (
       <BackgroundComponent
         background={builderState}

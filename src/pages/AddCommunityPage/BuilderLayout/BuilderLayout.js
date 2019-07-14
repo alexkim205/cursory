@@ -17,10 +17,10 @@ import {DragDropContext} from 'react-dnd';
 import {isKeyHotkey} from 'is-hotkey';
 import {Sidebar} from '../components/Sidebar/Sidebar';
 import {
-  handleItemAddClick,
-  move,
-  updateActive,
-  updateAttributes,
+  handleAddElement,
+  handleMoveElement,
+  handleSelectElement,
+  handleUpdateElement,
 } from './actions';
 
 /*
@@ -71,10 +71,10 @@ class BuilderLayout extends React.Component {
     super(props);
     this.isUndoKey = isKeyHotkey('mod+z');
     this.isRedoKey = isKeyHotkey('mod+shift+z');
-    this.handleItemAddClick = handleItemAddClick.bind(this);
-    this.updateAttributes = updateAttributes.bind(this);
-    this.updateActive = updateActive.bind(this);
-    this.move = move.bind(this);
+    this.handleItemAddClick = handleAddElement.bind(this);
+    this.updateAttributes = handleUpdateElement.bind(this);
+    this.updateActive = handleSelectElement.bind(this);
+    this.move = handleMoveElement.bind(this);
 
   }
 

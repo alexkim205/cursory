@@ -38,7 +38,7 @@ export function toggleMark(event, editor, mark) {
   const { value } = editor;
   const { selection, blocks } = value;
 
-  // if last block is empty, move end focus to start of second to last block
+  // if last block is empty, handleMoveElement end focus to start of second to last block
   if (blocks.size > 1 && selection.end.offset === 0) {
     editor.moveEndBackward(1);
     return toggleMark(event, editor, mark); // try again
@@ -89,7 +89,7 @@ export function handleMultipleBlocks(
   const startNode = document.getParent(selection.start.key);
   const endNode = document.getParent(selection.end.key);
 
-  // if last block is empty, move end focus to start of second to last block
+  // if last block is empty, handleMoveElement end focus to start of second to last block
   if (blocks.size > 1 && selection.end.offset === 0) {
     editor.moveEndBackward(1);
     return handleMultipleBlocks(
@@ -183,8 +183,8 @@ export function toggleSingleBlock(event, editor, block) {
     ? list.nodes.indexOf(previousListItem)
     : 0;
 
-  const parentListItem = document.getPreviousSibling(list.key); // list item to move after
-  const parentList = document.getParent(list.key); // list to move to
+  const parentListItem = document.getPreviousSibling(list.key); // list item to handleMoveElement after
+  const parentList = document.getParent(list.key); // list to handleMoveElement to
 
   const otherItems = list.nodes.skipUntil(item => item === listItem).rest();
 
@@ -315,7 +315,7 @@ export function decreaseItemDepth(event, editor) {
 
   const { document, startBlock } = editor.value;
 
-  const listItem = document.getNode(startBlock.key); // item to move
+  const listItem = document.getNode(startBlock.key); // item to handleMoveElement
 
   // if list item is not list then, remove \t if it exists
   if (!isList(listItem.type)) {
@@ -332,14 +332,14 @@ export function decreaseItemDepth(event, editor) {
     return;
   }
 
-  const list = document.getParent(listItem.key); // list to move from
-  const parentList = document.getParent(list.key); // list to move to
-  const parentListItem = document.getPreviousSibling(list.key); // list item to move after
-  const parentIndex = parentList.nodes.indexOf(list); // index to move to
+  const list = document.getParent(listItem.key); // list to handleMoveElement from
+  const parentList = document.getParent(list.key); // list to handleMoveElement to
+  const parentListItem = document.getPreviousSibling(list.key); // list item to handleMoveElement after
+  const parentIndex = parentList.nodes.indexOf(list); // index to handleMoveElement to
 
   const otherItems = list.nodes.skipUntil(item => item === listItem).rest();
 
-  // if parent to move to is not a list, drop to paragraph and split block
+  // if parent to handleMoveElement to is not a list, drop to paragraph and split block
   if (!isList(parentList.type)) {
     const newParagraphBlock = Block.create({
       object: "block",
@@ -354,7 +354,7 @@ export function decreaseItemDepth(event, editor) {
       // insert new block to end
       editor.insertNodeByKey(parentList.key, parentIndex + 1, newListBlock);
 
-      // move rest of items to new list
+      // handleMoveElement rest of items to new list
       otherItems.forEach((item, index) =>
         editor.moveNodeByKey(
           item.key,
@@ -381,10 +381,10 @@ export function decreaseItemDepth(event, editor) {
       // insert new block to end
       editor.insertNodeByKey(parentList.key, parentIndex + 1, newList);
 
-      // move item to move to parent list
+      // handleMoveElement item to handleMoveElement to parent list
       editor.moveNodeByKey(listItem.key, parentList.key, parentIndex + 1);
 
-      // move rest of items to new list
+      // handleMoveElement rest of items to new list
       otherItems.forEach((item, index) =>
         editor.moveNodeByKey(item.key, newList.key, newList.nodes.size + index),
       );

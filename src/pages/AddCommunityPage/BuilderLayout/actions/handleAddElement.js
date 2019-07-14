@@ -22,85 +22,78 @@ import {Log} from '../../../../_helpers';
 import {ContainerItemClass, GenericClass} from '../../addable-components';
 
 // https://stackoverflow.com/questions/45517254/react-binding-this-to-an-imported-function
-export function handleItemAddClick(e, clickedItem) {
-  e.stopPropagation();
-  const {activeComponent, sidebarIsOpen} = this.state;
-  let builderState = this.state.builderState;
+export function handleAddElement(
+    builderState, activeComponent, sidebarIsOpen, clickedItem) {
 
-  const selectedType = sidebarIsOpen ? activeComponent.type : null;
-  const selectedId = sidebarIsOpen ? activeComponent.id : 'bg_path';
+  return new Promise((resolve, reject) => {
 
-  // Create new item to add
-  const itemToAdd = fromJS(
-      JSON.parse(JSON.stringify(new GenericClass({type: clickedItem.type}))));
-  const itemToAddWrappedInContainerItem = fromJS(
-      JSON.parse(JSON.stringify(new ContainerItemClass())),
-  ).updateIn(['childComponents'], list => list.push(itemToAdd));
+    let builderState = builderState;
 
-  console.log('clicked item', clickedItem, 'with selected component',
-      selectedType, selectedId);
+    const selectedType = sidebarIsOpen ? activeComponent.get('type') : null;
+    const selectedId = sidebarIsOpen ? activeComponent.get('id') : 'bg_path';
 
-  /* Copied from moveElement.js */
-  let targetPath = idToPath(selectedId);
+    if (!selectedType) reject('Type of component to add is undefined.');
 
-  // Current, child, parent paths
-  const targetChildPath = targetPath.concat(['childComponents']);
-  const targetParentPath = targetPath.slice(0, targetPath.length - 1);
+    // Create new item to add
+    const itemToAdd = fromJS(
+        JSON.parse(JSON.stringify(new GenericClass({type: clickedItem.get('type')}))));
+    const itemToAddWrappedInContainerItem = fromJS(
+        JSON.parse(JSON.stringify(new ContainerItemClass())),
+    ).updateIn(['childComponents'], list => list.push(itemToAdd));
 
-  let targetEl = builderState.getIn(targetPath);
-  let targetElChild = builderState.getIn(targetChildPath);
-  let targetElParent = builderState.getIn(targetParentPath);
+    console.log('clicked item', clickedItem, 'with selected component',
+        selectedType, selectedId);
 
-  console.log('newItem', itemToAdd.toJS());
-  console.log('targetEl', targetEl.toJS());
-  console.log('targetElChild', targetElChild.toJS());
-  console.log('targetElParent', targetElParent.toJS());
+    let targetPath = idToPath(selectedId);
 
-  // update
-  const update = newState => {
-    this.state.history.traverse();
-    if (
-        JSON.stringify(this.state.history.getCurrent()) ===
-        JSON.stringify(newState)
-    )
-      return;
-    this.state.history.add(newState);
-    this.setState({builderState: newState});
-  };
-  /* Copied from moveElement.js */
+    // Current, child, parent paths
+    const targetChildPath = targetPath.concat(['childComponents']);
+    const targetParentPath = targetPath.slice(0, targetPath.length - 1);
 
-  switch (selectedType) {
-    case componentTypes.GENERIC:
-      Log.info('Add->G');
-      builderState = builderState.updateIn(
-          targetParentPath,
-          parentContainerItem => parentContainerItem.push(itemToAdd),
-      );
-      break;
-    case componentTypes.CONTAINER_ITEM:
-      Log.info('Add->CI');
-      builderState = builderState.updateIn(
-          targetChildPath,
-          containerItem => containerItem.push(itemToAdd),
-      );
-      break;
-    case componentTypes.CONTAINER:
-      Log.info('Add->C');
-      builderState = builderState.updateIn(
-          targetChildPath,
-          containerChildComponents => containerChildComponents.push(
-              itemToAddWrappedInContainerItem),
-      );
-      break;
-    case componentTypes.PAGE:
-    case componentTypes.BACKGROUND:
-    default: // null
-      Log.info('Add->P/B/null');
-      builderState = builderState.updateIn(
-          targetChildPath,
-          pageChildComponents => pageChildComponents.push(itemToAdd),
-      );
-      break;
-  }
-  update(builderState);
+    let targetEl = builderState.getIn(targetPath);
+    let targetElChild = builderState.getIn(targetChildPath);
+    let targetElParent = builderState.getIn(targetParentPath);
+
+    console.log('newItem', itemToAdd.toJS());
+    console.log('targetEl', targetEl.toJS());
+    console.log('targetElChild', targetElChild.toJS());
+    console.log('targetElParent', targetElParent.toJS());
+
+    switch (selectedType) {
+      case componentTypes.GENERIC:
+        Log.info('Add->G');
+        builderState = builderState.updateIn(
+            targetParentPath,
+            parentContainerItem => parentContainerItem.push(itemToAdd),
+        );
+        break;
+      case componentTypes.CONTAINER_ITEM:
+        Log.info('Add->CI');
+        builderState = builderState.updateIn(
+            targetChildPath,
+            containerItem => containerItem.push(itemToAdd),
+        );
+        break;
+      case componentTypes.CONTAINER:
+        Log.info('Add->C');
+        builderState = builderState.updateIn(
+            targetChildPath,
+            containerChildComponents => containerChildComponents.push(
+                itemToAddWrappedInContainerItem),
+        );
+        break;
+      case componentTypes.PAGE:
+      case componentTypes.BACKGROUND:
+      default: // null
+        Log.info('Add->P/B/null');
+        builderState = builderState.updateIn(
+            targetChildPath,
+            pageChildComponents => pageChildComponents.push(itemToAdd),
+        );
+        break;
+    }
+
+    resolve(builderState);
+
+  });
 }

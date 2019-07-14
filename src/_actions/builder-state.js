@@ -1,4 +1,10 @@
-import { builderStateConstants } from "../_constants";
+import {builderStateConstants} from '../_constants';
+import {
+  handleAddElement,
+  handleMoveElement,
+  handleSelectElement,
+  handleUpdateElement,
+} from '../pages/AddCommunityPage/BuilderLayout/actions';
 
 export const builderStateActions = {
   add,
@@ -7,84 +13,156 @@ export const builderStateActions = {
   update,
 };
 
-export function add(builderState) {
-  return function(dispatch) {
-    return new Promise(resolve => {
-      dispatch({type: builderStateConstants.ADD_ELEMENT, builderState: builderState});
-      resolve();
-    }).then(
-        () => {
-          console.log("added element")
-        },
-        error => {
-          dispatch(failure());
-          toast.error(`Entry couldn't be discarded: ${error}`);
-        },
-    );
-  };
-}
-
-export function save(entry_id, payload) {
-  return function(dispatch) {
+/**
+ * Add an element to builder state. This can occur after clicking an item in
+ * the floating widget.
+ *
+ * @param sidebarIsOpen
+ * @param clickedItem
+ * @returns {function(*, *): Promise<T | never>}
+ */
+export function add(sidebarIsOpen, clickedItem) {
+  return (dispatch, getState) => {
     dispatch(request());
 
-    return new Promise((resolve, reject) => {
-      // console.log(`Trying to save Entry #${entry_id}`);
-      setTimeout(() => {
-        // writingRef.push().set(payload) // firebase
-        dispatch(success());
-        resolve();
-      }, 1000);
-    }).then(
-        () => {
-          toast.success("Entry successfully saved");
+    const store = getState().builderState;
+    const {builderState, activeComponent} = store;
+
+    if (!builderState || !activeComponent) return Promise.reject(
+        'Builder state and/or active component are missing in store.');
+
+    return handleAddElement(
+        builderState, activeComponent, sidebarIsOpen, clickedItem).then(
+        (builderState) => {
+          dispatch(success(builderState));
+          console.log('Added element.');
         },
         error => {
           dispatch(failure());
-          toast.error(`Entry couldn't be saved: ${error}`);
+          console.log('Error while adding element:', error);
         },
     );
   };
 
   function request() {
-    return { type: editorConstants.SAVE_REQUEST };
+    return {type: builderStateConstants.ADD_ELEMENT_REQUEST};
   }
-  function success() {
-    return { type: editorConstants.SAVE_SUCCESS };
+
+  function success(builderState) {
+    return {type: builderStateConstants.ADD_ELEMENT_SUCCESS, builderState};
   }
+
   function failure() {
-    return { type: editorConstants.SAVE_FAILURE };
+    return {type: builderStateConstants.ADD_ELEMENT_FAILURE};
   }
 }
 
-export function fetch(entry_id) {
-  return function(dispatch) {
+export function move(oldComponent, newComponent, targetSide) {
+  return (dispatch, getState) => {
     dispatch(request());
 
-    return new Promise((resolve, reject) => {
-      // console.log(`Trying to save Entry #${entry_id}`);
-      setTimeout(() => {
-        dispatch(success());
-        resolve();
-      }, 1000);
-    }).then(
-        () => {
-          toast.success("Entry successfully saved");
-        },
-        error => {
-          dispatch(failure());
-          toast.error(`Entry couldn't be saved: ${error}`);
-        },
-    );
+    const store = getState().builderState;
+    const {builderState} = store;
+
+    if (!builderState || !oldComponent || !newComponent) return Promise.reject(
+        'Builder state, old component, and/or new component are missing in store.');
+
+    return handleMoveElement(
+        builderState, oldComponent, newComponent, targetSide,
+    ).then(builderState => {
+      dispatch(success(builderState));
+      console.log('Moved element.');
+    }, error => {
+      dispatch(failure());
+      console.log('Error while moving element:', error);
+    });
   };
 
   function request() {
-    return { type: editorConstants.SAVE_REQUEST };
+    return {type: builderStateConstants.MOVE_ELEMENT_REQUEST};
   }
-  function success() {
-    return { type: editorConstants.SAVE_SUCCESS };
+
+  function success(builderState) {
+    return {type: builderStateConstants.MOVE_ELEMENT_SUCCESS, builderState};
   }
+
   function failure() {
-    return { type: editorConstants.SAVE_FAILURE };
+    return {type: builderStateConstants.MOVE_ELEMENT_FAILURE};
+  }
+}
+
+export function select(selectedComponent) {
+  return (dispatch, getState) => {
+    dispatch(request());
+
+    const store = getState().builderState;
+    const {builderState} = store;
+
+    if (!builderState) return Promise.reject(
+        'Builder state is missing in store.');
+
+    return handleSelectElement(
+        builderState, selectedComponent,
+    ).then(({active, activeComponent, builderState: activeBuilderState}) => {
+      dispatch(success(active, activeComponent, activeBuilderState));
+      console.log('Selected element.');
+    }, error => {
+      dispatch(failure());
+      console.log('Error while selecting element:', error);
+    });
+  };
+
+  function request() {
+    return {type: builderStateConstants.SELECT_ACTIVE_ELEMENT_REQUEST};
+  }
+
+  function success(active, activeComponent, builderState) {
+    return {
+      type: builderStateConstants.SELECT_ACTIVE_ELEMENT_SUCCESS,
+      active,
+      activeComponent,
+      builderState,
+    };
+  }
+
+  function failure() {
+    return {type: builderStateConstants.SELECT_ACTIVE_ELEMENT_FAILURE};
+  }
+}
+
+export function update(attrName, attrValue) {
+  return (dispatch, getState) => {
+    dispatch(request());
+
+    const store = getState().builderState;
+    const {builderState, activeComponent} = store; // only activeComponent can be updatedz
+
+    if (!builderState || !activeComponent) return Promise.reject(
+        'Builder state and/or active component is missing in store.');
+
+    return handleUpdateElement(
+        builderState, activeComponent, attrName, attrValue,
+    ).then(builderState => {
+      dispatch(success(builderState));
+      console.log('Update element attributes');
+    }, error => {
+      dispatch(failure());
+      console.log('Error while updating element attributes:', error);
+    });
+  };
+
+  function request() {
+    return {type: builderStateConstants.UPDATE_ACTIVE_ELEMENT_REQUEST};
+  }
+
+  function success(activeComponent) {
+    return {
+      type: builderStateConstants.UPDATE_ACTIVE_ELEMENT_SUCCESS,
+      activeComponent,
+    };
+  }
+
+  function failure() {
+    return {type: builderStateConstants.UPDATE_ACTIVE_ELEMENT_FAILURE};
   }
 }

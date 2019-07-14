@@ -2,15 +2,16 @@ import {idToPath} from '../../helpers';
 
 // Update component attributes
 
-export function updateAttributes(e, componentId, attrName, attrValue) {
-  e.stopPropagation();
-  let {builderState} = this.state;
+export function handleUpdateElement(
+    builderState, activeComponent, attrName, attrValue) {
 
-  // let componentState = fromJS(
-  //     JSON.parse(JSON.stringify(this.state.builderState)),
-  // );
-  const path = idToPath(componentId);
+  return new Promise((resolve, reject) => {
+    let builderState = builderState;
+    const componentId = activeComponent.get('id');
 
-  builderState = builderState.setIn(path.concat(attrName), attrValue);
-  this.setState({builderState});
-};
+    const path = idToPath(componentId);
+
+    builderState = builderState.setIn(path.concat(attrName), attrValue);
+    resolve(builderState);
+  });
+}
