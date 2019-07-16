@@ -1,35 +1,38 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {compose} from 'redux';
 
-import { componentTypes } from "../constants/component-types";
-import { GenericComponent } from "./Generic";
-import { Positions } from "../constants/style-enums";
-import PropTypes from "prop-types";
-import { StyledClass } from "../components/StyledClass";
-import { widthDescriptor, heightDescriptor } from "../components";
+import {componentTypes} from '../constants/component-types';
+import {GenericComponent} from './Generic';
+import {Positions} from '../constants/style-enums';
+import {StyledClass} from '../components/StyledClass';
+import {widthDescriptor, heightDescriptor} from '../components';
 
 import {
   connectAsTarget,
   connectAsTargetAndSource,
-} from "../draggable-droppable";
-import { BackgroundClass } from "./Background";
-import { PageWrapper } from "./styles";
+} from '../draggable-droppable';
+import {BackgroundClass} from './Background';
+import {PageWrapper} from './styles';
+import {connectMoveHandler} from '../BuilderLayout/HOC/withMoveHandler';
+import {connectSelectHandler} from '../BuilderLayout/HOC/withSelectHandler';
+import Immutable from 'immutable';
 
 export class PageClass extends StyledClass {
   constructor(options = {}) {
     super(options);
     Object.assign(
-      this,
-      {
-        id: "bg_page",
-        type: componentTypes.PAGE,
-        position: Positions.Center,
-        childComponents: [],
-        width: widthDescriptor.bounds[1],
-        // height: heightDescriptor.bounds[1],
-        paddingHorizontal: 1,
-      },
-      options,
+        this,
+        {
+          id: 'bg_page',
+          type: componentTypes.PAGE,
+          position: Positions.Center,
+          childComponents: [],
+          width: widthDescriptor.bounds[1],
+          // height: heightDescriptor.bounds[1],
+          paddingHorizontal: 1,
+        },
+        options,
     );
   }
 
@@ -44,62 +47,48 @@ class PageComponent extends React.Component {
     this.node = React.createRef();
   }
 
-  componentDidMount() {
-    this.props.updateBgStyle({ position: this.props.page.position });
-  }
-
   static propTypes = {
-    page: PropTypes.oneOfType(
-      PropTypes.instanceOf(PageClass),
-      PropTypes.object,
-    ),
+    page: PropTypes.instanceOf(Immutable.Map),
+    onSelect: PropTypes.func.isRequired,
+    onMove: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
-    move: PropTypes.func,
-    updateActive: PropTypes.func,
-    updateBgStyle: PropTypes.func,
   };
 
   render() {
-    const {
-      childComponents,
-      id,
-      type,
-      position,
-      ...otherProps
-    } = this.props.page;
-    const { connectDropTarget, updateActive, updateBgStyle } = this.props;
+
+    const {page, onSelect, connectDropTarget} = this.props;
+    const {id, childComponents, type, position, ...otherProps} = page.toJSON();
+    console.log('page', id, childComponents, type, position, otherProps);
 
     return (
-      <PageWrapper
-        {...otherProps}
-        onClick={e => updateActive(e, id)}
-        ref={instance => {
-          this.node.current = instance;
-          return connectDropTarget(instance);
-        }}
-      >
-        {childComponents &&
-          childComponents.map((e, key) => {
-            const newComponent = Object.assign(
-              Object.create(Object.getPrototypeOf(e)),
-              e,
-            );
-            newComponent.id = `bg_page_${key}`;
-            newComponent.index = key;
-
+        <PageWrapper
+            {...otherProps}
+            onClick={e => onSelect(page)}
+            ref={instance => {
+              this.node.current = instance;
+              return connectDropTarget(instance);
+            }}
+        >
+          {childComponents &&
+          childComponents.entrySeq().map(([key, value]) => {
+            let updatedComponent = value.set('id', `bg_page_${key}`);
+            updatedComponent = updatedComponent.set('index', key);
             return (
-              <GenericComponent
-                key={key}
-                genericComponent={newComponent}
-                move={this.props.move}
-                updateActive={updateActive}
-              />
+                <GenericComponent
+                    key={key}
+                    genericComponent={updatedComponent}
+                />
             );
           })}
-      </PageWrapper>
+        </PageWrapper>
     );
   }
 }
 
-const connectedComponent = connectAsTarget(PageComponent);
-export { connectedComponent as PageComponent };
+const connectedComponent = compose(
+    connectMoveHandler,
+    connectSelectHandler,
+    connectAsTarget,
+)(PageComponent);
+
+export {connectedComponent as PageComponent};

@@ -71,10 +71,10 @@ class BuilderLayout extends React.Component {
     super(props);
     this.isUndoKey = isKeyHotkey('mod+z');
     this.isRedoKey = isKeyHotkey('mod+shift+z');
-    this.handleItemAddClick = handleAddElement.bind(this);
-    this.updateAttributes = handleUpdateElement.bind(this);
-    this.updateActive = handleSelectElement.bind(this);
-    this.move = handleMoveElement.bind(this);
+    // this.handleItemAddClick = handleAddElement.bind(this);
+    // this.updateAttributes = handleUpdateElement.bind(this);
+    // this.updateActive = handleSelectElement.bind(this);
+    // this.move = handleMoveElement.bind(this);
 
   }
 
@@ -106,21 +106,16 @@ class BuilderLayout extends React.Component {
 
     return (
         <React.Fragment>
-          <FloatingWidget
-              handleItemAddClick={this.handleItemAddClick}
-              activeComponent={sidebarIsOpen ? activeComponent : null}/>
-          <ContentBuildComponent
-              builderState={builderState.toJS()}
-              move={this.move}
-              getKey={this.getKey}
-              updateActive={this.updateActive}
-          />
-          <Sidebar
-              sidebarIsOpen={sidebarIsOpen}
-              activeComponent={activeComponent}
-              fields={activeFields}
-              updateAttributes={this.updateAttributes}
-          />
+          {/*<FloatingWidget*/}
+          {/*    handleItemAddClick={this.handleItemAddClick}*/}
+          {/*    activeComponent={sidebarIsOpen ? activeComponent : null}/>*/}
+          <ContentBuildComponent/>
+          {/*<Sidebar*/}
+          {/*    sidebarIsOpen={sidebarIsOpen}*/}
+          {/*    activeComponent={activeComponent}*/}
+          {/*    fields={activeFields}*/}
+          {/*    updateAttributes={this.updateAttributes}*/}
+          {/*/>*/}
         </React.Fragment>
     );
   }

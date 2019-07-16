@@ -85,7 +85,7 @@ export const targetSpec = {
       targetSide = BorderHighlight.Right; //top
     }
 
-    props.move(draggedId, draggedType, overId, overType, targetSide);
+    props.onMove(draggedId, draggedType, overId, overType, targetSide);
   },
 
   hover(props, monitor, component) {

@@ -1,18 +1,11 @@
-import {
-  BackgroundComponent,
-  BackgroundInterface,
-} from "../addable-components/Background";
-import React from "react";
-import { withDroppable } from "../draggable-droppable/index";
+import React from 'react';
+import {BackgroundComponent} from '../addable-components/Background';
+import {compose} from 'redux';
+import {withBuilderState} from '../BuilderLayout/HOC/withBuilderState';
 
-export const ContentBuildComponent = React.memo(
-  ({ builderState, move, handleSelectElement }) => {
-    return (
-      <BackgroundComponent
-        background={builderState}
-        move={move}
-        updateActive={updateActive}
-      />
-    );
-  },
-);
+const ContentBuildComponent = ({builderState}) =>
+    <BackgroundComponent background={builderState}/>;
+
+const connectedComponent = compose(withBuilderState)(ContentBuildComponent);
+
+export {connectedComponent as ContentBuildComponent};
