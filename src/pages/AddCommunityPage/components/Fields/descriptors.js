@@ -1,4 +1,4 @@
-import {Alignments, Directions} from '../../constants/style-enums';
+import {Alignments, Directions} from '../../constants/style-constants';
 
 export const FieldTypes = {
   SLIDER: 'SLIDER',

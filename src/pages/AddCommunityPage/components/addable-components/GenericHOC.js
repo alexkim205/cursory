@@ -1,22 +1,22 @@
 import React from 'react';
 import {compose} from 'redux';
 
-import {componentTypes} from '../constants/component-types';
+import {componentTypes} from '../../constants/component-types';
 import {ContainerClass, ContainerComponent} from './Container';
 
-import {StyledClass} from '../components/StyledClass';
+import {StyledClass} from '../class/StyledClass';
 import PropTypes from 'prop-types';
 import {
   connectAsTarget,
   connectAsTargetAndSource,
-} from '../draggable-droppable';
-import {calcWhichBorder} from '../draggable-droppable/withBorderHighlights';
+} from '../../draggable-droppable';
+import {calcWhichBorder} from '../../draggable-droppable/withBorderHighlights';
 
 import {GenericWrapper} from './styles';
-import {withBuilderState} from '../BuilderLayout/HOC/withBuilderState';
-import {withActiveComponent} from '../BuilderLayout/HOC/withActiveComponent';
-import {connectMoveHandler} from '../BuilderLayout/HOC/withMoveHandler';
-import {connectSelectHandler} from '../BuilderLayout/HOC/withSelectHandler';
+import {withBuilderState} from '../../BuilderLayout/HOC/withBuilderState';
+import {withActiveComponent} from '../../BuilderLayout/HOC/withActiveComponent';
+import {connectMoveHandler} from '../../BuilderLayout/HOC/withMoveHandler';
+import {connectSelectHandler} from '../../BuilderLayout/HOC/withSelectHandler';
 import Immutable from 'immutable';
 
 export class GenericClass extends StyledClass {
@@ -101,8 +101,11 @@ export const GenericHOC = Component => {
         isOver,
         canDrop,
         clientOffset,
-        ...otherProps,
+        ...otherProps
       } = this.props;
+      if (!genericComponent) {
+        return null;
+      }
       const {id, index, childComponents, type, name, ...otherStyleProps} = genericComponent.toJSON();
       console.log('genericComponent', id, index, childComponents, type, name,
           otherStyleProps);

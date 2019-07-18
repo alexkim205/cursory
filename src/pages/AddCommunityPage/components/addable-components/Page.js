@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {compose} from 'redux';
 
-import {componentTypes} from '../constants/component-types';
+import {componentTypes} from '../../constants/component-types';
 import {GenericComponent} from './Generic';
-import {Positions} from '../constants/style-enums';
-import {StyledClass} from '../components/StyledClass';
-import {widthDescriptor, heightDescriptor} from '../components';
+import {Positions} from '../../constants/style-constants';
+import {StyledClass} from '../class/StyledClass';
+import {widthDescriptor, heightDescriptor} from '../index';
 
 import {
   connectAsTarget,
   connectAsTargetAndSource,
-} from '../draggable-droppable';
+} from '../../draggable-droppable';
 import {BackgroundClass} from './Background';
 import {PageWrapper} from './styles';
-import {connectMoveHandler} from '../BuilderLayout/HOC/withMoveHandler';
-import {connectSelectHandler} from '../BuilderLayout/HOC/withSelectHandler';
+import {connectMoveHandler} from '../../BuilderLayout/HOC/withMoveHandler';
+import {connectSelectHandler} from '../../BuilderLayout/HOC/withSelectHandler';
 import Immutable from 'immutable';
 
 export class PageClass extends StyledClass {
@@ -55,8 +55,10 @@ class PageComponent extends React.Component {
   };
 
   render() {
-
     const {page, onSelect, connectDropTarget} = this.props;
+    if (!page) {
+      return null;
+    }
     const {id, childComponents, type, position, ...otherProps} = page.toJSON();
     console.log('page', id, childComponents, type, position, otherProps);
 

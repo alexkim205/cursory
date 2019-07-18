@@ -1,5 +1,5 @@
 export * from './ContentBuildComponent';
-export * from './HistoryClass';
-export * from './StyledClass';
+export * from './class/HistoryClass';
+export * from './class/StyledClass';
 export * from './Fields';
 export * from './FloatingWidget';

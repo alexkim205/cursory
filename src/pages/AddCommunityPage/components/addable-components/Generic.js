@@ -1,6 +1,6 @@
 import React from 'react';
 import {GenericHOC, GenericClass} from './GenericHOC';
-import {componentTypes} from '../constants/component-types';
+import {componentTypes} from '../../constants/component-types';
 import {ImageComponent} from './Image';
 
 const GenericBaseComponent = props => <div></div>;

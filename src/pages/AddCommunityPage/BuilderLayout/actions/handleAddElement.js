@@ -19,7 +19,7 @@ import {componentTypes} from '../../constants/component-types';
 import {fromJS} from 'immutable';
 import {idToPath, pathToId} from '../../helpers';
 import {Log} from '../../../../_helpers';
-import {ContainerItemClass, GenericClass} from '../../addable-components';
+import {ContainerItemClass, GenericClass} from '../../components/addable-components';
 
 // https://stackoverflow.com/questions/45517254/react-binding-this-to-an-imported-function
 export function handleAddElement(

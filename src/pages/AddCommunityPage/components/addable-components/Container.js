@@ -1,26 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {compose} from 'redux';
 
-import {GenericComponent} from './Generic';
-import {componentTypes} from '../constants/component-types';
-import {Directions} from '../constants/style-enums';
-import {StyledClass} from '../components/StyledClass';
-import {ContainerClass} from './Container';
-import {connectAsTargetContainerItem} from '../draggable-droppable';
+import {
+  ContainerItemInterface,
+  ContainerItemComponent,
+} from './ContainerItem';
+import {GenericComponentInterface} from './Generic';
+import {componentTypes} from '../../constants/component-types';
+import {Alignments, Directions} from '../../constants/style-constants';
+import {StyledClass} from '../class/StyledClass';
+import PropTypes from 'prop-types';
+import {connectAsTargetAndSource} from '../../draggable-droppable';
 import {
   calcWhichBorder,
   renderOverlay,
-} from '../draggable-droppable/withBorderHighlights';
-import {ContainerItemWrapper} from './styles';
-import {compose} from 'redux';
-import {connectMoveHandler, connectSelectHandler} from '../BuilderLayout/HOC';
+} from '../../draggable-droppable/withBorderHighlights';
+import {widthDescriptor, heightDescriptor} from '../index';
+import {ContainerWrapper} from './styles';
+import {connectMoveHandler, connectSelectHandler} from '../../BuilderLayout/HOC';
 import Immutable from 'immutable';
 
-/*
- * Container column where elements can be dropped into.
- */
-
-export class ContainerItemClass extends StyledClass {
+export class ContainerClass extends StyledClass {
   constructor(options = {}) {
     super(options);
     Object.assign(
@@ -29,11 +29,12 @@ export class ContainerItemClass extends StyledClass {
           id: 'bg_page_0',
           index: 0,
           name: '',
-          type: componentTypes.CONTAINER_ITEM,
+          type: componentTypes.CONTAINER,
           childComponents: [],
-          direction: Directions.Rows,
-          width: 10,
-          height: 10,
+          direction: Directions.Columns,
+          alignment: Alignments.SpaceBetween,
+          width: widthDescriptor.bounds[1],
+          height: heightDescriptor.bounds[1],
           paddingVertical: 1,
           paddingHorizontal: 1,
           marginTop: 1,
@@ -46,13 +47,9 @@ export class ContainerItemClass extends StyledClass {
   addChild = e => {
     this.childComponents.push(e);
   };
-
-  isEmpty = () => {
-    return this.childComponents.length === 0;
-  };
 }
 
-class ContainerItemComponent extends React.Component {
+class ContainerComponent extends React.Component {
   constructor(props) {
     super(props);
     this.node = React.createRef();
@@ -61,10 +58,13 @@ class ContainerItemComponent extends React.Component {
   state = {borderHighlight: null};
 
   static propTypes = {
-    containerItem: PropTypes.instanceOf(Immutable.Map),
+    container: PropTypes.instanceOf(Immutable.Map),
     onSelect: PropTypes.func.isRequired,
     onMove: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
+    connectDragSource: PropTypes.func.isRequired,
+    connectDragPreview: PropTypes.func.isRequired,
+    isDragging: PropTypes.bool.isRequired,
     isOver: PropTypes.bool.isRequired,
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
@@ -86,38 +86,45 @@ class ContainerItemComponent extends React.Component {
     return (
         this.state.borderHighlight !== nextState.borderHighlight ||
         this.props.isOver !== nextProps.isOver ||
-        !this.props.containerItem.equals(nextProps.containerItem)
+        !this.props.container.equals(nextProps.container) ||
+        this.props.isDragging !== nextProps.isDragging
     );
   }
 
   render() {
     const {
-      containerItem,
+      container,
       onSelect,
       onMove,
       connectDropTarget,
+      connectDragSource,
+      connectDragPreview,
+      isDragging,
       isOver,
       canDrop,
       clientOffset,
       ...otherProps
     } = this.props;
-    const {id, index, childComponents, type, name, ...otherStyleProps} = containerItem.toJSON();
+    if (!container) {
+      return null;
+    }
+    const {id, index, childComponents, type, name, ...otherStyleProps} = container.toJSON();
     console.log('container', id, index, childComponents, type, name,
         otherStyleProps);
     const {borderHighlight} = this.state;
 
-    // console.log(this.props)
-
     return (
-        <ContainerItemWrapper
-            {...otherStyleProps}
+        <ContainerWrapper
+            {...otherProps}
             borderHighlight={borderHighlight}
             isOver={isOver}
-            // isDragging={isDragging}
-            onClick={e => onSelect(containerItem)}
+            isDragging={isDragging}
+            onClick={e => onSelect(container)}
             ref={instance => {
               this.node.current = instance;
-              return connectDropTarget(instance);
+              return connectDropTarget(
+                  connectDragPreview(connectDragSource(instance)),
+              );
             }}
         >
           {/* {id} */}
@@ -127,13 +134,13 @@ class ContainerItemComponent extends React.Component {
             updatedComponent = updatedComponent.set('index', key);
 
             return (
-                <GenericComponent
-                    genericComponent={updatedComponent}
+                <ContainerItemComponent
+                    containerItem={updatedComponent}
                     key={key}
                 />
             );
           })}
-        </ContainerItemWrapper>
+        </ContainerWrapper>
     );
   }
 }
@@ -141,6 +148,6 @@ class ContainerItemComponent extends React.Component {
 const connectedComponent = compose(
     connectMoveHandler,
     connectSelectHandler,
-    connectAsTargetContainerItem,
-)(ContainerItemComponent);
-export {connectedComponent as ContainerItemComponent};
+    connectAsTargetAndSource,
+)(ContainerComponent);
+export {connectedComponent as ContainerComponent};

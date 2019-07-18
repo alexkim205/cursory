@@ -1,5 +1,5 @@
 import React from 'react';
-import {BackgroundComponent} from '../addable-components/Background';
+import {BackgroundComponent} from './addable-components/Background';
 import {compose} from 'redux';
 import {withBuilderState} from '../BuilderLayout/HOC/withBuilderState';
 

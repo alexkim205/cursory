@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Immutable from 'immutable';
 
-import {componentTypes} from '../constants/component-types';
+import {componentTypes} from '../../constants/component-types';
 import {PageClass, PageComponent, PageInterface} from './Page';
-import {Positions} from '../constants/style-enums';
+import {Positions} from '../../constants/style-constants';
 import {BackgroundWrapper} from './styles';
 import {compose} from 'redux';
 import {connect} from 'react-redux';
-import {connectSelectHandler} from '../BuilderLayout/HOC/withSelectHandler';
+import {connectSelectHandler} from '../../BuilderLayout/HOC/withSelectHandler';
 
 export class BackgroundClass {
   constructor(options = {}) {
@@ -37,6 +37,10 @@ class BackgroundComponent extends React.Component {
 
   render() {
     const {background, onSelect} = this.props;
+    if (!background) {
+      return null;
+    }
+
     const {id, page, type, ...backgroundProps} = background.toJSON();
     console.log("background", id, page, type, backgroundProps)
     // console.log(page)

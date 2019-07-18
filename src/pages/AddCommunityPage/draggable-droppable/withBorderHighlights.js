@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BorderHighlight } from "../constants/style-enums";
+import { BorderHighlight } from "../constants/style-constants";
 
 export const calcWhichBorder = (clientOffset, ref, isOver, canDrop) => {
   if (!canDrop) {

@@ -6,7 +6,7 @@ import {
   ContainerItemClass,
   GenericClass,
   PageClass,
-} from '../addable-components/index';
+} from '../components/addable-components/index';
 import {
   ContentBuildComponent,
   History,
@@ -108,13 +108,7 @@ class BuilderLayout extends React.Component {
         <React.Fragment>
           <FloatingWidget/>
           <ContentBuildComponent/>
-          {/*<Sidebar*/}
-          {/*    sidebarIsOpen={sidebarIsOpen}*/}
-          {/*    activeComponent={activeComponent}*/}
-          {/*    fields={activeFields}*/}
-          {/*    updateAttributes={this.updateAttributes}*/}
-          {/*/>*/}
-          {/*<Sidebar sidebarIsOpen={}/>*/}
+          <Sidebar/>
         </React.Fragment>
     );
   }

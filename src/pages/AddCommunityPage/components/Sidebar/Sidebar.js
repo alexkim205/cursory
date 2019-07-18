@@ -18,13 +18,13 @@ import {
   withActiveComponent,
   withSidebarIsOpen,
 } from '../../BuilderLayout/HOC';
-import {componentFields} from '../../constants/component-types';
+import {componentFields} from '../../constants/component-fields';
 
 class Sidebar extends React.Component {
   static propTypes = {
     activeComponent: PropTypes.object,
     onUpdate: PropTypes.func,
-    sidebarIsOpen: PropTypes.boolean,
+    sidebarIsOpen: PropTypes.bool,
   };
 
   UNSAFE_componentWillReceiveProps(nextProps) {

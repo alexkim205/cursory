@@ -1,8 +1,8 @@
 import React from "react";
 import { DragSource, DropTarget } from "react-dnd";
-import { componentTypes } from "../constants/component-types";
 import { findDOMNode } from "react-dom";
-import { BorderHighlight } from "../constants/style-enums";
+import { BorderHighlight } from "../constants/style-constants";
+import {componentTypes} from '../constants/component-types';
 
 export const targetSpec = {
   canDrop(props, monitor) {

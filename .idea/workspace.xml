@@ -2,10 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/_actions/builder-state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_actions/builder-state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_reducers/builder-state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_reducers/builder-state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/base-styles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-fields.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Forms/WidthField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/WidthField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleAddElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleAddElement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleMoveElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleMoveElement.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Background.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/ContainerItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Generic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/GenericHOC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/setting-elements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/setting-elements.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/Background.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Background.style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/Container.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Container.style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/ContainerItem.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/ContainerItem.style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/Generic.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Generic.style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/Page.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Page.style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/HistoryClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/class/HistoryClass.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/StyledClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/class/StyledClass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withBorderHighlights.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withBorderHighlights.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,131 +50,92 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.55114055">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="256">
-                  <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withAddHandler.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#0#36#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="10">
-                  <caret line="87" column="16" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="93">
-                  <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
-                  <folding>
-                    <element signature="e#24#73#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleUpdateElement.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="38" selection-start-line="11" selection-end-line="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2189">
-                  <caret line="77" column="20" lean-forward="true" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withUpdateHandler.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-                  <folding>
-                    <element signature="e#0#36#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/_actions/builder-state.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="211">
-                  <caret line="106" column="31" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="31" />
-                  <folding>
-                    <element signature="e#0#52#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/_reducers/builder-state.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="539">
-                  <caret line="41" column="12" lean-forward="true" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleAddElement.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="438">
-                  <caret line="38" column="81" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="81" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                    <element signature="e#454#517#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Container.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/ContainerItem.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Generic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/GenericHOC.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="106" column="19" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Image.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Page.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -153,11 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>border-top</find>
-      <find>red</find>
-      <find>340</find>
-      <find>top: 55px</find>
-      <find>width</find>
       <find>176</find>
       <find>updateAttributes</find>
       <find>proptypes</find>
@@ -183,6 +172,11 @@
       <find>sidebarIsOpen</find>
       <find>activeFields</find>
       <find>selected</find>
+      <find>from</find>
+      <find>fromjs</find>
+      <find>componenttypes</find>
+      <find>componentFiel</find>
+      <find>compon</find>
     </findStrings>
     <replaceStrings>
       <replace>blockIsList</replace>
@@ -213,22 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/AddCommunityPage.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.style.js" />
-        <option value="$PROJECT_DIR$/src/components/Forms/WidthField.js" />
-        <option value="$PROJECT_DIR$/src/components/Forms/Form.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addElementMethod.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/addElementMethod.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericConstructor.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Image.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js" />
         <option value="$PROJECT_DIR$/src/_constants/index.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js" />
@@ -237,33 +215,49 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElementAttributes.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/index.js" />
         <option value="$PROJECT_DIR$/src/_constants/builder-state.js" />
-        <option value="$PROJECT_DIR$/src/_actions/index.js" />
         <option value="$PROJECT_DIR$/src/_reducers/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleMoveElement.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleAddElement.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleUpdateElement.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withMoveHandler.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withSelectHandler.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withActiveComponent.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withBuilderState.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Background.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Page.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withAddHandler.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withUpdateHandler.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withSidebarIsOpen.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js" />
         <option value="$PROJECT_DIR$/src/_actions/builder-state.js" />
         <option value="$PROJECT_DIR$/src/_reducers/builder-state.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withMoveHandler.js" />
+        <option value="$PROJECT_DIR$/src/_actions/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleMoveElement.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-fields.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-constants.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/base-styles.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Background.style.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Container.style.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/ContainerItem.style.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Generic.style.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Page.style.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Page.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/GenericHOC.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/ContainerItem.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Container.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js" />
       </list>
     </option>
   </component>
@@ -273,7 +267,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1680" />
     <option name="height" value="1050" />
   </component>
@@ -283,119 +277,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_reducers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="BuilderLayout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="BuilderLayout" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="BuilderLayout" type="462c0819:PsiDirectoryNode" />
-              <item name="HOC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="FloatingWidget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Sidebar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="draggable-droppable" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
           <expand>
@@ -460,6 +341,92 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_constants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="_reducers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="addable-components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+              <item name="constants" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cursory" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
+              <item name="draggable-droppable" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -481,19 +448,19 @@
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget" />
-      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions" />
-      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout" />
-      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components" />
-      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/_reducers" />
       <recent name="$PROJECT_DIR$/src/_constants" />
       <recent name="$PROJECT_DIR$/src/AdminPage" />
       <recent name="$PROJECT_DIR$/src/AccountPage" />
       <recent name="$PROJECT_DIR$/src/SignUpPage" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/components" />
+      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/components/classes" />
+      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget" />
+      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions" />
+      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -571,12 +538,13 @@
       <workItem from="1563285236623" duration="18000" />
       <workItem from="1563319142019" duration="1094000" />
       <workItem from="1563389279485" duration="97000" />
-      <workItem from="1563408877924" duration="1149000" />
+      <workItem from="1563408877924" duration="1177000" />
+      <workItem from="1563414580884" duration="1977000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="502058000" />
+    <option name="totallyTimeSpent" value="504063000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -588,10 +556,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="543" y="23" width="1137" height="958" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18083182" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2876344" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -605,7 +573,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50090414" side_tool="true" weight="0.25510204" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49909583" visible="true" weight="0.27755103" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49909583" visible="true" weight="0.25981525" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3299539" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -613,7 +581,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2013261" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25315458" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -627,7 +595,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50090414" side_tool="true" weight="0.25510204" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49909583" visible="true" weight="0.27755103" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49909583" weight="0.25981525" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3299539" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -642,194 +610,10 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericConstructor.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js#componentTypes#8;</node>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js#componentTypes#168;</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="138.0" y="127.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx#alignmentDescriptor#213;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#backgroundColorDescriptor#11;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#heightDescriptor#59;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#marginBottomDescriptor#139;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#marginTopDescriptor#165;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#orientationDescriptor#188;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#paddingHorizontalDescriptor#79;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#paddingVerticalDescriptor#110;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#returnScaled#265;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#widthDescriptor#40;</node>
-            <node x="" y="">alignmentDescriptor;backgroundColorDescriptor;heightDescriptor;marginBottomDescriptor;marginTopDescriptor;orientationDescriptor;paddingHorizontalDescriptor;paddingVerticalDescriptor;widthDescriptor;</node>
-            <node x="" y="">returnScaled;</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.9073783359497645" x="221.0" y="309.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js#Alignments#8;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#Directions#20;</node>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx#Alignments#877;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/style-enums.tsx#Directions#299;</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="99.0" y="124.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js#alignmentDescriptor#2642;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#backgroundColorDescriptor#1344;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#columnsDescriptor#2913;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#heightDescriptor#1738;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#marginBottomDescriptor#2305;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#marginTopDescriptor#2169;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#orientationDescriptor#2447;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#paddingHorizontalDescriptor#2017;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#paddingVerticalDescriptor#1869;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/descriptors.js#widthDescriptor#1437;</node>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js#alignmentDescriptor#11;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#backgroundColorDescriptor#34;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#columnsDescriptor#236;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#fromJS#288;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#heightDescriptor#63;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#marginBottomDescriptor#83;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#marginTopDescriptor#109;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#orientationDescriptor#132;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#paddingHorizontalDescriptor#157;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#paddingVerticalDescriptor#188;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#widthDescriptor#217;</node>
-            <node x="" y="">$PROJECT_DIR$/node_modules/immutable/dist/immutable.d.ts#fromJS#151928;</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.85" x="199.0" y="330.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/component-types.js">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js</OriginalElement>
-          <nodes>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js#bgMutableFields#11;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/component-types.js#containerMutableFields#106;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/component-types.js#containerWidthMutableFields#30;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/component-types.js#genericMutableFields#61;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/constants/component-types.js#pageMutableFields#85;</node>
-            <node x="" y="">$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js#bgMutableFields#1695;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#containerMutableFields#2140;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#containerWidthMutableFields#1829;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#genericMutableFields#1757;/Users/alexkim/Documents/writing/writing/src/pages/AddCommunityPage/components/Fields/fields.js#pageMutableFields#1978;</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.1" x="137.0" y="196.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#255#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="30" column="2" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="30" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#153#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_constants/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_reducers/editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="18" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/sharedMethods.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_constants/editor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_constants/builder-state.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -847,13 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_actions/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
@@ -890,16 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Image.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_reducers/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -914,93 +681,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Background.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="38" selection-start-line="38" selection-end-line="40" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="74" column="66" selection-start-line="73" selection-start-column="12" selection-end-line="74" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="107" column="27" lean-forward="true" selection-start-line="92" selection-start-column="6" selection-end-line="107" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="130" column="66" lean-forward="true" selection-start-line="129" selection-start-column="12" selection-end-line="130" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="112" column="13" lean-forward="true" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="136" column="6" lean-forward="true" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withMoveHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleMoveElement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1028,13 +708,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withSidebarIsOpen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withAddHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="105">
           <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+          <folding>
+            <element signature="e#24#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withUpdateHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_reducers/builder-state.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="12" lean-forward="true" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1049,37 +780,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withSidebarIsOpen.js">
+    <entry file="file://$PROJECT_DIR$/src/_constants/builder-state.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="87" column="16" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -1090,47 +794,311 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="52" column="10" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+        <state relative-caret-position="326">
+          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
           <folding>
-            <element signature="e#24#73#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_reducers/builder-state.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="41" column="12" lean-forward="true" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_actions/builder-state.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="106" column="31" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="31" />
+        <state relative-caret-position="140">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withUpdateHandler.js">
+    <entry file="file://$PROJECT_DIR$/src/_actions/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withMoveHandler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="51" lean-forward="true" selection-start-line="1" selection-start-column="51" selection-end-line="1" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2189">
-          <caret line="77" column="20" lean-forward="true" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+        <state relative-caret-position="91">
+          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleMoveElement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/constants/component-types.js">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js</OriginalElement>
+          <nodes>
+            <node x="60.0" y="0.0">;;;;;</node>
+            <node x="0.0" y="214.0">$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js#bgMutableFields#1695;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#containerMutableFields#2140;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#containerWidthMutableFields#1829;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#genericMutableFields#1757;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#pageMutableFields#1978;</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source=";;;;;" target="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js#bgMutableFields#1695;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#containerMutableFields#2140;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#containerWidthMutableFields#1829;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#genericMutableFields#1757;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#pageMutableFields#1978;">
+              <point x="-10.385612574829587" y="0.0" />
+              <point x="-10.385612574829565" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.057818128567693" x="-77.78906201588677" y="116.8118452833919" />
+          <SelectedNodes>
+            <node>$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js#bgMutableFields#1695;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#containerMutableFields#2140;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#containerWidthMutableFields#1829;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#genericMutableFields#1757;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#pageMutableFields#1978;</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js</OriginalElement>
+          <nodes>
+            <node x="298.0" y="0.0">$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js#alignmentDescriptor#2646;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#backgroundColorDescriptor#1348;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#columnsDescriptor#2917;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#heightDescriptor#1742;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#marginBottomDescriptor#2309;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#marginTopDescriptor#2173;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#orientationDescriptor#2451;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#paddingHorizontalDescriptor#2021;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#paddingVerticalDescriptor#1873;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#widthDescriptor#1441;</node>
+            <node x="23.0" y="57.0">$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js#alignmentDescriptor#11;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#backgroundColorDescriptor#34;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#columnsDescriptor#236;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#fromJS#288;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#heightDescriptor#63;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#marginBottomDescriptor#83;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#marginTopDescriptor#109;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#orientationDescriptor#132;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#paddingHorizontalDescriptor#157;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#paddingVerticalDescriptor#188;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#widthDescriptor#217;</node>
+            <node x="0.0" y="416.0">$PROJECT_DIR$/node_modules/immutable/dist/immutable-nonambient.d.ts#fromJS#151902;</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js#alignmentDescriptor#11;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#backgroundColorDescriptor#34;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#columnsDescriptor#236;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#fromJS#288;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#heightDescriptor#63;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#marginBottomDescriptor#83;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#marginTopDescriptor#109;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#orientationDescriptor#132;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#paddingHorizontalDescriptor#157;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#paddingVerticalDescriptor#188;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#widthDescriptor#217;" target="$PROJECT_DIR$/node_modules/immutable/dist/immutable-nonambient.d.ts#fromJS#151902;">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/fields.js#alignmentDescriptor#11;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#backgroundColorDescriptor#34;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#columnsDescriptor#236;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#fromJS#288;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#heightDescriptor#63;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#marginBottomDescriptor#83;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#marginTopDescriptor#109;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#orientationDescriptor#132;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#paddingHorizontalDescriptor#157;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#paddingVerticalDescriptor#188;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/fields.js#widthDescriptor#217;" target="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js#alignmentDescriptor#2646;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#backgroundColorDescriptor#1348;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#columnsDescriptor#2917;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#heightDescriptor#1742;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#marginBottomDescriptor#2309;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#marginTopDescriptor#2173;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#orientationDescriptor#2451;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#paddingHorizontalDescriptor#2021;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#paddingVerticalDescriptor#1873;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#widthDescriptor#1441;">
+              <point x="0.0" y="-36.05414202314057" />
+              <point x="0.0" y="-36.05414202314057" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="30.5" y="64.5" />
+          <SelectedNodes>
+            <node>$PROJECT_DIR$/node_modules/immutable/dist/immutable-nonambient.d.ts#fromJS#151902;</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram//Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js</OriginalElement>
+          <nodes>
+            <node x="28.0" y="165.0">$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js#Alignments#8;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#Directions#20;</node>
+            <node x="0.0" y="0.0">;;</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js#Alignments#8;/Users/alexkim/Documents/Misc./cursory/src/pages/AddCommunityPage/components/Fields/descriptors.js#Directions#20;" target=";;">
+              <point x="5.017965886146207" y="0.0" />
+              <point x="5.017965886146207" y="3.552713678800501E-15" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-131.0" y="-50.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-fields.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" selection-start-column="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Background.style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="66" lean-forward="true" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/base-styles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Page.style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Generic.style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/ContainerItem.style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Container.style.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Generic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/GenericHOC.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="106" column="19" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/ContainerItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

@@ -1,4 +1,9 @@
 import {idToPath} from '../../helpers';
+import {componentTypes} from '../../constants/component-types';
+import {Log} from '../../../../_helpers';
+import {BorderHighlight} from '../../constants/style-constants';
+import {fromJS} from 'immutable';
+import {ContainerItemClass, ContainerClass} from '../../components/addable-components';
 
 export function handleMoveElement(
     builderState, oldComponent, newComponent, targetSide) {

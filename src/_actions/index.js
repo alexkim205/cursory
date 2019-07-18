@@ -1,2 +1,2 @@
 export * from './editor';
-export * from './builder-state ';
+export * from './builder-state';

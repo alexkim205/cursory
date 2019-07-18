@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   alignmentStyle,
   borderHighlightStyle,
@@ -6,19 +6,22 @@ import {
   marginStyle,
   paddingStyle,
   widthStyle,
-  heightStyle,
   transitionStyle,
   draggingDisableStyle,
   hoverSelectStyle,
-} from "../../constants/style-enums";
+  heightStyle,
+} from './base-styles';
 
-export const ContainerItemWrapper = styled.div`
+export const PageWrapper = styled.div`
+    background-color: ${props => props.backgroundColor};
+    // background-color: whi;
+
     display: flex;
     box-sizing: border-box;
-    position: relative;
-    background-color: ${props => props.backgroundColor};
-    // min-height: 150px;
+    flex-direction: column;
     border: 2px solid transparent;
+
+    // TODO: Implement style later
 
     // Transitions
     ${transitionStyle()}
@@ -29,24 +32,12 @@ export const ContainerItemWrapper = styled.div`
     // Alignment
     ${props => alignmentStyle(props.alignment)}
 
-    // Direction
-    ${props => directionStyle(props.direction)}
-
     // Width
     ${props => widthStyle(props.width)}
-
-    // Height
-    ${props => heightStyle(props.height)}
 
     // Padding
     ${props => paddingStyle(props.paddingVertical, props.paddingHorizontal)}
     
     // Margin
     ${props => marginStyle(props.marginTop, props.marginBottom)}
-
-    // Border Highlight
-    ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
-
-    // If Dragging disable
-    // ${props => draggingDisableStyle(props.isDragging)}
 `;

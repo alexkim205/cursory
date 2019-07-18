@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   alignmentStyle,
   borderHighlightStyle,
@@ -9,7 +9,7 @@ import {
   transitionStyle,
   draggingDisableStyle,
   hoverSelectStyle,
-} from "../../constants/style-enums";
+} from './base-styles';
 
 export const ContainerWrapper = styled.div`
   background-color: ${props => props.backgroundColor};

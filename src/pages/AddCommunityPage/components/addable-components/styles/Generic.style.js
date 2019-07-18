@@ -10,7 +10,7 @@ import {
   draggingDisableStyle,
   hoverSelectStyle,
   heightStyle,
-} from "../../constants/style-enums";
+} from './base-styles';
 
 export const GenericWrapper = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
-import { componentTypes } from "../constants/component-types";
-import { Alignments, Directions } from "../constants/style-enums";
-import { SelectDescription, SliderDescription } from "./Fields";
+import { componentTypes } from "../../constants/component-types";
+import { Alignments, Directions } from "../../constants/style-constants";
+import { SelectDescription, SliderDescription } from "../Fields";
 
 export class StyledClass {
   constructor(options = {}) {

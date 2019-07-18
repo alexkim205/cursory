@@ -9,7 +9,7 @@ import {
   CollapsibleEntry,
 } from './Form.style';
 import {FormFieldWidthText} from './Form';
-import {ContainerItemClass} from '../../pages/AddCommunityPage/addable-components';
+import {ContainerItemClass} from '../../pages/AddCommunityPage/components/addable-components';
 import {columnWidthDescriptor} from '../../pages/AddCommunityPage/components';
 import {theme} from '../../_styles';
 

@@ -1,6 +1,5 @@
 // Set active component
 import {idToPath, pathToId} from '../../helpers';
-import {componentFields} from '../../constants/component-types';
 
 export function handleSelectElement(builderState, selectedComponent) {
 

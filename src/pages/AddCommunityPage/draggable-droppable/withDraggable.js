@@ -2,7 +2,7 @@ import React from "react";
 import { findDOMNode } from "react-dom";
 import { DragSource, DropTarget } from "react-dnd";
 import { componentTypes } from "../constants/component-types";
-import { BorderHighlight } from "../constants/style-enums";
+import { BorderHighlight } from "../constants/style-constants";
 
 export const connectAsTargetAndSource = Component =>
   DragSource(
