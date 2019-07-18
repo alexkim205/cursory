@@ -103,8 +103,8 @@ export function select(selectedComponent) {
 
     return handleSelectElement(
         builderState, selectedComponent,
-    ).then(({active, activeComponent, builderState: activeBuilderState}) => {
-      dispatch(success(active, activeComponent, activeBuilderState));
+    ).then(({selected, activeComponent, builderState: activeBuilderState}) => {
+      dispatch(success(selected, activeComponent, activeBuilderState));
       console.log('Selected element.');
     }, error => {
       dispatch(failure());
@@ -116,10 +116,10 @@ export function select(selectedComponent) {
     return {type: builderStateConstants.SELECT_ACTIVE_ELEMENT_REQUEST};
   }
 
-  function success(active, activeComponent, builderState) {
+  function success(selected, activeComponent, builderState) {
     return {
       type: builderStateConstants.SELECT_ACTIVE_ELEMENT_SUCCESS,
-      active,
+      selected,
       activeComponent,
       builderState,
     };

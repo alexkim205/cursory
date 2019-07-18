@@ -63,14 +63,8 @@ export function handleSelectElement(builderState, selectedComponent) {
       const activeComponent = builderState.getIn(activePath).toJS();
 
       // set new active
-      this.setState({
-        sidebarIsOpen: true,
-        activeComponent: activeComponent,
-        activeFields: componentFields[activeComponent.type],
-        builderState: builderState,
-      });
       resolve({
-        active: true,
+        selected: true,
         activeComponent,
         builderState,
       });
@@ -78,7 +72,7 @@ export function handleSelectElement(builderState, selectedComponent) {
 
     // close sidebar
     resolve({
-      active: true,
+      selected: false,
       activeComponent: null,
       builderState,
     });

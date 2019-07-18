@@ -40,15 +40,15 @@ function builderState(state = {}, action) {
     case builderStateConstants.SELECT_ACTIVE_ELEMENT_SUCCESS:
       return {
         ...stateWithBuilderState,
-        selected: action.active,
-        active: action.activeComponent,
+        selected: action.selected,
+        activeComponent: action.activeComponent,
         builderState: action.builderState
       };
     case builderStateConstants.UPDATE_ACTIVE_ELEMENT_SUCCESS:
       return {
         ...stateWithBuilderState,
         updated: true,
-        active: action.activeComponent,
+        activeComponent: action.activeComponent,
       };
     case builderStateConstants.ADD_ELEMENT_FAILURE:
       return {
