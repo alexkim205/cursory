@@ -2,43 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="367766c9-c582-46f8-8ec5-c5da4f5a6c72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/base-styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-fields.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_services/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/_services/mock-initial-state.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Forms/WidthField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Forms/WidthField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_reducers/builder-state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_reducers/builder-state.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleAddElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleAddElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleMoveElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleMoveElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleSelectElement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Background.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/ContainerItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/ContainerItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Generic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Generic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/GenericHOC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/setting-elements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/setting-elements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/Background.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Background.style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/Container.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Container.style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/ContainerItem.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/ContainerItem.style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/Generic.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Generic.style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/Page.style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/Page.style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/styles/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/styles/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Fields/descriptors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/HistoryClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/class/HistoryClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/Sidebar/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/StyledClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/class/StyledClass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/ContentBuildComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/component-types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/constants/style-enums.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withBorderHighlights.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withBorderHighlights.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDroppable.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+            <state relative-caret-position="232">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -76,10 +47,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/ContainerItem.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+            <state relative-caret-position="285">
+              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -88,10 +59,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Generic.js">
+        <entry file="file://$PROJECT_DIR$/src/_services/mock-initial-state.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+            <state relative-caret-position="-54">
+              <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#156#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/ContentBuildComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/ContainerItem.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -118,6 +113,18 @@
               <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/_reducers/builder-state.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -207,10 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/addable-elements.js" />
-        <option value="$PROJECT_DIR$/src/_constants/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/moveElement.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/addElementMethod.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElement.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/updateActiveElementAttributes.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/index.js" />
@@ -233,8 +236,6 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/index.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget/FloatingWidget.js" />
         <option value="$PROJECT_DIR$/src/_actions/builder-state.js" />
-        <option value="$PROJECT_DIR$/src/_reducers/builder-state.js" />
-        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/HOC/withMoveHandler.js" />
         <option value="$PROJECT_DIR$/src/_actions/index.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/addable-components/GenericHOC.js" />
@@ -257,7 +258,13 @@
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/GenericHOC.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/ContainerItem.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Container.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/ContentBuildComponent.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/index.js" />
         <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js" />
+        <option value="$PROJECT_DIR$/src/_services/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js" />
+        <option value="$PROJECT_DIR$/src/_services/mock-initial-state.js" />
+        <option value="$PROJECT_DIR$/src/_reducers/builder-state.js" />
       </list>
     </option>
   </component>
@@ -363,65 +370,13 @@
               <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
               <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="_helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="_reducers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
               <item name="cursory" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="addable-components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cursory" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cursory" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="AddCommunityPage" type="462c0819:PsiDirectoryNode" />
-              <item name="draggable-droppable" type="462c0819:PsiDirectoryNode" />
+              <item name="_services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -456,11 +411,11 @@
       <recent name="$PROJECT_DIR$/src/SignUpPage" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout" />
       <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/components" />
       <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/components/classes" />
       <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/components/FloatingWidget" />
       <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions" />
-      <recent name="$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -539,12 +494,12 @@
       <workItem from="1563319142019" duration="1094000" />
       <workItem from="1563389279485" duration="97000" />
       <workItem from="1563408877924" duration="1177000" />
-      <workItem from="1563414580884" duration="1977000" />
+      <workItem from="1563414580884" duration="2446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="504063000" />
+    <option name="totallyTimeSpent" value="504532000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -573,7 +528,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50090414" side_tool="true" weight="0.25510204" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49909583" visible="true" weight="0.25981525" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49909583" visible="true" weight="0.4191686" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3299539" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32971373" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -610,39 +565,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/_constants/editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_helpers/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_actions/editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggableAndDroppable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/draggable-droppable/withDraggable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -671,16 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/ContentBuildComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -762,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_reducers/builder-state.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="12" lean-forward="true" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/actions/handleAddElement.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
@@ -791,16 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="38" selection-start-line="11" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1085,6 +980,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="88" column="34" lean-forward="true" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/ContentBuildComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_services/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" selection-start-column="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Container.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
@@ -1095,12 +1031,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/components/addable-components/Background.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/AddCommunityPage/BuilderLayout/BuilderLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        <state relative-caret-position="285">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_services/mock-initial-state.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_reducers/builder-state.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
           </folding>
         </state>
       </provider>

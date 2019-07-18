@@ -1,6 +1,7 @@
 import {builderStateConstants} from '../_constants';
+import {initialState} from '../_services';
 
-function builderState(state = {}, action) {
+function builderState(state = {builderState: initialState}, action) {
   const stateWithBuilderState = {builderState: state.builderState};
 
   switch (action.type) {
@@ -42,7 +43,7 @@ function builderState(state = {}, action) {
         ...stateWithBuilderState,
         selected: action.selected,
         activeComponent: action.activeComponent,
-        builderState: action.builderState
+        builderState: action.builderState,
       };
     case builderStateConstants.UPDATE_ACTIVE_ELEMENT_SUCCESS:
       return {
