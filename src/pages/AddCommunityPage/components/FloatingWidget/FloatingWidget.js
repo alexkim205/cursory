@@ -17,6 +17,8 @@ import {
 import {componentTypes} from '../../constants/component-types';
 import {addableElements} from './addable-elements';
 import {settingElements} from './setting-elements';
+import {compose} from 'redux';
+import {connectAddHandler, withSidebarIsOpen} from '../../BuilderLayout/HOC';
 
 /*
  * Add
@@ -34,7 +36,9 @@ connectedItemWrapper.handleClickOutside = () => {
 class FloatingWidget extends React.Component {
 
   static propTypes = {
-    handleItemAddClick: PropTypes.func.isRequired,
+    onAdd: PropTypes.func.isRequired,
+    // sidebarIsOpen: PropTypes.boolean,
+    // handleItemAddClick: PropTypes.func.isRequired,
   };
   state = {
     addableDropdownIsActive: false,
@@ -62,7 +66,7 @@ class FloatingWidget extends React.Component {
 
   render() {
     const {addableDropdownIsActive, settingsDropdownIsActive} = this.state;
-    const {handleItemAddClick} = this.props;
+    const {onAdd} = this.props;
 
     return (
         <FloatingWidgetWrapper>
@@ -78,7 +82,7 @@ class FloatingWidget extends React.Component {
               {addableElements.map((item, key) => (
                   <AddableDropdownItemWrapper
                       key={key}
-                      onClick={(e) => handleItemAddClick(e, item)}>
+                      onClick={(e) => onAdd(item)}>
                     <div className={'text'}>
                       {item.name}
                     </div>
@@ -118,4 +122,8 @@ class FloatingWidget extends React.Component {
   }
 }
 
-export {FloatingWidget};
+const connectedComponent = compose(
+    connectAddHandler
+)(FloatingWidget);
+
+export {connectedComponent as FloatingWidget};

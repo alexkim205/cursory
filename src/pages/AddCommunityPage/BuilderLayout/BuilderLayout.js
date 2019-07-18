@@ -106,9 +106,7 @@ class BuilderLayout extends React.Component {
 
     return (
         <React.Fragment>
-          {/*<FloatingWidget*/}
-          {/*    handleItemAddClick={this.handleItemAddClick}*/}
-          {/*    activeComponent={sidebarIsOpen ? activeComponent : null}/>*/}
+          <FloatingWidget/>
           <ContentBuildComponent/>
           {/*<Sidebar*/}
           {/*    sidebarIsOpen={sidebarIsOpen}*/}
@@ -116,6 +114,7 @@ class BuilderLayout extends React.Component {
           {/*    fields={activeFields}*/}
           {/*    updateAttributes={this.updateAttributes}*/}
           {/*/>*/}
+          {/*<Sidebar sidebarIsOpen={}/>*/}
         </React.Fragment>
     );
   }

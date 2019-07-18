@@ -21,18 +21,18 @@ export const builderStateActions = {
  * @param clickedItem
  * @returns {function(*, *): Promise<T | never>}
  */
-export function add(sidebarIsOpen, clickedItem) {
+export function add(clickedItem) {
   return (dispatch, getState) => {
     dispatch(request());
 
     const store = getState().builderState;
-    const {builderState, activeComponent} = store;
+    const {builderState, activeComponent, selected} = store;
 
     if (!builderState || !activeComponent) return Promise.reject(
         'Builder state and/or active component are missing in store.');
 
     return handleAddElement(
-        builderState, activeComponent, sidebarIsOpen, clickedItem).then(
+        builderState, activeComponent, selected, clickedItem).then(
         (builderState) => {
           dispatch(success(builderState));
           console.log('Added element.');

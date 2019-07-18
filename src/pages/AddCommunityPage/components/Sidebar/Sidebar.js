@@ -15,7 +15,6 @@ import { FieldTypes } from "../Fields";
 
 class Sidebar extends React.Component {
   static propTypes = {
-    sidebarIsOpen: PropTypes.bool.isRequired,
     activeComponent: PropTypes.object,
     fields: PropTypes.array,
     updateAttributes: PropTypes.func,
