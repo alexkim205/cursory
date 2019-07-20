@@ -6,14 +6,17 @@ import {ImageComponent} from './Image';
 const GenericBaseComponent = props => <div></div>;
 
 const GenericComponent = props => {
-  const type = props.genericComponent.type;
+  const type = props.genericComponent.get('type');
+  console.log("generic component", props.genericComponent)
 
   if (type === componentTypes.GENERIC || type === componentTypes.CONTAINER) {
     const ConnectedComponent = GenericHOC(GenericBaseComponent);
+    console.log("generic base component", props.genericComponent.toJSON())
     return (
         <ConnectedComponent {...props}/>
     );
   } else if (type === componentTypes.IMAGE) {
+    console.log("generic image component", props.genericComponent.toJSON())
     return (
         <ImageComponent {...props}/>
     );

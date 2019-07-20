@@ -38,11 +38,11 @@ class BackgroundComponent extends React.Component {
   render() {
     const {background, onSelect} = this.props;
 
-    console.log("background", background)
-
     if (!background) {
       return null;
     }
+
+    console.log("background", background, background.toJSON())
 
     const {id, page, type, ...backgroundProps} = background.toJSON();
 

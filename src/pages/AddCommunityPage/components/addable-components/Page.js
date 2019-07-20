@@ -88,9 +88,9 @@ class PageComponent extends React.Component {
 }
 
 const connectedComponent = compose(
+    connectAsTarget,
     connectMoveHandler,
     connectSelectHandler,
-    connectAsTarget,
 )(PageComponent);
 
 export {connectedComponent as PageComponent};

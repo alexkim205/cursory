@@ -4,6 +4,7 @@ import {idToPath, pathToId} from '../../helpers';
 export function handleSelectElement(builderState, selectedComponent) {
 
   return new Promise((resolve, reject) => {
+    console.log("handle",builderState)
     let builderState = builderState;
     const activeId = selectedComponent.get('id');
 
