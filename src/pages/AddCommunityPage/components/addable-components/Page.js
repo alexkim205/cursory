@@ -60,12 +60,12 @@ class PageComponent extends React.Component {
       return null;
     }
     const {id, childComponents, type, position, ...otherProps} = page.toJSON();
-    console.log('page', id, childComponents, type, position, otherProps);
+    // console.log('page', id, childComponents, type, position, otherProps);
 
     return (
         <PageWrapper
             {...otherProps}
-            onClick={e => onSelect(page)}
+            onClick={e => onSelect(e, page)}
             ref={instance => {
               this.node.current = instance;
               return connectDropTarget(instance);

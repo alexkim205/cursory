@@ -105,8 +105,8 @@ class ContainerItemComponent extends React.Component {
       return null;
     }
     const {id, index, childComponents, type, name, ...otherStyleProps} = containerItem.toJSON();
-    console.log('container', id, index, childComponents, type, name,
-        otherStyleProps);
+    // console.log('container', id, index, childComponents, type, name,
+    //     otherStyleProps);
     const {borderHighlight} = this.state;
 
     // console.log(this.props)
@@ -117,7 +117,7 @@ class ContainerItemComponent extends React.Component {
             borderHighlight={borderHighlight}
             isOver={isOver}
             // isDragging={isDragging}
-            onClick={e => onSelect(containerItem)}
+            onClick={e => onSelect(e, containerItem)}
             ref={instance => {
               this.node.current = instance;
               return connectDropTarget(instance);

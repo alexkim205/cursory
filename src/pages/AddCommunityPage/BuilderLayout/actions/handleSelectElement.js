@@ -4,8 +4,7 @@ import {idToPath, pathToId} from '../../helpers';
 export function handleSelectElement(builderState, selectedComponent) {
 
   return new Promise((resolve, reject) => {
-    console.log("handle",builderState)
-    let builderState = builderState;
+    let newBuilderState = builderState;
     const activeId = selectedComponent.get('id');
 
     const activePath = idToPath(activeId);
@@ -46,7 +45,8 @@ export function handleSelectElement(builderState, selectedComponent) {
         builderState.toJS(),
         o => o.active === true,
         (o, oPath) => {
-          builderState = builderState.setIn(oPath.concat('active'), false);
+          newBuilderState = newBuilderState.setIn(oPath.concat('active'),
+              false);
           // return old Path
           oldPath = oPath;
           return;
@@ -55,18 +55,19 @@ export function handleSelectElement(builderState, selectedComponent) {
 
     if (!oldPath || JSON.stringify(oldPath) !== JSON.stringify(activePath)) {
       // if currently active isn't the same as selected, activate new one
-      builderState = builderState.setIn(activePath.concat('active'), true);
-      builderState = builderState.setIn(
+      newBuilderState = newBuilderState.setIn(activePath.concat('active'),
+          true);
+      newBuilderState = newBuilderState.setIn(
           activePath.concat('id'),
           pathToId(activePath),
       );
-      const activeComponent = builderState.getIn(activePath).toJS();
+      const activeComponent = newBuilderState.getIn(activePath);
 
       // set new active
       resolve({
         selected: true,
         activeComponent,
-        builderState,
+        builderState: newBuilderState,
       });
     }
 
@@ -74,7 +75,7 @@ export function handleSelectElement(builderState, selectedComponent) {
     resolve({
       selected: false,
       activeComponent: null,
-      builderState,
+      builderState: newBuilderState,
     });
   });
 }

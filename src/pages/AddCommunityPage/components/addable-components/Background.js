@@ -42,17 +42,13 @@ class BackgroundComponent extends React.Component {
       return null;
     }
 
-    console.log("background", background, background.toJSON())
-
     const {id, page, type, ...backgroundProps} = background.toJSON();
-
-    // console.log(page)
 
     return (
         <BackgroundWrapper
             {...backgroundProps}
             {...this.state.style}
-            onClick={e => onSelect(background)}
+            onClick={e => onSelect(e, background)}
         >
           <PageComponent
               page={page}

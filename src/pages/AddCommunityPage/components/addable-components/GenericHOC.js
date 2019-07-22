@@ -107,8 +107,8 @@ export const GenericHOC = Component => {
         return null;
       }
       const {id, index, childComponents, type, name, ...otherStyleProps} = genericComponent.toJSON();
-      console.log('genericComponent', id, index, childComponents, type, name,
-          otherStyleProps);
+      // console.log('genericComponent', id, index, childComponents, type, name,
+      //     otherStyleProps);
 
       const {borderHighlight} = this.state;
 
@@ -130,7 +130,7 @@ export const GenericHOC = Component => {
               borderHighlight={borderHighlight}
               isOver={isOver}
               isDragging={isDragging}
-              onClick={e => onSelect(genericComponent)}
+              onClick={e => onSelect(e, genericComponent)}
               ref={instance => {
                 this.node.current = instance;
                 return connectDropTarget(

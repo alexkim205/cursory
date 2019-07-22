@@ -193,7 +193,10 @@ class Sidebar extends React.Component {
                   <div className={'main'}>
                     <div className={'type'}>
                       <div className={'type-label'}>
-                        {activeComponent.type}
+                        {activeComponent.get('id')}
+                      </div>
+                      <div className={'type-label'}>
+                        {activeComponent.get('type')}
                       </div>
                     </div>
                     {this.renderAllFields(activeComponent)}

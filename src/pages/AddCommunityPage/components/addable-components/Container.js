@@ -109,17 +109,16 @@ class ContainerComponent extends React.Component {
       return null;
     }
     const {id, index, childComponents, type, name, ...otherStyleProps} = container.toJSON();
-    console.log('container', id, index, childComponents, type, name,
-        otherStyleProps);
+    // console.log('container', id, index, childComponents, type, name, otherStyleProps);
     const {borderHighlight} = this.state;
 
     return (
         <ContainerWrapper
-            {...otherProps}
+            {...otherStyleProps}
             borderHighlight={borderHighlight}
             isOver={isOver}
             isDragging={isDragging}
-            onClick={e => onSelect(container)}
+            onClick={e => onSelect(e, container)}
             ref={instance => {
               this.node.current = instance;
               return connectDropTarget(
@@ -135,6 +134,7 @@ class ContainerComponent extends React.Component {
 
             return (
                 <ContainerItemComponent
+                    {...otherProps}
                     containerItem={updatedComponent}
                     key={key}
                 />

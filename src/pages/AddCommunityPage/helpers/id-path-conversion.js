@@ -12,6 +12,6 @@ export const idToPath = id => {
 };
 
 export const pathToId = path => {
-  if (!path) return "bg";
+  if (!path || path.length === 0) return "bg";
   return `bg_${path.filter(x => x !== "childComponents").join("_")}`;
 };
