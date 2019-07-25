@@ -32,7 +32,6 @@ initialState.page.childComponents[0].childComponents[1].addChild(
 initialState.page.childComponents[0].childComponents[2].addChild(
     new GenericClass({id: 'bg_page_0_2_0', backgroundColor: 'yellow'}),
 );
-console.log("before", initialState)
 
 initialState = fromJS(JSON.parse(JSON.stringify(initialState)));
 

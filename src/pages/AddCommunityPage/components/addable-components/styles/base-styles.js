@@ -6,6 +6,7 @@ import {
 } from '../../../constants/style-constants';
 import {returnScaled} from '../../../helpers';
 import {
+  columnWidthDescriptor,
   heightDescriptor,
   marginBottomDescriptor,
   marginTopDescriptor,
@@ -122,7 +123,7 @@ export const hoverSelectStyle = (active) => {
 };
 
 export const widthStyle = (width) => {
-  return `width: ${returnScaled(widthDescriptor, width)};`;
+  return `width: ${width}${columnWidthDescriptor.units};`;
 };
 
 export const heightStyle = (height) => {

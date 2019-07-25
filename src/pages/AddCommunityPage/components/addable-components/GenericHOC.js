@@ -18,6 +18,7 @@ import {withActiveComponent} from '../../BuilderLayout/HOC/withActiveComponent';
 import {connectMoveHandler} from '../../BuilderLayout/HOC/withMoveHandler';
 import {connectSelectHandler} from '../../BuilderLayout/HOC/withSelectHandler';
 import Immutable from 'immutable';
+import {columnWidthDescriptor} from '../Fields';
 
 export class GenericClass extends StyledClass {
   constructor(options = {}) {
@@ -32,7 +33,7 @@ export class GenericClass extends StyledClass {
           type: componentTypes.GENERIC,
           childComponents: [],
           height: 10,
-          width: 10,
+          width: columnWidthDescriptor.bounds[1],
           paddingVertical: 1,
           paddingHorizontal: 1,
           marginBottom: 1,

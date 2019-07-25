@@ -15,6 +15,7 @@ import {ContainerItemWrapper} from './styles';
 import {compose} from 'redux';
 import {connectMoveHandler, connectSelectHandler} from '../../BuilderLayout/HOC';
 import Immutable from 'immutable';
+import {columnWidthDescriptor} from '../Fields';
 
 /*
  * Container column where elements can be dropped into.
@@ -32,7 +33,7 @@ export class ContainerItemClass extends StyledClass {
           type: componentTypes.CONTAINER_ITEM,
           childComponents: [],
           direction: Directions.Rows,
-          width: 10,
+          width: columnWidthDescriptor.bounds[1],
           height: 10,
           paddingVertical: 1,
           paddingHorizontal: 1,

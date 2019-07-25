@@ -6,12 +6,15 @@ export function handleUpdateElement(
     builderState, activeComponent, attrName, attrValue) {
 
   return new Promise((resolve, reject) => {
-    let builderState = builderState;
+    let newBuilderState = builderState,
+        newActiveComponent = activeComponent;
     const componentId = activeComponent.get('id');
 
     const path = idToPath(componentId);
 
-    builderState = builderState.setIn(path.concat(attrName), attrValue);
-    resolve(builderState);
+    newBuilderState = newBuilderState.setIn(path.concat(attrName), attrValue);
+    newActiveComponent = newActiveComponent.set(attrName, attrValue);
+    resolve(
+        {newBuilderState, newActiveComponent});
   });
 }

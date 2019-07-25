@@ -132,18 +132,19 @@ export function select(selectedComponent) {
 
 export function update(attrName, attrValue) {
   return (dispatch, getState) => {
+
     dispatch(request());
 
     const store = getState().builderState;
-    const {builderState, activeComponent} = store; // only activeComponent can be updatedz
+    const {builderState, activeComponent} = store; // only activeComponent can be updated
 
     if (!builderState || !activeComponent) return Promise.reject(
         'Builder state and/or active component is missing in store.');
 
     return handleUpdateElement(
         builderState, activeComponent, attrName, attrValue,
-    ).then(builderState => {
-      dispatch(success(builderState));
+    ).then(({newBuilderState, newActiveComponent}) => {
+      dispatch(success(newBuilderState, newActiveComponent));
       console.log('Update element attributes');
     }, error => {
       dispatch(failure());
@@ -155,9 +156,10 @@ export function update(attrName, attrValue) {
     return {type: builderStateConstants.UPDATE_ACTIVE_ELEMENT_REQUEST};
   }
 
-  function success(activeComponent) {
+  function success(builderState, activeComponent) {
     return {
       type: builderStateConstants.UPDATE_ACTIVE_ELEMENT_SUCCESS,
+      builderState,
       activeComponent,
     };
   }

@@ -15,7 +15,11 @@ import {
   calcWhichBorder,
   renderOverlay,
 } from '../../draggable-droppable/withBorderHighlights';
-import {widthDescriptor, heightDescriptor} from '../index';
+import {
+  widthDescriptor,
+  heightDescriptor,
+  columnWidthDescriptor,
+} from '../index';
 import {ContainerWrapper} from './styles';
 import {connectMoveHandler, connectSelectHandler} from '../../BuilderLayout/HOC';
 import Immutable from 'immutable';
@@ -33,7 +37,7 @@ export class ContainerClass extends StyledClass {
           childComponents: [],
           direction: Directions.Columns,
           alignment: Alignments.SpaceBetween,
-          width: widthDescriptor.bounds[1],
+          width: columnWidthDescriptor.bounds[1],
           height: heightDescriptor.bounds[1],
           paddingVertical: 1,
           paddingHorizontal: 1,

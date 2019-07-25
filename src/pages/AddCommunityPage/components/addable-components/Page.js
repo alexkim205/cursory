@@ -6,7 +6,11 @@ import {componentTypes} from '../../constants/component-types';
 import {GenericComponent} from './Generic';
 import {Positions} from '../../constants/style-constants';
 import {StyledClass} from '../class/StyledClass';
-import {widthDescriptor, heightDescriptor} from '../index';
+import {
+  widthDescriptor,
+  heightDescriptor,
+  columnWidthDescriptor,
+} from '../index';
 
 import {
   connectAsTarget,
@@ -28,7 +32,7 @@ export class PageClass extends StyledClass {
           type: componentTypes.PAGE,
           position: Positions.Center,
           childComponents: [],
-          width: widthDescriptor.bounds[1],
+          width: columnWidthDescriptor.bounds[1],
           // height: heightDescriptor.bounds[1],
           paddingHorizontal: 1,
         },

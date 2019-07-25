@@ -3,76 +3,92 @@ import {initialState} from '../_services';
 
 function builderState(state = {builderState: initialState}, action) {
   const stateWithBuilderState = {builderState: state.builderState};
+  const stateWithActiveComponent = {activeComponent: state.activeComponent};
 
   switch (action.type) {
     case builderStateConstants.ADD_ELEMENT_REQUEST:
       return {
-        ...stateWithBuilderState,
+        builderState: state.builderState,
+        activeComponent: state.activeComponent,
         adding: true,
-      };
-    case builderStateConstants.MOVE_ELEMENT_REQUEST:
-      return {
-        ...stateWithBuilderState,
-        moving: true,
-      };
-    case builderStateConstants.SELECT_ACTIVE_ELEMENT_REQUEST:
-      return {
-        ...stateWithBuilderState,
-        selecting: true,
-      };
-    case builderStateConstants.UPDATE_ACTIVE_ELEMENT_REQUEST:
-      return {
-        ...stateWithBuilderState,
-        updating: true,
       };
     case builderStateConstants.ADD_ELEMENT_SUCCESS:
       return {
-        ...stateWithBuilderState,
-        added: true,
-        // activeComponent: state.activeComponent,
         builderState: action.builderState,
+        added: true,
+      };
+    case builderStateConstants.ADD_ELEMENT_FAILURE:
+      return {
+        builderState: state.builderState,
+        activeComponent: state.activeComponent,
+        added: false,
+      };
+
+    case builderStateConstants.MOVE_ELEMENT_REQUEST:
+      return {
+        builderState: state.builderState,
+        activeComponent: state.activeComponent,
+        moving: true,
+        selected: state.selected,
       };
     case builderStateConstants.MOVE_ELEMENT_SUCCESS:
       return {
-        ...stateWithBuilderState,
-        moved: true,
+        activeComponent: state.activeComponent,
         builderState: action.builderState,
+        moved: true,
+        selected: state.selected,
+      };
+    case builderStateConstants.MOVE_ELEMENT_FAILURE:
+      return {
+        builderState: state.builderState,
+        activeComponent: state.activeComponent,
+        moved: false,
+        selected: state.selected,
+      };
+
+    case builderStateConstants.SELECT_ACTIVE_ELEMENT_REQUEST:
+      return {
+        builderState: state.builderState,
+        selecting: true,
       };
     case builderStateConstants.SELECT_ACTIVE_ELEMENT_SUCCESS:
       return {
-        ...stateWithBuilderState,
         selected: action.selected,
         activeComponent: action.activeComponent,
         builderState: action.builderState,
       };
-    case builderStateConstants.UPDATE_ACTIVE_ELEMENT_SUCCESS:
-      return {
-        ...stateWithBuilderState,
-        updated: true,
-        activeComponent: action.activeComponent,
-      };
-    case builderStateConstants.ADD_ELEMENT_FAILURE:
-      return {
-        ...stateWithBuilderState,
-        added: false,
-      };
-    case builderStateConstants.MOVE_ELEMENT_FAILURE:
-      return {
-        ...stateWithBuilderState,
-        moved: false,
-      };
     case builderStateConstants.SELECT_ACTIVE_ELEMENT_FAILURE:
       return {
-        ...stateWithBuilderState,
+        builderState: state.builderState,
         selected: false,
+      };
+
+    case builderStateConstants.UPDATE_ACTIVE_ELEMENT_REQUEST:
+      return {
+        builderState: state.builderState,
+        activeComponent: state.activeComponent,
+        updating: true,
+        selected: true,
+      };
+    case builderStateConstants.UPDATE_ACTIVE_ELEMENT_SUCCESS:
+      return {
+        updated: true,
+        selected: true,
+        builderState: action.builderState,
+        activeComponent: action.activeComponent,
       };
     case builderStateConstants.UPDATE_ACTIVE_ELEMENT_FAILURE:
       return {
-        ...stateWithBuilderState,
+        builderState: state.builderState,
+        activeComponent: state.activeComponent,
         updated: false,
+        selected: true,
       };
     default:
-      return stateWithBuilderState;
+      return {
+        builderState: state.builderState,
+        activeComponent: state.activeComponent,
+      };
   }
 }
 

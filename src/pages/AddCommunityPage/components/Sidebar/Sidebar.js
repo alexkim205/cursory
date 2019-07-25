@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import {fromJS} from 'immutable';
 import _ from 'lodash';
 
-import {
-  FormFieldText,
-  FormFieldSlider,
-  FormFieldSelect,
-  FormFieldCollapsibleWidth,
-  FormFieldColor,
-} from '../../../../components/Forms';
+// import {
+//   FormFieldText,
+//   FormFieldSlider,
+//   FormFieldSelect,
+//   FormFieldCollapsibleWidth,
+//   FormFieldColor,
+// } from '../../../../components/Forms';
+import {WidthField} from './WidthField';
 import {SidebarWrapper} from './Sidebar.style';
 import {FieldTypes} from '../Fields';
 import {compose} from 'redux';
@@ -23,27 +24,26 @@ import {componentFields} from '../../constants/component-fields';
 class Sidebar extends React.Component {
   static propTypes = {
     activeComponent: PropTypes.object,
-    onUpdate: PropTypes.func,
     sidebarIsOpen: PropTypes.bool,
   };
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    // console.log('refresh, sidebar', nextProps.activeComponent,
-    // this.props.activeComponent);
-    if (
-        JSON.stringify(nextProps.activeComponent) !==
-        JSON.stringify(this.props.activeComponent)
-    ) {
-      const newFields = _.pickBy(
-          nextProps.activeComponent,
-          (value, key, object) => {
-            return this.state && key in this.state;
-          },
-      );
-      // console.log('new state', newFields);
-      this.setState(newFields);
-    }
-  }
+  // UNSAFE_componentWillReceiveProps(nextProps) {
+  //   // console.log('refresh, sidebar', nextProps.activeComponent,
+  //   // this.props.activeComponent);
+  //   if (
+  //       JSON.stringify(nextProps.activeComponent) !==
+  //       JSON.stringify(this.props.activeComponent)
+  //   ) {
+  //     const newFields = _.pickBy(
+  //         nextProps.activeComponent,
+  //         (value, key, object) => {
+  //           return this.state && key in this.state;
+  //         },
+  //     );
+  //     // console.log('new state', newFields);
+  //     this.setState(newFields);
+  //   }
+  // }
 
   shouldComponentUpdate(nextProps, nextState) {
     return (
@@ -53,25 +53,26 @@ class Sidebar extends React.Component {
     );
   }
 
-  onChange = event => {
-    const {onUpdate} = this.props;
-
-    // update sidebar's state
-    this.setState({[event.target.name]: event.target.value});
-
-    onUpdate(event.target.name, event.target.value);
-  };
+  //
+  // onChange = event => {
+  //   const {onUpdate} = this.props;
+  //
+  //   // update sidebar's state
+  //   this.setState({[event.target.name]: event.target.value});
+  //
+  //   onUpdate(event.target.name, event.target.value);
+  // };
 
   // if children components are changed in a collapsible field for containers
   // for now handle separately, but think of way to use above onChange hook for this too
-  onChildrenChange = (event, children) => {
-    const {onUpdate} = this.props;
-    this.setState({childComponents: children});
-    onUpdate('childComponents', children);
-  };
+  // onChildrenChange = (event, children) => {
+  //   const {onUpdate} = this.props;
+  //   this.setState({childComponents: children});
+  //   onUpdate('childComponents', children);
+  // };
 
-  renderAllFields = (component) => {
-    const fields = componentFields[component.get('type')];
+  renderAllFields = () => {
+    const fields = componentFields[this.props.activeComponent.get('type')];
 
     return (
         <React.Fragment>
@@ -89,16 +90,16 @@ class Sidebar extends React.Component {
                       </div>
                       {/* Can add Form Fields here */}
                       {subsection.descriptor &&
-                      this.renderFormField(component, subsection)}
+                      this.renderFormField(subsection)}
                       {subsection.subsubsections &&
-                      subsection.subsubsections.map((sssection, k) => (
+                      subsection.subsubsections.map((subssubsection, k) => (
                           <div className={'subsubsection'} key={k}>
                             <div className={'subsubsection-label'}>
-                              {sssection.name}
+                              {subssubsection.name}
                             </div>
                             {/* Can add Form Fields here too */}
-                            {sssection.descriptor &&
-                            this.renderFormField(component, sssection)}
+                            {subssubsection.descriptor &&
+                            this.renderFormField(subssubsection)}
                           </div>
                       ))}
                     </div>
@@ -109,73 +110,79 @@ class Sidebar extends React.Component {
     );
   };
 
-  renderFormField = (component, sectionInfo) => {
+  renderFormField = (sectionInfo) => {
+    const {activeComponent} = this.props;
     const {descriptor, name} = sectionInfo;
     // If descriptor key is not in component don't display it
-    if (!(descriptor.key in component)) return;
+    if (!activeComponent.has(descriptor.key)) return;
 
     // If descriptor key is not yet in state, use the components
     // value. If it is, we use the dynamic state's value. Key will
     // be added to state once input value is changed.
-    const stateOrComponentValue =
-        this.state && descriptor.key in this.state
-            ? this.state[descriptor.key]
-            : component[descriptor.key];
+    // const stateOrComponentValue =
+    //     this.state && descriptor.key in this.state
+    //         ? this.state[descriptor.key]
+    //         : activeComponent[descriptor.key];
 
     switch (descriptor.type) {
       case FieldTypes.COLLAPSIBLE:
+        console.log(FieldTypes.COLLAPSIBLE);
         return (
-            <FormFieldCollapsibleWidth
-                childComponents={stateOrComponentValue}
-                onChildrenChange={this.onChildrenChange}
-            />
+            <WidthField/>
         );
-      case FieldTypes.SLIDER:
-        return (
-            <FormFieldSlider
-                label={name}
-                name={descriptor.key}
-                value={stateOrComponentValue}
-                onChange={this.onChange}
-                min={descriptor.bounds[0]}
-                max={descriptor.bounds[1]}
-                step={descriptor.bounds[2]}
-                type="range"
-                // placeholder="Full Name"
-            />
-        );
-      case FieldTypes.SELECT:
-        return (
-            <FormFieldSelect
-                label={name}
-                name={descriptor.key}
-                value={stateOrComponentValue}
-                onChange={this.onChange}
-                options={descriptor.options}
-                enums={descriptor.enums}
-                // placeholder="Full Name"
-            />
-        );
-      case FieldTypes.COLOR:
-        return (
-            <FormFieldColor
-                label={name}
-                name={descriptor.key}
-                value={stateOrComponentValue}
-                onChange={this.onChange}
-            />
-        );
-      case FieldTypes.TEXT:
-        return (
-            <FormFieldText
-                label={name}
-                name={descriptor.key}
-                value={stateOrComponentValue}
-                onChange={this.onChange}
-                type="text"
-                // placeholder="Full Name"
-            />
-        );
+        // case FieldTypes.COLLAPSIBLE:
+        //   return (
+        //       <FormFieldCollapsibleWidth
+        //           childComponents={stateOrComponentValue}
+        //           onChildrenChange={this.onChildrenChange}
+        //       />
+        //   );
+        // case FieldTypes.SLIDER:
+        //   return (
+        //       <FormFieldSlider
+        //           label={name}
+        //           name={descriptor.key}
+        //           value={stateOrComponentValue}
+        //           onChange={this.onChange}
+        //           min={descriptor.bounds[0]}
+        //           max={descriptor.bounds[1]}
+        //           step={descriptor.bounds[2]}
+        //           type="range"
+        //           // placeholder="Full Name"
+        //       />
+        //   );
+        // case FieldTypes.SELECT:
+        //   return (
+        //       <FormFieldSelect
+        //           label={name}
+        //           name={descriptor.key}
+        //           value={stateOrComponentValue}
+        //           onChange={this.onChange}
+        //           options={descriptor.options}
+        //           enums={descriptor.enums}
+        //           // placeholder="Full Name"
+        //       />
+        //   );
+        // case FieldTypes.COLOR:
+        //   return (
+        //       <FormFieldColor
+        //           label={name}
+        //           name={descriptor.key}
+        //           value={stateOrComponentValue}
+        //           onChange={this.onChange}
+        //       />
+        //   );
+        // case FieldTypes.TEXT:
+        //   return (
+        //       <FormFieldText
+        //           label={name}
+        //           name={descriptor.key}
+        //           value={stateOrComponentValue}
+        //           onChange={this.onChange}
+        //           type="text"
+        //           // placeholder="Full Name"
+        //       />
+        //   );
       default:
         break;
     }
@@ -199,7 +206,7 @@ class Sidebar extends React.Component {
                         {activeComponent.get('type')}
                       </div>
                     </div>
-                    {this.renderAllFields(activeComponent)}
+                    {this.renderAllFields()}
                   </div>
                   <div className={'submit'}>
                     <button type="submit">
@@ -218,7 +225,6 @@ class Sidebar extends React.Component {
 const connectedComponent = compose(
     withSidebarIsOpen,
     withActiveComponent,
-    connectUpdateHandler,
 )(Sidebar);
 
 export {connectedComponent as Sidebar};
