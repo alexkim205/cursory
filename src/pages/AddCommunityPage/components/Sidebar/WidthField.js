@@ -6,8 +6,6 @@ import {
   connectUpdateHandler,
   withActiveComponent,
 } from '../../BuilderLayout/HOC';
-import {GenericComponent} from '../addable-components';
-import {PageWrapper} from '../addable-components/styles';
 
 const WidthFieldWrapper = styled.div`
   display: flex;
@@ -29,10 +27,6 @@ class WidthField extends React.Component {
     activeComponent: PropTypes.object,
     onUpdate: PropTypes.func,
   };
-
-  // shouldComponentUpdate(nextProps, nextState, nextContext) {
-  //   return !this.props.activeComponent.equals(nextProps.activeComponent);
-  // }
 
   onChangeMultipleRows = (e) => {
     const {onUpdate, activeComponent} = this.props;

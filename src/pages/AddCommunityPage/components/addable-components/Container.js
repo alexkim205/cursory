@@ -86,14 +86,14 @@ class ContainerComponent extends React.Component {
     });
   };
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return (
-        this.state.borderHighlight !== nextState.borderHighlight ||
-        this.props.isOver !== nextProps.isOver ||
-        !this.props.container.equals(nextProps.container) ||
-        this.props.isDragging !== nextProps.isDragging
-    );
-  }
+  // shouldComponentUpdate(nextProps, nextState, nextContext) {
+  //   return (
+  //       this.state.borderHighlight !== nextState.borderHighlight ||
+  //       this.props.isOver !== nextProps.isOver ||
+  //       !this.props.container.equals(nextProps.container) ||
+  //       this.props.isDragging !== nextProps.isDragging
+  //   );
+  // }
 
   render() {
     const {

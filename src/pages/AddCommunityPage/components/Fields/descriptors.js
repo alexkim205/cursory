@@ -83,8 +83,8 @@ export const backgroundColorDescriptor = new ColorDescription({
     }),
     widthDescriptor = new SliderDescription({
       key: 'width',
-      bounds: [0, 30, 1],
-      realBounds: [5, 100],
+      bounds: [25, 100, 5],
+      realBounds: [25, 100],
       units: '%',
     }),
     columnWidthDescriptor = new SliderDescription({
@@ -95,8 +95,9 @@ export const backgroundColorDescriptor = new ColorDescription({
     }),
     heightDescriptor = new SliderDescription({
       key: 'height',
-      bounds: [0, 30, 1],
-      realBounds: [30, 500],
+      bounds: [25, 100, 5],
+      realBounds: [25, 500],
+      units: 'px',
     }),
     paddingVerticalDescriptor = new SliderDescription({
       key: 'paddingVertical',

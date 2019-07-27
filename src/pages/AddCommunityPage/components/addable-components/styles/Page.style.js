@@ -36,7 +36,7 @@ export const PageWrapper = styled.div`
     ${props => widthStyle(props.width)}
     
     // Height
-    ${props => heightStyle(props.height)}
+    //${props => heightStyle(props.height)}
 
     // Padding
     ${props => paddingStyle(props.paddingVertical, props.paddingHorizontal)}

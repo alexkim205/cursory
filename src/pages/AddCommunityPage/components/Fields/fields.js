@@ -9,61 +9,61 @@ import {
   paddingVerticalDescriptor,
   widthDescriptor,
   columnsDescriptor,
-} from "./descriptors";
-import { fromJS } from "immutable";
+} from './descriptors';
+import {fromJS} from 'immutable';
 
 export {
   bgMutableFields,
   genericMutableFields,
   containerWidthMutableFields,
   pageMutableFields,
-  containerMutableFields
+  containerMutableFields,
 };
 
 const baseMutableFields = fromJS([
   {
-    name: "Style", // section
+    name: 'Style', // section
     subsections: [
       {
         // subsection
-        name: "Background Color",
+        name: 'Background Color',
         descriptor: backgroundColorDescriptor,
       },
     ],
   },
   {
-    name: "Dimensions",
+    name: 'Dimensions',
     subsections: [
       {
-        name: "Width",
+        name: 'Width',
         descriptor: widthDescriptor,
       },
       {
-        name: "Height",
+        name: 'Height',
         descriptor: heightDescriptor,
       },
       {
-        name: "Padding",
+        name: 'Padding',
         subsubsections: [
           {
-            name: "Vertical",
+            name: 'Vertical',
             descriptor: paddingVerticalDescriptor,
           },
           {
-            name: "Horizontal",
+            name: 'Horizontal',
             descriptor: paddingHorizontalDescriptor,
           },
         ],
       },
       {
-        name: "Margin",
+        name: 'Margin',
         subsubsections: [
           {
-            name: "Top",
+            name: 'Top',
             descriptor: marginTopDescriptor,
           },
           {
-            name: "Bottom",
+            name: 'Bottom',
             descriptor: marginBottomDescriptor,
           },
         ],
@@ -71,14 +71,14 @@ const baseMutableFields = fromJS([
     ],
   },
   {
-    name: "Contents",
+    name: 'Contents',
     subsections: [
       {
-        name: "Orientation",
+        name: 'Orientation',
         descriptor: orientationDescriptor,
       },
       {
-        name: "Alignment",
+        name: 'Alignment',
         descriptor: alignmentDescriptor,
       },
     ],
@@ -88,25 +88,24 @@ const baseMutableFields = fromJS([
 const bgMutableFields = baseMutableFields.slice(0, 1).toJS();
 const genericMutableFields = baseMutableFields.toJS();
 
-// remove width
-const containerWidthMutableFields = baseMutableFields
-  .updateIn([1, "subsections"], subsection => subsection.shift())
-  .toJS();
+// remove width and height
+const containerWidthMutableFields = baseMutableFields.updateIn(
+    [1, 'subsections'], subsection => subsection.splice(0, 2)).toJS();
 
 // remove height
-const pageMutableFields = baseMutableFields
-  .updateIn([1, "subsections"], subsection => subsection.splice(1, 1))
-  .toJS();
+const pageMutableFields = baseMutableFields.updateIn([1, 'subsections'],
+    subsection => subsection.splice(1, 1)).toJS();
 
 // add collapsible container items
+// remove height
 const containerMutableFields = baseMutableFields.update(fields =>
-  fields.unshift({
-    name: "Layout",
-    subsections: [
-      {
-        name: "Columns",
-        descriptor: columnsDescriptor,
-      }
-    ]
-  }),
-).toJS();
+    fields.unshift({
+      name: 'Layout',
+      subsections: [
+        {
+          name: 'Columns',
+          descriptor: columnsDescriptor,
+        },
+      ],
+    }),
+).updateIn([2, 'subsections'], subsection => subsection.splice(1, 1)).toJS();

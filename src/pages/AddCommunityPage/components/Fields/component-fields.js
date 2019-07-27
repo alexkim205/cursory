@@ -2,8 +2,8 @@ import {
   bgMutableFields,
   containerMutableFields, containerWidthMutableFields,
   genericMutableFields, pageMutableFields,
-} from '../components/Fields';
-import {componentTypes} from './component-types';
+} from './index';
+import {componentTypes} from '../../constants/component-types';
 
 export const componentFields = {
   [componentTypes.GENERIC]: genericMutableFields,

@@ -96,8 +96,10 @@ export const borderHighlightStyle = (position, isOver) => {
 
 export const transitionStyle = () =>
     `
-    transition-property: box-shadow, background-color, border;
-    transition-duration: .2s;
+    // transition-property: box-shadow, background-color, border;
+    // transition-property: auto;
+    // transition-duration: .2s;
+    transition: all 0.2s;
     `;
 
 export const draggingDisableStyle = (isDragging) => {
