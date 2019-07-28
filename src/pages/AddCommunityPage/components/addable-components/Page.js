@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {compose} from 'redux';
+import Immutable from 'immutable';
 
 import {componentTypes} from '../../constants/component-types';
 import {GenericComponent} from './Generic';
 import {Positions} from '../../constants/style-constants';
 import {StyledClass} from '../class/StyledClass';
 import {
-  widthDescriptor,
-  heightDescriptor,
   columnWidthDescriptor,
 } from '../index';
 
 import {
   connectAsTarget,
-  connectAsTargetAndSource,
 } from '../../draggable-droppable';
-import {BackgroundClass} from './Background';
 import {PageWrapper} from './styles';
-import {connectMoveHandler} from '../../BuilderLayout/HOC/withMoveHandler';
-import {connectSelectHandler} from '../../BuilderLayout/HOC/withSelectHandler';
-import Immutable from 'immutable';
+import {
+  withHoverStyle,
+  connectSelectHandler,
+  connectMoveHandler,
+} from '../../BuilderLayout/HOC';
 
 export class PageClass extends StyledClass {
   constructor(options = {}) {
@@ -56,6 +55,7 @@ class PageComponent extends React.Component {
     onSelect: PropTypes.func.isRequired,
     onMove: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
+    hover: PropTypes.bool.isRequired,
   };
 
   // allows component to update independently from its children.
@@ -66,16 +66,16 @@ class PageComponent extends React.Component {
   // }
 
   render() {
-    const {page, onSelect, connectDropTarget} = this.props;
+    const {page, onSelect, connectDropTarget, hover} = this.props;
     if (!page) {
       return null;
     }
-    const {id, childComponents, type, position, ...otherProps} = page.toJSON();
-    // console.log('page', id, childComponents, type, position, otherProps);
+    const {id, childComponents, type, position, ...otherStyleProps} = page.toJSON();
+    const styleProps = {...otherStyleProps, hover};
 
     return (
         <PageWrapper
-            {...otherProps}
+            {...styleProps}
             onClick={e => onSelect(e, page)}
             ref={instance => {
               this.node.current = instance;
@@ -102,6 +102,7 @@ const connectedComponent = compose(
     connectAsTarget,
     connectMoveHandler,
     connectSelectHandler,
+    withHoverStyle,
 )(PageComponent);
 
 export {connectedComponent as PageComponent};

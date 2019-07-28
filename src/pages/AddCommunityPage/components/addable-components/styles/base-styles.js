@@ -114,15 +114,13 @@ export const draggingDisableStyle = (isDragging) => {
   }
 };
 
-export const hoverSelectStyle = (active) => {
-  return `
-  &:hover {
-    cursor: pointer;
-    border: 2px ${active ? `solid #000080` : `dotted lightgray`};
-  }
+export const hoverStyle = (hover) => `
+  border: 2px ${hover ? `solid #000080` : `dotted blue`};
+`;
+
+export const activeStyle = (active) => `
   ${active ? `border: 2px solid #000080 !important;` : ``}
- `;
-};
+`;
 
 export const widthStyle = (width) => {
   return `width: ${width}${columnWidthDescriptor.units};`;
@@ -143,8 +141,7 @@ export const marginStyle = (marginTop, marginBottom) => {
       marginTop)} 0 ${returnScaled(marginBottomDescriptor, marginBottom)} 0;`;
 };
 
-
 // DEBUG Purposes only
 export const debugStyle = () => `
-  border: 2px solid black;
-`
+  // border: 2px solid black;
+`;

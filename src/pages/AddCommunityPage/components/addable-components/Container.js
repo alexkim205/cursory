@@ -1,11 +1,8 @@
 import React from 'react';
 import {compose} from 'redux';
+import Immutable from 'immutable';
 
-import {
-  ContainerItemInterface,
-  ContainerItemComponent,
-} from './ContainerItem';
-import {GenericComponentInterface} from './Generic';
+import {ContainerItemComponent} from './ContainerItem';
 import {componentTypes} from '../../constants/component-types';
 import {Alignments, Directions} from '../../constants/style-constants';
 import {StyledClass} from '../class/StyledClass';
@@ -13,16 +10,17 @@ import PropTypes from 'prop-types';
 import {connectAsTargetAndSource} from '../../draggable-droppable';
 import {
   calcWhichBorder,
-  renderOverlay,
 } from '../../draggable-droppable/withBorderHighlights';
 import {
-  widthDescriptor,
   heightDescriptor,
   columnWidthDescriptor,
 } from '../index';
 import {ContainerWrapper} from './styles';
-import {connectMoveHandler, connectSelectHandler} from '../../BuilderLayout/HOC';
-import Immutable from 'immutable';
+import {
+  withHoverStyle,
+  connectSelectHandler,
+  connectMoveHandler,
+} from '../../BuilderLayout/HOC';
 
 export class ContainerClass extends StyledClass {
   constructor(options = {}) {
@@ -72,6 +70,7 @@ class ContainerComponent extends React.Component {
     isOver: PropTypes.bool.isRequired,
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
+    hover: PropTypes.bool.isRequired,
   };
 
   changeBorder = clientOffset => {
@@ -107,18 +106,19 @@ class ContainerComponent extends React.Component {
       isOver,
       canDrop,
       clientOffset,
+        hover,
       ...otherProps
     } = this.props;
     if (!container) {
       return null;
     }
     const {id, index, childComponents, type, name, ...otherStyleProps} = container.toJSON();
-    // console.log('container', id, index, childComponents, type, name, otherStyleProps);
+    const styleProps = {...otherStyleProps, hover}
     const {borderHighlight} = this.state;
 
     return (
         <ContainerWrapper
-            {...otherStyleProps}
+            {...styleProps}
             borderHighlight={borderHighlight}
             isOver={isOver}
             isDragging={isDragging}
@@ -153,5 +153,6 @@ const connectedComponent = compose(
     connectMoveHandler,
     connectSelectHandler,
     connectAsTargetAndSource,
+    withHoverStyle
 )(ContainerComponent);
 export {connectedComponent as ContainerComponent};

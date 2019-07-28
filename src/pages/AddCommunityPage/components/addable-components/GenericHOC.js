@@ -1,24 +1,23 @@
 import React from 'react';
 import {compose} from 'redux';
+import PropTypes from 'prop-types';
+import Immutable from 'immutable';
 
 import {componentTypes} from '../../constants/component-types';
-import {ContainerClass, ContainerComponent} from './Container';
+import {ContainerComponent} from './Container';
 
 import {StyledClass} from '../class/StyledClass';
-import PropTypes from 'prop-types';
 import {
-  connectAsTarget,
   connectAsTargetAndSource,
 } from '../../draggable-droppable';
 import {calcWhichBorder} from '../../draggable-droppable/withBorderHighlights';
 
 import {GenericWrapper} from './styles';
-import {withBuilderState} from '../../BuilderLayout/HOC/withBuilderState';
-import {withActiveComponent} from '../../BuilderLayout/HOC/withActiveComponent';
-import {connectMoveHandler} from '../../BuilderLayout/HOC/withMoveHandler';
-import {connectSelectHandler} from '../../BuilderLayout/HOC/withSelectHandler';
-import Immutable from 'immutable';
-import {columnWidthDescriptor} from '../Fields';
+import {
+  withHoverStyle,
+  connectSelectHandler,
+  connectMoveHandler,
+} from '../../BuilderLayout/HOC';
 
 export class GenericClass extends StyledClass {
   constructor(options = {}) {
@@ -68,6 +67,7 @@ export const GenericHOC = Component => {
       isOver: PropTypes.bool.isRequired,
       canDrop: PropTypes.bool.isRequired,
       clientOffset: PropTypes.object,
+      hover: PropTypes.bool.isRequired,
     };
 
     // // allows component to update independently from its children.
@@ -110,20 +110,18 @@ export const GenericHOC = Component => {
         isOver,
         canDrop,
         clientOffset,
+        hover,
         ...otherProps
       } = this.props;
       if (!genericComponent) {
         return null;
       }
       const {id, index, childComponents, type, name, ...otherStyleProps} = genericComponent.toJSON();
-      // console.log('genericComponent', id, index, childComponents, type, name,
-      //     otherStyleProps);
+      const styleProps = {...otherStyleProps, hover};
 
       const {borderHighlight} = this.state;
 
       if (type === componentTypes.CONTAINER) {
-        // console.log(this.props.genericComponent)
-
         return (
             <ContainerComponent
                 container={this.props.genericComponent}
@@ -135,7 +133,7 @@ export const GenericHOC = Component => {
       // Use switch statement when I add more element types
       return (
           <GenericWrapper
-              {...otherStyleProps}
+              {...styleProps}
               borderHighlight={borderHighlight}
               isOver={isOver}
               isDragging={isDragging}
@@ -158,5 +156,6 @@ export const GenericHOC = Component => {
       connectMoveHandler,
       connectSelectHandler,
       connectAsTargetAndSource,
+      withHoverStyle,
   )(GenericHOCWrapper);
 };

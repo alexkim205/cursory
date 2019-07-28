@@ -8,7 +8,7 @@ import {
   widthStyle,
   transitionStyle,
   draggingDisableStyle,
-  hoverSelectStyle,
+hoverStyle, activeStyle,
   heightStyle,
   debugStyle,
 } from './base-styles';
@@ -25,7 +25,10 @@ export const GenericWrapper = styled.div`
   ${transitionStyle()}
  
   // Hover
-  ${props => hoverSelectStyle(props.active)}
+  ${props => hoverStyle(props.hover)}
+ 
+  // Active
+  ${props => activeStyle(props.active)}
 
   // Alignment
   ${props => alignmentStyle(props.alignment)}

@@ -1,20 +1,22 @@
 import React from 'react';
+import {compose} from 'redux';
 import PropTypes from 'prop-types';
+import Immutable from 'immutable';
 
 import {GenericComponent} from './Generic';
 import {componentTypes} from '../../constants/component-types';
 import {Directions} from '../../constants/style-constants';
 import {StyledClass} from '../class/StyledClass';
-import {ContainerClass} from './Container';
 import {connectAsTargetContainerItem} from '../../draggable-droppable';
 import {
   calcWhichBorder,
-  renderOverlay,
 } from '../../draggable-droppable/withBorderHighlights';
 import {ContainerItemWrapper} from './styles';
-import {compose} from 'redux';
-import {connectMoveHandler, connectSelectHandler} from '../../BuilderLayout/HOC';
-import Immutable from 'immutable';
+import {
+  withHoverStyle,
+  connectSelectHandler,
+  connectMoveHandler,
+} from '../../BuilderLayout/HOC';
 import {columnWidthDescriptor} from '../Fields';
 
 /*
@@ -69,6 +71,7 @@ class ContainerItemComponent extends React.Component {
     isOver: PropTypes.bool.isRequired,
     canDrop: PropTypes.bool.isRequired,
     clientOffset: PropTypes.object,
+    hover: PropTypes.bool.isRequired,
   };
 
   changeBorder = clientOffset => {
@@ -83,13 +86,13 @@ class ContainerItemComponent extends React.Component {
     });
   };
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    return (
-        this.state.borderHighlight !== nextState.borderHighlight ||
-        this.props.isOver !== nextProps.isOver ||
-        !this.props.containerItem.equals(nextProps.containerItem)
-    );
-  }
+  // shouldComponentUpdate(nextProps, nextState, nextContext) {
+  //   return (
+  //       this.state.borderHighlight !== nextState.borderHighlight ||
+  //       this.props.isOver !== nextProps.isOver ||
+  //       !this.props.containerItem.equals(nextProps.containerItem)
+  //   );
+  // }
 
   render() {
     const {
@@ -100,21 +103,21 @@ class ContainerItemComponent extends React.Component {
       isOver,
       canDrop,
       clientOffset,
+      hover,
       ...otherProps
     } = this.props;
     if (!containerItem) {
       return null;
     }
     const {id, index, childComponents, type, name, ...otherStyleProps} = containerItem.toJSON();
-    // console.log('container', id, index, childComponents, type, name,
-    //     otherStyleProps);
+    const styleProps = {...otherStyleProps, hover}
     const {borderHighlight} = this.state;
 
     // console.log(this.props)
 
     return (
         <ContainerItemWrapper
-            {...otherStyleProps}
+            {...styleProps}
             borderHighlight={borderHighlight}
             isOver={isOver}
             // isDragging={isDragging}
@@ -146,5 +149,6 @@ const connectedComponent = compose(
     connectMoveHandler,
     connectSelectHandler,
     connectAsTargetContainerItem,
+    withHoverStyle,
 )(ContainerItemComponent);
 export {connectedComponent as ContainerItemComponent};
