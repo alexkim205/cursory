@@ -10,6 +10,7 @@ import {
   transitionStyle,
   draggingDisableStyle,
   hoverSelectStyle,
+  debugStyle
 } from './base-styles';
 
 export const ContainerWrapper = styled.div`
@@ -50,4 +51,7 @@ export const ContainerWrapper = styled.div`
   
   // If Dragging disable
   ${props => draggingDisableStyle(props.isDragging)}
+  
+  // DEBUG
+  ${props => debugStyle()}
 `;

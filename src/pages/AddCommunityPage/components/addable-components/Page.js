@@ -58,6 +58,13 @@ class PageComponent extends React.Component {
     connectDropTarget: PropTypes.func.isRequired,
   };
 
+  // allows component to update independently from its children.
+  // shouldComponentUpdate(nextProps, nextState, nextContext) {
+  //   const componentToCompare1 = this.props.page.delete('childComponents');
+  //   const componentToCompare2 = nextProps.page.delete('childComponents');
+  //   return !componentToCompare1.equals(componentToCompare2);
+  // }
+
   render() {
     const {page, onSelect, connectDropTarget} = this.props;
     if (!page) {

@@ -142,3 +142,9 @@ export const marginStyle = (marginTop, marginBottom) => {
   return `margin: ${returnScaled(marginTopDescriptor,
       marginTop)} 0 ${returnScaled(marginBottomDescriptor, marginBottom)} 0;`;
 };
+
+
+// DEBUG Purposes only
+export const debugStyle = () => `
+  border: 2px solid black;
+`

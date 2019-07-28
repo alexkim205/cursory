@@ -10,6 +10,7 @@ import {
   draggingDisableStyle,
   hoverSelectStyle,
   heightStyle,
+  debugStyle,
 } from './base-styles';
 
 export const PageWrapper = styled.div`
@@ -43,4 +44,7 @@ export const PageWrapper = styled.div`
     
     // Margin
     ${props => marginStyle(props.marginTop, props.marginBottom)}
+    
+    // DEBUG
+    ${props => debugStyle()}
 `;

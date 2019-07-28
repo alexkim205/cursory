@@ -33,10 +33,11 @@ export class GenericClass extends StyledClass {
           type: componentTypes.GENERIC,
           childComponents: [],
           height: 10,
-          width: columnWidthDescriptor.bounds[1],
+          // width: columnWidthDescriptor.bounds[1],
           paddingVertical: 1,
           paddingHorizontal: 1,
-          marginBottom: 1,
+          marginTop: 0,
+          marginBottom: 0,
         },
         options,
     );
@@ -69,6 +70,13 @@ export const GenericHOC = Component => {
       clientOffset: PropTypes.object,
     };
 
+    // // allows component to update independently from its children.
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //   const componentToCompare1 = this.props.genericComponent.delete('childComponents');
+    //   const componentToCompare2 = nextProps.genericComponent.delete('childComponents');
+    //   return !componentToCompare1.equals(componentToCompare2);
+    // }
+
     changeBorder = clientOffset => {
       const {isOver, canDrop} = this.props;
       this.setState({
@@ -81,14 +89,14 @@ export const GenericHOC = Component => {
       });
     };
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-      return (
-          this.state.borderHighlight !== nextState.borderHighlight ||
-          this.props.isOver !== nextProps.isOver ||
-          !this.props.genericComponent.equals(nextProps.genericComponent) ||
-          this.props.isDragging !== nextProps.isDragging
-      );
-    }
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //   return (
+    //       this.state.borderHighlight !== nextState.borderHighlight ||
+    //       this.props.isOver !== nextProps.isOver ||
+    //       !this.props.genericComponent.equals(nextProps.genericComponent) ||
+    //       this.props.isDragging !== nextProps.isDragging
+    //   );
+    // }
 
     render() {
       const {
