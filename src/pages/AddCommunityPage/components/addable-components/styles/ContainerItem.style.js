@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   alignmentStyle,
   borderHighlightStyle,
@@ -9,7 +9,8 @@ import {
   heightStyle,
   transitionStyle,
   draggingDisableStyle,
-  hoverSelectStyle,
+hoverStyle, activeStyle,
+  debugStyle,
 } from './base-styles';
 
 export const ContainerItemWrapper = styled.div`
@@ -18,13 +19,16 @@ export const ContainerItemWrapper = styled.div`
     position: relative;
     background-color: ${props => props.backgroundColor};
     // min-height: 150px;
-    border: 2px solid transparent;
+    //border: 2px solid transparent;
 
     // Transitions
     ${transitionStyle()}
 
-    // Hover & Active
-    ${props => hoverSelectStyle(props.active)}
+  // Hover
+  ${props => hoverStyle(props.hover)}
+ 
+  // Active
+  ${props => activeStyle(props.active)}
 
     // Alignment
     ${props => alignmentStyle(props.alignment)}
@@ -49,4 +53,7 @@ export const ContainerItemWrapper = styled.div`
 
     // If Dragging disable
     // ${props => draggingDisableStyle(props.isDragging)}
+    
+    // DEBUG
+    ${props => debugStyle()}
 `;

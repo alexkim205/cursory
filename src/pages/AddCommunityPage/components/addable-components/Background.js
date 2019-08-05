@@ -1,15 +1,13 @@
 import React from 'react';
+import {compose} from 'redux';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Immutable from 'immutable';
 
 import {componentTypes} from '../../constants/component-types';
 import {PageClass, PageComponent, PageInterface} from './Page';
 import {Positions} from '../../constants/style-constants';
 import {BackgroundWrapper} from './styles';
-import {compose} from 'redux';
-import {connect} from 'react-redux';
-import {connectSelectHandler} from '../../BuilderLayout/HOC/withSelectHandler';
+import {withHoverStyle, connectSelectHandler} from '../../BuilderLayout/HOC';
 
 export class BackgroundClass {
   constructor(options = {}) {
@@ -33,20 +31,30 @@ class BackgroundComponent extends React.Component {
   static propTypes = {
     background: PropTypes.instanceOf(Immutable.Map),
     onSelect: PropTypes.func.isRequired,
+    hover: PropTypes.bool.isRequired,
   };
 
+  // // allows component to update independently from its children.
+  // shouldComponentUpdate(nextProps, nextState, nextContext) {
+  //   const componentToCompare1 = this.props.background.delete('page');
+  //   const componentToCompare2 = nextProps.background.delete('page');
+  //   return !componentToCompare1.equals(componentToCompare2);
+  // }
+
   render() {
-    const {background, onSelect} = this.props;
+    const {background, onSelect, hover, ...otherProps} = this.props;
 
     if (!background) {
       return null;
     }
 
-    const {id, page, type, ...backgroundProps} = background.toJSON();
+    const {id, page, type, ...otherStyleProps} = background.toJSON();
+    const styleProps = {...otherStyleProps, hover}
 
     return (
         <BackgroundWrapper
-            {...backgroundProps}
+            {...otherProps}
+            {...styleProps}
             {...this.state.style}
             onClick={e => onSelect(e, background)}
         >
@@ -60,6 +68,7 @@ class BackgroundComponent extends React.Component {
 
 const connectedComponent = compose(
     connectSelectHandler,
+    withHoverStyle,
 )(BackgroundComponent);
 
 export {connectedComponent as BackgroundComponent};

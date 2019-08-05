@@ -9,7 +9,8 @@ import {
   heightStyle,
   transitionStyle,
   draggingDisableStyle,
-  hoverSelectStyle,
+hoverStyle,activeStyle,
+  debugStyle
 } from './base-styles';
 
 export const ContainerWrapper = styled.div`
@@ -19,13 +20,15 @@ export const ContainerWrapper = styled.div`
   box-sizing: border-box;
   position: relative;
   height: 100%;
-  border: 2px solid transparent;
   
   // Transitions
   ${transitionStyle()}
   
-  // Hover & Active
-  ${props => hoverSelectStyle(props.active)}
+  // Hover
+  ${props => hoverStyle(props.hover)}
+ 
+  // Active
+  ${props => activeStyle(props.active)}
   
   // Alignment
   ${props => alignmentStyle(props.alignment)}
@@ -46,8 +49,11 @@ export const ContainerWrapper = styled.div`
   ${props => marginStyle(props.marginTop, props.marginBottom)}
   
   // Border Highlight
-  ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
+  // ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
   
   // If Dragging disable
   ${props => draggingDisableStyle(props.isDragging)}
+  
+  // DEBUG
+  // ${props => debugStyle()}
 `;

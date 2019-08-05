@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {hoverSelectStyle, positionStyle, transitionStyle} from './base-styles';
+import {hoverStyle, activeStyle, positionStyle, transitionStyle} from './base-styles';
 
 export const BackgroundWrapper = styled.div`
   background-color: ${props => props.backgroundColor};
@@ -9,13 +9,16 @@ export const BackgroundWrapper = styled.div`
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  border: 2px solid transparent;
+  //border: 2px solid transparent;
   
   // Transitions
   ${transitionStyle()}
   
-  // Hover & Active
-  ${props => hoverSelectStyle(props.active)}
+  // Hover
+  ${props => hoverStyle(props.hover)}
+ 
+  // Active
+  ${props => activeStyle(props.active)}
   
   // Position of Page
   ${props => positionStyle(props.position)}

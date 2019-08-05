@@ -2,28 +2,33 @@ import React from 'react';
 import {GenericHOC, GenericClass} from './GenericHOC';
 import {componentTypes} from '../../constants/component-types';
 import {ImageComponent} from './Image';
+import {ContainerComponent} from './Container';
 
 const GenericBaseComponent = props => <div></div>;
 
 const GenericComponent = props => {
   const type = props.genericComponent.get('type');
-  // console.log("generic component", props.genericComponent)
 
-  if (type === componentTypes.GENERIC || type === componentTypes.CONTAINER) {
-    const ConnectedComponent = GenericHOC(GenericBaseComponent);
-    // console.log("generic base component", props.genericComponent.toJSON())
+  if (type === componentTypes.GENERIC) {
+    const ConnectedGenericComponent = GenericHOC(GenericBaseComponent);
     return (
-        <ConnectedComponent {...props}/>
+        <ConnectedGenericComponent {...props}/>
+    );
+  } else if (type === componentTypes.CONTAINER) {
+    return (
+        <ContainerComponent
+            container={props.genericComponent}
+        />
     );
   } else if (type === componentTypes.IMAGE) {
-    // console.log("generic image component", props.genericComponent.toJSON())
+    const ConnectedImageComponent = GenericHOC(ImageComponent);
     return (
-        <ImageComponent {...props}/>
+        <ConnectedImageComponent {...props}/>
     );
   } else {
     return (
         <div></div>
-    )
+    );
   }
 };
 // const connectedComponent = GenericHOC(GenericComponent);

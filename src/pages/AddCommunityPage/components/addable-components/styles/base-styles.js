@@ -70,7 +70,7 @@ export const borderHighlightStyle = (position, isOver) => {
 
   const bw = 8;
   const base = `
-    border: 2px solid transparent;
+    // border: 2px solid transparent;
   `;
   if (!isOver) {
     return base;
@@ -114,15 +114,13 @@ export const draggingDisableStyle = (isDragging) => {
   }
 };
 
-export const hoverSelectStyle = (active) => {
-  return `
-  &:hover {
-    cursor: pointer;
-    border: 2px ${active ? `solid #000080` : `dotted lightgray`};
-  }
+export const hoverStyle = (hover) => `
+  border: 2px ${hover ? `solid #000080` : `dotted blue`};
+`;
+
+export const activeStyle = (active) => `
   ${active ? `border: 2px solid #000080 !important;` : ``}
- `;
-};
+`;
 
 export const widthStyle = (width) => {
   return `width: ${width}${columnWidthDescriptor.units};`;
@@ -142,3 +140,8 @@ export const marginStyle = (marginTop, marginBottom) => {
   return `margin: ${returnScaled(marginTopDescriptor,
       marginTop)} 0 ${returnScaled(marginBottomDescriptor, marginBottom)} 0;`;
 };
+
+// DEBUG Purposes only
+export const debugStyle = () => `
+  // border: 2px solid black;
+`;

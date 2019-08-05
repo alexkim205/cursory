@@ -5,3 +5,4 @@ export * from './withSelectHandler';
 export * from './withAddHandler';
 export * from './withUpdateHandler';
 export * from './withSidebarIsOpen';
+export * from './withHoverStyle';
