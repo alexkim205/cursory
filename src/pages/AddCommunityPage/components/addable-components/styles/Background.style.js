@@ -9,7 +9,7 @@ export const BackgroundWrapper = styled.div`
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  border: 2px solid transparent;
+  //border: 2px solid transparent;
   
   // Transitions
   ${transitionStyle()}

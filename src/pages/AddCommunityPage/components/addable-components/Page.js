@@ -66,7 +66,7 @@ class PageComponent extends React.Component {
   // }
 
   render() {
-    const {page, onSelect, connectDropTarget, hover} = this.props;
+    const {page, onSelect, connectDropTarget, hover, ...otherProps} = this.props;
     if (!page) {
       return null;
     }
@@ -75,6 +75,7 @@ class PageComponent extends React.Component {
 
     return (
         <PageWrapper
+            {...otherProps}
             {...styleProps}
             onClick={e => onSelect(e, page)}
             ref={instance => {

@@ -20,7 +20,7 @@ export const PageWrapper = styled.div`
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
-  border: 2px solid transparent;
+  //border: 2px solid transparent;
 
   // TODO: Implement style later
 

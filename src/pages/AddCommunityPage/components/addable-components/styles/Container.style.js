@@ -20,7 +20,6 @@ export const ContainerWrapper = styled.div`
   box-sizing: border-box;
   position: relative;
   height: 100%;
-  border: 2px solid transparent;
   
   // Transitions
   ${transitionStyle()}
@@ -50,11 +49,11 @@ export const ContainerWrapper = styled.div`
   ${props => marginStyle(props.marginTop, props.marginBottom)}
   
   // Border Highlight
-  ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
+  // ${props => borderHighlightStyle(props.borderHighlight, props.isOver)}
   
   // If Dragging disable
   ${props => draggingDisableStyle(props.isDragging)}
   
   // DEBUG
-  ${props => debugStyle()}
+  // ${props => debugStyle()}
 `;

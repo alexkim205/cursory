@@ -117,6 +117,7 @@ class ContainerItemComponent extends React.Component {
 
     return (
         <ContainerItemWrapper
+            {...otherProps}
             {...styleProps}
             borderHighlight={borderHighlight}
             isOver={isOver}

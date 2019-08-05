@@ -106,18 +106,20 @@ class ContainerComponent extends React.Component {
       isOver,
       canDrop,
       clientOffset,
-        hover,
+      hover,
       ...otherProps
     } = this.props;
     if (!container) {
       return null;
     }
     const {id, index, childComponents, type, name, ...otherStyleProps} = container.toJSON();
-    const styleProps = {...otherStyleProps, hover}
+    const styleProps = {...otherStyleProps, hover};
     const {borderHighlight} = this.state;
+    console.log(id, styleProps)
 
     return (
         <ContainerWrapper
+            {...otherProps}
             {...styleProps}
             borderHighlight={borderHighlight}
             isOver={isOver}
@@ -138,7 +140,6 @@ class ContainerComponent extends React.Component {
 
             return (
                 <ContainerItemComponent
-                    {...otherProps}
                     containerItem={updatedComponent}
                     key={key}
                 />

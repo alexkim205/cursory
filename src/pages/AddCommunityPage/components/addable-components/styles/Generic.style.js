@@ -19,7 +19,7 @@ export const GenericWrapper = styled.div`
   position: relative;
   background-color: ${props => props.backgroundColor};
   // min-height: 100px;  
-  border: 2px solid transparent;
+  //border: 2px solid transparent;
   
   // Transitions
   ${transitionStyle()}

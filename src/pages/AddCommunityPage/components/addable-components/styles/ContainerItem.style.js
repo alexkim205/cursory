@@ -19,7 +19,7 @@ export const ContainerItemWrapper = styled.div`
     position: relative;
     background-color: ${props => props.backgroundColor};
     // min-height: 150px;
-    border: 2px solid transparent;
+    //border: 2px solid transparent;
 
     // Transitions
     ${transitionStyle()}

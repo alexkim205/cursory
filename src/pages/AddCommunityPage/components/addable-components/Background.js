@@ -42,7 +42,7 @@ class BackgroundComponent extends React.Component {
   // }
 
   render() {
-    const {background, onSelect, hover} = this.props;
+    const {background, onSelect, hover, ...otherProps} = this.props;
 
     if (!background) {
       return null;
@@ -53,6 +53,7 @@ class BackgroundComponent extends React.Component {
 
     return (
         <BackgroundWrapper
+            {...otherProps}
             {...styleProps}
             {...this.state.style}
             onClick={e => onSelect(e, background)}

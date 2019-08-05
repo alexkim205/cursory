@@ -70,7 +70,7 @@ export const borderHighlightStyle = (position, isOver) => {
 
   const bw = 8;
   const base = `
-    border: 2px solid transparent;
+    // border: 2px solid transparent;
   `;
   if (!isOver) {
     return base;

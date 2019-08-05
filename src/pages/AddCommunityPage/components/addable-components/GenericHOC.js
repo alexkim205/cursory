@@ -121,21 +121,22 @@ export const GenericHOC = Component => {
 
       const {borderHighlight} = this.state;
 
-      if (type === componentTypes.CONTAINER) {
-        return (
-            <ContainerComponent
-                container={this.props.genericComponent}
-            />
-        );
-      }
+      // if (type === componentTypes.CONTAINER) {
+      //   return (
+      //       <ContainerComponent
+      //           container={this.props.genericComponent}
+      //       />
+      //   );
+      // }
 
       // Else, assume generic component with one element
       // Use switch statement when I add more element types
       return (
           <GenericWrapper
+              {...otherProps}
               {...styleProps}
               borderHighlight={borderHighlight}
-              isOver={isOver}
+              // isOver={isOver}
               isDragging={isDragging}
               onClick={e => onSelect(e, genericComponent)}
               ref={instance => {
