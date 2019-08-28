@@ -3,6 +3,7 @@
 .npmrc
 *~
 **.idea/**
+.idea/*
 
 # dependencies
 /node_modules
