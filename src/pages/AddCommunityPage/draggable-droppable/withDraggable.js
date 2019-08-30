@@ -1,29 +1,55 @@
-import React from "react";
-import { findDOMNode } from "react-dom";
-import { DragSource, DropTarget } from "react-dnd";
-import { componentTypes } from "../constants/component-types";
-import { BorderHighlight } from "../constants/style-constants";
+import React from 'react';
+import {findDOMNode} from 'react-dom';
+import {DragSource, DropTarget} from 'react-dnd';
+import {componentTypes} from '../constants/component-types';
+import {BorderHighlight} from '../constants/style-constants';
 
-export const connectAsTargetAndSource = Component =>
-  DragSource(
-    componentTypes.GENERIC,
-    {
-      beginDrag(props) {
-        // console.log("begin drag", props[Object.keys(props)[0]].id);
-        return {
-          id: props[Object.keys(props)[0]].id,
-        };
-      },
-      // isDragging(props, monitor) {
-      //   const {id: draggedId} = monitor.getItem();
-      //   const {id: overId} = props[Object.keys(props)[0]];
-      //
-      //   return overId === draggedId;
-      // },
-    },
-    (connect, monitor) => ({
-      connectDragSource: connect.dragSource(),
-      connectDragPreview: connect.dragPreview(),
-      isDragging: monitor.isDragging(),
-    }),
-  )(Component);
+// export const withDraggable = Component =>
+//   DragSource(
+//     componentTypes.GENERIC,
+//     {
+//       beginDrag(props) {
+//         // console.log("begin drag", props[Object.keys(props)[0]].id);
+//         return {
+//           id: props[Object.keys(props)[0]].id,
+//         };
+//       },
+//       // isDragging(props, monitor) {
+//       //   const {id: draggedId} = monitor.getItem();
+//       //   const {id: overId} = props[Object.keys(props)[0]];
+//       //
+//       //   return overId === draggedId;
+//       // },
+//     },
+//     (connect, monitor) => ({
+//       connectDragSource: connect.dragSource(),
+//       connectDragPreview: connect.dragPreview(),
+//       isDragging: monitor.isDragging(),
+//     }),
+//   )(Component);
+
+export const withDraggable = Component => {
+
+  class WithDraggable extends React.Component {
+
+    handleDragStart = (e) => {
+      const {container, genericComponent} = this.props;
+
+      const componentDragged = container || genericComponent;
+      const id = componentDragged.get('id');
+      e.dataTransfer.setData('text/plain', id);
+    };
+
+    render() {
+      return (
+          <Component
+              {...this.props}
+              draggable
+              onDragStart={(e) => this.handleDragStart(e)}
+          />
+      );
+    }
+  }
+
+  return WithDraggable;
+};

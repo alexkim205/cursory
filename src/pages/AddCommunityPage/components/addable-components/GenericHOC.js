@@ -8,7 +8,7 @@ import {ContainerComponent} from './Container';
 
 import {StyledClass} from '../class/StyledClass';
 import {
-  connectAsTargetAndSource,
+  connectAsTargetAndSource, withDraggable, withDroppable,
 } from '../../draggable-droppable';
 import {calcWhichBorder} from '../../draggable-droppable/withBorderHighlights';
 
@@ -59,14 +59,6 @@ export const GenericHOC = Component => {
     static propTypes = {
       genericComponent: PropTypes.instanceOf(Immutable.Map),
       onSelect: PropTypes.func.isRequired,
-      onMove: PropTypes.func.isRequired,
-      connectDropTarget: PropTypes.func.isRequired,
-      connectDragSource: PropTypes.func.isRequired,
-      connectDragPreview: PropTypes.func.isRequired,
-      isDragging: PropTypes.bool.isRequired,
-      isOver: PropTypes.bool.isRequired,
-      canDrop: PropTypes.bool.isRequired,
-      clientOffset: PropTypes.object,
       hover: PropTypes.bool.isRequired,
     };
 
@@ -77,17 +69,17 @@ export const GenericHOC = Component => {
     //   return !componentToCompare1.equals(componentToCompare2);
     // }
 
-    changeBorder = clientOffset => {
-      const {isOver, canDrop} = this.props;
-      this.setState({
-        borderHighlight: calcWhichBorder(
-            clientOffset,
-            this.node,
-            isOver,
-            canDrop,
-        ),
-      });
-    };
+    // changeBorder = clientOffset => {
+    //   const {isOver, canDrop} = this.props;
+    //   this.setState({
+    //     borderHighlight: calcWhichBorder(
+    //         clientOffset,
+    //         this.node,
+    //         isOver,
+    //         canDrop,
+    //     ),
+    //   });
+    // };
 
     // shouldComponentUpdate(nextProps, nextState, nextContext) {
     //   return (
@@ -102,14 +94,6 @@ export const GenericHOC = Component => {
       const {
         genericComponent,
         onSelect,
-        onMove,
-        connectDropTarget,
-        connectDragSource,
-        connectDragPreview,
-        isDragging,
-        isOver,
-        canDrop,
-        clientOffset,
         hover,
         ...otherProps
       } = this.props;
@@ -137,13 +121,10 @@ export const GenericHOC = Component => {
               {...styleProps}
               borderHighlight={borderHighlight}
               // isOver={isOver}
-              isDragging={isDragging}
+              // isDragging={isDragging}
               onClick={e => onSelect(e, genericComponent)}
               ref={instance => {
                 this.node.current = instance;
-                return connectDropTarget(
-                    connectDragPreview(connectDragSource(instance)),
-                );
               }}
           >
             {/* {id} */}
@@ -154,9 +135,11 @@ export const GenericHOC = Component => {
   }
 
   return compose(
-      connectMoveHandler,
+      // connectMoveHandler,
       connectSelectHandler,
-      connectAsTargetAndSource,
+      withDroppable,
+      withDraggable,
+      // connectAsTargetAndSource,
       withHoverStyle,
   )(GenericHOCWrapper);
 };

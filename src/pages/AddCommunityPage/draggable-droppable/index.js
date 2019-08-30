@@ -1,2 +1,2 @@
-export * from "./withDraggableAndDroppable";
+export * from "./withDraggable";
 export * from "./withDroppable";

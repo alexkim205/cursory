@@ -6,10 +6,10 @@ import {fromJS} from 'immutable';
 import {ContainerItemClass, ContainerClass} from '../../components/addable-components';
 
 export function handleMoveElement(
-    builderState, oldComponent, newComponent, targetSide) {
+    builderState_temp, oldComponent, newComponent, targetSide) {
 
   return new Promise((resolve, reject) => {
-    let builderState = builderState;
+    let builderState = builderState_temp;
 
     const oldId = oldComponent.get('id'),
         oldType = oldComponent.get('type'),

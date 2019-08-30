@@ -21,6 +21,7 @@ import {
   connectSelectHandler,
   connectMoveHandler,
 } from '../../BuilderLayout/HOC';
+import {withDraggable, withDroppable} from '../../draggable-droppable';
 
 export class ContainerClass extends StyledClass {
   constructor(options = {}) {
@@ -62,50 +63,13 @@ class ContainerComponent extends React.Component {
   static propTypes = {
     container: PropTypes.instanceOf(Immutable.Map),
     onSelect: PropTypes.func.isRequired,
-    onMove: PropTypes.func.isRequired,
-    connectDropTarget: PropTypes.func.isRequired,
-    connectDragSource: PropTypes.func.isRequired,
-    connectDragPreview: PropTypes.func.isRequired,
-    isDragging: PropTypes.bool.isRequired,
-    isOver: PropTypes.bool.isRequired,
-    canDrop: PropTypes.bool.isRequired,
-    clientOffset: PropTypes.object,
     hover: PropTypes.bool.isRequired,
   };
-
-  changeBorder = clientOffset => {
-    const {isOver, canDrop} = this.props;
-    this.setState({
-      borderHighlight: calcWhichBorder(
-          clientOffset,
-          this.node,
-          isOver,
-          canDrop,
-      ),
-    });
-  };
-
-  // shouldComponentUpdate(nextProps, nextState, nextContext) {
-  //   return (
-  //       this.state.borderHighlight !== nextState.borderHighlight ||
-  //       this.props.isOver !== nextProps.isOver ||
-  //       !this.props.container.equals(nextProps.container) ||
-  //       this.props.isDragging !== nextProps.isDragging
-  //   );
-  // }
 
   render() {
     const {
       container,
       onSelect,
-      onMove,
-      connectDropTarget,
-      connectDragSource,
-      connectDragPreview,
-      isDragging,
-      isOver,
-      canDrop,
-      clientOffset,
       hover,
       ...otherProps
     } = this.props;
@@ -115,22 +79,16 @@ class ContainerComponent extends React.Component {
     const {id, index, childComponents, type, name, ...otherStyleProps} = container.toJSON();
     const styleProps = {...otherStyleProps, hover};
     const {borderHighlight} = this.state;
-    console.log(id, styleProps)
 
     return (
         <ContainerWrapper
             {...otherProps}
             {...styleProps}
             borderHighlight={borderHighlight}
-            isOver={isOver}
-            isDragging={isDragging}
+            // isOver={isOver}
+            // isDragging={isDragging}
             onClick={e => onSelect(e, container)}
-            ref={instance => {
-              this.node.current = instance;
-              return connectDropTarget(
-                  connectDragPreview(connectDragSource(instance)),
-              );
-            }}
+            ref={instance => {this.node.current = instance}}
         >
           {/* {id} */}
           {childComponents &&
@@ -151,9 +109,11 @@ class ContainerComponent extends React.Component {
 }
 
 const connectedComponent = compose(
-    connectMoveHandler,
+    withDraggable,
+    // connectMoveHandler,
     connectSelectHandler,
-    connectAsTargetAndSource,
+    withDroppable,
+    withDraggable,
     withHoverStyle
 )(ContainerComponent);
 export {connectedComponent as ContainerComponent};

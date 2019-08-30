@@ -1,10 +1,14 @@
-import React from "react";
-import { DragSource, DropTarget } from "react-dnd";
-import { findDOMNode } from "react-dom";
-import { BorderHighlight } from "../constants/style-constants";
+import React from 'react';
+import {DragSource, DropTarget} from 'react-dnd';
+import {findDOMNode} from 'react-dom';
+import {BorderHighlight} from '../constants/style-constants';
 import {componentTypes} from '../constants/component-types';
+import {connectMoveHandler, withBuilderState} from '../BuilderLayout/HOC';
+import {compose} from 'redux';
+import {idToPath} from '../helpers';
 
-export const targetSpec = {
+/**
+ export const targetSpec = {
   canDrop(props, monitor) {
     if (props.isDragging) {
       return false;
@@ -109,10 +113,10 @@ export const targetSpec = {
   },
 };
 
-export const connectAsTarget = Component =>
-  DropTarget(
-    componentTypes.PAGE,
-    {
+ export const connectAsTarget = Component =>
+ DropTarget(
+ componentTypes.PAGE,
+ {
       drop() {},
 
       hover(props, monitor) {
@@ -120,15 +124,45 @@ export const connectAsTarget = Component =>
         console.log("dragging: ", draggedId);
       },
     },
-    (connect, monitor) => ({
+ (connect, monitor) => ({
       connectDropTarget: connect.dropTarget(),
     }),
-  )(Component);
+ )(Component);
+ */
 
-export const connectAsTargetContainerItem = Component =>
-  DropTarget(componentTypes.GENERIC, targetSpec, (connect, monitor) => ({
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver(),
-    canDrop: monitor.canDrop(),
-    clientOffset: monitor.getClientOffset(),
-  }))(Component);
+export const withDroppable = Component => {
+
+  class WithDroppable extends React.Component {
+
+    handleDrop = (e) => {
+      const {
+        builderState,
+        container, containerItem, page, genericComponent,
+        onMove,
+      } = this.props;
+
+      const idDragged = e.dataTransfer.getData('text');
+      const componentDroppedOn =
+          container || genericComponent || containerItem || page;
+      const componentDragged = builderState.getIn(idToPath(idDragged));
+
+      // move elements in builderState
+      onMove(componentDragged, componentDroppedOn, BorderHighlight.Bottom)
+    };
+
+    render() {
+      return (
+          <Component
+              {...this.props}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => this.handleDrop(e)}
+          />
+      );
+    }
+  }
+
+  return compose(
+      withBuilderState,
+      connectMoveHandler
+  )(WithDroppable);
+};

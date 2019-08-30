@@ -21,6 +21,7 @@
     "no-console": "off",
     "code": 80,
     "no-unused-vars": 0,
-    "no-unescaped-entities": 0
+    "no-unescaped-entities": 0,
+    "react/prop-types": 0
   }
 }

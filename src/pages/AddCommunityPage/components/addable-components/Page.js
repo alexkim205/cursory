@@ -12,7 +12,7 @@ import {
 } from '../index';
 
 import {
-  connectAsTarget,
+  withDroppable,
 } from '../../draggable-droppable';
 import {PageWrapper} from './styles';
 import {
@@ -53,17 +53,8 @@ class PageComponent extends React.Component {
   static propTypes = {
     page: PropTypes.instanceOf(Immutable.Map),
     onSelect: PropTypes.func.isRequired,
-    onMove: PropTypes.func.isRequired,
-    connectDropTarget: PropTypes.func.isRequired,
     hover: PropTypes.bool.isRequired,
   };
-
-  // allows component to update independently from its children.
-  // shouldComponentUpdate(nextProps, nextState, nextContext) {
-  //   const componentToCompare1 = this.props.page.delete('childComponents');
-  //   const componentToCompare2 = nextProps.page.delete('childComponents');
-  //   return !componentToCompare1.equals(componentToCompare2);
-  // }
 
   render() {
     const {page, onSelect, connectDropTarget, hover, ...otherProps} = this.props;
@@ -78,10 +69,7 @@ class PageComponent extends React.Component {
             {...otherProps}
             {...styleProps}
             onClick={e => onSelect(e, page)}
-            ref={instance => {
-              this.node.current = instance;
-              return connectDropTarget(instance);
-            }}
+            ref={instance => {this.node.current = instance;}}
         >
           {childComponents &&
           childComponents.entrySeq().map(([key, value]) => {
@@ -100,8 +88,8 @@ class PageComponent extends React.Component {
 }
 
 const connectedComponent = compose(
-    connectAsTarget,
-    connectMoveHandler,
+    withDroppable,
+    // connectMoveHandler,
     connectSelectHandler,
     withHoverStyle,
 )(PageComponent);

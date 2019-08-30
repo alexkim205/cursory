@@ -66,7 +66,7 @@ export function move(oldComponent, newComponent, targetSide) {
 
     if (!builderState || !oldComponent || !newComponent) return Promise.reject(
         'Builder state, old component, and/or new component are missing in store.');
-
+console.log('MOVING', builderState, oldComponent, newComponent)
     return handleMoveElement(
         builderState, oldComponent, newComponent, targetSide,
     ).then(builderState => {
