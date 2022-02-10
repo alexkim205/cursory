@@ -22,7 +22,7 @@
         "is-hotkey": "^0.1.4",
         "jdenticon": "^2.1.1",
         "lodash": "^4.17.11",
-        "node-sass": "^4.12.0",
+        "node-sass": "^7.0.0",
         "prop-types": "^15.7.2",
         "react": "^16.8.6",
         "react-color": "^2.17.3",
